@@ -6,6 +6,7 @@ import { userMutations, userQueries, userTypes } from './users';
 import { organizationTypes, organizationQueries, organizationMutations } from './organization';
 import { stockMutations, stockQueries, stockTypes } from './stock';
 import { requisitionTypes, requisitionQueries, requisitionMutations } from './requisition';
+import { paymentMutations, paymentQueries, paymentTypes } from './payment';
 import { otpTypes, otpMutations } from './otp';
 import { miscTypes, miscQueries } from './misc';
 import { ratingMutations } from './rating';
@@ -25,7 +26,8 @@ const resolvers = {
         ...requisitionQueries,
         ...stockQueries,
         ...walletQueries,
-        ...chatQueries
+        ...chatQueries,
+        ...paymentQueries
     },
     Mutation: {
         ...authMutations,
@@ -39,7 +41,8 @@ const resolvers = {
         ...requisitionMutations,
         ...stockMutations,
         ...walletMutations,
-        ...chatMutations
+        ...chatMutations,
+        ...paymentMutations
     },
     Subscription: {
         ...chatSubscriptions
@@ -55,6 +58,7 @@ const resolvers = {
     ...requisitionTypes,
     ...stockTypes,
     ...walletTypes
+    ...paymentTypes,
 };
 
 export default resolvers;
