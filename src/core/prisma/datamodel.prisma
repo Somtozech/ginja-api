@@ -437,4 +437,22 @@ type Game {
     crown: Crown!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
-}
+
+    type AdminRole {
+        id: ID! @id @unique
+        name: String!
+        createdAt: DateTime! @createdAt
+        updatedAt: DateTime @updatedAt
+    }
+
+    type AdminUser {
+        id: ID! @id @unique
+        firstName: String!
+        lastName: String!
+        phoneNumber: String!
+        email: String! @unique
+        password: String!
+        role: Role!
+        createdAt: DateTime! @createdAt
+        updatedAt: DateTime @updatedAt
+    }
