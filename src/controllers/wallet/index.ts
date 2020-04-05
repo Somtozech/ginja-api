@@ -1,5 +1,4 @@
 import * as WalletService from '../../services/wallet';
-import { requisitions } from 'src/graphql/services/requisition';
 
 interface Result {
     success: boolean;

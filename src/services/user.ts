@@ -3,7 +3,7 @@
 const createUser = async (graph: any) => {
     const { args, context } = graph;
     const { prisma } = context;
-    const { dob, phoneNumber, email, lastName, firstName, type, pin } = args;
+    const { dob, phoneNumber, email, lastName, firstName, type, bankName, accountName, bankCode, accountNumber } = args;
     try {
         // check if user with args already exists
         const users = await prisma.users({ where: { OR: [{ email }, { phoneNumber }] } });
@@ -11,15 +11,18 @@ const createUser = async (graph: any) => {
         if (users.length > 0) {
             throw new Error(`User Already Exists`);
         }
-        return await prisma.createUser({
+        const user = await prisma.createUser({
             firstName,
             phoneNumber,
             email,
             lastName,
             dob,
-            terms: false,
-            type
+            bank: { create: { bankName, accountName, bankCode, accountNumber } },
+            type: { connect: { id: type } },
+            terms: false
         });
+        const bank = await prisma.user({ id: user.id }).bank();
+        return { ...user, bank };
     } catch (error) {
         throw error;
     }
@@ -47,7 +50,6 @@ const checkUser = async (graph: any, params: any) => {
     const {
         context: { prisma }
     } = graph;
-
     try {
         return await prisma.user(params);
     } catch (error) {

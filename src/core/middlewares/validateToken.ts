@@ -27,13 +27,21 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
                 publicKey = fs.readFileSync(dir);
             }
             const { userId }: any = jwt.verify(token, publicKey, verifyOptions) || {};
+
             // eslint-disable-next-line no-param-reassign
             const user = await context.prisma.user({
                 id: userId
             });
+            const userOrganization = await context.prisma
+                .user({
+                    id: userId
+                })
+                .type();
             context.user = user;
+            context.organization = userOrganization;
+
             context.role = await context.prisma.organizationType({
-                id: user && user.type
+                id: userOrganization.id
             });
             logger.info(`1. logInput: ${JSON.stringify(args)}`);
         } else {

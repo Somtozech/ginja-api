@@ -6,71 +6,8 @@ type User {
     phoneNumber: String!
     dob: String!
     terms: Boolean
+    bank: Bank!
     type: OrganizationType!
-    wallet: Wallet!
-    referral: Referral!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt
-}
-
-type Referral {
-    id: ID!  @id @unique
-    status: Int!
-    refCode: Int!
-    userId: String!
-    referrals: [Referrals]
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt  
-}
-
-type Crowns {
-    id: ID!  @id @unique
-    requiredReferrals: Int!
-    noOfDays: Int!
-    noOfDays: Int!
-    bonus: Int!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt  
-}
-
-type Referrals {
-    id: ID!  @id @unique
-    crowns: Int!
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt  
-}
-
-type wallet {
-    id: ID!  @id @unique
-    availableBalance: Float!
-    status: Int!
-    ledgerBalance: Float!
-    userId: String!
-    currency: String!
-    transactions: [Transactions]
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt
-}
-
-type Transactions {
-    id: ID!  @id @unique
-    status: Int!
-    type: Int!
-    amount: Float!
-    fees: Int!
-    sender: TransactionUser
-    recipient: TransactionUser
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt
-}
-
-type TransactionUser {
-    id: ID!  @id @unique
-    firstName: String!
-    lastName: String!
-    email: String!
-    phoneNumber: String!
-    wallet: Wallet!
 }
 
 type SpacesOptions {
@@ -317,31 +254,8 @@ type Auth {
     updatedAt: DateTime @updatedAt
     phoneNumber: String!  @unique
     pin: String!
-    userId: String!
+    userId: String
     user: User!
-}
-
-type Payment {
-    id: ID!  @id @unique
-    email: String! 
-    createdAt: DateTime! @createdAt
-    updatedAt: DateTime @updatedAt
-    amount: Float! 
-    requisition: Requisition!
-    status: Int!
-    currency: String!
-    channel: String
-    customer: PaymentCustomer @relation(name: "PaymentCustomer_customer")
-    info: String!
-}
-
-type PaymentCustomer {
-    id: ID!  @id @unique
-    paystackId: String
-    customerCode: String
-    firstName: String
-    lastName: String
-    email: String
 }
 
 type Otp {
@@ -434,11 +348,15 @@ type StockProduct {
 type Wallet {
     id: ID!  @id @unique
     userId: String! @unique
-    owner: User!
-    availableBalance: Int! 
-    ledgerBalance: Int! 
+    owner: User! @relation(name: "Walllet_user")
     transactions:[Transaction]!
     bank: Bank!
+    availableBalance: Int!
+    status: Int
+    ledgerBalance: Int!
+    currency: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Transaction {
@@ -446,8 +364,12 @@ type Transaction {
     type: String!
     to: User! @relation(name:"MerchantUser")
     user: User! @relation(name:"WarehouserUser")
-    amount: Int!
     description: String @default(value: "")
+    status: Int!
+    amount: Float!
+    fees: Int!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Chat {
@@ -466,4 +388,53 @@ type Message {
     from: User!
     text: String! @default(value: "")
     createdAt: DateTime! @createdAt
+}
+
+type Payment {
+    id: ID!  @id @unique
+    email: String! 
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
+    amount: Float! 
+    requisition: Requisition!
+    status: Int!
+    currency: String!
+    channel: String
+    customer: PaymentCustomer @relation(name: "PaymentCustomer_customer")
+    info: String!
+}
+
+type PaymentCustomer {
+    id: ID!  @id @unique
+    paystackId: String
+    customerCode: String
+    firstName: String
+    lastName: String
+    email: String
+}
+
+type Referral {
+    id: ID!  @id @unique
+    status: Int!
+    refCode: Int!
+    userId: String!
+    referrals: [Game]
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt  
+}
+
+type Crown {
+    id: ID!  @id @unique
+    requiredReferrals: Int!
+    noOfDays: Int!
+    bonus: Int!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt  
+}
+
+type Game {
+    id: ID!  @id @unique
+    crown: Crown!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt  
 }

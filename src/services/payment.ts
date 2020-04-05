@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import Payment from '../integrations/Payment';
 
 const payment = new Payment();

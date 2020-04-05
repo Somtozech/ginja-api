@@ -1,6 +1,5 @@
 import { UserModel } from '../../interfaces/auth';
 import * as authService from '../../services/auth';
-import * as bankService from '../../services/bank';
 import * as organizationService from '../../services/organization';
 import { createWallet } from '../../services/wallet';
 import * as userService from '../../services/user';
@@ -10,30 +9,28 @@ import * as jwtUtility from '../../core/utils/jwt';
 
 const signUp = async (parent: any, args: UserModel, context: any): Promise<any> => {
     try {
-        // Create user
-        const user = await userService.createUser({ parent, args, context });
-
         const pin = await hashUtility.hash(args.pin);
+        const newArgs = { ...args, pin };
 
-        // Create Bank Object
-        const { id: bank } = await bankService.createBank({ parent, args, context });
+        // Create auth and user
+        const user = await authService.createAuth({ parent, args: newArgs, context });
+
+        const {
+            id: userId,
+            bank: { id: bank }
+        } = user;
 
         const { id: organization } = await organizationService.createOrganization({ parent, args, context }, { bank });
 
         // Create Wallet for user
-        await createWallet({ parent, args, context }, { bank, user: user.id });
+        await createWallet({ parent, args, context }, { bank, userId });
         // get owner role
         const { id: role } = await roleService.getRoleByParam({ parent, args, context }, { name: 'owner' });
 
-        await organizationService.createUserOrganizationRoles({ parent, args, context }, { role, organization, user: user.id });
-
-        const newArgs = { ...args, pin };
-
-        // Create auth
-        await authService.createAuth({ parent, args: newArgs, context }, { user: user.id });
+        await organizationService.createUserOrganizationRoles({ parent, args, context }, { role, organization, userId });
 
         // 3
-        const token = jwtUtility.signPayload({ userId: user.id });
+        const token = jwtUtility.signPayload({ userId });
 
         // 4
         return {
@@ -78,7 +75,6 @@ const login = async (parent: any, args: UserModel, context: any): Promise<any> =
 
 const acceptTerms = async (parent: any, args: UserModel, context: any): Promise<any> => {
     const { id: userId } = args;
-
     const user = await userService.checkUser({ parent, args, context }, { id: userId });
     if (!user) {
         throw new Error('Unable to accept Terms and condition');

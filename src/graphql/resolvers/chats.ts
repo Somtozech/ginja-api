@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { addMessage, chatMessages, chats } from '../controllers/chat';
+import { addMessage, chatMessages, chats } from '../../controllers/chat';
 
 const chatQueries = {
     chats,

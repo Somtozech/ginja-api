@@ -57,8 +57,9 @@ const resolvers = {
     ...miscTypes,
     ...requisitionTypes,
     ...stockTypes,
-    ...walletTypes
+    ...walletTypes,
     ...paymentTypes,
+    ...chatTypes
 };
 
 export default resolvers;

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { getRandomString, formatPhoneNumberToInternational } from '../core/helpers/utilities';
 import { sendSms } from '../core/sms/africastalking';
 
@@ -26,8 +27,8 @@ const generateOtp = async (graph: any) => {
                 }
             });
             const to: any = [formatPhoneNumberToInternational(phoneNumber, '+234')];
-            const message: string = `Your Otp is ${code}`;
-            await sendSms(to, process.env.AFRICAS_TALKING_SENDER_ID, message);
+            const message = `Your Otp is ${code}`;
+            sendSms(to, process.env.AFRICAS_TALKING_SENDER_ID, message);
             return { ...otp, code: 'sent' };
         }
         const otp = await prisma.createOtp({
@@ -36,8 +37,8 @@ const generateOtp = async (graph: any) => {
             validated: false
         });
         const to: any = [formatPhoneNumberToInternational(phoneNumber, '+234')];
-        const message: string = `Your Otp is ${code}`;
-        await sendSms(to, process.env.AFRICAS_TALKING_SENDER_ID, message);
+        const message = `Your Otp is ${code}`;
+        sendSms(to, process.env.AFRICAS_TALKING_SENDER_ID, message);
         return { ...otp, code: 'sent' };
     } catch (error) {
         throw error;

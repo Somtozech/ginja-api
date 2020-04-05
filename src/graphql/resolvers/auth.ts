@@ -18,7 +18,7 @@ const authTypes = {
         email: (parent: any) => parent.email,
         phoneNumber: (parent: any) => parent.phoneNumber,
         pin: (parent: any) => parent.pin,
-        userId: (parent: any) => parent.pin,
+        userId: (parent: any) => parent.userId,
         user: (parent: any, args: any, context: any) => context.prisma.auth({ id: parent.id }).user()
     }
 };

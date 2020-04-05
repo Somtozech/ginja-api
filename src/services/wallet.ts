@@ -14,15 +14,15 @@ const createWallet = async (graph: any, params: any) => {
             context: { prisma }
         } = graph;
 
-        const { bank, user } = params;
+        const { bank, userId } = params;
 
         return await prisma.createWallet({
             ledgerBalance: 0,
             availableBalance: 0,
-            userId: user,
+            userId,
             owner: {
                 connect: {
-                    id: user
+                    id: userId
                 }
             },
             bank: {

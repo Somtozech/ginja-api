@@ -33,12 +33,12 @@ const createOrganization = async (graph: any, params: any) => {
 const createUserOrganizationRoles = async (graph: any, params: any) => {
     const { parent, args, context } = graph;
     const { prisma } = context;
-    const { user, role, organization } = params;
+    const { userId, role, organization } = params;
     try {
         return await prisma.createUserOrganizationRole({
             user: {
                 connect: {
-                    id: user
+                    id: userId
                 }
             },
             role: {

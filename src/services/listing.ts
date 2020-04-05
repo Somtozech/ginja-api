@@ -180,5 +180,4 @@ const listings = async (graph: any) => {
     }
 };
 
-
 export { createListing, listings };

@@ -5,15 +5,15 @@ endpoint: ${env:PRISMA_ENDPOINT}
 secret: ${env:PRISMA_SECRET}
 
 # Points to the file that contains your datamodel
-datamodel: datamodel.prisma
+datamodel: src/core/prisma/datamodel.prisma
 
 # Specifies language & location for the generated Prisma client
 generate:
     - generator: typescript-client
-      output: ./generated
+      output: src/core/prisma/generated
 
 seed:
-    run: ts-node ./data/seed.ts
+    run: ts-node src/core/prisma/data/seed.ts
 
 # A "post-deployment" hook that regenerates the Prisma client.
 hooks:
