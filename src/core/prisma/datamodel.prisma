@@ -2,8 +2,8 @@ type User {
     id: ID!  @id @unique
     firstName: String!
     lastName: String!
-    email: String!
-    phoneNumber: String!
+    email: String! @unique
+    phoneNumber: String! @unique
     dob: String!
     terms: Boolean
     bank: Bank!

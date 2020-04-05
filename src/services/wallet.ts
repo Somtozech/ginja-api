@@ -40,14 +40,12 @@ const createWallet = async (graph: any, params: any) => {
 const fundWallet = async (graph: any): Promise<any> => {
     // verify if payment was successful
     const {
-        args: { reference },
-        context: { prisma, userId }
+        args: { reference, userId },
+        context: { prisma }
     } = graph;
     const { data, status } = await payment.paystack.verifyTransaction({
         reference
     });
-
-    console.log('Fund Wallet Running');
 
     if (status !== true) {
         return { success: false };
@@ -164,4 +162,46 @@ const makePayment = async (graph: any) => {
     }
 };
 
-export { createWallet, makePayment, fundWallet, withdrawFromWallet };
+const transfer = async (graph: any) => {
+    const {
+        args: { recipientId, amount, message },
+        context: { prisma, userId }
+    } = graph;
+
+    let recipient = await prisma.user({ id: recipientId });
+    if (!recipient) throw new Error("Transfer Recipient dosen't exist");
+
+    const amountInKobo = amount * 100;
+
+    const senderWallet = await prisma.wallet({ userId });
+
+    if (senderWallet.ledgerBalance < amountInKobo) {
+        return { success: false };
+    }
+    const recipientWallet = await prisma.wallet({ userId: recipientId });
+
+    // deduct from sender's wallet
+    await prisma.updateWallet({
+        where: { userId },
+        data: {
+            ledgerBalance: senderWallet.ledgerBalance - amountInKobo,
+            availableBalance: senderWallet.availableBalance - amountInKobo
+        }
+    });
+
+    // update recipient Wallet
+    await prisma.updateWallet({
+        where: { userId: recipientId },
+        data: {
+            ledgerBalance: recipientWallet.ledgerBalance + amountInKobo,
+            availableBalance: recipientWallet.availableBalance + amountInKobo
+        }
+    });
+
+    return {
+        id: recipientId,
+        success: true
+    };
+};
+
+export { createWallet, makePayment, fundWallet, withdrawFromWallet, transfer };

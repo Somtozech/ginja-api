@@ -1,6 +1,9 @@
 const userQueries = {
     users: (root: any, args: any, context: any, info: any) => {
         return context.prisma.users();
+    },
+    getUser: (root: any, args: any, context: any, info: any) => {
+        return context.prisma.user({ ...args });
     }
 };
 

@@ -5195,7 +5195,6 @@ export interface AmenitiesOptionsCreateInput {
   userId?: Maybe<String>;
 }
 
-export interface StockDispatchUpdateOneInput {
   create?: Maybe<StockDispatchCreateInput>;
   update?: Maybe<StockDispatchUpdateDataInput>;
   upsert?: Maybe<StockDispatchUpsertNestedInput>;
@@ -5203,9 +5202,12 @@ export interface StockDispatchUpdateOneInput {
   disconnect?: Maybe<Boolean>;
   connect?: Maybe<StockDispatchWhereUniqueInput>;
 }
+export type UserWhereUniqueInput = AtLeastOne<{
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+}>;
 
 export interface AmenitiesOptionsUpdateInput {
-  slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;

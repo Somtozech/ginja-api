@@ -8,6 +8,7 @@ type Query {
     payments: [Payment]
     auths: [Auth!]!
     roles: [Role!]!
+
     listingProducts: [ListingProducts]
     listingRequirements: [ListingRequirements]
     listingsFrequencies: [ListingsFrequencies]
@@ -29,6 +30,8 @@ type Query {
     chats: [Chat]!
     chatMessages(chatId: String!): [Message]!
     initializePayment: Payment!
+    getUser(phoneNumber: String, email: String): User
+    wallet: Wallet!
 }
 
 type Payment {
@@ -103,9 +106,10 @@ type Mutation {
     acceptTerms(id: String!): Success!
     createOrganizationType(name: String!): OrganizationType!
     resolveAccountNumber(accountNumber: String!, bankCode: String!): AccountResolve
-    makePaymentToWarehouser(requisitionId: String!): PaymentStatus
+    makePaymentToWarehouser(requisitionId: String!): PaymentStatus!
     addMessage(chatId: String!, text: String!): Message!
-    fundWallet(reference: String!): Success!
+    fundWallet(reference: String!, userId: String!): Success!
+    transfer(recipientId: String!, amount: Float!): Success!
 }
 
 type Subscription {
