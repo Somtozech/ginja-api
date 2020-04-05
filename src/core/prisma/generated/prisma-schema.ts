@@ -9386,6 +9386,8 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
+  phoneNumber: String
 }
 
 type ValueAddedServices {

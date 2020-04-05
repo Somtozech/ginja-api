@@ -14,12 +14,20 @@ const permissions = {
         payments: authMiddleware,
         stocks: authMiddleware,
         userOrganizationRoles: authMiddleware,
-        requisitions: authMiddleware
+        requisitions: authMiddleware,
+        getUser: authMiddleware,
+        wallet: authMiddleware
     },
     Mutation: {
         acceptTerms: authMiddleware,
         createRole: authMiddleware,
         createOrganizationType: authMiddleware,
+        changeRequisitionStatus: authMiddleware,
+        submitRating: authMiddleware,
+        addListing: authMiddleware,
+        createRequisition: authMiddleware,
+        createStock: authMiddleware,
+        createDispatch: authMiddleware,
         makePaymentToWarehouser: authMiddleware,
         addMessage: authMiddleware,
         fundWallet: authMiddleware,
@@ -30,7 +38,8 @@ const permissions = {
         createStock: authMiddleware,
         createDispatch: authMiddleware,
         initializePayment: authMiddleware,
-        verifyPayment: authMiddleware
+        verifyPayment: authMiddleware,
+        transfer: authMiddleware
     }
 };
 
