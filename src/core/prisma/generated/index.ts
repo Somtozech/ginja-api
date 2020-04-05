@@ -2200,8 +2200,6 @@ export type AdminUserOrderByInput =
   | "email_DESC"
   | "password_ASC"
   | "password_DESC"
-  | "roleId_ASC"
-  | "roleId_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -2919,14 +2917,6 @@ export interface AdminUserWhereInput {
   password_not_starts_with?: Maybe<String>;
   password_ends_with?: Maybe<String>;
   password_not_ends_with?: Maybe<String>;
-  roleId?: Maybe<Int>;
-  roleId_not?: Maybe<Int>;
-  roleId_in?: Maybe<Int[] | Int>;
-  roleId_not_in?: Maybe<Int[] | Int>;
-  roleId_lt?: Maybe<Int>;
-  roleId_lte?: Maybe<Int>;
-  roleId_gt?: Maybe<Int>;
-  roleId_gte?: Maybe<Int>;
   role?: Maybe<RoleWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
@@ -4980,7 +4970,6 @@ export interface AdminUserUpdateManyMutationInput {
   phoneNumber?: Maybe<String>;
   email?: Maybe<String>;
   password?: Maybe<String>;
-  roleId?: Maybe<Int>;
 }
 
 export interface AmenitiesOptionsCreateInput {
@@ -10019,7 +10008,6 @@ export interface AdminUser {
   phoneNumber: String;
   email: String;
   password: String;
-  roleId: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
 }
@@ -10031,7 +10019,6 @@ export interface AdminUserPromise extends Promise<AdminUser>, Fragmentable {
   phoneNumber: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
-  roleId: () => Promise<Int>;
   role: <T = RolePromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -10046,7 +10033,6 @@ export interface AdminUserSubscription
   phoneNumber: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
-  roleId: () => Promise<AsyncIterator<Int>>;
   role: <T = RoleSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -10061,7 +10047,6 @@ export interface AdminUserNullablePromise
   phoneNumber: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
-  roleId: () => Promise<Int>;
   role: <T = RolePromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
@@ -15769,7 +15754,6 @@ export interface AdminUserPreviousValues {
   phoneNumber: String;
   email: String;
   password: String;
-  roleId: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
 }
@@ -15783,7 +15767,6 @@ export interface AdminUserPreviousValuesPromise
   phoneNumber: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
-  roleId: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -15797,7 +15780,6 @@ export interface AdminUserPreviousValuesSubscription
   phoneNumber: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
-  roleId: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
