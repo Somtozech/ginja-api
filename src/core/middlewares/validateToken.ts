@@ -27,7 +27,7 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
                 publicKey = fs.readFileSync(dir);
             }
             const { userId }: any = jwt.verify(token, publicKey, verifyOptions) || {};
-
+            console.log(userId);
             // eslint-disable-next-line no-param-reassign
             const user = await context.prisma.user({
                 id: userId
