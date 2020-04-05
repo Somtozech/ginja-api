@@ -5,8 +5,8 @@ type User {
     firstName: String!
     lastName: String!
     device: Int
-    email: String!
-    phoneNumber: String!
+    email: String! @unique
+    phoneNumber: String! @unique
     dob: String!
     status: Int!
     terms: Boolean,

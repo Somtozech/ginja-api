@@ -47,4 +47,13 @@ const fundWallet = async (parent: any, args: any, context: any) => {
     }
 };
 
-export { makePaymentToWarehouser, fundWallet };
+const transfer = async (parent: any, args: any, context: any) => {
+    try {
+        const response = await WalletService.transfer({ parent, args, context });
+        return response;
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { makePaymentToWarehouser, fundWallet, transfer };

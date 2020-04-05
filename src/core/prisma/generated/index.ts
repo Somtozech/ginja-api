@@ -4491,6 +4491,319 @@ export interface ListingWhereInput {
 }
 
 export interface WarehouserIdentificationWhereInput {
+export interface TransactionUpdateDataInput {
+  type?: Maybe<String>;
+  to?: Maybe<UserUpdateOneRequiredInput>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  description?: Maybe<String>;
+  status?: Maybe<Int>;
+  amount?: Maybe<Float>;
+  fees?: Maybe<Int>;
+}
+
+export interface ListingRatingUpsertNestedInput {
+  update: ListingRatingUpdateDataInput;
+  create: ListingRatingCreateInput;
+}
+
+export interface TransactionUpdateWithWhereUniqueNestedInput {
+  where: TransactionWhereUniqueInput;
+  data: TransactionUpdateDataInput;
+}
+
+export interface ListingRatingUpdateDataInput {
+  count?: Maybe<Int>;
+  rates?: Maybe<Int>;
+  average?: Maybe<Float>;
+}
+
+export interface WalletUpdateInput {
+  userId?: Maybe<String>;
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+  transactions?: Maybe<TransactionUpdateManyInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  availableBalance?: Maybe<Int>;
+  status?: Maybe<Int>;
+  ledgerBalance?: Maybe<Int>;
+  currency?: Maybe<String>;
+}
+
+export type WarehouserIdentificationWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type ListingPhotosWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ListingRatingUpdateOneRequiredInput {
+  create?: Maybe<ListingRatingCreateInput>;
+  update?: Maybe<ListingRatingUpdateDataInput>;
+  upsert?: Maybe<ListingRatingUpsertNestedInput>;
+  connect?: Maybe<ListingRatingWhereUniqueInput>;
+}
+
+export interface WallFinishesOptionsUpdateManyMutationInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
+
+export interface ListingDimensionsUpsertNestedInput {
+  update: ListingDimensionsUpdateDataInput;
+  create: ListingDimensionsCreateInput;
+}
+
+export type ListingProductsWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface ListingDimensionsUpdateDataInput {
+  height?: Maybe<Float>;
+  weight?: Maybe<Float>;
+  length?: Maybe<Float>;
+  unitOfDimensions?: Maybe<Int>;
+  volume?: Maybe<Float>;
+  area?: Maybe<Float>;
+}
+
+export interface ValueAddedServicesUpdateInput {
+  slug?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  name?: Maybe<String>;
+  userId?: Maybe<String>;
+}
+
+export interface ListingDimensionsUpdateOneRequiredInput {
+  create?: Maybe<ListingDimensionsCreateInput>;
+  update?: Maybe<ListingDimensionsUpdateDataInput>;
+  upsert?: Maybe<ListingDimensionsUpsertNestedInput>;
+  connect?: Maybe<ListingDimensionsWhereUniqueInput>;
+}
+
+export type ListingRatingWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface OrganizationUpdateOneRequiredInput {
+  create?: Maybe<OrganizationCreateInput>;
+  update?: Maybe<OrganizationUpdateDataInput>;
+  upsert?: Maybe<OrganizationUpsertNestedInput>;
+  connect?: Maybe<OrganizationWhereUniqueInput>;
+}
+
+export interface OrganizationCreateOneInput {
+  create?: Maybe<OrganizationCreateInput>;
+  connect?: Maybe<OrganizationWhereUniqueInput>;
+}
+
+export interface AdminRoleCreateInput {
+  id?: Maybe<ID_Input>;
+  name: String;
+}
+
+export interface UserOrganizationRoleCreateInput {
+  id?: Maybe<ID_Input>;
+  user: UserCreateOneInput;
+  role: RoleCreateOneInput;
+  organization: OrganizationCreateOneInput;
+}
+
+export interface AdminRoleUpdateInput {
+  name?: Maybe<String>;
+}
+
+export interface UserUpdateInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  terms?: Maybe<Boolean>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+}
+
+export interface AdminRoleUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
+
+export type AuthWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+}>;
+
+export interface ListingAvailabilityUpsertNestedInput {
+  update: ListingAvailabilityUpdateDataInput;
+  create: ListingAvailabilityCreateInput;
+}
+
+export interface TransactionUpdateInput {
+  type?: Maybe<String>;
+  to?: Maybe<UserUpdateOneRequiredInput>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  description?: Maybe<String>;
+  status?: Maybe<Int>;
+  amount?: Maybe<Float>;
+  fees?: Maybe<Int>;
+}
+
+export interface ListingAvailabilityUpdateDataInput {
+  from?: Maybe<String>;
+  to?: Maybe<String>;
+}
+
+export type LocationsWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface AdminUserCreateInput {
+  id?: Maybe<ID_Input>;
+  firstName: String;
+  lastName: String;
+  phoneNumber: String;
+  email: String;
+  password: String;
+  role: RoleCreateOneInput;
+}
+
+export interface SuccessUpdateInput {
+  success?: Maybe<Boolean>;
+}
+
+export interface RoleCreateOneInput {
+  create?: Maybe<RoleCreateInput>;
+  connect?: Maybe<RoleWhereUniqueInput>;
+}
+
+export interface StockProductUpdateManyMutationInput {
+  productBrandName?: Maybe<String>;
+  productType?: Maybe<String>;
+  productPackageSize?: Maybe<String>;
+  quantityPerPackageSize?: Maybe<Int>;
+  totalQuantity?: Maybe<Int>;
+  productImage?: Maybe<String>;
+}
+
+export interface RoleCreateInput {
+  id?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}
+
+export interface StockProductUpdateInput {
+  productBrandName?: Maybe<String>;
+  productType?: Maybe<String>;
+  productPackageSize?: Maybe<String>;
+  quantityPerPackageSize?: Maybe<Int>;
+  totalQuantity?: Maybe<Int>;
+  productImage?: Maybe<String>;
+}
+
+export interface AdminUserUpdateInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+  role?: Maybe<RoleUpdateOneRequiredInput>;
+}
+
+export interface StockDispatchUpdateInput {
+  pickupAgentName?: Maybe<String>;
+  pickupAgentPhone?: Maybe<String>;
+  pickupAgentIdentification?: Maybe<String>;
+  pickupAgentIdNumber?: Maybe<String>;
+  pickupDate?: Maybe<DateRangeUpdateOneInput>;
+  status?: Maybe<Int>;
+  pickupDateMin?: Maybe<String>;
+  pickupDateMax?: Maybe<String>;
+}
+
+export interface RoleUpdateOneRequiredInput {
+  create?: Maybe<RoleCreateInput>;
+  update?: Maybe<RoleUpdateDataInput>;
+  upsert?: Maybe<RoleUpsertNestedInput>;
+  connect?: Maybe<RoleWhereUniqueInput>;
+}
+
+export interface StockUpdateManyMutationInput {
+  type?: Maybe<Int>;
+  status?: Maybe<Int>;
+}
+
+export interface RoleUpdateDataInput {
+  name?: Maybe<String>;
+}
+
+export interface StockDispatchUpsertNestedInput {
+  update: StockDispatchUpdateDataInput;
+  create: StockDispatchCreateInput;
+}
+
+export interface RoleUpsertNestedInput {
+  update: RoleUpdateDataInput;
+  create: RoleCreateInput;
+}
+
+export interface DateRangeUpdateDataInput {
+  min?: Maybe<String>;
+  max?: Maybe<String>;
+}
+
+export interface AdminUserUpdateManyMutationInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  email?: Maybe<String>;
+  password?: Maybe<String>;
+}
+
+export type OrganizationTypeWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  name?: Maybe<String>;
+}>;
+
+export interface AmenitiesOptionsCreateInput {
+  id?: Maybe<ID_Input>;
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
+
+  create?: Maybe<StockDispatchCreateInput>;
+  update?: Maybe<StockDispatchUpdateDataInput>;
+  upsert?: Maybe<StockDispatchUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<StockDispatchWhereUniqueInput>;
+}
+export type UserWhereUniqueInput = AtLeastOne<{
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+}>;
+
+export interface AmenitiesOptionsUpdateInput {
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
+
+export interface StockProductUpdateManyWithWhereNestedInput {
+  where: StockProductScalarWhereInput;
+  data: StockProductUpdateManyDataInput;
+}
+
+export interface AmenitiesOptionsUpdateManyMutationInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
+
+export interface StockProductScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
