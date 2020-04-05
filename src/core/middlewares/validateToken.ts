@@ -38,11 +38,8 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
                 })
                 .type();
             context.user = user;
-            context.organization = userOrganization;
+            context.role = userOrganization;
 
-            context.role = await context.prisma.organizationType({
-                id: userOrganization.id
-            });
             logger.info(`1. logInput: ${JSON.stringify(args)}`);
         } else {
             throw new NotAuthenticatedError('Not authenticated');

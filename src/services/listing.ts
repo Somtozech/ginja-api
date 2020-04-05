@@ -37,7 +37,7 @@ const createListing = async (graph: any) => {
     try {
         const result = await prisma.createListing({
             name,
-            slug,
+            slug: name.toLowerCase(),
             description,
             price,
             discount,

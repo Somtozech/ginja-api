@@ -68,7 +68,16 @@ const changeStatus = async (graph: any) => {
     const { prisma } = context;
     const { id, status } = args;
     const { name: role } = context.role;
-    if (role === 'warehouser' && status === 1) {
+    if (role === 'warehouser' && (status === 2 || status === 1)) {
+        const result = await prisma.updateRequisition({
+            where: { id },
+            data: {
+                status
+            }
+        });
+        if (result) return { success: true };
+    }
+    if (role === 'merchant' && status === 5) {
         const result = await prisma.updateRequisition({
             where: { id },
             data: {

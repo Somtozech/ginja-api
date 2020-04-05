@@ -59,6 +59,7 @@ type Mutation {
         description: String!
         price: Float!
         discount: Int
+        slug: String!
         currency: String!
         proofOfOwnership: String!
         identification: WarehouserIdentification!
