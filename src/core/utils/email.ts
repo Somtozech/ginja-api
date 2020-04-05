@@ -1,6 +1,5 @@
-const sgMail = require('@sendgrid/mail');
-
 import logger from './logger';
+const sgMail = require('@sendgrid/mail');
 
 export default class MailTransport {
 

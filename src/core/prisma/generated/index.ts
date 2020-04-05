@@ -5316,9 +5316,12 @@ export interface StockDispatchUpsertNestedInput {
   update: StockDispatchUpdateDataInput;
   create: StockDispatchCreateInput;
 }
+export type UserWhereUniqueInput = AtLeastOne<{
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+}>;
 
 export interface AmenitiesOptionsUpdateInput {
-  slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;
