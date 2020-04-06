@@ -2732,8 +2732,6 @@ export type UserOrderByInput =
   | "phoneNumber_DESC"
   | "dob_ASC"
   | "dob_DESC"
-  | "status_ASC"
-  | "status_DESC"
   | "terms_ASC"
   | "terms_DESC"
   | "createdAt_ASC"
@@ -4914,96 +4912,22 @@ export interface SelectOptionsWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
-  AND?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
-  OR?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
-  NOT?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
-}
-
-export interface LocationsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  country?: Maybe<String>;
-  country_not?: Maybe<String>;
-  country_in?: Maybe<String[] | String>;
-  country_not_in?: Maybe<String[] | String>;
-  country_lt?: Maybe<String>;
-  country_lte?: Maybe<String>;
-  country_gt?: Maybe<String>;
-  country_gte?: Maybe<String>;
-  country_contains?: Maybe<String>;
-  country_not_contains?: Maybe<String>;
-  country_starts_with?: Maybe<String>;
-  country_not_starts_with?: Maybe<String>;
-  country_ends_with?: Maybe<String>;
-  country_not_ends_with?: Maybe<String>;
-  state?: Maybe<String>;
-  state_not?: Maybe<String>;
-  state_in?: Maybe<String[] | String>;
-  state_not_in?: Maybe<String[] | String>;
-  state_lt?: Maybe<String>;
-  state_lte?: Maybe<String>;
-  state_gt?: Maybe<String>;
-  state_gte?: Maybe<String>;
-  state_contains?: Maybe<String>;
-  state_not_contains?: Maybe<String>;
-  state_starts_with?: Maybe<String>;
-  state_not_starts_with?: Maybe<String>;
-  state_ends_with?: Maybe<String>;
-  state_not_ends_with?: Maybe<String>;
-  geo?: Maybe<String>;
-  geo_not?: Maybe<String>;
-  geo_in?: Maybe<String[] | String>;
-  geo_not_in?: Maybe<String[] | String>;
-  geo_lt?: Maybe<String>;
-  geo_lte?: Maybe<String>;
-  geo_gt?: Maybe<String>;
-  geo_gte?: Maybe<String>;
-  geo_contains?: Maybe<String>;
-  geo_not_contains?: Maybe<String>;
-  geo_starts_with?: Maybe<String>;
-  geo_not_starts_with?: Maybe<String>;
-  geo_ends_with?: Maybe<String>;
-  geo_not_ends_with?: Maybe<String>;
-  lga?: Maybe<String>;
-  lga_not?: Maybe<String>;
-  lga_in?: Maybe<String[] | String>;
-  lga_not_in?: Maybe<String[] | String>;
-  lga_lt?: Maybe<String>;
-  lga_lte?: Maybe<String>;
-  lga_gt?: Maybe<String>;
-  lga_gte?: Maybe<String>;
-  lga_contains?: Maybe<String>;
-  lga_not_contains?: Maybe<String>;
-  lga_starts_with?: Maybe<String>;
-  lga_not_starts_with?: Maybe<String>;
-  lga_ends_with?: Maybe<String>;
-  lga_not_ends_with?: Maybe<String>;
-  street?: Maybe<String>;
-  street_not?: Maybe<String>;
-  street_in?: Maybe<String[] | String>;
-  street_not_in?: Maybe<String[] | String>;
-  street_lt?: Maybe<String>;
-  street_lte?: Maybe<String>;
-  street_gt?: Maybe<String>;
-  street_gte?: Maybe<String>;
-  street_contains?: Maybe<String>;
-  street_not_contains?: Maybe<String>;
-  street_starts_with?: Maybe<String>;
-  street_not_starts_with?: Maybe<String>;
-  street_ends_with?: Maybe<String>;
-  street_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
+  recipientCode?: Maybe<String>;
+  recipientCode_not?: Maybe<String>;
+  recipientCode_in?: Maybe<String[] | String>;
+  recipientCode_not_in?: Maybe<String[] | String>;
+  recipientCode_lt?: Maybe<String>;
+  recipientCode_lte?: Maybe<String>;
+  recipientCode_gt?: Maybe<String>;
+  recipientCode_gte?: Maybe<String>;
+  recipientCode_contains?: Maybe<String>;
+  recipientCode_not_contains?: Maybe<String>;
+  recipientCode_starts_with?: Maybe<String>;
+  recipientCode_not_starts_with?: Maybe<String>;
+  recipientCode_ends_with?: Maybe<String>;
+  recipientCode_not_ends_with?: Maybe<String>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -8132,11 +8056,69 @@ export interface AmenitiesOptionsUpdateManyInput {
     | AmenitiesOptionsUpdateManyWithWhereNestedInput[]
     | AmenitiesOptionsUpdateManyWithWhereNestedInput
   >;
+export interface WalletCreateInput {
+  id?: Maybe<ID_Input>;
+  recipientCode: String;
+  userId: String;
+  owner: UserCreateOneInput;
+  availableBalance: Int;
+  ledgerBalance: Int;
+  transactions?: Maybe<TransactionCreateManyInput>;
+  bank: BankCreateOneInput;
 }
 
-export interface AmenitiesOptionsUpdateWithWhereUniqueNestedInput {
-  where: AmenitiesOptionsWhereUniqueInput;
-  data: AmenitiesOptionsUpdateDataInput;
+export interface TransactionCreateManyInput {
+  create?: Maybe<TransactionCreateInput[] | TransactionCreateInput>;
+  connect?: Maybe<TransactionWhereUniqueInput[] | TransactionWhereUniqueInput>;
+}
+
+export interface WalletUpdateInput {
+  recipientCode?: Maybe<String>;
+  userId?: Maybe<String>;
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+  availableBalance?: Maybe<Int>;
+  ledgerBalance?: Maybe<Int>;
+  transactions?: Maybe<TransactionUpdateManyInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+}
+
+export interface TransactionUpdateManyInput {
+  create?: Maybe<TransactionCreateInput[] | TransactionCreateInput>;
+  update?: Maybe<
+    | TransactionUpdateWithWhereUniqueNestedInput[]
+    | TransactionUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | TransactionUpsertWithWhereUniqueNestedInput[]
+    | TransactionUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<TransactionWhereUniqueInput[] | TransactionWhereUniqueInput>;
+  connect?: Maybe<TransactionWhereUniqueInput[] | TransactionWhereUniqueInput>;
+  set?: Maybe<TransactionWhereUniqueInput[] | TransactionWhereUniqueInput>;
+  disconnect?: Maybe<
+    TransactionWhereUniqueInput[] | TransactionWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    TransactionScalarWhereInput[] | TransactionScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | TransactionUpdateManyWithWhereNestedInput[]
+    | TransactionUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface RoofingMaterialOptionsUpdateWithWhereUniqueNestedInput {
+  where: RoofingMaterialOptionsWhereUniqueInput;
+  data: RoofingMaterialOptionsUpdateDataInput;
+}
+
+export interface ValueAddedServicesUpdateManyMutationInput {
+  slug?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  name?: Maybe<String>;
+export interface WalletUpdateManyMutationInput {
+  recipientCode?: Maybe<String>;
+  userId?: Maybe<String>;
 }
 
 export interface AmenitiesOptionsUpdateDataInput {
@@ -15922,27 +15904,86 @@ export interface AggregateWalletSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface WarehouserIdentificationConnection {
-  pageInfo: PageInfo;
-  edges: WarehouserIdentificationEdge[];
+export interface MessageSubscriptionPayload {
+  mutation: MutationType;
+  node: Message;
+  updatedFields: String[];
+  previousValues: MessagePreviousValues;
+export interface Wallet {
+  id: ID_Output;
+  recipientCode: String;
+  userId: String;
+  availableBalance: Int;
+  ledgerBalance: Int;
+}
+
+export interface WalletPromise extends Promise<Wallet>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface WarehouserIdentificationConnectionPromise
   extends Promise<WarehouserIdentificationConnection>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<WarehouserIdentificationEdge>>() => T;
-  aggregate: <T = AggregateWarehouserIdentificationPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = MessagePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = MessagePreviousValuesPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  recipientCode: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  owner: <T = UserSubscription>() => T;
+  availableBalance: () => Promise<AsyncIterator<Int>>;
+  ledgerBalance: () => Promise<AsyncIterator<Int>>;
+  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankSubscription>() => T;
 }
 
 export interface WarehouserIdentificationConnectionSubscription
   extends Promise<AsyncIterator<WarehouserIdentificationConnection>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <
-    T = Promise<AsyncIterator<WarehouserIdentificationEdgeSubscription>>
-  >() => T;
-  aggregate: <T = AggregateWarehouserIdentificationSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = MessageSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = MessagePreviousValuesSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface WarehouserIdentificationEdge {
@@ -18526,39 +18567,55 @@ export interface WalletSubscriptionPayloadSubscription
 
 export interface WalletPreviousValues {
   id: ID_Output;
+  baseCost: Float;
+  vat: Float;
+  discount?: Float;
+  recipientCode: String;
   userId: String;
   availableBalance: Int;
-  status?: Int;
   ledgerBalance: Int;
-  currency?: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
 }
 
 export interface WalletPreviousValuesPromise
   extends Promise<WalletPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  baseCost: () => Promise<Float>;
+  vat: () => Promise<Float>;
+  discount: () => Promise<Float>;
+  recipientCode: () => Promise<String>;
   userId: () => Promise<String>;
   availableBalance: () => Promise<Int>;
-  status: () => Promise<Int>;
   ledgerBalance: () => Promise<Int>;
-  currency: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface WalletPreviousValuesSubscription
   extends Promise<AsyncIterator<WalletPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  baseCost: () => Promise<AsyncIterator<Float>>;
+  vat: () => Promise<AsyncIterator<Float>>;
+  discount: () => Promise<AsyncIterator<Float>>;
+  recipientCode: () => Promise<AsyncIterator<String>>;
   userId: () => Promise<AsyncIterator<String>>;
   availableBalance: () => Promise<AsyncIterator<Int>>;
-  status: () => Promise<AsyncIterator<Int>>;
   ledgerBalance: () => Promise<AsyncIterator<Int>>;
-  currency: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface WarehouserIdentificationSubscriptionPayload {
+  mutation: MutationType;
+  node: WarehouserIdentification;
+  updatedFields: String[];
+  previousValues: WarehouserIdentificationPreviousValues;
+}
+
+export interface WarehouserIdentificationSubscriptionPayloadPromise
+  extends Promise<WarehouserIdentificationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = WarehouserIdentificationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = WarehouserIdentificationPreviousValuesPromise>() => T;
 }
 
 export interface WarehouserIdentificationSubscriptionPayload {
@@ -18861,7 +18918,7 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `${process.env["PRISMA_ENDPOINT"]}`,
-  secret: `${process.env["PRISMA_SECRET"]}`
+  endpoint: `https://eu1.prisma.sh/somtozech/ginja-db/dev`,
+  secret: `myprismasecret`
 });
 export const prisma = new Prisma();

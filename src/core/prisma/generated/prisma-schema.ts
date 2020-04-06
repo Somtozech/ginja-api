@@ -9675,6 +9675,7 @@ input ValueAddedServicesWhereUniqueInput {
 
 type Wallet {
   id: ID!
+  recipientCode: String!
   userId: String!
   owner: User!
   transactions(where: TransactionWhereInput, orderBy: TransactionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Transaction!]
@@ -9695,6 +9696,7 @@ type WalletConnection {
 
 input WalletCreateInput {
   id: ID
+  recipientCode: String!
   userId: String!
   owner: UserCreateOneInput!
   transactions: TransactionCreateManyInput
@@ -9713,6 +9715,8 @@ type WalletEdge {
 enum WalletOrderByInput {
   id_ASC
   id_DESC
+  recipientCode_ASC
+  recipientCode_DESC
   userId_ASC
   userId_DESC
   availableBalance_ASC
@@ -9731,6 +9735,7 @@ enum WalletOrderByInput {
 
 type WalletPreviousValues {
   id: ID!
+  recipientCode: String!
   userId: String!
   availableBalance: Int!
   status: Int
@@ -9759,6 +9764,7 @@ input WalletSubscriptionWhereInput {
 }
 
 input WalletUpdateInput {
+  recipientCode: String
   userId: String
   owner: UserUpdateOneRequiredInput
   transactions: TransactionUpdateManyInput
@@ -9770,6 +9776,7 @@ input WalletUpdateInput {
 }
 
 input WalletUpdateManyMutationInput {
+  recipientCode: String
   userId: String
   availableBalance: Int
   status: Int
@@ -9792,6 +9799,20 @@ input WalletWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  recipientCode: String
+  recipientCode_not: String
+  recipientCode_in: [String!]
+  recipientCode_not_in: [String!]
+  recipientCode_lt: String
+  recipientCode_lte: String
+  recipientCode_gt: String
+  recipientCode_gte: String
+  recipientCode_contains: String
+  recipientCode_not_contains: String
+  recipientCode_starts_with: String
+  recipientCode_not_starts_with: String
+  recipientCode_ends_with: String
+  recipientCode_not_ends_with: String
   userId: String
   userId_not: String
   userId_in: [String!]
