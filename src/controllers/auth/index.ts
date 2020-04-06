@@ -20,7 +20,7 @@ const signUp = async (parent: any, args: UserModel, context: any): Promise<any> 
             bank: { id: bank }
         } = user;
 
-        const { id: organization } = await organizationService.createOrganization({ parent, args, context }, { bank });
+        const { id: organization } = await organizationService.createOrganization({ parent, args, context }, { bank: bank.id });
 
         // Create Wallet for user
         await createWallet({ parent, args, context }, { bank: user.bank, userId });

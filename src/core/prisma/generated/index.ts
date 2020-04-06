@@ -5150,6 +5150,20 @@ export interface ListingProductsScalarWhereInput {
   name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
+  recipientCode?: Maybe<String>;
+  recipientCode_not?: Maybe<String>;
+  recipientCode_in?: Maybe<String[] | String>;
+  recipientCode_not_in?: Maybe<String[] | String>;
+  recipientCode_lt?: Maybe<String>;
+  recipientCode_lte?: Maybe<String>;
+  recipientCode_gt?: Maybe<String>;
+  recipientCode_gte?: Maybe<String>;
+  recipientCode_contains?: Maybe<String>;
+  recipientCode_not_contains?: Maybe<String>;
+  recipientCode_starts_with?: Maybe<String>;
+  recipientCode_not_starts_with?: Maybe<String>;
+  recipientCode_ends_with?: Maybe<String>;
+  recipientCode_not_ends_with?: Maybe<String>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -17768,6 +17782,31 @@ export interface MessageSubscriptionPayload {
   node: Message;
   updatedFields: String[];
   previousValues: MessagePreviousValues;
+export interface Wallet {
+  id: ID_Output;
+  recipientCode: String;
+  userId: String;
+  availableBalance: Int;
+  ledgerBalance: Int;
+}
+
+export interface WalletPromise extends Promise<Wallet>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface MessageSubscriptionPayloadPromise
@@ -17777,6 +17816,22 @@ export interface MessageSubscriptionPayloadPromise
   node: <T = MessagePromise>() => T;
   updatedFields: () => Promise<String[]>;
   previousValues: <T = MessagePreviousValuesPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  recipientCode: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  owner: <T = UserSubscription>() => T;
+  availableBalance: () => Promise<AsyncIterator<Int>>;
+  ledgerBalance: () => Promise<AsyncIterator<Int>>;
+  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankSubscription>() => T;
 }
 
 export interface MessageSubscriptionPayloadSubscription
@@ -17786,6 +17841,22 @@ export interface MessageSubscriptionPayloadSubscription
   node: <T = MessageSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = MessagePreviousValuesSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface AggregateListingPhotos {
@@ -21815,7 +21886,7 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `${process.env["PRISMA_ENDPOINT"]}`,
-  secret: `${process.env["PRISMA_SECRET"]}`
+  endpoint: `https://eu1.prisma.sh/somtozech/ginja-db/dev`,
+  secret: `myprismasecret`
 });
 export const prisma = new Prisma();
