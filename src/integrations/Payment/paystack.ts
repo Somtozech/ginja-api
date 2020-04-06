@@ -50,7 +50,6 @@ export default class Paystack {
     };
 
     public verifyTransaction = async ({ reference }: any): Promise<any> => {
-        console.log(reference);
         const response = await this.paystack.verifyTransaction({
             reference
         });
