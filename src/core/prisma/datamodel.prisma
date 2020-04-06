@@ -347,6 +347,7 @@ type StockProduct {
 
 type Wallet {
     id: ID!  @id @unique
+    recipientCode: String!
     userId: String! @unique
     owner: User! @relation(name: "Walllet_user")
     transactions:[Transaction]!

@@ -2761,7 +2761,39 @@ export type PaymentCustomerOrderByInput =
   | "lastName_ASC"
   | "lastName_DESC"
   | "email_ASC"
-  | "email_DESC";
+  | "email_DESC"
+  | "phoneNumber_ASC"
+  | "phoneNumber_DESC"
+  | "dob_ASC"
+  | "dob_DESC"
+  | "terms_ASC"
+  | "terms_DESC"
+  | "type_ASC"
+  | "type_DESC";
+
+export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
+
+export type WalletOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "recipientCode_ASC"
+  | "recipientCode_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
+  | "availableBalance_ASC"
+  | "availableBalance_DESC"
+  | "ledgerBalance_ASC"
+  | "ledgerBalance_DESC";
+
+export type WarehouserIdentificationOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "idNumber_ASC"
+  | "idNumber_DESC"
+  | "expiryDate_ASC"
+  | "expiryDate_DESC"
+  | "idType_ASC"
+  | "idType_DESC";
 
 export interface IdentificationsOptionsUpdateInput {
   slug?: Maybe<String>;
@@ -5371,6 +5403,20 @@ export interface AmenitiesOptionsWhereInput {
   name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
+  recipientCode?: Maybe<String>;
+  recipientCode_not?: Maybe<String>;
+  recipientCode_in?: Maybe<String[] | String>;
+  recipientCode_not_in?: Maybe<String[] | String>;
+  recipientCode_lt?: Maybe<String>;
+  recipientCode_lte?: Maybe<String>;
+  recipientCode_gt?: Maybe<String>;
+  recipientCode_gte?: Maybe<String>;
+  recipientCode_contains?: Maybe<String>;
+  recipientCode_not_contains?: Maybe<String>;
+  recipientCode_starts_with?: Maybe<String>;
+  recipientCode_not_starts_with?: Maybe<String>;
+  recipientCode_ends_with?: Maybe<String>;
+  recipientCode_not_ends_with?: Maybe<String>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -9070,6 +9116,30 @@ export interface RoofingMaterialOptionsUpdateManyInput {
     | RoofingMaterialOptionsUpdateManyWithWhereNestedInput[]
     | RoofingMaterialOptionsUpdateManyWithWhereNestedInput
   >;
+export interface WalletCreateInput {
+  id?: Maybe<ID_Input>;
+  recipientCode: String;
+  userId: String;
+  owner: UserCreateOneInput;
+  availableBalance: Int;
+  ledgerBalance: Int;
+  transactions?: Maybe<TransactionCreateManyInput>;
+  bank: BankCreateOneInput;
+}
+
+export interface TransactionCreateManyInput {
+  create?: Maybe<TransactionCreateInput[] | TransactionCreateInput>;
+  connect?: Maybe<TransactionWhereUniqueInput[] | TransactionWhereUniqueInput>;
+}
+
+export interface WalletUpdateInput {
+  recipientCode?: Maybe<String>;
+  userId?: Maybe<String>;
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+  availableBalance?: Maybe<Int>;
+  ledgerBalance?: Maybe<Int>;
+  transactions?: Maybe<TransactionUpdateManyInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
 }
 
 export interface TransactionUpdateManyInput {
@@ -9106,6 +9176,8 @@ export interface ValueAddedServicesUpdateManyMutationInput {
   slug?: Maybe<String>;
   default?: Maybe<Boolean>;
   name?: Maybe<String>;
+export interface WalletUpdateManyMutationInput {
+  recipientCode?: Maybe<String>;
   userId?: Maybe<String>;
 }
 
@@ -14466,6 +14538,31 @@ export interface MessageSubscriptionPayload {
   node: Message;
   updatedFields: String[];
   previousValues: MessagePreviousValues;
+export interface Wallet {
+  id: ID_Output;
+  recipientCode: String;
+  userId: String;
+  availableBalance: Int;
+  ledgerBalance: Int;
+}
+
+export interface WalletPromise extends Promise<Wallet>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface MessageSubscriptionPayloadPromise
@@ -14475,6 +14572,22 @@ export interface MessageSubscriptionPayloadPromise
   node: <T = MessagePromise>() => T;
   updatedFields: () => Promise<String[]>;
   previousValues: <T = MessagePreviousValuesPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  recipientCode: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  owner: <T = UserSubscription>() => T;
+  availableBalance: () => Promise<AsyncIterator<Int>>;
+  ledgerBalance: () => Promise<AsyncIterator<Int>>;
+  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankSubscription>() => T;
 }
 
 export interface MessageSubscriptionPayloadSubscription
@@ -14484,6 +14597,22 @@ export interface MessageSubscriptionPayloadSubscription
   node: <T = MessageSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = MessagePreviousValuesSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  owner: <T = UserPromise>() => T;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
+  transactions: <T = FragmentableArray<Transaction>>(args?: {
+    where?: TransactionWhereInput;
+    orderBy?: TransactionOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+  bank: <T = BankPromise>() => T;
 }
 
 export interface ListingPhotosConnection {
@@ -18132,6 +18261,10 @@ export interface RequisitionCost {
   baseCost: Float;
   vat: Float;
   discount?: Float;
+  recipientCode: String;
+  userId: String;
+  availableBalance: Int;
+  ledgerBalance: Int;
 }
 
 export interface RequisitionCostPromise
@@ -18141,6 +18274,10 @@ export interface RequisitionCostPromise
   baseCost: () => Promise<Float>;
   vat: () => Promise<Float>;
   discount: () => Promise<Float>;
+  recipientCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  availableBalance: () => Promise<Int>;
+  ledgerBalance: () => Promise<Int>;
 }
 
 export interface RequisitionCostSubscription
@@ -18150,6 +18287,26 @@ export interface RequisitionCostSubscription
   baseCost: () => Promise<AsyncIterator<Float>>;
   vat: () => Promise<AsyncIterator<Float>>;
   discount: () => Promise<AsyncIterator<Float>>;
+  recipientCode: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  availableBalance: () => Promise<AsyncIterator<Int>>;
+  ledgerBalance: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface WarehouserIdentificationSubscriptionPayload {
+  mutation: MutationType;
+  node: WarehouserIdentification;
+  updatedFields: String[];
+  previousValues: WarehouserIdentificationPreviousValues;
+}
+
+export interface WarehouserIdentificationSubscriptionPayloadPromise
+  extends Promise<WarehouserIdentificationSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = WarehouserIdentificationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = WarehouserIdentificationPreviousValuesPromise>() => T;
 }
 
 export interface RequisitionCostNullablePromise
@@ -18433,7 +18590,7 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `${process.env["PRISMA_ENDPOINT"]}`,
-  secret: `${process.env["PRISMA_SECRET"]}`
+  endpoint: `https://eu1.prisma.sh/somtozech/ginja-db/dev`,
+  secret: `myprismasecret`
 });
 export const prisma = new Prisma();
