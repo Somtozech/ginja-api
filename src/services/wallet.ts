@@ -90,7 +90,7 @@ const fundWallet = async (graph: any): Promise<any> => {
 };
 
 // withdraw Money from account
-const withdrawFromWallet = async (graph: any, params: any) => {
+const withdrawFromWallet = async ({ graph, params }: any) => {
     const {
         args: { amount },
         context: {
