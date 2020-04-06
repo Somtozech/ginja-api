@@ -26,7 +26,7 @@ type Query {
     organizations: [Organization!]!
     organizationTypes: [OrganizationType!]!
     userOrganizationRoles: [UserOrganizationRole!]!
-    requisitions(user: String, skip: Int, first: Int): [Requisition]!
+    requisitions(user: String, skip: Int, first: Int, status: Int): [Requisition]!
     chats: [Chat]!
     chatMessages(chatId: String!): [Message]!
     initializePayment: Payment!

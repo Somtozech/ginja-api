@@ -58,6 +58,7 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
         const result = await resolve(parent, args, context, info);
         return result;
     } catch (err) {
+        console.log(err)
         throw new BadRequestError(err.message);
     }
 };
