@@ -13,6 +13,8 @@ import compression from 'compression';
 
 import indexRouter from './api/routes/index';
 import webhooksRouter from './api/routes/webhooks/index';
+import adminRouter from './api/routes/admin/index';
+// import webhooksRouter from './api/routes/webhooks/index';
 
 import handleErrors from '../core/middlewares/handleErrors';
 
@@ -47,6 +49,11 @@ app.use('/', indexRouter);
 // Webhooks Routes
 
 app.use('/api/webhooks', webhooksRouter);
+app.use('/api/admin', adminRouter);
+
+// Webhooks Routes
+
+// app.use('/api/webhooks', webhooksRouter);
 
 // v1 API Routes
 app.get('/health', (req: express.Request, res: express.Response): void => {
