@@ -32,11 +32,11 @@ const createWallet = async (graph: any, params: any) => {
         return await prisma.createWallet({
             ledgerBalance: 0,
             availableBalance: 0,
-            userId: user.id,
+            userId,
             recipientCode: recipient_code,
             owner: {
                 connect: {
-                    id: user.id
+                    id: userId
                 }
             },
             bank: {
@@ -82,7 +82,7 @@ const fundWallet = async (graph: any): Promise<any> => {
     //TODO create transactions
     // // create a transaction
     // await createTransaction({
-    //     from: user.id,
+    //     from: userId,
     //     to: user.id,
     //     amount: data.amount,
     //     type: 'payment',
@@ -214,7 +214,7 @@ const makePayment = async (graph: any) => {
 
 const transfer = async (graph: any) => {
     const {
-        args: { recipientId, amount, message },
+        args: { recipientId, amount },
         context: {
             prisma,
             user: { id: userId }
