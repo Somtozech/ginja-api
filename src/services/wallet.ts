@@ -57,8 +57,9 @@ const fundWallet = async (graph: any): Promise<any> => {
         args: { reference, userId },
         context: { prisma }
     } = graph;
+
     const { data, status } = await payment.paystack.verifyTransaction({
-        reference
+        reference: `${reference}`
     });
 
     if (status !== true) {

@@ -25,7 +25,7 @@ const createRequisition = async (graph: any) => {
                 connect: products
             },
             space,
-            status: 0
+            status: 1
         });
         if (result) return { success: true };
         return { success: false };
@@ -37,14 +37,20 @@ const createRequisition = async (graph: any) => {
 const requisitions = async (graph: any) => {
     const { args, context } = graph;
     const { prisma } = context;
-    const { first, skip, user, limit, nextToken, listing } = args;
+    const { first, skip, user, limit, nextToken, listing, status } = args;
     const filterbyUser = user ? { user: { id: user } } : {};
     const filterbyListing = listing ? { listing: { id: listing } } : {};
+    let statusQuery = {};
+
+    if (status !== 4) {
+        statusQuery = { status };
+    }
 
     const where =
         {
             ...filterbyUser,
-            ...filterbyListing
+            ...filterbyListing,
+            ...statusQuery
         } || {};
     const skipQuery = skip ? { skip } : {};
     const firstQuery = first ? { first } : {};
@@ -68,7 +74,7 @@ const changeStatus = async (graph: any) => {
     const { prisma } = context;
     const { id, status } = args;
     const { name: role } = context.role;
-    if (role === 'warehouser' && (status === 2 || status === 1)) {
+    if (role === 'warehouser' && (status === 2 || status === 3)) {
         const result = await prisma.updateRequisition({
             where: { id },
             data: {
