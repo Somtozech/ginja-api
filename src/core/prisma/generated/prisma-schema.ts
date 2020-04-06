@@ -9656,9 +9656,9 @@ type Wallet {
   owner: User!
   transactions(where: TransactionWhereInput, orderBy: TransactionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Transaction!]
   bank: Bank!
-  availableBalance: Int!
+  availableBalance: Float!
   status: Int
-  ledgerBalance: Int!
+  ledgerBalance: Float!
   currency: String
   createdAt: DateTime!
   updatedAt: DateTime
@@ -9677,9 +9677,9 @@ input WalletCreateInput {
   owner: UserCreateOneInput!
   transactions: TransactionCreateManyInput
   bank: BankCreateOneInput!
-  availableBalance: Int!
+  availableBalance: Float!
   status: Int
-  ledgerBalance: Int!
+  ledgerBalance: Float!
   currency: String
 }
 
@@ -9713,9 +9713,9 @@ type WalletPreviousValues {
   id: ID!
   recipientCode: String!
   userId: String!
-  availableBalance: Int!
+  availableBalance: Float!
   status: Int
-  ledgerBalance: Int!
+  ledgerBalance: Float!
   currency: String
   createdAt: DateTime!
   updatedAt: DateTime
@@ -9745,18 +9745,18 @@ input WalletUpdateInput {
   owner: UserUpdateOneRequiredInput
   transactions: TransactionUpdateManyInput
   bank: BankUpdateOneRequiredInput
-  availableBalance: Int
+  availableBalance: Float
   status: Int
-  ledgerBalance: Int
+  ledgerBalance: Float
   currency: String
 }
 
 input WalletUpdateManyMutationInput {
   recipientCode: String
   userId: String
-  availableBalance: Int
+  availableBalance: Float
   status: Int
-  ledgerBalance: Int
+  ledgerBalance: Float
   currency: String
 }
 
@@ -9808,14 +9808,14 @@ input WalletWhereInput {
   transactions_some: TransactionWhereInput
   transactions_none: TransactionWhereInput
   bank: BankWhereInput
-  availableBalance: Int
-  availableBalance_not: Int
-  availableBalance_in: [Int!]
-  availableBalance_not_in: [Int!]
-  availableBalance_lt: Int
-  availableBalance_lte: Int
-  availableBalance_gt: Int
-  availableBalance_gte: Int
+  availableBalance: Float
+  availableBalance_not: Float
+  availableBalance_in: [Float!]
+  availableBalance_not_in: [Float!]
+  availableBalance_lt: Float
+  availableBalance_lte: Float
+  availableBalance_gt: Float
+  availableBalance_gte: Float
   status: Int
   status_not: Int
   status_in: [Int!]
@@ -9824,14 +9824,14 @@ input WalletWhereInput {
   status_lte: Int
   status_gt: Int
   status_gte: Int
-  ledgerBalance: Int
-  ledgerBalance_not: Int
-  ledgerBalance_in: [Int!]
-  ledgerBalance_not_in: [Int!]
-  ledgerBalance_lt: Int
-  ledgerBalance_lte: Int
-  ledgerBalance_gt: Int
-  ledgerBalance_gte: Int
+  ledgerBalance: Float
+  ledgerBalance_not: Float
+  ledgerBalance_in: [Float!]
+  ledgerBalance_not_in: [Float!]
+  ledgerBalance_lt: Float
+  ledgerBalance_lte: Float
+  ledgerBalance_gt: Float
+  ledgerBalance_gte: Float
   currency: String
   currency_not: String
   currency_in: [String!]

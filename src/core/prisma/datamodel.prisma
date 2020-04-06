@@ -353,9 +353,9 @@ type Wallet {
     owner: User! @relation(name: "Walllet_user")
     transactions:[Transaction]!
     bank: Bank!
-    availableBalance: Int!
+    availableBalance: Float!
     status: Int
-    ledgerBalance: Int!
+    ledgerBalance: Float!
     currency: String
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt
