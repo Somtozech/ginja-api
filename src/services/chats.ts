@@ -31,7 +31,10 @@ const createChat = async (graph: any) => {
 
 const getAllChats = async (graph: any) => {
     const {
-        context: { prisma, userId }
+        context: {
+            prisma,
+            user: { id: userId }
+        }
     } = graph;
 
     const filter = { OR: [{ merchantId: userId }, { warehouserId: userId }] };

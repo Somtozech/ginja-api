@@ -110,6 +110,7 @@ type Mutation {
     addMessage(chatId: String!, text: String!): Message!
     fundWallet(reference: String!, userId: String!): Success!
     transfer(recipientId: String!, amount: Float!): Success!
+    withdraw(amount: Float!): Success!
 }
 
 type Subscription {

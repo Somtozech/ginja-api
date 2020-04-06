@@ -16,18 +16,32 @@ const createWallet = async (graph: any, params: any) => {
 
         const { bank, userId } = params;
 
+        const {
+            status,
+            data: { recipient_code }
+        } = await payment.paystack.createTransferRecipient({
+            name: bank.accountName,
+            bankCode: bank.bankCode,
+            accountNumber: bank.accountNumber
+        });
+
+        if (status !== true) {
+            throw new Error('Creation of Wallet Failed');
+        }
+
         return await prisma.createWallet({
             ledgerBalance: 0,
             availableBalance: 0,
-            userId,
+            userId: user.id,
+            recipientCode: recipient_code,
             owner: {
                 connect: {
-                    id: userId
+                    id: user.id
                 }
             },
             bank: {
                 connect: {
-                    id: bank
+                    id: bank.id
                 }
             }
         });
@@ -40,7 +54,10 @@ const createWallet = async (graph: any, params: any) => {
 const fundWallet = async (graph: any): Promise<any> => {
     // verify if payment was successful
     const {
-        args: { reference, userId },
+        args: {
+            reference,
+            user: { id: userId }
+        },
         context: { prisma }
     } = graph;
     const { data, status } = await payment.paystack.verifyTransaction({
@@ -52,8 +69,6 @@ const fundWallet = async (graph: any): Promise<any> => {
     }
 
     const filter = { userId };
-
-    console.log(filter);
 
     // update user wallet
     const user = await prisma.wallet({ ...filter });
@@ -77,9 +92,44 @@ const fundWallet = async (graph: any): Promise<any> => {
     return { id: reference, success: true };
 };
 
-// TODO:
 // withdraw Money from account
-const withdrawFromWallet = async (graph: any, params: any) => {};
+const withdrawFromWallet = async (graph: any, params: any) => {
+    const {
+        args: { amount },
+        context: {
+            prisma,
+            user: { id: userId }
+        }
+    } = graph;
+
+    const wallet = await prisma.wallet({ userId });
+    if (!wallet) {
+        return { success: false };
+    }
+
+    const amountInKobo = amount * 100;
+
+    if (wallet.ledgerBalance < amountInKobo) {
+        return { success: false };
+    }
+
+    // if you are a starter business, it returnss an error that you can't make payment
+    const { status, data } = await payment.paystack.initializeTransfer({ recipientCode: wallet.recipientCode, amount: amountInKobo });
+    if (status !== true) {
+        return { success: false };
+    }
+
+    // deduct amount from user account
+    await prisma.updateWallet({
+        where: { userId },
+        data: {
+            ledgerBalance: wallet.ledgerBalance - amountInKobo,
+            availableBalance: wallet.availableBalance - amountInKobo
+        }
+    });
+
+    return { success: true };
+};
 
 // make payment
 const makePayment = async (graph: any) => {
@@ -165,7 +215,10 @@ const makePayment = async (graph: any) => {
 const transfer = async (graph: any) => {
     const {
         args: { recipientId, amount, message },
-        context: { prisma, userId }
+        context: {
+            prisma,
+            user: { id: userId }
+        }
     } = graph;
 
     let recipient = await prisma.user({ id: recipientId });

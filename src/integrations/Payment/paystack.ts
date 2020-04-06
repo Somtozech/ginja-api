@@ -6,6 +6,8 @@ const PayStack = require('paystack-node');
 const APIKEY = process.env.PAYSTACK_API_KEY;
 const environment = process.env.NODE_ENV;
 
+const PaystackApi = require('paystack-api')(APIKEY);
+
 export default class Paystack {
     private paystack = new PayStack(APIKEY, environment);
 
@@ -73,27 +75,26 @@ export default class Paystack {
 
     public createTransferRecipient = async (params: any): Promise<any> => {
         // TODO add validation
-        const response = await this.paystack.createTransferRecipient({
+
+        const response = await PaystackApi.transfer_recipient.create({
             type: 'nuban',
             name: params.name,
-            description: params.description || '',
-            account_number: params.account,
+            account_number: params.accountNumber,
             bank_code: params.bankCode,
             currency: 'NGN'
         });
 
-        return response.body;
+        return response;
     };
 
     public initializeTransfer = async (params: any): Promise<any> => {
-        const response = await this.paystack.initiateTransfer({
+        const response = await PaystackApi.transfer.create({
             source: 'balance',
             amount: params.amount,
-            recipient: params.recipient,
-            reference: params.reference
+            recipient: params.recipientCode
         });
 
-        return response.body;
+        return response;
     };
 
     // Paystack Package dosen't support verification of transfer

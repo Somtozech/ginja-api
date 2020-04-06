@@ -1,4 +1,4 @@
-import { makePaymentToWarehouser, fundWallet, transfer } from '../../controllers/wallet';
+import { makePaymentToWarehouser, fundWallet, transfer, withdraw } from '../../controllers/wallet';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 const walletQueries = {
@@ -10,7 +10,8 @@ const walletQueries = {
 const walletMutations = {
     makePaymentToWarehouser,
     fundWallet,
-    transfer
+    transfer,
+    withdraw
 };
 
 const walletTypes = {
