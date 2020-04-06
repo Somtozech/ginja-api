@@ -36,7 +36,7 @@ const createWallet = async (graph: any, params: any) => {
             recipientCode: recipient_code,
             owner: {
                 connect: {
-                    id: user.id
+                    id: userId
                 }
             },
             bank: {
