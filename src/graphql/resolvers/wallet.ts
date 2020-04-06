@@ -3,7 +3,7 @@ import { makePaymentToWarehouser, fundWallet, transfer, withdraw } from '../../c
 
 const walletQueries = {
     wallet: (parent: any, args: any, context: any) => {
-        return context.prisma.wallet({ userId: context.userId });
+        return context.prisma.wallet({ userId: context.user.id });
     }
 };
 
