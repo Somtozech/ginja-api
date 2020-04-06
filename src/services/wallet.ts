@@ -91,7 +91,7 @@ const fundWallet = async (graph: any): Promise<any> => {
 };
 
 // withdraw Money from account
-const withdrawFromWallet = async ({ graph, params }: any) => {
+const withdrawFromWallet = async (graph: any): Promise<any> => {
     const {
         args: { amount },
         context: {
@@ -99,6 +99,7 @@ const withdrawFromWallet = async ({ graph, params }: any) => {
             user: { id: userId }
         }
     } = graph;
+
 
     const wallet = await prisma.wallet({ userId });
     if (!wallet) {
