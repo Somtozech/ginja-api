@@ -54,10 +54,7 @@ const createWallet = async (graph: any, params: any) => {
 const fundWallet = async (graph: any): Promise<any> => {
     // verify if payment was successful
     const {
-        args: {
-            reference,
-            user: { id: userId }
-        },
+        args: { reference, userId },
         context: { prisma }
     } = graph;
     const { data, status } = await payment.paystack.verifyTransaction({
@@ -195,7 +192,7 @@ const makePayment = async (graph: any) => {
         };
 
         // create a new transaction for payment
-        await createTransaction({ args: transactionArgs, context: graph.context });
+        // await createTransaction({ args: transactionArgs, context: graph.context });
 
         // update Requisition status
         await changeStatus({ args: { status: 5, id: requisition.id }, context: graph.context });
