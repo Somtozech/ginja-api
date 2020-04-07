@@ -1,6 +1,14 @@
 import express from 'express';
 import adminController from '../../../../controllers/admin/index';
-import authController from '../../../../controllers/admin/auth';
+import loginAuthController from '../../../../controllers/admin/loginAuth';
+
+// Middlewares
+import loginAuth from '../../../../core/middlewares/admin/loginAuth';
+import auth from '../../../../core/middlewares/admin/auth';
+import managementPermit from '../../../../core/middlewares/admin/management';
+import superAdminPermit from '../../../../core/middlewares/admin/superAdmin';
+import supportPermit from '../../../../core/middlewares/admin/support';
+import teamLeadPermit from '../../../../core/middlewares/admin/teamLead';
 
 const router = express.Router();
 
@@ -10,6 +18,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', adminController);
-router.post('/authenticate', authController);
+
+router.post('/authenticate', loginAuth, loginAuthController);
 
 export default router;

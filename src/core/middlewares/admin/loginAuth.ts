@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { prisma } from '../../prisma/generated';
+import { prisma } from '../../prisma/generated/index';
 
 const loginAuth = (req: Request, res: Response, next: NextFunction): any => {
     try {

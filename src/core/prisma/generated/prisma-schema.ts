@@ -13,6 +13,106 @@ type AdminRoleConnection {
   pageInfo: PageInfo!
   edges: [AdminRoleEdge]!
   aggregate: AggregateAdminRole!
+}
+
+input AdminRoleCreateInput {
+  id: ID
+  name: String!
+}
+
+input AdminRoleCreateOneInput {
+  create: AdminRoleCreateInput
+  connect: AdminRoleWhereUniqueInput
+}
+
+type AdminRoleEdge {
+  node: AdminRole!
+  cursor: String!
+}
+
+enum AdminRoleOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type AdminRolePreviousValues {
+  id: ID!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type AdminRoleSubscriptionPayload {
+  mutation: MutationType!
+  node: AdminRole
+  updatedFields: [String!]
+  previousValues: AdminRolePreviousValues
+}
+
+input AdminRoleSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AdminRoleWhereInput
+  AND: [AdminRoleSubscriptionWhereInput!]
+  OR: [AdminRoleSubscriptionWhereInput!]
+  NOT: [AdminRoleSubscriptionWhereInput!]
+}
+
+input AdminRoleUpdateDataInput {
+  name: String
+}
+
+input AdminRoleUpdateInput {
+  name: String
+}
+
+input AdminRoleUpdateManyMutationInput {
+  name: String
+}
+
+input AdminRoleUpdateOneRequiredInput {
+  create: AdminRoleCreateInput
+  update: AdminRoleUpdateDataInput
+  upsert: AdminRoleUpsertNestedInput
+  connect: AdminRoleWhereUniqueInput
+}
+
+input AdminRoleUpsertNestedInput {
+  update: AdminRoleUpdateDataInput!
+  create: AdminRoleCreateInput!
+}
+
+input AdminRoleWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
   name_contains: String
   name_not_contains: String
   name_starts_with: String
@@ -51,6 +151,13 @@ type AdminUser {
   phoneNumber: String!
   email: String!
   password: String!
+  role: AdminRole!
+  roleId: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type AdminUserConnection {
   pageInfo: PageInfo!
   edges: [AdminUserEdge]!
   aggregate: AggregateAdminUser!
@@ -58,11 +165,13 @@ type AdminUser {
 
 input AdminUserCreateInput {
   id: ID
+  firstName: String!
   lastName: String!
   phoneNumber: String!
   email: String!
   password: String!
-  role: RoleCreateOneInput!
+  role: AdminRoleCreateOneInput!
+  roleId: Int!
 }
 
 type AdminUserEdge {
@@ -83,6 +192,8 @@ enum AdminUserOrderByInput {
   email_DESC
   password_ASC
   password_DESC
+  roleId_ASC
+  roleId_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -96,6 +207,7 @@ type AdminUserPreviousValues {
   phoneNumber: String!
   email: String!
   password: String!
+  roleId: Int!
   createdAt: DateTime!
   updatedAt: DateTime
 }
@@ -124,7 +236,8 @@ input AdminUserUpdateInput {
   phoneNumber: String
   email: String
   password: String
-  role: RoleUpdateOneRequiredInput
+  role: AdminRoleUpdateOneRequiredInput
+  roleId: Int
 }
 
 input AdminUserUpdateManyMutationInput {
@@ -133,6 +246,7 @@ input AdminUserUpdateManyMutationInput {
   phoneNumber: String
   email: String
   password: String
+  roleId: Int
 }
 
 input AdminUserWhereInput {
@@ -220,7 +334,15 @@ input AdminUserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
-  role: RoleWhereInput
+  role: AdminRoleWhereInput
+  roleId: Int
+  roleId_not: Int
+  roleId_in: [Int!]
+  roleId_not_in: [Int!]
+  roleId_lt: Int
+  roleId_lte: Int
+  roleId_gt: Int
+  roleId_gte: Int
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -698,7 +820,179 @@ input AmenitiesOptionsWhereInput {
   NOT: [AmenitiesOptionsWhereInput!]
 }
 
+input AmenitiesOptionsWhereUniqueInput {
+  id: ID
+}
+
+type Auth {
+  id: ID!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  phoneNumber: String!
+  pin: String!
+  userId: String
+  user: User!
+}
+
+type AuthConnection {
+  pageInfo: PageInfo!
+  edges: [AuthEdge]!
+  aggregate: AggregateAuth!
+}
+
+input AuthCreateInput {
+  id: ID
+  email: String!
+  phoneNumber: String!
+  pin: String!
+  userId: String
+  user: UserCreateOneInput!
+}
+
+type AuthEdge {
+  node: Auth!
+  cursor: String!
+}
+
+enum AuthOrderByInput {
+  id_ASC
+  id_DESC
+  email_ASC
+  email_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  phoneNumber_ASC
+  phoneNumber_DESC
+  pin_ASC
+  pin_DESC
+  userId_ASC
+  userId_DESC
+}
+
+type AuthPreviousValues {
+  id: ID!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  phoneNumber: String!
+  pin: String!
+  userId: String
+}
+
+type AuthSubscriptionPayload {
+  mutation: MutationType!
+  node: Auth
+  updatedFields: [String!]
+  previousValues: AuthPreviousValues
+}
+
+input AuthSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: AuthWhereInput
+  AND: [AuthSubscriptionWhereInput!]
+  OR: [AuthSubscriptionWhereInput!]
+  NOT: [AuthSubscriptionWhereInput!]
+}
+
+input AuthUpdateInput {
+  email: String
+  phoneNumber: String
+  pin: String
+  userId: String
+  user: UserUpdateOneRequiredInput
+}
+
+input AuthUpdateManyMutationInput {
+  email: String
+  phoneNumber: String
+  pin: String
+  userId: String
+}
+
+input AuthWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  phoneNumber: String
+  phoneNumber_not: String
+  phoneNumber_in: [String!]
+  phoneNumber_not_in: [String!]
+  phoneNumber_lt: String
+  phoneNumber_lte: String
+  phoneNumber_gt: String
+  phoneNumber_gte: String
+  phoneNumber_contains: String
+  phoneNumber_not_contains: String
+  phoneNumber_starts_with: String
+  phoneNumber_not_starts_with: String
+  phoneNumber_ends_with: String
+  phoneNumber_not_ends_with: String
+  pin: String
+  pin_not: String
+  pin_in: [String!]
+  pin_not_in: [String!]
+  pin_lt: String
+  pin_lte: String
+  pin_gt: String
+  pin_gte: String
+  pin_contains: String
+  pin_not_contains: String
+  pin_starts_with: String
+  pin_not_starts_with: String
+  pin_ends_with: String
+  pin_not_ends_with: String
+  userId: String
+  userId_not: String
+  userId_in: [String!]
   userId_not_in: [String!]
+  userId_lt: String
   userId_lte: String
   userId_gt: String
   userId_gte: String

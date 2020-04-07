@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
-import { prisma } from '../../prisma/generated';
+import { prisma } from '../../prisma/generated/index';
 
 const auth = (req: Request, res: Response, next: NextFunction): any => {
     const token = req.header('x-admin-auth');

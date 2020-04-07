@@ -5,6 +5,7 @@ const loginAuthService = async (res: any, data: any): Promise<any> => {
     const { email, password } = data;
     const { locals } = res;
     const { prisma } = locals;
+
     try {
         const [user] = await prisma.adminUsers({
             where: {

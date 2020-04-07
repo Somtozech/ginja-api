@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { NotAuthenticatedError } from '../errors';
 import paystackHash from '../utils/validatePaystack';
-import { prisma } from '../prisma/generated';
+import { prisma } from '../prisma/generated/index';
 
 const handlePaystackAuth = (req: Request, res: Response, next: NextFunction): any => {
     return new Promise((resolve, reject): any => {

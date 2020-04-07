@@ -1,4 +1,4 @@
-import { prisma } from '../generated';
+import { prisma } from '../generated/index';
 
 const seedConfig = {
     numberOfSpaces: 1
