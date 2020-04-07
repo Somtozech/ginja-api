@@ -1,17 +1,6 @@
 import express from 'express';
-
-// Controllers
 import adminController from '../../../../controllers/admin/index';
-import loginAuthController from '../../../../controllers/admin/loginAuth';
-// import firstTimeLaunchController from '../../../../controllers/admin/firstTimeLaunch';
-
-// Middlewares
-import loginAuth from '../../../../core/middlewares/admin/loginAuth';
-import auth from '../../../../core/middlewares/admin/auth';
-import superAdminPermit from '../../../../core/middlewares/admin/superAdmin';
-import managementPermit from '../../../../core/middlewares/admin/management';
-import teamLeadPermit from '../../../../core/middlewares/admin/teamLead';
-import supportPermit from '../../../../core/middlewares/admin/support';
+import authController from '../../../../controllers/admin/auth';
 
 const router = express.Router();
 
@@ -21,13 +10,6 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', adminController);
-
-// POST REQUESTS
-// router.post('/', loginAuth, firstTimeLaunchController);
-router.post('/authenticate', loginAuth, loginAuthController);
-
-// UPDATE REQUESTS
-
-// DELETE REQUESTS
+router.post('/authenticate', authController);
 
 export default router;
