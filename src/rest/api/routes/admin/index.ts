@@ -1,4 +1,6 @@
 import express from 'express';
+
+// Controllers
 import adminController from '../../../../controllers/admin/index';
 import loginAuthController from '../../../../controllers/admin/loginAuth';
 import usersController from '../../../../controllers/admin/users';
@@ -48,6 +50,7 @@ router.get('/statistics/commissions-by-date', [auth, supportPermit], statisticsC
 router.get('/statistics/transactions-by-date', [auth, supportPermit], statisticsController.transactionsByDate);
 
 // POST REQUESTS
+// router.post('/', loginAuth, firstTimeLaunchController);
 router.post('/authenticate', loginAuth, loginAuthController);
 router.post('/admin-users', [auth, superAdminPermit], adminUsersController.createAdmin);
 router.post('/admin-roles', [auth, superAdminPermit], adminRolesController.createRole);
