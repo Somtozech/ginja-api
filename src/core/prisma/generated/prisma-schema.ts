@@ -6349,6 +6349,163 @@ input RatingWhereUniqueInput {
 
 type Referral {
   id: ID!
+  status: Int!
+  refCode: Int!
+  userId: String!
+  referrals(where: GameWhereInput, orderBy: GameOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Game!]
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type ReferralConnection {
+  pageInfo: PageInfo!
+  edges: [ReferralEdge]!
+  aggregate: AggregateReferral!
+}
+
+input ReferralCreateInput {
+  id: ID
+  status: Int!
+  refCode: Int!
+  userId: String!
+  referrals: GameCreateManyInput
+}
+
+type ReferralEdge {
+  node: Referral!
+  cursor: String!
+}
+
+enum ReferralOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  refCode_ASC
+  refCode_DESC
+  userId_ASC
+  userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ReferralPreviousValues {
+  id: ID!
+  status: Int!
+  refCode: Int!
+  userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type ReferralSubscriptionPayload {
+  mutation: MutationType!
+  node: Referral
+  updatedFields: [String!]
+  previousValues: ReferralPreviousValues
+}
+
+input ReferralSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ReferralWhereInput
+  AND: [ReferralSubscriptionWhereInput!]
+  OR: [ReferralSubscriptionWhereInput!]
+  NOT: [ReferralSubscriptionWhereInput!]
+}
+
+input ReferralUpdateInput {
+  status: Int
+  refCode: Int
+  userId: String
+  referrals: GameUpdateManyInput
+}
+
+input ReferralUpdateManyMutationInput {
+  status: Int
+  refCode: Int
+  userId: String
+}
+
+input ReferralWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  refCode: Int
+  refCode_not: Int
+  refCode_in: [Int!]
+  refCode_not_in: [Int!]
+  refCode_lt: Int
+  refCode_lte: Int
+  refCode_gt: Int
+  refCode_gte: Int
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
+  referrals_every: GameWhereInput
+  referrals_some: GameWhereInput
+  referrals_none: GameWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ReferralWhereInput!]
+  OR: [ReferralWhereInput!]
+  NOT: [ReferralWhereInput!]
+}
+
+input ReferralWhereUniqueInput {
+  id: ID
+}
+
+type Referral {
+  id: ID!
   status: Boolean!
   refCode: Int!
   userId: String!
