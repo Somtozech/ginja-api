@@ -103,8 +103,8 @@ const withdrawFromWallet = async (graph: any): Promise<any> => {
         }
     } = graph;
 
-
     const wallet = await prisma.wallet({ userId });
+
     if (!wallet) {
         return { success: false };
     }
