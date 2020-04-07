@@ -573,25 +573,6 @@ type AuthPayload {
     user: User!
 }
 
-type Wallet {
-    id: ID!
-    userId: String!
-    owner: User!
-    availableBalance: Int!
-    ledgerBalance: Int!
-    transactions: [Transaction]!
-    bank: Bank!
-}
-
-type Transaction {
-    id: ID!
-    type: String!
-    to: User!
-    user: User!
-    amount: Int!
-    description: String
-}
-
 type PaymentStatus {
     success: Boolean!
 }

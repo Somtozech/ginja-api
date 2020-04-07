@@ -12,6 +12,7 @@ import { miscTypes, miscQueries } from './misc';
 import { ratingMutations } from './rating';
 import { walletMutations, walletQueries, walletTypes } from './wallet';
 import { chatMutations, chatQueries, chatSubscriptions, chatTypes } from './chats';
+import { TransactionTypes } from './transaction';
 
 const resolvers = {
     Query: {
@@ -59,7 +60,8 @@ const resolvers = {
     ...stockTypes,
     ...walletTypes,
     ...paymentTypes,
-    ...chatTypes
+    ...chatTypes,
+    ...TransactionTypes
 };
 
 export default resolvers;
