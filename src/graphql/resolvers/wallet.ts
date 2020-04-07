@@ -21,7 +21,11 @@ const walletTypes = {
         owner: (parent: any, args: any, context: any) => context.prisma.wallet({ id: parent.id }).owner(),
         availableBalance: (parent: any) => parent.availableBalance,
         ledgerBalance: (parent: any) => parent.ledgerBalance,
-        transactions: (parent: any, args: any, context: any) => context.prisma.wallet({ id: parent.id }).transactions(),
+        transactions: (parent: any, args: any, context: any) => {
+            return context.prisma.transactions({
+                where: { userId: parent.userId }
+            });
+        },
         bank: (parent: any, args: any, context: any) => context.prisma.wallet({ id: parent.id }).bank()
     }
 };

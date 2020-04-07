@@ -8713,13 +8713,14 @@ input SuccessWhereUniqueInput {
 
 type Transaction {
   id: ID!
-  type: String!
+  type: Int!
+  userId: String!
   to: User!
   user: User!
   description: String
   status: Int!
   amount: Float!
-  fees: Int!
+  fees: Float!
   createdAt: DateTime!
   updatedAt: DateTime
 }
@@ -8732,13 +8733,14 @@ type TransactionConnection {
 
 input TransactionCreateInput {
   id: ID
-  type: String!
+  type: Int!
+  userId: String!
   to: UserCreateOneInput!
   user: UserCreateOneInput!
   description: String
   status: Int!
   amount: Float!
-  fees: Int!
+  fees: Float!
 }
 
 input TransactionCreateManyInput {
@@ -8756,6 +8758,8 @@ enum TransactionOrderByInput {
   id_DESC
   type_ASC
   type_DESC
+  userId_ASC
+  userId_DESC
   description_ASC
   description_DESC
   status_ASC
@@ -8772,11 +8776,12 @@ enum TransactionOrderByInput {
 
 type TransactionPreviousValues {
   id: ID!
-  type: String!
+  type: Int!
+  userId: String!
   description: String
   status: Int!
   amount: Float!
-  fees: Int!
+  fees: Float!
   createdAt: DateTime!
   updatedAt: DateTime
 }
@@ -8796,20 +8801,28 @@ input TransactionScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  type: Int
+  type_not: Int
+  type_in: [Int!]
+  type_not_in: [Int!]
+  type_lt: Int
+  type_lte: Int
+  type_gt: Int
+  type_gte: Int
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
   description: String
   description_not: String
   description_in: [String!]
@@ -8840,14 +8853,14 @@ input TransactionScalarWhereInput {
   amount_lte: Float
   amount_gt: Float
   amount_gte: Float
-  fees: Int
-  fees_not: Int
-  fees_in: [Int!]
-  fees_not_in: [Int!]
-  fees_lt: Int
-  fees_lte: Int
-  fees_gt: Int
-  fees_gte: Int
+  fees: Float
+  fees_not: Float
+  fees_in: [Float!]
+  fees_not_in: [Float!]
+  fees_lt: Float
+  fees_lte: Float
+  fees_gt: Float
+  fees_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -8888,31 +8901,34 @@ input TransactionSubscriptionWhereInput {
 }
 
 input TransactionUpdateDataInput {
-  type: String
+  type: Int
+  userId: String
   to: UserUpdateOneRequiredInput
   user: UserUpdateOneRequiredInput
   description: String
   status: Int
   amount: Float
-  fees: Int
+  fees: Float
 }
 
 input TransactionUpdateInput {
-  type: String
+  type: Int
+  userId: String
   to: UserUpdateOneRequiredInput
   user: UserUpdateOneRequiredInput
   description: String
   status: Int
   amount: Float
-  fees: Int
+  fees: Float
 }
 
 input TransactionUpdateManyDataInput {
-  type: String
+  type: Int
+  userId: String
   description: String
   status: Int
   amount: Float
-  fees: Int
+  fees: Float
 }
 
 input TransactionUpdateManyInput {
@@ -8928,11 +8944,12 @@ input TransactionUpdateManyInput {
 }
 
 input TransactionUpdateManyMutationInput {
-  type: String
+  type: Int
+  userId: String
   description: String
   status: Int
   amount: Float
-  fees: Int
+  fees: Float
 }
 
 input TransactionUpdateManyWithWhereNestedInput {
@@ -8966,20 +8983,28 @@ input TransactionWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
+  type: Int
+  type_not: Int
+  type_in: [Int!]
+  type_not_in: [Int!]
+  type_lt: Int
+  type_lte: Int
+  type_gt: Int
+  type_gte: Int
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
   to: UserWhereInput
   user: UserWhereInput
   description: String
@@ -9012,14 +9037,14 @@ input TransactionWhereInput {
   amount_lte: Float
   amount_gt: Float
   amount_gte: Float
-  fees: Int
-  fees_not: Int
-  fees_in: [Int!]
-  fees_not_in: [Int!]
-  fees_lt: Int
-  fees_lte: Int
-  fees_gt: Int
-  fees_gte: Int
+  fees: Float
+  fees_not: Float
+  fees_in: [Float!]
+  fees_not_in: [Float!]
+  fees_lt: Float
+  fees_lte: Float
+  fees_gt: Float
+  fees_gte: Float
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]

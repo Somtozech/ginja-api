@@ -365,13 +365,14 @@ type Wallet {
 
 type Transaction {
     id:ID!  @id @unique
-    type: String!
+    type: Int!
+    userId: String!
     to: User! @relation(name:"MerchantUser")
     user: User! @relation(name:"WarehouserUser")
     description: String @default(value: "")
     status: Int!
     amount: Float!
-    fees: Int!
+    fees: Float!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt
 }

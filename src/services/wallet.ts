@@ -62,7 +62,18 @@ const fundWallet = async (graph: any): Promise<any> => {
         reference: `${reference}`
     });
 
+    const transactionArgs = {
+        to: userId,
+        user: userId,
+        amount: data.amount,
+        userId,
+        type: 1,
+        description: 'Top up',
+        status: 2
+    };
+
     if (status !== true) {
+        await createTransaction({ args: { ...transactionArgs, status: 1 }, context: graph.context });
         return { success: false };
     }
 
@@ -77,15 +88,7 @@ const fundWallet = async (graph: any): Promise<any> => {
 
     await prisma.updateWallet({ where: { ...filter }, data: { ...updateData } });
 
-    //TODO create transactions
-    // // create a transaction
-    // await createTransaction({
-    //     from: userId,
-    //     to: user.id,
-    //     amount: data.amount,
-    //     type: 'payment',
-    //     description: ''
-    // });
+    await createTransaction({ args: transactionArgs, context: graph.context });
 
     return { id: reference, success: true };
 };
@@ -100,15 +103,26 @@ const withdrawFromWallet = async (graph: any): Promise<any> => {
         }
     } = graph;
 
-
     const wallet = await prisma.wallet({ userId });
+
     if (!wallet) {
         return { success: false };
     }
 
     const amountInKobo = amount * 100;
 
+    const transactionArgs = {
+        to: userId,
+        user: userId,
+        amount: amountInKobo,
+        userId,
+        type: 2,
+        description: 'Withdrawal',
+        status: 2
+    };
+
     if (wallet.ledgerBalance < amountInKobo) {
+        await createTransaction({ args: { ...transactionArgs, status: 1 }, context: graph.context });
         return { success: false };
     }
 
@@ -126,6 +140,8 @@ const withdrawFromWallet = async (graph: any): Promise<any> => {
             availableBalance: wallet.availableBalance - amountInKobo
         }
     });
+
+    await createTransaction({ args: transactionArgs, context: graph.context });
 
     return { success: true };
 };
@@ -159,8 +175,18 @@ const makePayment = async (graph: any) => {
 
         merchant.ledgerBalance = merchant.ledgerBalance ? merchant.ledgerBalance : 0;
 
+        const transactionArgs = {
+            to: warehouser.id,
+            user: user.id,
+            amount: amountInKobo,
+            userId: user.id,
+            type: 2,
+            description: 'Rent Payment'
+        };
+
         // if amount in wallet less than payable amount
         if (!merchant || merchant.ledgerBalance < amountInKobo) {
+            await createTransaction({ args: { ...transactionArgs, status: 1 }, context: graph.context });
             return { success: false };
         }
 
@@ -185,16 +211,14 @@ const makePayment = async (graph: any) => {
             }
         });
 
-        const transactionArgs = {
-            to: warehouser.id,
-            user: user.id,
-            amount: amountInKobo,
-            type: 'payment',
-            description: ''
-        };
+        // create a new transaction for payment for merchant
+        await createTransaction({ args: transactionArgs, context: graph.context });
 
-        // create a new transaction for payment
-        // await createTransaction({ args: transactionArgs, context: graph.context });
+        // create a new transaction for warehouser
+        await createTransaction({
+            args: { ...transactionArgs, userId: warehouser.id, type: 1, description: 'New Rent' },
+            context: graph.context
+        });
 
         // update Requisition status
         await changeStatus({ args: { status: 5, id: requisition.id }, context: graph.context });
@@ -225,9 +249,19 @@ const transfer = async (graph: any) => {
 
     const amountInKobo = amount * 100;
 
+    const transactionArgs = {
+        to: recipientId,
+        user: userId,
+        amount: amountInKobo,
+        userId,
+        type: 2,
+        description: 'Transfer'
+    };
+
     const senderWallet = await prisma.wallet({ userId });
 
     if (senderWallet.ledgerBalance < amountInKobo) {
+        await createTransaction({ args: { ...transactionArgs, status: 1 } });
         return { success: false };
     }
     const recipientWallet = await prisma.wallet({ userId: recipientId });
@@ -248,6 +282,15 @@ const transfer = async (graph: any) => {
             ledgerBalance: recipientWallet.ledgerBalance + amountInKobo,
             availableBalance: recipientWallet.availableBalance + amountInKobo
         }
+    });
+
+    // create transaction for sender
+    await createTransaction({ args: transactionArgs, context: graph.context });
+
+    // create transaction for recipient
+    await createTransaction({
+        args: { ...transactionArgs, userId: recipientId, type: 2, description: 'Money Received' },
+        context: graph.context
     });
 
     return {
