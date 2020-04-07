@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import loginAuthService from '../../services/loginAuthService';
+import loginAuthService from '../../services/admin/loginAuthService';
 
 const loginAuthController: any = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
