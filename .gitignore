@@ -20,6 +20,8 @@ node_modules
 package-lock.json
 *.log
 *.gz
+src/core/prisma/generated/
+
 
 
 # Coveralls
