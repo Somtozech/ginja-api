@@ -1,7 +1,9 @@
+/* eslint-disable no-param-reassign */
 import fs from 'fs';
 import path from 'path';
 import jwt, { NotBeforeError, TokenExpiredError } from 'jsonwebtoken';
 import { NotAuthenticatedError, BadRequestError } from '../errors';
+import logger from '../utils/logger';
 
 const verifyToken = async (resolve: any, parent: any, args: any, context: any, info: any): Promise<any> => {
     const verifyOptions = {
@@ -25,8 +27,20 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
                 publicKey = fs.readFileSync(dir);
             }
             const { userId }: any = jwt.verify(token, publicKey, verifyOptions) || {};
-            console.log(`1. logInput: ${JSON.stringify(args)}`);
-            context.userId = userId;
+            console.log(userId);
+            // eslint-disable-next-line no-param-reassign
+            const user = await context.prisma.user({
+                id: userId
+            });
+            const userOrganization = await context.prisma
+                .user({
+                    id: userId
+                })
+                .type();
+            context.user = user;
+            context.role = userOrganization;
+
+            logger.info(`1. logInput: ${JSON.stringify(args)}`);
         } else {
             throw new NotAuthenticatedError('Not authenticated');
         }

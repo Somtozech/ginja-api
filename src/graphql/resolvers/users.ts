@@ -14,7 +14,9 @@ const userTypes = {
         email: (parent: any) => parent.email,
         phoneNumber: (parent: any) => parent.phoneNumber,
         dob: (parent: any) => parent.dob,
-        terms: (parent: any) => parent.terms
+        terms: (parent: any) => parent.terms,
+        type: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).type(),
+        bank: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).bank()
     }
 };
 

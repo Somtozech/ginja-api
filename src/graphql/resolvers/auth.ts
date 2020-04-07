@@ -1,4 +1,4 @@
-import { signUp, login, acceptTerms } from '../controllers/auth';
+import { signUp, login, acceptTerms } from '../../controllers/auth';
 
 const authQueries = {
     auths: (root: any, args: any, context: any, info: any) => {
@@ -18,7 +18,7 @@ const authTypes = {
         email: (parent: any) => parent.email,
         phoneNumber: (parent: any) => parent.phoneNumber,
         pin: (parent: any) => parent.pin,
-        userId: (parent: any) => parent.pin,
+        userId: (parent: any) => parent.userId,
         user: (parent: any, args: any, context: any) => context.prisma.auth({ id: parent.id }).user()
     }
 };

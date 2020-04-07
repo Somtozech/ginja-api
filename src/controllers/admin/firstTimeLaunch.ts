@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import firstTimeLaunchService from '../../services/firstTimeLaunch';
+import firstTimeLaunchService from '../../services/admin/firstTimeLaunch';
 
 const firstTimeLaunchController: any = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {

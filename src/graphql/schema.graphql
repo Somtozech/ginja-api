@@ -5,6 +5,7 @@ type Query {
     users: [User!]!
     listings(filter: String, user: String, location: LocationsInput, skip: Int, first: Int): [Listing]
     banks: [Bank!]!
+    payments: [Payment]
     auths: [Auth!]!
     roles: [Role!]!
     listingProducts: [ListingProducts]
@@ -55,10 +56,10 @@ type Mutation {
     addListing(
         user: String!
         name: String!
-        slug: String!
         description: String!
         price: Float!
         discount: Int
+        slug: String!
         currency: String!
         proofOfOwnership: String!
         identification: WarehouserIdentification!
@@ -93,7 +94,8 @@ type Mutation {
 
     createStock(type: Int!, products: [StockProductInput!]!, requisition: String!): Success!
     createDispatch(id: String!, dispatch: StockDispatchInput!): Success!
-
+    initializePayment(requisitionId: String!, amount: Float!, email: String!, currency: String): PaymentResponse!
+    verifyPayment(transactionRef: String!): PaymentResponse!
     generateOtp(phoneNumber: String!): Otp!
     validateOtp(otp: String!, phoneNumber: String!): Success!
     login(pin: String!, phoneNumber: String!): AuthPayload!
@@ -471,7 +473,8 @@ type User {
     phoneNumber: String!
     dob: String!
     terms: Boolean
-    type: String!
+    type: OrganizationType!
+    bank: Bank
 }
 
 type Success {
@@ -505,7 +508,7 @@ type Auth {
     email: String!
     phoneNumber: String!
     pin: String!
-    userId: String!
+    userId: String
     user: User!
 }
 
@@ -527,6 +530,37 @@ type Bank {
     accountName: String!
     bankName: String!
     bankCode: String!
+}
+
+type PaymentResponse {
+    status: Boolean
+    amount: Float
+    transactionRef: String
+    accessCode: String
+    authorizationUrl: String
+}
+
+type Payment {
+    id: ID!
+    email: String!
+    createdAt: String!
+    updatedAt: String
+    amount: Float!
+    requisition: Requisition!
+    status: Int!
+    currency: String!
+    channel: String
+    customer: PaymentCustomer
+    info: String!
+}
+
+type PaymentCustomer {
+    id: ID!
+    paystackId: String
+    customerCode: String
+    firstName: String
+    lastName: String
+    email: String
 }
 
 type AuthPayload {

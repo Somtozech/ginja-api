@@ -50,7 +50,11 @@ const getChatMessages = async (graph: any) => {
 
 const createMessage = async (graph: any) => {
     const {
-        context: { prisma, userId, pubsub },
+        context: {
+            prisma,
+            user: { id },
+            pubsub
+        },
         args: { chatId, text }
     } = graph;
 
@@ -58,7 +62,7 @@ const createMessage = async (graph: any) => {
         chatId,
         from: {
             connect: {
-                id: userId
+                id
             }
         },
         text

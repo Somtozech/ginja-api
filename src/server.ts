@@ -73,7 +73,7 @@ app.use((err: any, req: express.Request, res: express.Response, _next: express.N
 });
 
 const options = {
-    port: 9700,
+    port: process.env.SERVER_GQL_PORT || 9700,
     endpoint: '/api',
     subscriptions: '/subscriptions',
     playground: '/playground'

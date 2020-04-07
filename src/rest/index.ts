@@ -12,8 +12,8 @@ import cors from 'cors';
 import compression from 'compression';
 
 import indexRouter from './api/routes/index';
+import webhooksRouter from './api/routes/webhooks/index';
 import adminRouter from './api/routes/admin/index';
-// import webhooksRouter from './api/routes/webhooks/index';
 
 import handleErrors from '../core/middlewares/handleErrors';
 
@@ -44,6 +44,11 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
 
 // Page Routes
 app.use('/', indexRouter);
+
+// Webhooks Routes
+app.use('/api/webhooks', webhooksRouter);
+
+// Admin Routes
 app.use('/api/admin', adminRouter);
 
 // Webhooks Routes

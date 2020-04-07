@@ -1,4 +1,4 @@
-import { makePaymentToWarehouser, fundWallet } from '../controllers/wallet';
+import { makePaymentToWarehouser, fundWallet } from '../../controllers/wallet';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 const walletQueries = {};
