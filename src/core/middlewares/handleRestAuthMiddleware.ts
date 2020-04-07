@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { NotAuthenticatedError } from '../errors';
-import { prisma } from '../prisma/generated';
+import { prisma } from '../prisma/generated/index';
 
 const handleRestAuth = (req: Request, res: Response, next: NextFunction): any => {
     return new Promise((resolve, reject): any => {

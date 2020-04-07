@@ -3,7 +3,7 @@ import { GraphQLServer } from 'graphql-yoga';
 import resolvers from './resolvers';
 import permissions from './protected';
 import logger from './logger';
-import { prisma } from '../core/prisma/generated';
+import { prisma } from '../core/prisma/generated/index';
 
 import pubsub from '../core/prisma/pubsub';
 
