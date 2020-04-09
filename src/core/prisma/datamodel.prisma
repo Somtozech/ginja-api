@@ -418,12 +418,16 @@ type PaymentCustomer {
 
 type Referral {
     id: ID!  @id @unique
-    status: Int!
+    status: Boolean!
     refCode: Int!
     userId: String!
-    referrals: [Game]
+    crown: Crown!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
+    startDate: DateTime! 
+    endDate: DateTime!
+    boost: Float!
+    rollover:Float!
 }
 
 type Crown {
@@ -433,11 +437,14 @@ type Crown {
     bonus: Int!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
+    compensationCount: Float!
+    compensationBonus: Float!
 }
 
 type Game {
     id: ID!  @id @unique
-    crown: Crown!
+    referralId: String!
+    userId: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
 }

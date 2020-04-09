@@ -48,6 +48,8 @@ const login = async (parent: any, args: UserModel, context: any): Promise<any> =
 
     const { id, pin, userId } = (await authService.checkAuth({ parent, args, context }, { phoneNumber })) || {};
 
+    console.log('In Auth');
+    console.log(id, pin, userId);
     if (!id) {
         throw new Error('Invalid username/password');
     }

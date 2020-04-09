@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
+import { withFilter } from 'graphql-yoga';
 import { addMessage, chatMessages, chats } from '../../controllers/chat';
 
 const chatQueries = {
@@ -39,10 +40,16 @@ const chatTypes = {
 
 const chatSubscriptions = {
     message: {
-        subscribe: (parent: any, args: any, context: any, info: any) => {
-            const { pubsub } = context;
-            return pubsub.asyncIterator(['NEW_MESSAGE']);
-        }
+        subscribe: withFilter(
+            (parent: any, args: any, context: any, info: any) => {
+                const { pubsub } = context;
+                console.log('In PUBSUB');
+                return pubsub.asyncIterator(['NEW_MESSAGE']);
+            },
+            (payload: any, variables: any) => {
+                return payload.message.chatId === variables.chatId;
+            }
+        )
     }
 };
 
