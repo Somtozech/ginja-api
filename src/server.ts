@@ -18,6 +18,9 @@ import graphServer from './graphql';
 // Middlewares
 import handleErrors from './core/middlewares/handleErrors';
 
+// websocket connection
+import validateWebSocketToken from './core/middlewares/validateWebSocketToken';
+
 const app = express();
 
 // Resolve CORS
@@ -75,7 +78,23 @@ app.use((err: any, req: express.Request, res: express.Response, _next: express.N
 const options = {
     port: process.env.SERVER_GQL_PORT || 9700,
     endpoint: '/api',
-    subscriptions: '/subscriptions',
+    subscriptions: {
+        path: '/subscriptions',
+        onConnect: async (connectionParams, websocket) => {
+            if (connectionParams.Authorization) {
+                const user = await validateWebSocketToken(connectionParams.Authorization);
+
+                return {
+                    user
+                };
+            }
+
+            throw new Error('Missing auth token!');
+        }
+        // onDisconnect: () => {
+        //     console.log('Subscriptions connection not successful');
+        // }
+    },
     playground: '/playground'
 };
 

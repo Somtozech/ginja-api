@@ -19,6 +19,13 @@ const graphServer = new GraphQLServer({
     resolvers,
     middlewares: [permissions, logger],
     context: (request: any) => {
+        if (request.connection) {
+            return {
+                ...request.connection.context,
+                prisma,
+                pubsub
+            };
+        }
         return {
             ...request,
             prisma,

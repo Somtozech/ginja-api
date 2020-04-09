@@ -46,8 +46,9 @@ const chatSubscriptions = {
                 console.log('In PUBSUB');
                 return pubsub.asyncIterator(['NEW_MESSAGE']);
             },
-            (payload: any, variables: any) => {
-                return payload.message.chatId === variables.chatId;
+            (payload: any, variables: any, context: any) => {
+                const { user } = context;
+                return payload.message.chatId === variables.chatId && user.id !== payload.message.from.id;
             }
         )
     }
