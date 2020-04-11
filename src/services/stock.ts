@@ -103,30 +103,30 @@ const stocks = async (graph: any) => {
 
     const filterByMerchant = merchant
         ? {
-            requisition: {
-                user: {
-                    id: merchant
-                }
-            }
-        }
+              requisition: {
+                  user: {
+                      id: merchant
+                  }
+              }
+          }
         : {};
 
     const filterByWarehouser = warehouser
         ? {
-            requisition: {
-                listing: {
-                    user: {
-                        id: warehouser
-                    }
-                }
-            }
-        }
+              requisition: {
+                  listing: {
+                      user: {
+                          id: warehouser
+                      }
+                  }
+              }
+          }
         : {};
 
     const filterByStatus = status
         ? {
-            status
-        }
+              status
+          }
         : {};
 
     const where =

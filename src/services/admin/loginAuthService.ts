@@ -32,7 +32,7 @@ const loginAuthService = async (res: any, data: any): Promise<any> => {
                 process.env.JWT_SECRETE
             );
             res.header('x-admin-auth', token);
-            return {
+            return res.json({
                 success: true,
                 error: false,
                 message: 'Authentication Successful!',
@@ -41,7 +41,7 @@ const loginAuthService = async (res: any, data: any): Promise<any> => {
                     token,
                     roleId: user.roleId
                 }
-            };
+            });
         }
         return res.status(400).json({
             success: false,

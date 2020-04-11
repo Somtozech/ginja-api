@@ -1,13 +1,15 @@
 type User {
     id: ID!  @id @unique
+    type: OrganizationType!
+    bank: Bank!
     firstName: String!
     lastName: String!
+    device: Int
     email: String!
     phoneNumber: String!
     dob: String!
+    status: Int!
     terms: Boolean
-    bank: Bank!
-    type: OrganizationType!
 }
 
 type SpacesOptions {
@@ -246,7 +248,6 @@ type OrganizationType {
     name: String  @unique
 }
 
-
 type Auth {
     id: ID!  @id @unique
     email: String!  @unique
@@ -316,7 +317,7 @@ type Stock {
 	dispatch: StockDispatch
     requisition: Requisition!
 }
-
+ 
 type StockDispatch {
     id: ID!  @id @unique
     pickupAgentName:String
