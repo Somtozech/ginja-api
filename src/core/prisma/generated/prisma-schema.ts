@@ -549,6 +549,10 @@ type AggregateUserOrganizationRole {
   count: Int!
 }
 
+type AggregateUserStatus {
+  count: Int!
+}
+
 type AggregateValueAddedServices {
   count: Int!
 }
@@ -1489,6 +1493,8 @@ type Crown {
   bonus: Int!
   createdAt: DateTime!
   updatedAt: DateTime
+  compensationCount: Float!
+  compensationBonus: Float!
 }
 
 type CrownConnection {
@@ -1502,6 +1508,8 @@ input CrownCreateInput {
   requiredReferrals: Int!
   noOfDays: Int!
   bonus: Int!
+  compensationCount: Float!
+  compensationBonus: Float!
 }
 
 input CrownCreateOneInput {
@@ -1527,6 +1535,10 @@ enum CrownOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  compensationCount_ASC
+  compensationCount_DESC
+  compensationBonus_ASC
+  compensationBonus_DESC
 }
 
 type CrownPreviousValues {
@@ -1536,6 +1548,8 @@ type CrownPreviousValues {
   bonus: Int!
   createdAt: DateTime!
   updatedAt: DateTime
+  compensationCount: Float!
+  compensationBonus: Float!
 }
 
 type CrownSubscriptionPayload {
@@ -1560,18 +1574,24 @@ input CrownUpdateDataInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  compensationCount: Float
+  compensationBonus: Float
 }
 
 input CrownUpdateInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  compensationCount: Float
+  compensationBonus: Float
 }
 
 input CrownUpdateManyMutationInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  compensationCount: Float
+  compensationBonus: Float
 }
 
 input CrownUpdateOneRequiredInput {
@@ -1641,6 +1661,22 @@ input CrownWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+  compensationCount: Float
+  compensationCount_not: Float
+  compensationCount_in: [Float!]
+  compensationCount_not_in: [Float!]
+  compensationCount_lt: Float
+  compensationCount_lte: Float
+  compensationCount_gt: Float
+  compensationCount_gte: Float
+  compensationBonus: Float
+  compensationBonus_not: Float
+  compensationBonus_in: [Float!]
+  compensationBonus_not_in: [Float!]
+  compensationBonus_lt: Float
+  compensationBonus_lte: Float
+  compensationBonus_gt: Float
+  compensationBonus_gte: Float
   AND: [CrownWhereInput!]
   OR: [CrownWhereInput!]
   NOT: [CrownWhereInput!]
@@ -2055,7 +2091,8 @@ input FloorsOptionsWhereUniqueInput {
 
 type Game {
   id: ID!
-  crown: Crown!
+  referralId: String!
+  userId: String!
   createdAt: DateTime!
   updatedAt: DateTime
 }
@@ -2068,12 +2105,8 @@ type GameConnection {
 
 input GameCreateInput {
   id: ID
-  crown: CrownCreateOneInput!
-}
-
-input GameCreateManyInput {
-  create: [GameCreateInput!]
-  connect: [GameWhereUniqueInput!]
+  referralId: String!
+  userId: String!
 }
 
 type GameEdge {
@@ -2084,6 +2117,10 @@ type GameEdge {
 enum GameOrderByInput {
   id_ASC
   id_DESC
+  referralId_ASC
+  referralId_DESC
+  userId_ASC
+  userId_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -2092,44 +2129,10 @@ enum GameOrderByInput {
 
 type GamePreviousValues {
   id: ID!
+  referralId: String!
+  userId: String!
   createdAt: DateTime!
   updatedAt: DateTime
-}
-
-input GameScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  createdAt: DateTime
-  createdAt_not: DateTime
-  createdAt_in: [DateTime!]
-  createdAt_not_in: [DateTime!]
-  createdAt_lt: DateTime
-  createdAt_lte: DateTime
-  createdAt_gt: DateTime
-  createdAt_gte: DateTime
-  updatedAt: DateTime
-  updatedAt_not: DateTime
-  updatedAt_in: [DateTime!]
-  updatedAt_not_in: [DateTime!]
-  updatedAt_lt: DateTime
-  updatedAt_lte: DateTime
-  updatedAt_gt: DateTime
-  updatedAt_gte: DateTime
-  AND: [GameScalarWhereInput!]
-  OR: [GameScalarWhereInput!]
-  NOT: [GameScalarWhereInput!]
 }
 
 type GameSubscriptionPayload {
@@ -2150,34 +2153,14 @@ input GameSubscriptionWhereInput {
   NOT: [GameSubscriptionWhereInput!]
 }
 
-input GameUpdateDataInput {
-  crown: CrownUpdateOneRequiredInput
-}
-
 input GameUpdateInput {
-  crown: CrownUpdateOneRequiredInput
+  referralId: String
+  userId: String
 }
 
-input GameUpdateManyInput {
-  create: [GameCreateInput!]
-  update: [GameUpdateWithWhereUniqueNestedInput!]
-  upsert: [GameUpsertWithWhereUniqueNestedInput!]
-  delete: [GameWhereUniqueInput!]
-  connect: [GameWhereUniqueInput!]
-  set: [GameWhereUniqueInput!]
-  disconnect: [GameWhereUniqueInput!]
-  deleteMany: [GameScalarWhereInput!]
-}
-
-input GameUpdateWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput!
-  data: GameUpdateDataInput!
-}
-
-input GameUpsertWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput!
-  update: GameUpdateDataInput!
-  create: GameCreateInput!
+input GameUpdateManyMutationInput {
+  referralId: String
+  userId: String
 }
 
 input GameWhereInput {
@@ -2195,7 +2178,34 @@ input GameWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  crown: CrownWhereInput
+  referralId: String
+  referralId_not: String
+  referralId_in: [String!]
+  referralId_not_in: [String!]
+  referralId_lt: String
+  referralId_lte: String
+  referralId_gt: String
+  referralId_gte: String
+  referralId_contains: String
+  referralId_not_contains: String
+  referralId_starts_with: String
+  referralId_not_starts_with: String
+  referralId_ends_with: String
+  referralId_not_ends_with: String
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -4617,6 +4627,7 @@ type Mutation {
   deleteManyFloorsOptionses(where: FloorsOptionsWhereInput): BatchPayload!
   createGame(data: GameCreateInput!): Game!
   updateGame(data: GameUpdateInput!, where: GameWhereUniqueInput!): Game
+  updateManyGames(data: GameUpdateManyMutationInput!, where: GameWhereInput): BatchPayload!
   upsertGame(where: GameWhereUniqueInput!, create: GameCreateInput!, update: GameUpdateInput!): Game!
   deleteGame(where: GameWhereUniqueInput!): Game
   deleteManyGames(where: GameWhereInput): BatchPayload!
@@ -4823,6 +4834,12 @@ type Mutation {
   upsertUserOrganizationRole(where: UserOrganizationRoleWhereUniqueInput!, create: UserOrganizationRoleCreateInput!, update: UserOrganizationRoleUpdateInput!): UserOrganizationRole!
   deleteUserOrganizationRole(where: UserOrganizationRoleWhereUniqueInput!): UserOrganizationRole
   deleteManyUserOrganizationRoles(where: UserOrganizationRoleWhereInput): BatchPayload!
+  createUserStatus(data: UserStatusCreateInput!): UserStatus!
+  updateUserStatus(data: UserStatusUpdateInput!, where: UserStatusWhereUniqueInput!): UserStatus
+  updateManyUserStatuses(data: UserStatusUpdateManyMutationInput!, where: UserStatusWhereInput): BatchPayload!
+  upsertUserStatus(where: UserStatusWhereUniqueInput!, create: UserStatusCreateInput!, update: UserStatusUpdateInput!): UserStatus!
+  deleteUserStatus(where: UserStatusWhereUniqueInput!): UserStatus
+  deleteManyUserStatuses(where: UserStatusWhereInput): BatchPayload!
   createValueAddedServices(data: ValueAddedServicesCreateInput!): ValueAddedServices!
   updateValueAddedServices(data: ValueAddedServicesUpdateInput!, where: ValueAddedServicesWhereUniqueInput!): ValueAddedServices
   updateManyValueAddedServiceses(data: ValueAddedServicesUpdateManyMutationInput!, where: ValueAddedServicesWhereInput): BatchPayload!
@@ -6158,6 +6175,9 @@ type Query {
   userOrganizationRole(where: UserOrganizationRoleWhereUniqueInput!): UserOrganizationRole
   userOrganizationRoles(where: UserOrganizationRoleWhereInput, orderBy: UserOrganizationRoleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [UserOrganizationRole]!
   userOrganizationRolesConnection(where: UserOrganizationRoleWhereInput, orderBy: UserOrganizationRoleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserOrganizationRoleConnection!
+  userStatus(where: UserStatusWhereUniqueInput!): UserStatus
+  userStatuses(where: UserStatusWhereInput, orderBy: UserStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [UserStatus]!
+  userStatusesConnection(where: UserStatusWhereInput, orderBy: UserStatusOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserStatusConnection!
   valueAddedServices(where: ValueAddedServicesWhereUniqueInput!): ValueAddedServices
   valueAddedServiceses(where: ValueAddedServicesWhereInput, orderBy: ValueAddedServicesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ValueAddedServices]!
   valueAddedServicesesConnection(where: ValueAddedServicesWhereInput, orderBy: ValueAddedServicesOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ValueAddedServicesConnection!
@@ -6329,12 +6349,16 @@ input RatingWhereUniqueInput {
 
 type Referral {
   id: ID!
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
-  referrals(where: GameWhereInput, orderBy: GameOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Game!]
+  crown: Crown!
   createdAt: DateTime!
   updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralConnection {
@@ -6345,10 +6369,14 @@ type ReferralConnection {
 
 input ReferralCreateInput {
   id: ID
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
-  referrals: GameCreateManyInput
+  crown: CrownCreateOneInput!
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralEdge {
@@ -6369,15 +6397,27 @@ enum ReferralOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  startDate_ASC
+  startDate_DESC
+  endDate_ASC
+  endDate_DESC
+  boost_ASC
+  boost_DESC
+  rollover_ASC
+  rollover_DESC
 }
 
 type ReferralPreviousValues {
   id: ID!
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
   createdAt: DateTime!
   updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralSubscriptionPayload {
@@ -6399,16 +6439,24 @@ input ReferralSubscriptionWhereInput {
 }
 
 input ReferralUpdateInput {
-  status: Int
+  status: Boolean
   refCode: Int
   userId: String
-  referrals: GameUpdateManyInput
+  crown: CrownUpdateOneRequiredInput
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
 }
 
 input ReferralUpdateManyMutationInput {
-  status: Int
+  status: Boolean
   refCode: Int
   userId: String
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
 }
 
 input ReferralWhereInput {
@@ -6426,14 +6474,8 @@ input ReferralWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  status: Int
-  status_not: Int
-  status_in: [Int!]
-  status_not_in: [Int!]
-  status_lt: Int
-  status_lte: Int
-  status_gt: Int
-  status_gte: Int
+  status: Boolean
+  status_not: Boolean
   refCode: Int
   refCode_not: Int
   refCode_in: [Int!]
@@ -6456,9 +6498,7 @@ input ReferralWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
-  referrals_every: GameWhereInput
-  referrals_some: GameWhereInput
-  referrals_none: GameWhereInput
+  crown: CrownWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -6475,6 +6515,38 @@ input ReferralWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  boost: Float
+  boost_not: Float
+  boost_in: [Float!]
+  boost_not_in: [Float!]
+  boost_lt: Float
+  boost_lte: Float
+  boost_gt: Float
+  boost_gte: Float
+  rollover: Float
+  rollover_not: Float
+  rollover_in: [Float!]
+  rollover_not_in: [Float!]
+  rollover_lt: Float
+  rollover_lte: Float
+  rollover_gt: Float
+  rollover_gte: Float
   AND: [ReferralWhereInput!]
   OR: [ReferralWhereInput!]
   NOT: [ReferralWhereInput!]
@@ -8620,6 +8692,7 @@ type Subscription {
   transaction(where: TransactionSubscriptionWhereInput): TransactionSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
   userOrganizationRole(where: UserOrganizationRoleSubscriptionWhereInput): UserOrganizationRoleSubscriptionPayload
+  userStatus(where: UserStatusSubscriptionWhereInput): UserStatusSubscriptionPayload
   valueAddedServices(where: ValueAddedServicesSubscriptionWhereInput): ValueAddedServicesSubscriptionPayload
   wallFinishesOptions(where: WallFinishesOptionsSubscriptionWhereInput): WallFinishesOptionsSubscriptionPayload
   wallet(where: WalletSubscriptionWhereInput): WalletSubscriptionPayload
@@ -9230,6 +9303,149 @@ type UserPreviousValues {
   dob: String!
   status: Int!
   terms: Boolean
+}
+
+type UserStatus {
+  id: ID!
+  status: String!
+  userId: String!
+}
+
+type UserStatusConnection {
+  pageInfo: PageInfo!
+  edges: [UserStatusEdge]!
+  aggregate: AggregateUserStatus!
+}
+
+input UserStatusCreateInput {
+  id: ID
+  status: String
+  userId: String!
+}
+
+input UserStatusCreateOneInput {
+  create: UserStatusCreateInput
+  connect: UserStatusWhereUniqueInput
+}
+
+type UserStatusEdge {
+  node: UserStatus!
+  cursor: String!
+}
+
+enum UserStatusOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  userId_ASC
+  userId_DESC
+}
+
+type UserStatusPreviousValues {
+  id: ID!
+  status: String!
+  userId: String!
+}
+
+type UserStatusSubscriptionPayload {
+  mutation: MutationType!
+  node: UserStatus
+  updatedFields: [String!]
+  previousValues: UserStatusPreviousValues
+}
+
+input UserStatusSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserStatusWhereInput
+  AND: [UserStatusSubscriptionWhereInput!]
+  OR: [UserStatusSubscriptionWhereInput!]
+  NOT: [UserStatusSubscriptionWhereInput!]
+}
+
+input UserStatusUpdateDataInput {
+  status: String
+  userId: String
+}
+
+input UserStatusUpdateInput {
+  status: String
+  userId: String
+}
+
+input UserStatusUpdateManyMutationInput {
+  status: String
+  userId: String
+}
+
+input UserStatusUpdateOneInput {
+  create: UserStatusCreateInput
+  update: UserStatusUpdateDataInput
+  upsert: UserStatusUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: UserStatusWhereUniqueInput
+}
+
+input UserStatusUpsertNestedInput {
+  update: UserStatusUpdateDataInput!
+  create: UserStatusCreateInput!
+}
+
+input UserStatusWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  status: String
+  status_not: String
+  status_in: [String!]
+  status_not_in: [String!]
+  status_lt: String
+  status_lte: String
+  status_gt: String
+  status_gte: String
+  status_contains: String
+  status_not_contains: String
+  status_starts_with: String
+  status_not_starts_with: String
+  status_ends_with: String
+  status_not_ends_with: String
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
+  AND: [UserStatusWhereInput!]
+  OR: [UserStatusWhereInput!]
+  NOT: [UserStatusWhereInput!]
+}
+
+input UserStatusWhereUniqueInput {
+  id: ID
+  userId: String
 }
 
 type UserSubscriptionPayload {

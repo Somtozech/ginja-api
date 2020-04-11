@@ -8,8 +8,8 @@ type User {
     email: String! @unique
     phoneNumber: String! @unique
     dob: String!
-    status: Int!
     terms: Boolean
+    status: UserStatus
 }
 
 type SpacesOptions {
@@ -467,4 +467,10 @@ type AdminUser {
     roleId: Int!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt
+}
+
+type UserStatus {
+    id: ID! @id @unique,
+    status: String! @default(value: "offline"),
+    userId: String! @unique 
 }

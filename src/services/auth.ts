@@ -28,7 +28,9 @@ const createAuth = async (graph: any) => {
                 }
             }
         });
+
         const user = await prisma.auth({ id: auth.id }).user();
+        await prisma.createUserStatus({ userId: user.id });
         await prisma.updateAuth({ data: { userId: user.id }, where: { id: auth.id } });
         const bank = await prisma.user({ id: user.id }).bank();
 

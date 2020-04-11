@@ -43,7 +43,6 @@ const chatSubscriptions = {
         subscribe: withFilter(
             (parent: any, args: any, context: any, info: any) => {
                 const { pubsub } = context;
-                console.log('In PUBSUB');
                 return pubsub.asyncIterator(['NEW_MESSAGE']);
             },
             (payload: any, variables: any, context: any) => {

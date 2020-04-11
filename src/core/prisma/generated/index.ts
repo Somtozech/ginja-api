@@ -75,6 +75,7 @@ export interface Exists {
   userOrganizationRole: (
     where?: UserOrganizationRoleWhereInput
   ) => Promise<boolean>;
+  userStatus: (where?: UserStatusWhereInput) => Promise<boolean>;
   valueAddedServices: (
     where?: ValueAddedServicesWhereInput
   ) => Promise<boolean>;
@@ -1009,6 +1010,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserOrganizationRoleConnectionPromise;
+  userStatus: (where: UserStatusWhereUniqueInput) => UserStatusNullablePromise;
+  userStatuses: (args?: {
+    where?: UserStatusWhereInput;
+    orderBy?: UserStatusOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<UserStatus>;
+  userStatusesConnection: (args?: {
+    where?: UserStatusWhereInput;
+    orderBy?: UserStatusOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => UserStatusConnectionPromise;
   valueAddedServices: (
     where: ValueAddedServicesWhereUniqueInput
   ) => ValueAddedServicesNullablePromise;
@@ -1272,6 +1292,10 @@ export interface Prisma {
     data: GameUpdateInput;
     where: GameWhereUniqueInput;
   }) => GamePromise;
+  updateManyGames: (args: {
+    data: GameUpdateManyMutationInput;
+    where?: GameWhereInput;
+  }) => BatchPayloadPromise;
   upsertGame: (args: {
     where: GameWhereUniqueInput;
     create: GameCreateInput;
@@ -1929,6 +1953,22 @@ export interface Prisma {
   deleteManyUserOrganizationRoles: (
     where?: UserOrganizationRoleWhereInput
   ) => BatchPayloadPromise;
+  createUserStatus: (data: UserStatusCreateInput) => UserStatusPromise;
+  updateUserStatus: (args: {
+    data: UserStatusUpdateInput;
+    where: UserStatusWhereUniqueInput;
+  }) => UserStatusPromise;
+  updateManyUserStatuses: (args: {
+    data: UserStatusUpdateManyMutationInput;
+    where?: UserStatusWhereInput;
+  }) => BatchPayloadPromise;
+  upsertUserStatus: (args: {
+    where: UserStatusWhereUniqueInput;
+    create: UserStatusCreateInput;
+    update: UserStatusUpdateInput;
+  }) => UserStatusPromise;
+  deleteUserStatus: (where: UserStatusWhereUniqueInput) => UserStatusPromise;
+  deleteManyUserStatuses: (where?: UserStatusWhereInput) => BatchPayloadPromise;
   createValueAddedServices: (
     data: ValueAddedServicesCreateInput
   ) => ValueAddedServicesPromise;
@@ -2155,6 +2195,9 @@ export interface Subscription {
   userOrganizationRole: (
     where?: UserOrganizationRoleSubscriptionWhereInput
   ) => UserOrganizationRoleSubscriptionPayloadSubscription;
+  userStatus: (
+    where?: UserStatusSubscriptionWhereInput
+  ) => UserStatusSubscriptionPayloadSubscription;
   valueAddedServices: (
     where?: ValueAddedServicesSubscriptionWhereInput
   ) => ValueAddedServicesSubscriptionPayloadSubscription;
@@ -2287,7 +2330,11 @@ export type CrownOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "compensationCount_ASC"
+  | "compensationCount_DESC"
+  | "compensationBonus_ASC"
+  | "compensationBonus_DESC";
 
 export type DateRangeOrderByInput =
   | "id_ASC"
@@ -2312,6 +2359,10 @@ export type FloorsOptionsOrderByInput =
 export type GameOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "referralId_ASC"
+  | "referralId_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -2597,7 +2648,15 @@ export type ReferralOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "startDate_ASC"
+  | "startDate_DESC"
+  | "endDate_ASC"
+  | "endDate_DESC"
+  | "boost_ASC"
+  | "boost_DESC"
+  | "rollover_ASC"
+  | "rollover_DESC";
 
 export type RequisitionOrderByInput =
   | "id_ASC"
@@ -2736,6 +2795,14 @@ export type UserOrderByInput =
   | "terms_DESC";
 
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
+
+export type UserStatusOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
 export type WalletOrderByInput =
   | "id_ASC"
@@ -3267,6 +3334,7 @@ export interface UserWhereInput {
   terms_not?: Maybe<Boolean>;
   bank?: Maybe<BankWhereInput>;
   type?: Maybe<OrganizationTypeWhereInput>;
+  status?: Maybe<UserStatusWhereInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -3380,6 +3448,54 @@ export interface OrganizationTypeWhereInput {
   AND?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
   OR?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
   NOT?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
+}
+
+export interface UserStatusWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  status?: Maybe<String>;
+  status_not?: Maybe<String>;
+  status_in?: Maybe<String[] | String>;
+  status_not_in?: Maybe<String[] | String>;
+  status_lt?: Maybe<String>;
+  status_lte?: Maybe<String>;
+  status_gt?: Maybe<String>;
+  status_gte?: Maybe<String>;
+  status_contains?: Maybe<String>;
+  status_not_contains?: Maybe<String>;
+  status_starts_with?: Maybe<String>;
+  status_not_starts_with?: Maybe<String>;
+  status_ends_with?: Maybe<String>;
+  status_not_ends_with?: Maybe<String>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
+  AND?: Maybe<UserStatusWhereInput[] | UserStatusWhereInput>;
+  OR?: Maybe<UserStatusWhereInput[] | UserStatusWhereInput>;
+  NOT?: Maybe<UserStatusWhereInput[] | UserStatusWhereInput>;
 }
 
 export type BankWhereUniqueInput = AtLeastOne<{
@@ -3627,6 +3743,22 @@ export interface CrownWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
+  compensationCount?: Maybe<Float>;
+  compensationCount_not?: Maybe<Float>;
+  compensationCount_in?: Maybe<Float[] | Float>;
+  compensationCount_not_in?: Maybe<Float[] | Float>;
+  compensationCount_lt?: Maybe<Float>;
+  compensationCount_lte?: Maybe<Float>;
+  compensationCount_gt?: Maybe<Float>;
+  compensationCount_gte?: Maybe<Float>;
+  compensationBonus?: Maybe<Float>;
+  compensationBonus_not?: Maybe<Float>;
+  compensationBonus_in?: Maybe<Float[] | Float>;
+  compensationBonus_not_in?: Maybe<Float[] | Float>;
+  compensationBonus_lt?: Maybe<Float>;
+  compensationBonus_lte?: Maybe<Float>;
+  compensationBonus_gt?: Maybe<Float>;
+  compensationBonus_gte?: Maybe<Float>;
   AND?: Maybe<CrownWhereInput[] | CrownWhereInput>;
   OR?: Maybe<CrownWhereInput[] | CrownWhereInput>;
   NOT?: Maybe<CrownWhereInput[] | CrownWhereInput>;
@@ -3771,7 +3903,34 @@ export interface GameWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  crown?: Maybe<CrownWhereInput>;
+  referralId?: Maybe<String>;
+  referralId_not?: Maybe<String>;
+  referralId_in?: Maybe<String[] | String>;
+  referralId_not_in?: Maybe<String[] | String>;
+  referralId_lt?: Maybe<String>;
+  referralId_lte?: Maybe<String>;
+  referralId_gt?: Maybe<String>;
+  referralId_gte?: Maybe<String>;
+  referralId_contains?: Maybe<String>;
+  referralId_not_contains?: Maybe<String>;
+  referralId_starts_with?: Maybe<String>;
+  referralId_not_starts_with?: Maybe<String>;
+  referralId_ends_with?: Maybe<String>;
+  referralId_not_ends_with?: Maybe<String>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -5616,14 +5775,8 @@ export interface ReferralWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  status?: Maybe<Int>;
-  status_not?: Maybe<Int>;
-  status_in?: Maybe<Int[] | Int>;
-  status_not_in?: Maybe<Int[] | Int>;
-  status_lt?: Maybe<Int>;
-  status_lte?: Maybe<Int>;
-  status_gt?: Maybe<Int>;
-  status_gte?: Maybe<Int>;
+  status?: Maybe<Boolean>;
+  status_not?: Maybe<Boolean>;
   refCode?: Maybe<Int>;
   refCode_not?: Maybe<Int>;
   refCode_in?: Maybe<Int[] | Int>;
@@ -5646,9 +5799,7 @@ export interface ReferralWhereInput {
   userId_not_starts_with?: Maybe<String>;
   userId_ends_with?: Maybe<String>;
   userId_not_ends_with?: Maybe<String>;
-  referrals_every?: Maybe<GameWhereInput>;
-  referrals_some?: Maybe<GameWhereInput>;
-  referrals_none?: Maybe<GameWhereInput>;
+  crown?: Maybe<CrownWhereInput>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -5665,6 +5816,38 @@ export interface ReferralWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
+  startDate?: Maybe<DateTimeInput>;
+  startDate_not?: Maybe<DateTimeInput>;
+  startDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  startDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  startDate_lt?: Maybe<DateTimeInput>;
+  startDate_lte?: Maybe<DateTimeInput>;
+  startDate_gt?: Maybe<DateTimeInput>;
+  startDate_gte?: Maybe<DateTimeInput>;
+  endDate?: Maybe<DateTimeInput>;
+  endDate_not?: Maybe<DateTimeInput>;
+  endDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  endDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  endDate_lt?: Maybe<DateTimeInput>;
+  endDate_lte?: Maybe<DateTimeInput>;
+  endDate_gt?: Maybe<DateTimeInput>;
+  endDate_gte?: Maybe<DateTimeInput>;
+  boost?: Maybe<Float>;
+  boost_not?: Maybe<Float>;
+  boost_in?: Maybe<Float[] | Float>;
+  boost_not_in?: Maybe<Float[] | Float>;
+  boost_lt?: Maybe<Float>;
+  boost_lte?: Maybe<Float>;
+  boost_gt?: Maybe<Float>;
+  boost_gte?: Maybe<Float>;
+  rollover?: Maybe<Float>;
+  rollover_not?: Maybe<Float>;
+  rollover_in?: Maybe<Float[] | Float>;
+  rollover_not_in?: Maybe<Float[] | Float>;
+  rollover_lt?: Maybe<Float>;
+  rollover_lte?: Maybe<Float>;
+  rollover_gt?: Maybe<Float>;
+  rollover_gte?: Maybe<Float>;
   AND?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
   OR?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
   NOT?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
@@ -6190,6 +6373,11 @@ export interface UserOrganizationRoleWhereInput {
   >;
 }
 
+export type UserStatusWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  userId?: Maybe<String>;
+}>;
+
 export type ValueAddedServicesWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
@@ -6426,6 +6614,7 @@ export interface UserCreateInput {
   terms?: Maybe<Boolean>;
   bank: BankCreateOneInput;
   type: OrganizationTypeCreateOneInput;
+  status?: Maybe<UserStatusCreateOneInput>;
 }
 
 export interface BankCreateOneInput {
@@ -6449,6 +6638,17 @@ export interface OrganizationTypeCreateOneInput {
 export interface OrganizationTypeCreateInput {
   id?: Maybe<ID_Input>;
   name?: Maybe<String>;
+}
+
+export interface UserStatusCreateOneInput {
+  create?: Maybe<UserStatusCreateInput>;
+  connect?: Maybe<UserStatusWhereUniqueInput>;
+}
+
+export interface UserStatusCreateInput {
+  id?: Maybe<ID_Input>;
+  status?: Maybe<String>;
+  userId: String;
 }
 
 export interface AuthUpdateInput {
@@ -6475,6 +6675,7 @@ export interface UserUpdateDataInput {
   terms?: Maybe<Boolean>;
   bank?: Maybe<BankUpdateOneRequiredInput>;
   type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  status?: Maybe<UserStatusUpdateOneInput>;
 }
 
 export interface BankUpdateOneRequiredInput {
@@ -6510,6 +6711,25 @@ export interface OrganizationTypeUpdateDataInput {
 export interface OrganizationTypeUpsertNestedInput {
   update: OrganizationTypeUpdateDataInput;
   create: OrganizationTypeCreateInput;
+}
+
+export interface UserStatusUpdateOneInput {
+  create?: Maybe<UserStatusCreateInput>;
+  update?: Maybe<UserStatusUpdateDataInput>;
+  upsert?: Maybe<UserStatusUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserStatusWhereUniqueInput>;
+}
+
+export interface UserStatusUpdateDataInput {
+  status?: Maybe<String>;
+  userId?: Maybe<String>;
+}
+
+export interface UserStatusUpsertNestedInput {
+  update: UserStatusUpdateDataInput;
+  create: UserStatusCreateInput;
 }
 
 export interface UserUpsertNestedInput {
@@ -6703,18 +6923,24 @@ export interface CrownCreateInput {
   requiredReferrals: Int;
   noOfDays: Int;
   bonus: Int;
+  compensationCount: Float;
+  compensationBonus: Float;
 }
 
 export interface CrownUpdateInput {
   requiredReferrals?: Maybe<Int>;
   noOfDays?: Maybe<Int>;
   bonus?: Maybe<Int>;
+  compensationCount?: Maybe<Float>;
+  compensationBonus?: Maybe<Float>;
 }
 
 export interface CrownUpdateManyMutationInput {
   requiredReferrals?: Maybe<Int>;
   noOfDays?: Maybe<Int>;
   bonus?: Maybe<Int>;
+  compensationCount?: Maybe<Float>;
+  compensationBonus?: Maybe<Float>;
 }
 
 export interface DateRangeCreateInput {
@@ -6757,34 +6983,18 @@ export interface FloorsOptionsUpdateManyMutationInput {
 
 export interface GameCreateInput {
   id?: Maybe<ID_Input>;
-  crown: CrownCreateOneInput;
-}
-
-export interface CrownCreateOneInput {
-  create?: Maybe<CrownCreateInput>;
-  connect?: Maybe<CrownWhereUniqueInput>;
+  referralId: String;
+  userId: String;
 }
 
 export interface GameUpdateInput {
-  crown?: Maybe<CrownUpdateOneRequiredInput>;
+  referralId?: Maybe<String>;
+  userId?: Maybe<String>;
 }
 
-export interface CrownUpdateOneRequiredInput {
-  create?: Maybe<CrownCreateInput>;
-  update?: Maybe<CrownUpdateDataInput>;
-  upsert?: Maybe<CrownUpsertNestedInput>;
-  connect?: Maybe<CrownWhereUniqueInput>;
-}
-
-export interface CrownUpdateDataInput {
-  requiredReferrals?: Maybe<Int>;
-  noOfDays?: Maybe<Int>;
-  bonus?: Maybe<Int>;
-}
-
-export interface CrownUpsertNestedInput {
-  update: CrownUpdateDataInput;
-  create: CrownCreateInput;
+export interface GameUpdateManyMutationInput {
+  referralId?: Maybe<String>;
+  userId?: Maybe<String>;
 }
 
 export interface IdentificationsOptionsCreateInput {
@@ -8939,96 +9149,60 @@ export interface RatingUpdateManyMutationInput {
 
 export interface ReferralCreateInput {
   id?: Maybe<ID_Input>;
-  status: Int;
+  status: Boolean;
   refCode: Int;
   userId: String;
-  referrals?: Maybe<GameCreateManyInput>;
+  crown: CrownCreateOneInput;
+  startDate: DateTimeInput;
+  endDate: DateTimeInput;
+  boost: Float;
+  rollover: Float;
 }
 
-export interface GameCreateManyInput {
-  create?: Maybe<GameCreateInput[] | GameCreateInput>;
-  connect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
+export interface CrownCreateOneInput {
+  create?: Maybe<CrownCreateInput>;
+  connect?: Maybe<CrownWhereUniqueInput>;
 }
 
 export interface ReferralUpdateInput {
-  status?: Maybe<Int>;
+  status?: Maybe<Boolean>;
   refCode?: Maybe<Int>;
   userId?: Maybe<String>;
-  referrals?: Maybe<GameUpdateManyInput>;
-}
-
-export interface GameUpdateManyInput {
-  create?: Maybe<GameCreateInput[] | GameCreateInput>;
-  update?: Maybe<
-    | GameUpdateWithWhereUniqueNestedInput[]
-    | GameUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | GameUpsertWithWhereUniqueNestedInput[]
-    | GameUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  connect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  set?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  disconnect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  deleteMany?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-}
-
-export interface GameUpdateWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput;
-  data: GameUpdateDataInput;
-}
-
-export interface GameUpdateDataInput {
   crown?: Maybe<CrownUpdateOneRequiredInput>;
+  startDate?: Maybe<DateTimeInput>;
+  endDate?: Maybe<DateTimeInput>;
+  boost?: Maybe<Float>;
+  rollover?: Maybe<Float>;
 }
 
-export interface GameUpsertWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput;
-  update: GameUpdateDataInput;
-  create: GameCreateInput;
+export interface CrownUpdateOneRequiredInput {
+  create?: Maybe<CrownCreateInput>;
+  update?: Maybe<CrownUpdateDataInput>;
+  upsert?: Maybe<CrownUpsertNestedInput>;
+  connect?: Maybe<CrownWhereUniqueInput>;
 }
 
-export interface GameScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-  OR?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-  NOT?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
+export interface CrownUpdateDataInput {
+  requiredReferrals?: Maybe<Int>;
+  noOfDays?: Maybe<Int>;
+  bonus?: Maybe<Int>;
+  compensationCount?: Maybe<Float>;
+  compensationBonus?: Maybe<Float>;
+}
+
+export interface CrownUpsertNestedInput {
+  update: CrownUpdateDataInput;
+  create: CrownCreateInput;
 }
 
 export interface ReferralUpdateManyMutationInput {
-  status?: Maybe<Int>;
+  status?: Maybe<Boolean>;
   refCode?: Maybe<Int>;
   userId?: Maybe<String>;
+  startDate?: Maybe<DateTimeInput>;
+  endDate?: Maybe<DateTimeInput>;
+  boost?: Maybe<Float>;
+  rollover?: Maybe<Float>;
 }
 
 export interface RequisitionUpdateInput {
@@ -9489,6 +9663,7 @@ export interface UserUpdateInput {
   terms?: Maybe<Boolean>;
   bank?: Maybe<BankUpdateOneRequiredInput>;
   type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  status?: Maybe<UserStatusUpdateOneInput>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -9536,6 +9711,16 @@ export interface OrganizationUpdateDataInput {
 export interface OrganizationUpsertNestedInput {
   update: OrganizationUpdateDataInput;
   create: OrganizationCreateInput;
+}
+
+export interface UserStatusUpdateInput {
+  status?: Maybe<String>;
+  userId?: Maybe<String>;
+}
+
+export interface UserStatusUpdateManyMutationInput {
+  status?: Maybe<String>;
+  userId?: Maybe<String>;
 }
 
 export interface ValueAddedServicesUpdateInput {
@@ -10489,6 +10674,23 @@ export interface UserOrganizationRoleSubscriptionWhereInput {
   >;
 }
 
+export interface UserStatusSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserStatusWhereInput>;
+  AND?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+}
+
 export interface ValueAddedServicesSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -10967,6 +11169,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   terms: () => Promise<Boolean>;
   bank: <T = BankPromise>() => T;
   type: <T = OrganizationTypePromise>() => T;
+  status: <T = UserStatusPromise>() => T;
 }
 
 export interface UserSubscription
@@ -10981,6 +11184,7 @@ export interface UserSubscription
   terms: () => Promise<AsyncIterator<Boolean>>;
   bank: <T = BankSubscription>() => T;
   type: <T = OrganizationTypeSubscription>() => T;
+  status: <T = UserStatusSubscription>() => T;
 }
 
 export interface UserNullablePromise
@@ -10995,6 +11199,7 @@ export interface UserNullablePromise
   terms: () => Promise<Boolean>;
   bank: <T = BankPromise>() => T;
   type: <T = OrganizationTypePromise>() => T;
+  status: <T = UserStatusPromise>() => T;
 }
 
 export interface Bank {
@@ -11057,6 +11262,34 @@ export interface OrganizationTypeNullablePromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+}
+
+export interface UserStatus {
+  id: ID_Output;
+  status: String;
+  userId: String;
+}
+
+export interface UserStatusPromise extends Promise<UserStatus>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
+export interface UserStatusSubscription
+  extends Promise<AsyncIterator<UserStatus>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserStatusNullablePromise
+  extends Promise<UserStatus | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
 }
 
 export interface AuthConnection {
@@ -11416,6 +11649,8 @@ export interface Crown {
   bonus: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  compensationCount: Float;
+  compensationBonus: Float;
 }
 
 export interface CrownPromise extends Promise<Crown>, Fragmentable {
@@ -11425,6 +11660,8 @@ export interface CrownPromise extends Promise<Crown>, Fragmentable {
   bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  compensationCount: () => Promise<Float>;
+  compensationBonus: () => Promise<Float>;
 }
 
 export interface CrownSubscription
@@ -11436,6 +11673,8 @@ export interface CrownSubscription
   bonus: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  compensationCount: () => Promise<AsyncIterator<Float>>;
+  compensationBonus: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface CrownNullablePromise
@@ -11447,6 +11686,8 @@ export interface CrownNullablePromise
   bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  compensationCount: () => Promise<Float>;
+  compensationBonus: () => Promise<Float>;
 }
 
 export interface CrownConnection {
@@ -11683,13 +11924,16 @@ export interface AggregateFloorsOptionsSubscription
 
 export interface Game {
   id: ID_Output;
+  referralId: String;
+  userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
 }
 
 export interface GamePromise extends Promise<Game>, Fragmentable {
   id: () => Promise<ID_Output>;
-  crown: <T = CrownPromise>() => T;
+  referralId: () => Promise<String>;
+  userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -11698,7 +11942,8 @@ export interface GameSubscription
   extends Promise<AsyncIterator<Game>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  crown: <T = CrownSubscription>() => T;
+  referralId: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -11707,7 +11952,8 @@ export interface GameNullablePromise
   extends Promise<Game | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  crown: <T = CrownPromise>() => T;
+  referralId: () => Promise<String>;
+  userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -14082,69 +14328,61 @@ export interface AggregateRatingSubscription
 
 export interface Referral {
   id: ID_Output;
-  status: Int;
+  status: Boolean;
   refCode: Int;
   userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  startDate: DateTimeOutput;
+  endDate: DateTimeOutput;
+  boost: Float;
+  rollover: Float;
 }
 
 export interface ReferralPromise extends Promise<Referral>, Fragmentable {
   id: () => Promise<ID_Output>;
-  status: () => Promise<Int>;
+  status: () => Promise<Boolean>;
   refCode: () => Promise<Int>;
   userId: () => Promise<String>;
-  referrals: <T = FragmentableArray<Game>>(args?: {
-    where?: GameWhereInput;
-    orderBy?: GameOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  crown: <T = CrownPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  startDate: () => Promise<DateTimeOutput>;
+  endDate: () => Promise<DateTimeOutput>;
+  boost: () => Promise<Float>;
+  rollover: () => Promise<Float>;
 }
 
 export interface ReferralSubscription
   extends Promise<AsyncIterator<Referral>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  status: () => Promise<AsyncIterator<Boolean>>;
   refCode: () => Promise<AsyncIterator<Int>>;
   userId: () => Promise<AsyncIterator<String>>;
-  referrals: <T = Promise<AsyncIterator<GameSubscription>>>(args?: {
-    where?: GameWhereInput;
-    orderBy?: GameOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  crown: <T = CrownSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  startDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  endDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  boost: () => Promise<AsyncIterator<Float>>;
+  rollover: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface ReferralNullablePromise
   extends Promise<Referral | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  status: () => Promise<Int>;
+  status: () => Promise<Boolean>;
   refCode: () => Promise<Int>;
   userId: () => Promise<String>;
-  referrals: <T = FragmentableArray<Game>>(args?: {
-    where?: GameWhereInput;
-    orderBy?: GameOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  crown: <T = CrownPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  startDate: () => Promise<DateTimeOutput>;
+  endDate: () => Promise<DateTimeOutput>;
+  boost: () => Promise<Float>;
+  rollover: () => Promise<Float>;
 }
 
 export interface ReferralConnection {
@@ -15348,6 +15586,62 @@ export interface AggregateUserOrganizationRoleSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface UserStatusConnection {
+  pageInfo: PageInfo;
+  edges: UserStatusEdge[];
+}
+
+export interface UserStatusConnectionPromise
+  extends Promise<UserStatusConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<UserStatusEdge>>() => T;
+  aggregate: <T = AggregateUserStatusPromise>() => T;
+}
+
+export interface UserStatusConnectionSubscription
+  extends Promise<AsyncIterator<UserStatusConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<UserStatusEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateUserStatusSubscription>() => T;
+}
+
+export interface UserStatusEdge {
+  node: UserStatus;
+  cursor: String;
+}
+
+export interface UserStatusEdgePromise
+  extends Promise<UserStatusEdge>,
+    Fragmentable {
+  node: <T = UserStatusPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface UserStatusEdgeSubscription
+  extends Promise<AsyncIterator<UserStatusEdge>>,
+    Fragmentable {
+  node: <T = UserStatusSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateUserStatus {
+  count: Int;
+}
+
+export interface AggregateUserStatusPromise
+  extends Promise<AggregateUserStatus>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateUserStatusSubscription
+  extends Promise<AsyncIterator<AggregateUserStatus>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface ValueAddedServicesConnection {
   pageInfo: PageInfo;
   edges: ValueAddedServicesEdge[];
@@ -16086,6 +16380,8 @@ export interface CrownPreviousValues {
   bonus: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  compensationCount: Float;
+  compensationBonus: Float;
 }
 
 export interface CrownPreviousValuesPromise
@@ -16097,6 +16393,8 @@ export interface CrownPreviousValuesPromise
   bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  compensationCount: () => Promise<Float>;
+  compensationBonus: () => Promise<Float>;
 }
 
 export interface CrownPreviousValuesSubscription
@@ -16108,6 +16406,8 @@ export interface CrownPreviousValuesSubscription
   bonus: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  compensationCount: () => Promise<AsyncIterator<Float>>;
+  compensationBonus: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface DateRangeSubscriptionPayload {
@@ -16237,6 +16537,8 @@ export interface GameSubscriptionPayloadSubscription
 
 export interface GamePreviousValues {
   id: ID_Output;
+  referralId: String;
+  userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
 }
@@ -16245,6 +16547,8 @@ export interface GamePreviousValuesPromise
   extends Promise<GamePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  referralId: () => Promise<String>;
+  userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -16253,6 +16557,8 @@ export interface GamePreviousValuesSubscription
   extends Promise<AsyncIterator<GamePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  referralId: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -17259,33 +17565,45 @@ export interface ReferralSubscriptionPayloadSubscription
 
 export interface ReferralPreviousValues {
   id: ID_Output;
-  status: Int;
+  status: Boolean;
   refCode: Int;
   userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  startDate: DateTimeOutput;
+  endDate: DateTimeOutput;
+  boost: Float;
+  rollover: Float;
 }
 
 export interface ReferralPreviousValuesPromise
   extends Promise<ReferralPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  status: () => Promise<Int>;
+  status: () => Promise<Boolean>;
   refCode: () => Promise<Int>;
   userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  startDate: () => Promise<DateTimeOutput>;
+  endDate: () => Promise<DateTimeOutput>;
+  boost: () => Promise<Float>;
+  rollover: () => Promise<Float>;
 }
 
 export interface ReferralPreviousValuesSubscription
   extends Promise<AsyncIterator<ReferralPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  status: () => Promise<AsyncIterator<Boolean>>;
   refCode: () => Promise<AsyncIterator<Int>>;
   userId: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  startDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  endDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  boost: () => Promise<AsyncIterator<Float>>;
+  rollover: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface RequisitionSubscriptionPayload {
@@ -18062,6 +18380,53 @@ export interface UserOrganizationRolePreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
 }
 
+export interface UserStatusSubscriptionPayload {
+  mutation: MutationType;
+  node: UserStatus;
+  updatedFields: String[];
+  previousValues: UserStatusPreviousValues;
+}
+
+export interface UserStatusSubscriptionPayloadPromise
+  extends Promise<UserStatusSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserStatusPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserStatusPreviousValuesPromise>() => T;
+}
+
+export interface UserStatusSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserStatusSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserStatusSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserStatusPreviousValuesSubscription>() => T;
+}
+
+export interface UserStatusPreviousValues {
+  id: ID_Output;
+  status: String;
+  userId: String;
+}
+
+export interface UserStatusPreviousValuesPromise
+  extends Promise<UserStatusPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
+export interface UserStatusPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserStatusPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+}
+
 export interface ValueAddedServicesSubscriptionPayload {
   mutation: MutationType;
   node: ValueAddedServices;
@@ -18522,6 +18887,10 @@ export const models: Model[] = [
   },
   {
     name: "AdminUser",
+    embedded: false
+  },
+  {
+    name: "UserStatus",
     embedded: false
   }
 ];
