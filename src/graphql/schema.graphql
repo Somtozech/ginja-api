@@ -115,6 +115,7 @@ type Mutation {
 
 type Subscription {
     message(chatId: String!): Message!
+    userStatus: UserStatus!
 }
 
 input TableFilterStringInput {
@@ -480,6 +481,7 @@ type User {
     terms: Boolean
     type: OrganizationType!
     bank: Bank
+    status: UserStatus
 }
 
 type Success {

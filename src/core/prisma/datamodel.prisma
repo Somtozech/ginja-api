@@ -8,6 +8,7 @@ type User {
     terms: Boolean
     bank: Bank!
     type: OrganizationType!
+    status: UserStatus
 }
 
 type SpacesOptions {
@@ -465,4 +466,10 @@ type AdminUser {
     role: Role!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt
+}
+
+type UserStatus {
+    id: ID! @id @unique,
+    status: String! @default(value: "offline"),
+    userId: String! @unique 
 }
