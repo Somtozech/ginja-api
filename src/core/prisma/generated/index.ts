@@ -2430,7 +2430,11 @@ export type CrownOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "compensationCount_ASC"
+  | "compensationCount_DESC"
+  | "compensationBonus_ASC"
+  | "compensationBonus_DESC";
 
 export type SelectOptionsOrderByInput =
   | "id_ASC"
@@ -2919,6 +2923,14 @@ export type DateRangeOrderByInput =
   | "updatedAt_DESC";
 
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
+
+export type UserStatusOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
 export type WalletOrderByInput =
   | "id_ASC"
@@ -7319,6 +7331,25 @@ export interface OrganizationTypeUpdateDataInput {
 export interface OrganizationTypeUpsertNestedInput {
   update: OrganizationTypeUpdateDataInput;
   create: OrganizationTypeCreateInput;
+}
+
+export interface UserStatusUpdateOneInput {
+  create?: Maybe<UserStatusCreateInput>;
+  update?: Maybe<UserStatusUpdateDataInput>;
+  upsert?: Maybe<UserStatusUpsertNestedInput>;
+  delete?: Maybe<Boolean>;
+  disconnect?: Maybe<Boolean>;
+  connect?: Maybe<UserStatusWhereUniqueInput>;
+}
+
+export interface UserStatusUpdateDataInput {
+  status?: Maybe<String>;
+  userId?: Maybe<String>;
+}
+
+export interface UserStatusUpsertNestedInput {
+  update: UserStatusUpdateDataInput;
+  create: UserStatusCreateInput;
 }
 
 export interface UserUpsertNestedInput {
@@ -12331,6 +12362,23 @@ export interface UserOrganizationRoleSubscriptionWhereInput {
   >;
 }
 
+export interface UserStatusSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<UserStatusWhereInput>;
+  AND?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    UserStatusSubscriptionWhereInput[] | UserStatusSubscriptionWhereInput
+  >;
+}
+
 export interface ValueAddedServicesSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -13017,6 +13065,34 @@ export interface OrganizationTypeNullablePromise
   name: () => Promise<String>;
 }
 
+export interface UserStatus {
+  id: ID_Output;
+  status: String;
+  userId: String;
+}
+
+export interface UserStatusPromise extends Promise<UserStatus>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
+export interface UserStatusSubscription
+  extends Promise<AsyncIterator<UserStatus>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserStatusNullablePromise
+  extends Promise<UserStatus | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
 export interface AuthConnection {
   pageInfo: PageInfo;
   edges: AuthEdge[];
@@ -13382,6 +13458,8 @@ export interface Crown {
   bonus: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  compensationCount: Float;
+  compensationBonus: Float;
 }
 
 export interface CrownPromise extends Promise<Crown>, Fragmentable {
@@ -13391,6 +13469,8 @@ export interface CrownPromise extends Promise<Crown>, Fragmentable {
   bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  compensationCount: () => Promise<Float>;
+  compensationBonus: () => Promise<Float>;
 }
 
 export interface CrownSubscription
@@ -13402,6 +13482,8 @@ export interface CrownSubscription
   bonus: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  compensationCount: () => Promise<AsyncIterator<Float>>;
+  compensationBonus: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface CrownNullablePromise
@@ -13413,6 +13495,8 @@ export interface CrownNullablePromise
   bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  compensationCount: () => Promise<Float>;
+  compensationBonus: () => Promise<Float>;
 }
 
 export interface CrownConnection {
@@ -13642,13 +13726,16 @@ export interface AggregateFloorsOptionsSubscription
 
 export interface Game {
   id: ID_Output;
+  referralId: String;
+  userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
 }
 
 export interface GamePromise extends Promise<Game>, Fragmentable {
   id: () => Promise<ID_Output>;
-  crown: <T = CrownPromise>() => T;
+  referralId: () => Promise<String>;
+  userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -13657,7 +13744,8 @@ export interface GameSubscription
   extends Promise<AsyncIterator<Game>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  crown: <T = CrownSubscription>() => T;
+  referralId: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -13666,7 +13754,8 @@ export interface GameNullablePromise
   extends Promise<Game | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  crown: <T = CrownPromise>() => T;
+  referralId: () => Promise<String>;
+  userId: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -19077,51 +19166,47 @@ export interface PaymentCustomerEdgeSubscription
 
 export interface PropertiesOptions {
   id: ID_Output;
-  status: Int;
+  status: Boolean;
   refCode: Int;
   userId: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  startDate: DateTimeOutput;
+  endDate: DateTimeOutput;
+  boost: Float;
+  rollover: Float;
 }
 
 export interface PropertiesOptionsPromise
   extends Promise<PropertiesOptions>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  status: () => Promise<Int>;
+  status: () => Promise<Boolean>;
   refCode: () => Promise<Int>;
   userId: () => Promise<String>;
-  referrals: <T = FragmentableArray<Game>>(args?: {
-    where?: GameWhereInput;
-    orderBy?: GameOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  crown: <T = CrownPromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  startDate: () => Promise<DateTimeOutput>;
+  endDate: () => Promise<DateTimeOutput>;
+  boost: () => Promise<Float>;
+  rollover: () => Promise<Float>;
 }
 
 export interface PropertiesOptionsSubscription
   extends Promise<AsyncIterator<PropertiesOptions>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  status: () => Promise<AsyncIterator<Boolean>>;
   refCode: () => Promise<AsyncIterator<Int>>;
   userId: () => Promise<AsyncIterator<String>>;
-  referrals: <T = Promise<AsyncIterator<GameSubscription>>>(args?: {
-    where?: GameWhereInput;
-    orderBy?: GameOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
+  crown: <T = CrownSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  startDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  endDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  boost: () => Promise<AsyncIterator<Float>>;
+  rollover: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface AggregateUserStatusSubscription

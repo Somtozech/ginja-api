@@ -7,6 +7,8 @@ import { prisma } from '../core/prisma/generated/index';
 
 import pubsub from '../core/prisma/pubsub';
 
+import pubsub from '../core/prisma/pubsub';
+
 const logResult = async (resolve: (arg0: any, arg1: any, arg2: any, arg3: any) => any, root: any, args: any, context: any, info: any) => {
     console.log(`2. logResult`);
     const result = await resolve(root, args, context, info);
