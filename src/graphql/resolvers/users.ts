@@ -1,3 +1,5 @@
+import { withFilter } from 'graphql-yoga';
+
 const userQueries = {
     users: (root: any, args: any, context: any, info: any) => {
         return context.prisma.users();
@@ -19,8 +21,25 @@ const userTypes = {
         dob: (parent: any) => parent.dob,
         terms: (parent: any) => parent.terms,
         type: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).type(),
-        bank: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).bank()
+        bank: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).bank(),
+        status: (parent: any, args: any, context: any) => context.prisma.userStatus({ userId: parent.id })
     }
 };
 
-export { userTypes, userMutations, userQueries };
+const userSubscriptions = {
+    userStatus: {
+        subscribe: withFilter(
+            (parent: any, args: any, context: any, info: any) => {
+                const { pubsub } = context;
+                console.log('User Status Called');
+                return pubsub.asyncIterator(['USER_STATUS']);
+            },
+            (payload: any, variables: any, context: any) => {
+                const { user } = context;
+                return payload.userStatus.userId !== user.id;
+            }
+        )
+    }
+};
+
+export { userTypes, userMutations, userQueries, userSubscriptions };

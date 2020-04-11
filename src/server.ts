@@ -21,6 +21,8 @@ import handleErrors from './core/middlewares/handleErrors';
 // websocket connection
 import validateWebSocketToken from './core/middlewares/validateWebSocketToken';
 
+import setUserStatus from './core/utils/userStatus';
+
 const app = express();
 
 // Resolve CORS
@@ -84,16 +86,21 @@ const options = {
             if (connectionParams.Authorization) {
                 const user = await validateWebSocketToken(connectionParams.Authorization);
 
+                setUserStatus(user, true);
                 return {
                     user
                 };
             }
 
             throw new Error('Missing auth token!');
+        },
+        onDisconnect: async (_, context) => {
+            console.log('disconnecting...');
+            const { user } = await context.initPromise;
+            if (user) {
+                setUserStatus(user, false);
+            }
         }
-        // onDisconnect: () => {
-        //     console.log('Subscriptions connection not successful');
-        // }
     },
     playground: '/playground'
 };

@@ -470,3 +470,9 @@ type AdminUser {
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt
 }
+
+type UserStatus {
+    id: ID! @id @unique,
+    status: String! @default(value: "offline"),
+    userId: String! @unique 
+}
