@@ -2430,7 +2430,11 @@ export type CrownOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "compensationCount_ASC"
+  | "compensationCount_DESC"
+  | "compensationBonus_ASC"
+  | "compensationBonus_DESC";
 
 export type SelectOptionsOrderByInput =
   | "id_ASC"
@@ -2473,6 +2477,10 @@ export type AuthOrderByInput =
 export type RequisitionCostOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "referralId_ASC"
+  | "referralId_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -2842,7 +2850,15 @@ export type UserOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "updatedAt_DESC"
+  | "startDate_ASC"
+  | "startDate_DESC"
+  | "endDate_ASC"
+  | "endDate_DESC"
+  | "boost_ASC"
+  | "boost_DESC"
+  | "rollover_ASC"
+  | "rollover_DESC";
 
 export type ChatOrderByInput =
   | "id_ASC"
@@ -12766,6 +12782,34 @@ export interface AggregateStockSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface UserStatus {
+  id: ID_Output;
+  status: String;
+  userId: String;
+}
+
+export interface UserStatusPromise extends Promise<UserStatus>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
+export interface UserStatusSubscription
+  extends Promise<AsyncIterator<UserStatus>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+}
+
+export interface UserStatusNullablePromise
+  extends Promise<UserStatus | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
 export interface AuthConnection {
   pageInfo: PageInfo;
   edges: AuthEdge[];
@@ -20404,6 +20448,53 @@ export interface UserOrganizationRolePreviousValuesSubscription
   extends Promise<AsyncIterator<UserOrganizationRolePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+}
+
+export interface UserStatusSubscriptionPayload {
+  mutation: MutationType;
+  node: UserStatus;
+  updatedFields: String[];
+  previousValues: UserStatusPreviousValues;
+}
+
+export interface UserStatusSubscriptionPayloadPromise
+  extends Promise<UserStatusSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = UserStatusPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = UserStatusPreviousValuesPromise>() => T;
+}
+
+export interface UserStatusSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<UserStatusSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = UserStatusSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = UserStatusPreviousValuesSubscription>() => T;
+}
+
+export interface UserStatusPreviousValues {
+  id: ID_Output;
+  status: String;
+  userId: String;
+}
+
+export interface UserStatusPreviousValuesPromise
+  extends Promise<UserStatusPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  status: () => Promise<String>;
+  userId: () => Promise<String>;
+}
+
+export interface UserStatusPreviousValuesSubscription
+  extends Promise<AsyncIterator<UserStatusPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  status: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ValueAddedServicesSubscriptionPayload {

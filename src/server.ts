@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /**
  * Module dependencies.
  */
@@ -94,7 +95,7 @@ const options = {
 
             throw new Error('Missing auth token!');
         },
-        onDisconnect: async (_: any, context: any) => {
+        onDisconnect: async (parent: any, context: any) => {
             console.log('disconnecting...');
             const { user } = await context.initPromise;
             if (user) {
