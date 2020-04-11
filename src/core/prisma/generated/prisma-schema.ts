@@ -9312,8 +9312,17 @@ type User {
   dob: String!
   status: Int!
   terms: Boolean
+<<<<<<< HEAD
   createdAt: DateTime!
   updatedAt: DateTime
+=======
+<<<<<<< HEAD
+  bank: Bank!
+  type: OrganizationType!
+  status: UserStatus
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> Worrked on statistics, referrals
 }
 
 type UserConnection {
@@ -9334,6 +9343,15 @@ input UserCreateInput {
   dob: String!
   status: Int!
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankCreateOneInput!
+  type: OrganizationTypeCreateOneInput!
+  status: UserStatusCreateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserCreateOneInput {
@@ -9785,6 +9803,15 @@ input UserUpdateDataInput {
   dob: String
   status: Int
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankUpdateOneRequiredInput
+  type: OrganizationTypeUpdateOneRequiredInput
+  status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserUpdateInput {
@@ -9798,6 +9825,15 @@ input UserUpdateInput {
   dob: String
   status: Int
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankUpdateOneRequiredInput
+  type: OrganizationTypeUpdateOneRequiredInput
+  status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserUpdateManyMutationInput {
@@ -9928,6 +9964,7 @@ input UserWhereInput {
   status_gte: Int
   terms: Boolean
   terms_not: Boolean
+<<<<<<< HEAD
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -9944,6 +9981,14 @@ input UserWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+=======
+<<<<<<< HEAD
+  bank: BankWhereInput
+  type: OrganizationTypeWhereInput
+  status: UserStatusWhereInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> Worrked on statistics, referrals
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
