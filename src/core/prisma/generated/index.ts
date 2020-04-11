@@ -75,10 +75,7 @@ export interface Exists {
   userOrganizationRole: (
     where?: UserOrganizationRoleWhereInput
   ) => Promise<boolean>;
-<<<<<<< HEAD
   userStatus: (where?: UserStatusWhereInput) => Promise<boolean>;
-=======
->>>>>>> Fixed Merge conflict errors
   valueAddedServices: (
     where?: ValueAddedServicesWhereInput
   ) => Promise<boolean>;
@@ -1013,7 +1010,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserOrganizationRoleConnectionPromise;
-<<<<<<< HEAD
   userStatus: (where: UserStatusWhereUniqueInput) => UserStatusNullablePromise;
   userStatuses: (args?: {
     where?: UserStatusWhereInput;
@@ -1033,8 +1029,6 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => UserStatusConnectionPromise;
-=======
->>>>>>> Fixed Merge conflict errors
   valueAddedServices: (
     where: ValueAddedServicesWhereUniqueInput
   ) => ValueAddedServicesNullablePromise;
@@ -1298,13 +1292,10 @@ export interface Prisma {
     data: GameUpdateInput;
     where: GameWhereUniqueInput;
   }) => GamePromise;
-<<<<<<< HEAD
   updateManyGames: (args: {
     data: GameUpdateManyMutationInput;
     where?: GameWhereInput;
   }) => BatchPayloadPromise;
-=======
->>>>>>> Fixed Merge conflict errors
   upsertGame: (args: {
     where: GameWhereUniqueInput;
     create: GameCreateInput;
@@ -1962,7 +1953,6 @@ export interface Prisma {
   deleteManyUserOrganizationRoles: (
     where?: UserOrganizationRoleWhereInput
   ) => BatchPayloadPromise;
-<<<<<<< HEAD
   createUserStatus: (data: UserStatusCreateInput) => UserStatusPromise;
   updateUserStatus: (args: {
     data: UserStatusUpdateInput;
@@ -1979,8 +1969,6 @@ export interface Prisma {
   }) => UserStatusPromise;
   deleteUserStatus: (where: UserStatusWhereUniqueInput) => UserStatusPromise;
   deleteManyUserStatuses: (where?: UserStatusWhereInput) => BatchPayloadPromise;
-=======
->>>>>>> Fixed Merge conflict errors
   createValueAddedServices: (
     data: ValueAddedServicesCreateInput
   ) => ValueAddedServicesPromise;
@@ -2207,12 +2195,9 @@ export interface Subscription {
   userOrganizationRole: (
     where?: UserOrganizationRoleSubscriptionWhereInput
   ) => UserOrganizationRoleSubscriptionPayloadSubscription;
-<<<<<<< HEAD
   userStatus: (
     where?: UserStatusSubscriptionWhereInput
   ) => UserStatusSubscriptionPayloadSubscription;
-=======
->>>>>>> Fixed Merge conflict errors
   valueAddedServices: (
     where?: ValueAddedServicesSubscriptionWhereInput
   ) => ValueAddedServicesSubscriptionPayloadSubscription;
@@ -2235,7 +2220,6 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-<<<<<<< HEAD
 export type OrganizationTypeOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -2301,39 +2285,6 @@ export type UserStatusOrderByInput =
   | "userId_DESC";
 
 export type ListingsFrequenciesOrderByInput =
-=======
-export type AdminRoleOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type AdminUserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "firstName_ASC"
-  | "firstName_DESC"
-  | "lastName_ASC"
-  | "lastName_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "password_ASC"
-  | "password_DESC"
-  | "roleId_ASC"
-  | "roleId_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type AmenitiesOptionsOrderByInput =
->>>>>>> Fixed Merge conflict errors
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2345,7 +2296,6 @@ export type AmenitiesOptionsOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-<<<<<<< HEAD
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
 
 export type ListingRatingOrderByInput =
@@ -2469,89 +2419,6 @@ export type SelectOptionsOrderByInput =
   | "name_DESC";
 
 export type ListingProductsOrderByInput =
-=======
-export type AuthOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "pin_ASC"
-  | "pin_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type BankOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "accountNumber_ASC"
-  | "accountNumber_DESC"
-  | "accountName_ASC"
-  | "accountName_DESC"
-  | "bankName_ASC"
-  | "bankName_DESC"
-  | "bankCode_ASC"
-  | "bankCode_DESC";
-
-export type MessageOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "chatId_ASC"
-  | "chatId_DESC"
-  | "text_ASC"
-  | "text_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC";
-
-export type ChatOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "merchantId_ASC"
-  | "merchantId_DESC"
-  | "warehouserId_ASC"
-  | "warehouserId_DESC"
-  | "requisitionId_ASC"
-  | "requisitionId_DESC";
-
-export type CountriesOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC";
-
-export type CrownOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "requiredReferrals_ASC"
-  | "requiredReferrals_DESC"
-  | "noOfDays_ASC"
-  | "noOfDays_DESC"
-  | "bonus_ASC"
-  | "bonus_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type DateRangeOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "min_ASC"
-  | "min_DESC"
-  | "max_ASC"
-  | "max_DESC";
-
-export type FloorsOptionsOrderByInput =
->>>>>>> Fixed Merge conflict errors
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2563,7 +2430,6 @@ export type FloorsOptionsOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-<<<<<<< HEAD
 export type RequisitionDurationOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -2573,16 +2439,6 @@ export type RequisitionDurationOrderByInput =
   | "slug_DESC";
 
 export type ListingRequirementsOrderByInput =
-=======
-export type GameOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type IdentificationsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2590,20 +2446,6 @@ export type IdentificationsOptionsOrderByInput =
   | "name_ASC"
   | "name_DESC"
   | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type SpacesOptionsOrderByInput =
->>>>>>> Fixed Merge conflict errors
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-<<<<<<< HEAD
   | "default_DESC";
 
 export type RequisitionCostOrderByInput =
@@ -2645,47 +2487,6 @@ export type ReferralOrderByInput =
   | "boost_DESC"
   | "rollover_ASC"
   | "rollover_DESC";
-=======
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type PropertiesOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type WallFinishesOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type RoofingMaterialOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
->>>>>>> Fixed Merge conflict errors
 
 export type ValueAddedServicesOrderByInput =
   | "id_ASC"
@@ -2698,7 +2499,6 @@ export type ValueAddedServicesOrderByInput =
   | "name_DESC"
   | "userId_ASC"
   | "userId_DESC";
-<<<<<<< HEAD
 
 export type PaymentCustomerOrderByInput =
   | "id_ASC"
@@ -2715,28 +2515,6 @@ export type PaymentCustomerOrderByInput =
   | "email_DESC";
 
 export type RoofingMaterialOptionsOrderByInput =
-=======
-
-export type ListingPhotosOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "url_ASC"
-  | "url_DESC"
-  | "default_ASC"
-  | "default_DESC";
-
-export type ListingRequirementsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC";
-
-export type ListingProductsOrderByInput =
->>>>>>> Fixed Merge conflict errors
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2748,7 +2526,6 @@ export type ListingProductsOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-<<<<<<< HEAD
 export type AmenitiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -2780,67 +2557,6 @@ export type AuthOrderByInput =
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type WallFinishesOptionsOrderByInput =
-=======
-export type ListingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "price_ASC"
-  | "price_DESC"
-  | "discount_ASC"
-  | "discount_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "proofOfOwnership_ASC"
-  | "proofOfOwnership_DESC"
-  | "windows_ASC"
-  | "windows_DESC"
-  | "avatar_ASC"
-  | "avatar_DESC"
-  | "status_ASC"
-  | "status_DESC";
-
-export type ListingAvailabilityOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "from_ASC"
-  | "from_DESC"
-  | "to_ASC"
-  | "to_DESC";
-
-export type ListingDimensionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "height_ASC"
-  | "height_DESC"
-  | "weight_ASC"
-  | "weight_DESC"
-  | "length_ASC"
-  | "length_DESC"
-  | "unitOfDimensions_ASC"
-  | "unitOfDimensions_DESC"
-  | "volume_ASC"
-  | "volume_DESC"
-  | "area_ASC"
-  | "area_DESC";
-
-export type ListingRatingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "count_ASC"
-  | "count_DESC"
-  | "rates_ASC"
-  | "rates_DESC"
-  | "average_ASC"
-  | "average_DESC";
-
-export type ListingsFrequenciesOrderByInput =
->>>>>>> Fixed Merge conflict errors
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2852,7 +2568,6 @@ export type ListingsFrequenciesOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-<<<<<<< HEAD
 export type AdminRoleOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -2988,167 +2703,11 @@ export type OtpOrderByInput =
 export type FloorsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-=======
-export type LocationsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "country_ASC"
-  | "country_DESC"
-  | "state_ASC"
-  | "state_DESC"
-  | "geo_ASC"
-  | "geo_DESC"
-  | "lga_ASC"
-  | "lga_DESC"
-  | "street_ASC"
-  | "street_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type OrganizationOrderByInput =
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC";
-
-export type OrganizationTypeOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC";
-
-export type OtpOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "code_ASC"
-  | "code_DESC"
-  | "validated_ASC"
-  | "validated_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type PaymentOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "channel_ASC"
-  | "channel_DESC"
-  | "info_ASC"
-  | "info_DESC";
-
-export type PaymentCustomerOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "paystackId_ASC"
-  | "paystackId_DESC"
-  | "customerCode_ASC"
-  | "customerCode_DESC"
-  | "firstName_ASC"
-  | "firstName_DESC"
-  | "lastName_ASC"
-  | "lastName_DESC"
-  | "email_ASC"
-  | "email_DESC";
-
-export type RatingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "listingId_ASC"
-  | "listingId_DESC"
-  | "ratingId_ASC"
-  | "ratingId_DESC"
-  | "rate_ASC"
-  | "rate_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type ReferralOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "refCode_ASC"
-  | "refCode_DESC"
-  | "userId_ASC"
-  | "userId_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type RequisitionOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "expires_ASC"
-  | "expires_DESC"
-  | "space_ASC"
-  | "space_DESC"
-  | "status_ASC"
-  | "status_DESC";
-
-export type RequisitionCostOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "baseCost_ASC"
-  | "baseCost_DESC"
-  | "vat_ASC"
-  | "vat_DESC"
-  | "discount_ASC"
-  | "discount_DESC";
-
-export type RequisitionDurationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "slug_ASC"
-  | "slug_DESC";
-
-export type RoleOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
-
-export type SelectOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC";
-
-export type StatesOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "countryId_ASC"
-  | "countryId_DESC"
->>>>>>> Fixed Merge conflict errors
   | "slug_ASC"
   | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
   | "default_ASC"
-<<<<<<< HEAD
   | "default_DESC"
   | "userId_ASC"
   | "userId_DESC";
@@ -3216,64 +2775,10 @@ export type DateRangeOrderByInput =
   | "max_DESC";
 
 export type StockOrderByInput =
-=======
-  | "default_DESC";
-
-export type StockProductOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "productBrandName_ASC"
-  | "productBrandName_DESC"
-  | "productType_ASC"
-  | "productType_DESC"
-  | "productPackageSize_ASC"
-  | "productPackageSize_DESC"
-  | "quantityPerPackageSize_ASC"
-  | "quantityPerPackageSize_DESC"
-  | "totalQuantity_ASC"
-  | "totalQuantity_DESC"
-  | "productImage_ASC"
-  | "productImage_DESC";
-
-export type StockOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "type_ASC"
   | "type_DESC"
-  | "status_ASC"
-  | "status_DESC";
-
-export type StockDispatchOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "pickupAgentName_ASC"
-  | "pickupAgentName_DESC"
-  | "pickupAgentPhone_ASC"
-  | "pickupAgentPhone_DESC"
-  | "pickupAgentIdentification_ASC"
-  | "pickupAgentIdentification_DESC"
-  | "pickupAgentIdNumber_ASC"
-  | "pickupAgentIdNumber_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "pickupDateMin_ASC"
-  | "pickupDateMin_DESC"
-  | "pickupDateMax_ASC"
-  | "pickupDateMax_DESC";
-
-export type SuccessOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "success_ASC"
-  | "success_DESC";
-
-export type TransactionOrderByInput =
->>>>>>> Fixed Merge conflict errors
-  | "id_ASC"
-  | "id_DESC"
-  | "type_ASC"
-  | "type_DESC"
-<<<<<<< HEAD
   | "status_ASC"
   | "status_DESC";
 
@@ -3333,74 +2838,11 @@ export interface GameUpdateInput {
   referralId?: Maybe<String>;
   userId?: Maybe<String>;
 }
-=======
-  | "description_ASC"
-  | "description_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "fees_ASC"
-  | "fees_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "firstName_ASC"
-  | "firstName_DESC"
-  | "lastName_ASC"
-  | "lastName_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "dob_ASC"
-  | "dob_DESC"
-  | "terms_ASC"
-  | "terms_DESC";
-
-export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
-
-export type WalletOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "userId_ASC"
-  | "userId_DESC"
-  | "availableBalance_ASC"
-  | "availableBalance_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "ledgerBalance_ASC"
-  | "ledgerBalance_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type WarehouserIdentificationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "idNumber_ASC"
-  | "idNumber_DESC"
-  | "expiryDate_ASC"
-  | "expiryDate_DESC"
-  | "idType_ASC"
-  | "idType_DESC";
-
-export type MutationType = "CREATED" | "UPDATED" | "DELETED";
->>>>>>> Fixed Merge conflict errors
 
 export type AdminRoleWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-<<<<<<< HEAD
 export type StockDispatchWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
@@ -3580,550 +3022,6 @@ export interface StockProductSubscriptionWhereInput {
 }
 
 export type SuccessWhereUniqueInput = AtLeastOne<{
-=======
-export interface AdminRoleWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
-  OR?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
-  NOT?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
-}
-
-export type AdminUserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
-
-export interface AdminUserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  firstName?: Maybe<String>;
-  firstName_not?: Maybe<String>;
-  firstName_in?: Maybe<String[] | String>;
-  firstName_not_in?: Maybe<String[] | String>;
-  firstName_lt?: Maybe<String>;
-  firstName_lte?: Maybe<String>;
-  firstName_gt?: Maybe<String>;
-  firstName_gte?: Maybe<String>;
-  firstName_contains?: Maybe<String>;
-  firstName_not_contains?: Maybe<String>;
-  firstName_starts_with?: Maybe<String>;
-  firstName_not_starts_with?: Maybe<String>;
-  firstName_ends_with?: Maybe<String>;
-  firstName_not_ends_with?: Maybe<String>;
-  lastName?: Maybe<String>;
-  lastName_not?: Maybe<String>;
-  lastName_in?: Maybe<String[] | String>;
-  lastName_not_in?: Maybe<String[] | String>;
-  lastName_lt?: Maybe<String>;
-  lastName_lte?: Maybe<String>;
-  lastName_gt?: Maybe<String>;
-  lastName_gte?: Maybe<String>;
-  lastName_contains?: Maybe<String>;
-  lastName_not_contains?: Maybe<String>;
-  lastName_starts_with?: Maybe<String>;
-  lastName_not_starts_with?: Maybe<String>;
-  lastName_ends_with?: Maybe<String>;
-  lastName_not_ends_with?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  password?: Maybe<String>;
-  password_not?: Maybe<String>;
-  password_in?: Maybe<String[] | String>;
-  password_not_in?: Maybe<String[] | String>;
-  password_lt?: Maybe<String>;
-  password_lte?: Maybe<String>;
-  password_gt?: Maybe<String>;
-  password_gte?: Maybe<String>;
-  password_contains?: Maybe<String>;
-  password_not_contains?: Maybe<String>;
-  password_starts_with?: Maybe<String>;
-  password_not_starts_with?: Maybe<String>;
-  password_ends_with?: Maybe<String>;
-  password_not_ends_with?: Maybe<String>;
-  role?: Maybe<AdminRoleWhereInput>;
-  roleId?: Maybe<Int>;
-  roleId_not?: Maybe<Int>;
-  roleId_in?: Maybe<Int[] | Int>;
-  roleId_not_in?: Maybe<Int[] | Int>;
-  roleId_lt?: Maybe<Int>;
-  roleId_lte?: Maybe<Int>;
-  roleId_gt?: Maybe<Int>;
-  roleId_gte?: Maybe<Int>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<AdminUserWhereInput[] | AdminUserWhereInput>;
-  OR?: Maybe<AdminUserWhereInput[] | AdminUserWhereInput>;
-  NOT?: Maybe<AdminUserWhereInput[] | AdminUserWhereInput>;
-}
-
-export type AmenitiesOptionsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface AmenitiesOptionsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<AmenitiesOptionsWhereInput[] | AmenitiesOptionsWhereInput>;
-  OR?: Maybe<AmenitiesOptionsWhereInput[] | AmenitiesOptionsWhereInput>;
-  NOT?: Maybe<AmenitiesOptionsWhereInput[] | AmenitiesOptionsWhereInput>;
-}
-
-export type AuthWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-}>;
-
-export interface AuthWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  pin?: Maybe<String>;
-  pin_not?: Maybe<String>;
-  pin_in?: Maybe<String[] | String>;
-  pin_not_in?: Maybe<String[] | String>;
-  pin_lt?: Maybe<String>;
-  pin_lte?: Maybe<String>;
-  pin_gt?: Maybe<String>;
-  pin_gte?: Maybe<String>;
-  pin_contains?: Maybe<String>;
-  pin_not_contains?: Maybe<String>;
-  pin_starts_with?: Maybe<String>;
-  pin_not_starts_with?: Maybe<String>;
-  pin_ends_with?: Maybe<String>;
-  pin_not_ends_with?: Maybe<String>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  AND?: Maybe<AuthWhereInput[] | AuthWhereInput>;
-  OR?: Maybe<AuthWhereInput[] | AuthWhereInput>;
-  NOT?: Maybe<AuthWhereInput[] | AuthWhereInput>;
-}
-
-export interface UserWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  firstName?: Maybe<String>;
-  firstName_not?: Maybe<String>;
-  firstName_in?: Maybe<String[] | String>;
-  firstName_not_in?: Maybe<String[] | String>;
-  firstName_lt?: Maybe<String>;
-  firstName_lte?: Maybe<String>;
-  firstName_gt?: Maybe<String>;
-  firstName_gte?: Maybe<String>;
-  firstName_contains?: Maybe<String>;
-  firstName_not_contains?: Maybe<String>;
-  firstName_starts_with?: Maybe<String>;
-  firstName_not_starts_with?: Maybe<String>;
-  firstName_ends_with?: Maybe<String>;
-  firstName_not_ends_with?: Maybe<String>;
-  lastName?: Maybe<String>;
-  lastName_not?: Maybe<String>;
-  lastName_in?: Maybe<String[] | String>;
-  lastName_not_in?: Maybe<String[] | String>;
-  lastName_lt?: Maybe<String>;
-  lastName_lte?: Maybe<String>;
-  lastName_gt?: Maybe<String>;
-  lastName_gte?: Maybe<String>;
-  lastName_contains?: Maybe<String>;
-  lastName_not_contains?: Maybe<String>;
-  lastName_starts_with?: Maybe<String>;
-  lastName_not_starts_with?: Maybe<String>;
-  lastName_ends_with?: Maybe<String>;
-  lastName_not_ends_with?: Maybe<String>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  dob?: Maybe<String>;
-  dob_not?: Maybe<String>;
-  dob_in?: Maybe<String[] | String>;
-  dob_not_in?: Maybe<String[] | String>;
-  dob_lt?: Maybe<String>;
-  dob_lte?: Maybe<String>;
-  dob_gt?: Maybe<String>;
-  dob_gte?: Maybe<String>;
-  dob_contains?: Maybe<String>;
-  dob_not_contains?: Maybe<String>;
-  dob_starts_with?: Maybe<String>;
-  dob_not_starts_with?: Maybe<String>;
-  dob_ends_with?: Maybe<String>;
-  dob_not_ends_with?: Maybe<String>;
-  terms?: Maybe<Boolean>;
-  terms_not?: Maybe<Boolean>;
-  bank?: Maybe<BankWhereInput>;
-  type?: Maybe<OrganizationTypeWhereInput>;
-  AND?: Maybe<UserWhereInput[] | UserWhereInput>;
-  OR?: Maybe<UserWhereInput[] | UserWhereInput>;
-  NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
-}
-
-export interface BankWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  accountNumber?: Maybe<String>;
-  accountNumber_not?: Maybe<String>;
-  accountNumber_in?: Maybe<String[] | String>;
-  accountNumber_not_in?: Maybe<String[] | String>;
-  accountNumber_lt?: Maybe<String>;
-  accountNumber_lte?: Maybe<String>;
-  accountNumber_gt?: Maybe<String>;
-  accountNumber_gte?: Maybe<String>;
-  accountNumber_contains?: Maybe<String>;
-  accountNumber_not_contains?: Maybe<String>;
-  accountNumber_starts_with?: Maybe<String>;
-  accountNumber_not_starts_with?: Maybe<String>;
-  accountNumber_ends_with?: Maybe<String>;
-  accountNumber_not_ends_with?: Maybe<String>;
-  accountName?: Maybe<String>;
-  accountName_not?: Maybe<String>;
-  accountName_in?: Maybe<String[] | String>;
-  accountName_not_in?: Maybe<String[] | String>;
-  accountName_lt?: Maybe<String>;
-  accountName_lte?: Maybe<String>;
-  accountName_gt?: Maybe<String>;
-  accountName_gte?: Maybe<String>;
-  accountName_contains?: Maybe<String>;
-  accountName_not_contains?: Maybe<String>;
-  accountName_starts_with?: Maybe<String>;
-  accountName_not_starts_with?: Maybe<String>;
-  accountName_ends_with?: Maybe<String>;
-  accountName_not_ends_with?: Maybe<String>;
-  bankName?: Maybe<String>;
-  bankName_not?: Maybe<String>;
-  bankName_in?: Maybe<String[] | String>;
-  bankName_not_in?: Maybe<String[] | String>;
-  bankName_lt?: Maybe<String>;
-  bankName_lte?: Maybe<String>;
-  bankName_gt?: Maybe<String>;
-  bankName_gte?: Maybe<String>;
-  bankName_contains?: Maybe<String>;
-  bankName_not_contains?: Maybe<String>;
-  bankName_starts_with?: Maybe<String>;
-  bankName_not_starts_with?: Maybe<String>;
-  bankName_ends_with?: Maybe<String>;
-  bankName_not_ends_with?: Maybe<String>;
-  bankCode?: Maybe<String>;
-  bankCode_not?: Maybe<String>;
-  bankCode_in?: Maybe<String[] | String>;
-  bankCode_not_in?: Maybe<String[] | String>;
-  bankCode_lt?: Maybe<String>;
-  bankCode_lte?: Maybe<String>;
-  bankCode_gt?: Maybe<String>;
-  bankCode_gte?: Maybe<String>;
-  bankCode_contains?: Maybe<String>;
-  bankCode_not_contains?: Maybe<String>;
-  bankCode_starts_with?: Maybe<String>;
-  bankCode_not_starts_with?: Maybe<String>;
-  bankCode_ends_with?: Maybe<String>;
-  bankCode_not_ends_with?: Maybe<String>;
-  AND?: Maybe<BankWhereInput[] | BankWhereInput>;
-  OR?: Maybe<BankWhereInput[] | BankWhereInput>;
-  NOT?: Maybe<BankWhereInput[] | BankWhereInput>;
-}
-
-export interface OrganizationTypeWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  AND?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
-  OR?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
-  NOT?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
-}
-
-export type BankWhereUniqueInput = AtLeastOne<{
->>>>>>> Fixed Merge conflict errors
   id: Maybe<ID_Input>;
 }>;
 
@@ -4131,7 +3029,6 @@ export type ChatWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-<<<<<<< HEAD
 export interface OtpUpdateInput {
   phoneNumber?: Maybe<String>;
   code?: Maybe<String>;
@@ -4150,9 +3047,6 @@ export interface StockSubscriptionWhereInput {
 }
 
 export interface SuccessWhereInput {
-=======
-export interface MessageWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4167,7 +3061,6 @@ export interface MessageWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   success?: Maybe<Boolean>;
   success_not?: Maybe<Boolean>;
   AND?: Maybe<SuccessWhereInput[] | SuccessWhereInput>;
@@ -4187,51 +3080,6 @@ export interface OtpCreateInput {
 }
 
 export interface DateRangeWhereInput {
-=======
-  chatId?: Maybe<String>;
-  chatId_not?: Maybe<String>;
-  chatId_in?: Maybe<String[] | String>;
-  chatId_not_in?: Maybe<String[] | String>;
-  chatId_lt?: Maybe<String>;
-  chatId_lte?: Maybe<String>;
-  chatId_gt?: Maybe<String>;
-  chatId_gte?: Maybe<String>;
-  chatId_contains?: Maybe<String>;
-  chatId_not_contains?: Maybe<String>;
-  chatId_starts_with?: Maybe<String>;
-  chatId_not_starts_with?: Maybe<String>;
-  chatId_ends_with?: Maybe<String>;
-  chatId_not_ends_with?: Maybe<String>;
-  from?: Maybe<UserWhereInput>;
-  text?: Maybe<String>;
-  text_not?: Maybe<String>;
-  text_in?: Maybe<String[] | String>;
-  text_not_in?: Maybe<String[] | String>;
-  text_lt?: Maybe<String>;
-  text_lte?: Maybe<String>;
-  text_gt?: Maybe<String>;
-  text_gte?: Maybe<String>;
-  text_contains?: Maybe<String>;
-  text_not_contains?: Maybe<String>;
-  text_starts_with?: Maybe<String>;
-  text_not_starts_with?: Maybe<String>;
-  text_ends_with?: Maybe<String>;
-  text_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<MessageWhereInput[] | MessageWhereInput>;
-  OR?: Maybe<MessageWhereInput[] | MessageWhereInput>;
-  NOT?: Maybe<MessageWhereInput[] | MessageWhereInput>;
-}
-
-export interface ChatWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4246,7 +3094,6 @@ export interface ChatWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   min?: Maybe<String>;
   min_not?: Maybe<String>;
   min_in?: Maybe<String[] | String>;
@@ -4395,65 +3242,6 @@ export interface RatingSubscriptionWhereInput {
 }
 
 export interface TransactionWhereInput {
-=======
-  merchantId?: Maybe<String>;
-  merchantId_not?: Maybe<String>;
-  merchantId_in?: Maybe<String[] | String>;
-  merchantId_not_in?: Maybe<String[] | String>;
-  merchantId_lt?: Maybe<String>;
-  merchantId_lte?: Maybe<String>;
-  merchantId_gt?: Maybe<String>;
-  merchantId_gte?: Maybe<String>;
-  merchantId_contains?: Maybe<String>;
-  merchantId_not_contains?: Maybe<String>;
-  merchantId_starts_with?: Maybe<String>;
-  merchantId_not_starts_with?: Maybe<String>;
-  merchantId_ends_with?: Maybe<String>;
-  merchantId_not_ends_with?: Maybe<String>;
-  warehouserId?: Maybe<String>;
-  warehouserId_not?: Maybe<String>;
-  warehouserId_in?: Maybe<String[] | String>;
-  warehouserId_not_in?: Maybe<String[] | String>;
-  warehouserId_lt?: Maybe<String>;
-  warehouserId_lte?: Maybe<String>;
-  warehouserId_gt?: Maybe<String>;
-  warehouserId_gte?: Maybe<String>;
-  warehouserId_contains?: Maybe<String>;
-  warehouserId_not_contains?: Maybe<String>;
-  warehouserId_starts_with?: Maybe<String>;
-  warehouserId_not_starts_with?: Maybe<String>;
-  warehouserId_ends_with?: Maybe<String>;
-  warehouserId_not_ends_with?: Maybe<String>;
-  merchant?: Maybe<UserWhereInput>;
-  warehouser?: Maybe<UserWhereInput>;
-  requisitionId?: Maybe<String>;
-  requisitionId_not?: Maybe<String>;
-  requisitionId_in?: Maybe<String[] | String>;
-  requisitionId_not_in?: Maybe<String[] | String>;
-  requisitionId_lt?: Maybe<String>;
-  requisitionId_lte?: Maybe<String>;
-  requisitionId_gt?: Maybe<String>;
-  requisitionId_gte?: Maybe<String>;
-  requisitionId_contains?: Maybe<String>;
-  requisitionId_not_contains?: Maybe<String>;
-  requisitionId_starts_with?: Maybe<String>;
-  requisitionId_not_starts_with?: Maybe<String>;
-  requisitionId_ends_with?: Maybe<String>;
-  requisitionId_not_ends_with?: Maybe<String>;
-  messages_every?: Maybe<MessageWhereInput>;
-  messages_some?: Maybe<MessageWhereInput>;
-  messages_none?: Maybe<MessageWhereInput>;
-  AND?: Maybe<ChatWhereInput[] | ChatWhereInput>;
-  OR?: Maybe<ChatWhereInput[] | ChatWhereInput>;
-  NOT?: Maybe<ChatWhereInput[] | ChatWhereInput>;
-}
-
-export type CountriesWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface CountriesWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4468,7 +3256,6 @@ export interface CountriesWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   type?: Maybe<Int>;
   type_not?: Maybe<Int>;
   type_in?: Maybe<Int[] | Int>;
@@ -4793,48 +3580,6 @@ export type UserOrganizationRoleWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface PropertiesOptionsWhereInput {
-=======
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  AND?: Maybe<CountriesWhereInput[] | CountriesWhereInput>;
-  OR?: Maybe<CountriesWhereInput[] | CountriesWhereInput>;
-  NOT?: Maybe<CountriesWhereInput[] | CountriesWhereInput>;
-}
-
-export type CrownWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface CrownWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4849,7 +3594,6 @@ export interface CrownWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   slug?: Maybe<String>;
   slug_not?: Maybe<String>;
   slug_in?: Maybe<String[] | String>;
@@ -4917,58 +3661,6 @@ export interface ListingSubscriptionWhereInput {
 }
 
 export interface UserOrganizationRoleWhereInput {
-=======
-  requiredReferrals?: Maybe<Int>;
-  requiredReferrals_not?: Maybe<Int>;
-  requiredReferrals_in?: Maybe<Int[] | Int>;
-  requiredReferrals_not_in?: Maybe<Int[] | Int>;
-  requiredReferrals_lt?: Maybe<Int>;
-  requiredReferrals_lte?: Maybe<Int>;
-  requiredReferrals_gt?: Maybe<Int>;
-  requiredReferrals_gte?: Maybe<Int>;
-  noOfDays?: Maybe<Int>;
-  noOfDays_not?: Maybe<Int>;
-  noOfDays_in?: Maybe<Int[] | Int>;
-  noOfDays_not_in?: Maybe<Int[] | Int>;
-  noOfDays_lt?: Maybe<Int>;
-  noOfDays_lte?: Maybe<Int>;
-  noOfDays_gt?: Maybe<Int>;
-  noOfDays_gte?: Maybe<Int>;
-  bonus?: Maybe<Int>;
-  bonus_not?: Maybe<Int>;
-  bonus_in?: Maybe<Int[] | Int>;
-  bonus_not_in?: Maybe<Int[] | Int>;
-  bonus_lt?: Maybe<Int>;
-  bonus_lte?: Maybe<Int>;
-  bonus_gt?: Maybe<Int>;
-  bonus_gte?: Maybe<Int>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CrownWhereInput[] | CrownWhereInput>;
-  OR?: Maybe<CrownWhereInput[] | CrownWhereInput>;
-  NOT?: Maybe<CrownWhereInput[] | CrownWhereInput>;
-}
-
-export type DateRangeWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface DateRangeWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4983,7 +3675,6 @@ export interface DateRangeWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   user?: Maybe<UserWhereInput>;
   role?: Maybe<RoleWhereInput>;
   organization?: Maybe<OrganizationWhereInput>;
@@ -5216,45 +3907,6 @@ export interface ListingPhotosWhereInput {
 }
 
 export interface AdminRoleWhereInput {
-=======
-  min?: Maybe<String>;
-  min_not?: Maybe<String>;
-  min_in?: Maybe<String[] | String>;
-  min_not_in?: Maybe<String[] | String>;
-  min_lt?: Maybe<String>;
-  min_lte?: Maybe<String>;
-  min_gt?: Maybe<String>;
-  min_gte?: Maybe<String>;
-  min_contains?: Maybe<String>;
-  min_not_contains?: Maybe<String>;
-  min_starts_with?: Maybe<String>;
-  min_not_starts_with?: Maybe<String>;
-  min_ends_with?: Maybe<String>;
-  min_not_ends_with?: Maybe<String>;
-  max?: Maybe<String>;
-  max_not?: Maybe<String>;
-  max_in?: Maybe<String[] | String>;
-  max_not_in?: Maybe<String[] | String>;
-  max_lt?: Maybe<String>;
-  max_lte?: Maybe<String>;
-  max_gt?: Maybe<String>;
-  max_gte?: Maybe<String>;
-  max_contains?: Maybe<String>;
-  max_not_contains?: Maybe<String>;
-  max_starts_with?: Maybe<String>;
-  max_not_starts_with?: Maybe<String>;
-  max_ends_with?: Maybe<String>;
-  max_not_ends_with?: Maybe<String>;
-  AND?: Maybe<DateRangeWhereInput[] | DateRangeWhereInput>;
-  OR?: Maybe<DateRangeWhereInput[] | DateRangeWhereInput>;
-  NOT?: Maybe<DateRangeWhereInput[] | DateRangeWhereInput>;
-}
-
-export type FloorsOptionsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface FloorsOptionsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5269,20 +3921,6 @@ export interface FloorsOptionsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -5297,65 +3935,6 @@ export interface FloorsOptionsWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<FloorsOptionsWhereInput[] | FloorsOptionsWhereInput>;
-  OR?: Maybe<FloorsOptionsWhereInput[] | FloorsOptionsWhereInput>;
-  NOT?: Maybe<FloorsOptionsWhereInput[] | FloorsOptionsWhereInput>;
-}
-
-export type GameWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface GameWhereInput {
->>>>>>> Fixed Merge conflict errors
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-=======
-  crown?: Maybe<CrownWhereInput>;
->>>>>>> Fixed Merge conflict errors
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -5372,7 +3951,6 @@ export interface GameWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-<<<<<<< HEAD
   AND?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
   OR?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
   NOT?: Maybe<AdminRoleWhereInput[] | AdminRoleWhereInput>;
@@ -5395,18 +3973,6 @@ export interface ListingPhotosUpdateManyMutationInput {
 }
 
 export interface ListingRequirementsWhereInput {
-=======
-  AND?: Maybe<GameWhereInput[] | GameWhereInput>;
-  OR?: Maybe<GameWhereInput[] | GameWhereInput>;
-  NOT?: Maybe<GameWhereInput[] | GameWhereInput>;
-}
-
-export type IdentificationsOptionsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface IdentificationsOptionsWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5451,7 +4017,6 @@ export interface IdentificationsOptionsWhereInput {
   name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
-<<<<<<< HEAD
   AND?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
   OR?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
   NOT?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
@@ -5555,8 +4120,6 @@ export interface AuthWhereInput {
   pin_not_starts_with?: Maybe<String>;
   pin_ends_with?: Maybe<String>;
   pin_not_ends_with?: Maybe<String>;
-=======
->>>>>>> Fixed Merge conflict errors
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -5571,7 +4134,6 @@ export interface AuthWhereInput {
   userId_not_starts_with?: Maybe<String>;
   userId_ends_with?: Maybe<String>;
   userId_not_ends_with?: Maybe<String>;
-<<<<<<< HEAD
   user?: Maybe<UserWhereInput>;
   AND?: Maybe<AuthWhereInput[] | AuthWhereInput>;
   OR?: Maybe<AuthWhereInput[] | AuthWhereInput>;
@@ -5620,23 +4182,6 @@ export interface ListingAvailabilityUpdateManyMutationInput {
 }
 
 export interface WarehouserIdentificationWhereInput {
-=======
-  AND?: Maybe<
-    IdentificationsOptionsWhereInput[] | IdentificationsOptionsWhereInput
-  >;
-  OR?: Maybe<
-    IdentificationsOptionsWhereInput[] | IdentificationsOptionsWhereInput
-  >;
-  NOT?: Maybe<
-    IdentificationsOptionsWhereInput[] | IdentificationsOptionsWhereInput
-  >;
-}
-
-export type ListingWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface SpacesOptionsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5651,270 +4196,6 @@ export interface SpacesOptionsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<SpacesOptionsWhereInput[] | SpacesOptionsWhereInput>;
-  OR?: Maybe<SpacesOptionsWhereInput[] | SpacesOptionsWhereInput>;
-  NOT?: Maybe<SpacesOptionsWhereInput[] | SpacesOptionsWhereInput>;
-}
-
-export interface PropertiesOptionsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<PropertiesOptionsWhereInput[] | PropertiesOptionsWhereInput>;
-  OR?: Maybe<PropertiesOptionsWhereInput[] | PropertiesOptionsWhereInput>;
-  NOT?: Maybe<PropertiesOptionsWhereInput[] | PropertiesOptionsWhereInput>;
-}
-
-export interface WallFinishesOptionsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<WallFinishesOptionsWhereInput[] | WallFinishesOptionsWhereInput>;
-  OR?: Maybe<WallFinishesOptionsWhereInput[] | WallFinishesOptionsWhereInput>;
-  NOT?: Maybe<WallFinishesOptionsWhereInput[] | WallFinishesOptionsWhereInput>;
-}
-
-export interface RoofingMaterialOptionsWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    RoofingMaterialOptionsWhereInput[] | RoofingMaterialOptionsWhereInput
-  >;
-  OR?: Maybe<
-    RoofingMaterialOptionsWhereInput[] | RoofingMaterialOptionsWhereInput
-  >;
-  NOT?: Maybe<
-    RoofingMaterialOptionsWhereInput[] | RoofingMaterialOptionsWhereInput
-  >;
-}
-
-export interface ValueAddedServicesWhereInput {
->>>>>>> Fixed Merge conflict errors
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   idNumber?: Maybe<String>;
   idNumber_not?: Maybe<String>;
   idNumber_in?: Maybe<String[] | String>;
@@ -5974,57 +4255,6 @@ export interface ListingAvailabilityUpdateInput {
 }
 
 export interface LocationsWhereInput {
-=======
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<ValueAddedServicesWhereInput[] | ValueAddedServicesWhereInput>;
-  OR?: Maybe<ValueAddedServicesWhereInput[] | ValueAddedServicesWhereInput>;
-  NOT?: Maybe<ValueAddedServicesWhereInput[] | ValueAddedServicesWhereInput>;
-}
-
-export interface ListingPhotosWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -6039,44 +4269,6 @@ export interface ListingPhotosWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  url?: Maybe<String>;
-  url_not?: Maybe<String>;
-  url_in?: Maybe<String[] | String>;
-  url_not_in?: Maybe<String[] | String>;
-  url_lt?: Maybe<String>;
-  url_lte?: Maybe<String>;
-  url_gt?: Maybe<String>;
-  url_gte?: Maybe<String>;
-  url_contains?: Maybe<String>;
-  url_not_contains?: Maybe<String>;
-  url_starts_with?: Maybe<String>;
-  url_not_starts_with?: Maybe<String>;
-  url_ends_with?: Maybe<String>;
-  url_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  AND?: Maybe<ListingPhotosWhereInput[] | ListingPhotosWhereInput>;
-  OR?: Maybe<ListingPhotosWhereInput[] | ListingPhotosWhereInput>;
-  NOT?: Maybe<ListingPhotosWhereInput[] | ListingPhotosWhereInput>;
-}
-
-export interface ListingRequirementsWhereInput {
->>>>>>> Fixed Merge conflict errors
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   country?: Maybe<String>;
   country_not?: Maybe<String>;
   country_in?: Maybe<String[] | String>;
@@ -6171,43 +4363,6 @@ export type WallFinishesOptionsWhereUniqueInput = AtLeastOne<{
 }>;
 
 export interface ListingAvailabilityWhereInput {
-=======
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  AND?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
-  OR?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
-  NOT?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
-}
-
-export interface ListingProductsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -6222,72 +4377,6 @@ export interface ListingProductsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
-  OR?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
-  NOT?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
-}
-
-export interface ListingWhereInput {
->>>>>>> Fixed Merge conflict errors
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-<<<<<<< HEAD
   from?: Maybe<String>;
   from_not?: Maybe<String>;
   from_in?: Maybe<String[] | String>;
@@ -6335,237 +4424,6 @@ export interface ListingUpdateManyMutationInput {
 }
 
 export interface ListingRatingWhereInput {
-=======
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
-  slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
-  user?: Maybe<UserWhereInput>;
-  description?: Maybe<String>;
-  description_not?: Maybe<String>;
-  description_in?: Maybe<String[] | String>;
-  description_not_in?: Maybe<String[] | String>;
-  description_lt?: Maybe<String>;
-  description_lte?: Maybe<String>;
-  description_gt?: Maybe<String>;
-  description_gte?: Maybe<String>;
-  description_contains?: Maybe<String>;
-  description_not_contains?: Maybe<String>;
-  description_starts_with?: Maybe<String>;
-  description_not_starts_with?: Maybe<String>;
-  description_ends_with?: Maybe<String>;
-  description_not_ends_with?: Maybe<String>;
-  price?: Maybe<Float>;
-  price_not?: Maybe<Float>;
-  price_in?: Maybe<Float[] | Float>;
-  price_not_in?: Maybe<Float[] | Float>;
-  price_lt?: Maybe<Float>;
-  price_lte?: Maybe<Float>;
-  price_gt?: Maybe<Float>;
-  price_gte?: Maybe<Float>;
-  discount?: Maybe<Int>;
-  discount_not?: Maybe<Int>;
-  discount_in?: Maybe<Int[] | Int>;
-  discount_not_in?: Maybe<Int[] | Int>;
-  discount_lt?: Maybe<Int>;
-  discount_lte?: Maybe<Int>;
-  discount_gt?: Maybe<Int>;
-  discount_gte?: Maybe<Int>;
-  currency?: Maybe<String>;
-  currency_not?: Maybe<String>;
-  currency_in?: Maybe<String[] | String>;
-  currency_not_in?: Maybe<String[] | String>;
-  currency_lt?: Maybe<String>;
-  currency_lte?: Maybe<String>;
-  currency_gt?: Maybe<String>;
-  currency_gte?: Maybe<String>;
-  currency_contains?: Maybe<String>;
-  currency_not_contains?: Maybe<String>;
-  currency_starts_with?: Maybe<String>;
-  currency_not_starts_with?: Maybe<String>;
-  currency_ends_with?: Maybe<String>;
-  currency_not_ends_with?: Maybe<String>;
-  proofOfOwnership?: Maybe<String>;
-  proofOfOwnership_not?: Maybe<String>;
-  proofOfOwnership_in?: Maybe<String[] | String>;
-  proofOfOwnership_not_in?: Maybe<String[] | String>;
-  proofOfOwnership_lt?: Maybe<String>;
-  proofOfOwnership_lte?: Maybe<String>;
-  proofOfOwnership_gt?: Maybe<String>;
-  proofOfOwnership_gte?: Maybe<String>;
-  proofOfOwnership_contains?: Maybe<String>;
-  proofOfOwnership_not_contains?: Maybe<String>;
-  proofOfOwnership_starts_with?: Maybe<String>;
-  proofOfOwnership_not_starts_with?: Maybe<String>;
-  proofOfOwnership_ends_with?: Maybe<String>;
-  proofOfOwnership_not_ends_with?: Maybe<String>;
-  identification?: Maybe<WarehouserIdentificationWhereInput>;
-  spacing_every?: Maybe<SpacesOptionsWhereInput>;
-  spacing_some?: Maybe<SpacesOptionsWhereInput>;
-  spacing_none?: Maybe<SpacesOptionsWhereInput>;
-  property_every?: Maybe<PropertiesOptionsWhereInput>;
-  property_some?: Maybe<PropertiesOptionsWhereInput>;
-  property_none?: Maybe<PropertiesOptionsWhereInput>;
-  floor_every?: Maybe<FloorsOptionsWhereInput>;
-  floor_some?: Maybe<FloorsOptionsWhereInput>;
-  floor_none?: Maybe<FloorsOptionsWhereInput>;
-  wallFinish_every?: Maybe<WallFinishesOptionsWhereInput>;
-  wallFinish_some?: Maybe<WallFinishesOptionsWhereInput>;
-  wallFinish_none?: Maybe<WallFinishesOptionsWhereInput>;
-  roofing_every?: Maybe<RoofingMaterialOptionsWhereInput>;
-  roofing_some?: Maybe<RoofingMaterialOptionsWhereInput>;
-  roofing_none?: Maybe<RoofingMaterialOptionsWhereInput>;
-  isSecure?: Maybe<SelectOptionsWhereInput>;
-  pest?: Maybe<SelectOptionsWhereInput>;
-  windows?: Maybe<Int>;
-  windows_not?: Maybe<Int>;
-  windows_in?: Maybe<Int[] | Int>;
-  windows_not_in?: Maybe<Int[] | Int>;
-  windows_lt?: Maybe<Int>;
-  windows_lte?: Maybe<Int>;
-  windows_gt?: Maybe<Int>;
-  windows_gte?: Maybe<Int>;
-  location?: Maybe<LocationsWhereInput>;
-  amenities_every?: Maybe<AmenitiesOptionsWhereInput>;
-  amenities_some?: Maybe<AmenitiesOptionsWhereInput>;
-  amenities_none?: Maybe<AmenitiesOptionsWhereInput>;
-  avatar?: Maybe<String>;
-  avatar_not?: Maybe<String>;
-  avatar_in?: Maybe<String[] | String>;
-  avatar_not_in?: Maybe<String[] | String>;
-  avatar_lt?: Maybe<String>;
-  avatar_lte?: Maybe<String>;
-  avatar_gt?: Maybe<String>;
-  avatar_gte?: Maybe<String>;
-  avatar_contains?: Maybe<String>;
-  avatar_not_contains?: Maybe<String>;
-  avatar_starts_with?: Maybe<String>;
-  avatar_not_starts_with?: Maybe<String>;
-  avatar_ends_with?: Maybe<String>;
-  avatar_not_ends_with?: Maybe<String>;
-  vas_every?: Maybe<ValueAddedServicesWhereInput>;
-  vas_some?: Maybe<ValueAddedServicesWhereInput>;
-  vas_none?: Maybe<ValueAddedServicesWhereInput>;
-  listingPhotos_every?: Maybe<ListingPhotosWhereInput>;
-  listingPhotos_some?: Maybe<ListingPhotosWhereInput>;
-  listingPhotos_none?: Maybe<ListingPhotosWhereInput>;
-  frequency?: Maybe<ListingsFrequenciesWhereInput>;
-  requirements_every?: Maybe<ListingRequirementsWhereInput>;
-  requirements_some?: Maybe<ListingRequirementsWhereInput>;
-  requirements_none?: Maybe<ListingRequirementsWhereInput>;
-  products_every?: Maybe<ListingProductsWhereInput>;
-  products_some?: Maybe<ListingProductsWhereInput>;
-  products_none?: Maybe<ListingProductsWhereInput>;
-  availability?: Maybe<ListingAvailabilityWhereInput>;
-  dimensions?: Maybe<ListingDimensionsWhereInput>;
-  status?: Maybe<Int>;
-  status_not?: Maybe<Int>;
-  status_in?: Maybe<Int[] | Int>;
-  status_not_in?: Maybe<Int[] | Int>;
-  status_lt?: Maybe<Int>;
-  status_lte?: Maybe<Int>;
-  status_gt?: Maybe<Int>;
-  status_gte?: Maybe<Int>;
-  rating?: Maybe<ListingRatingWhereInput>;
-  AND?: Maybe<ListingWhereInput[] | ListingWhereInput>;
-  OR?: Maybe<ListingWhereInput[] | ListingWhereInput>;
-  NOT?: Maybe<ListingWhereInput[] | ListingWhereInput>;
-}
-
-export interface WarehouserIdentificationWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  idNumber?: Maybe<String>;
-  idNumber_not?: Maybe<String>;
-  idNumber_in?: Maybe<String[] | String>;
-  idNumber_not_in?: Maybe<String[] | String>;
-  idNumber_lt?: Maybe<String>;
-  idNumber_lte?: Maybe<String>;
-  idNumber_gt?: Maybe<String>;
-  idNumber_gte?: Maybe<String>;
-  idNumber_contains?: Maybe<String>;
-  idNumber_not_contains?: Maybe<String>;
-  idNumber_starts_with?: Maybe<String>;
-  idNumber_not_starts_with?: Maybe<String>;
-  idNumber_ends_with?: Maybe<String>;
-  idNumber_not_ends_with?: Maybe<String>;
-  expiryDate?: Maybe<String>;
-  expiryDate_not?: Maybe<String>;
-  expiryDate_in?: Maybe<String[] | String>;
-  expiryDate_not_in?: Maybe<String[] | String>;
-  expiryDate_lt?: Maybe<String>;
-  expiryDate_lte?: Maybe<String>;
-  expiryDate_gt?: Maybe<String>;
-  expiryDate_gte?: Maybe<String>;
-  expiryDate_contains?: Maybe<String>;
-  expiryDate_not_contains?: Maybe<String>;
-  expiryDate_starts_with?: Maybe<String>;
-  expiryDate_not_starts_with?: Maybe<String>;
-  expiryDate_ends_with?: Maybe<String>;
-  expiryDate_not_ends_with?: Maybe<String>;
-  idType?: Maybe<String>;
-  idType_not?: Maybe<String>;
-  idType_in?: Maybe<String[] | String>;
-  idType_not_in?: Maybe<String[] | String>;
-  idType_lt?: Maybe<String>;
-  idType_lte?: Maybe<String>;
-  idType_gt?: Maybe<String>;
-  idType_gte?: Maybe<String>;
-  idType_contains?: Maybe<String>;
-  idType_not_contains?: Maybe<String>;
-  idType_starts_with?: Maybe<String>;
-  idType_not_starts_with?: Maybe<String>;
-  idType_ends_with?: Maybe<String>;
-  idType_not_ends_with?: Maybe<String>;
-  AND?: Maybe<
-    WarehouserIdentificationWhereInput[] | WarehouserIdentificationWhereInput
-  >;
-  OR?: Maybe<
-    WarehouserIdentificationWhereInput[] | WarehouserIdentificationWhereInput
-  >;
-  NOT?: Maybe<
-    WarehouserIdentificationWhereInput[] | WarehouserIdentificationWhereInput
-  >;
-}
-
-export interface SelectOptionsWhereInput {
->>>>>>> Fixed Merge conflict errors
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -8284,6 +6142,7 @@ export type ReferralWhereUniqueInput = AtLeastOne<{
 
 export interface ReferralWhereInput {
   id?: Maybe<ID_Input>;
+<<<<<<< HEAD
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
   id_not_in?: Maybe<ID_Input[] | ID_Input>;
@@ -8349,6 +6208,27 @@ export interface ReferralWhereInput {
   AND?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
   OR?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
   NOT?: Maybe<ReferralWhereInput[] | ReferralWhereInput>;
+=======
+  type: OrganizationTypeCreateOneInput;
+  bank: BankCreateOneInput;
+  firstName: String;
+  lastName: String;
+  email: String;
+  phoneNumber: String;
+  dob: String;
+  status: Int;
+  terms?: Maybe<Boolean>;
+}
+
+export interface OrganizationTypeCreateOneInput {
+  create?: Maybe<OrganizationTypeCreateInput>;
+  connect?: Maybe<OrganizationTypeWhereUniqueInput>;
+}
+
+export interface OrganizationTypeCreateInput {
+  id?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+>>>>>>> Worrked on statistics, referrals
 }
 
 export type RequisitionWhereUniqueInput = AtLeastOne<{
@@ -8359,6 +6239,7 @@ export type RequisitionCostWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
+<<<<<<< HEAD
 export type RequisitionDurationWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
@@ -8405,14 +6286,161 @@ export interface RoleWhereInput {
 export type RoofingMaterialOptionsWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
+=======
+export interface AuthUpdateInput {
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  pin?: Maybe<String>;
+  userId?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+}
+>>>>>>> Worrked on statistics, referrals
 
 export type SelectOptionsWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
+<<<<<<< HEAD
 export type SpacesOptionsWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
+=======
+export interface UserUpdateDataInput {
+  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+}
+
+export interface OrganizationTypeUpdateOneRequiredInput {
+  create?: Maybe<OrganizationTypeCreateInput>;
+  update?: Maybe<OrganizationTypeUpdateDataInput>;
+  upsert?: Maybe<OrganizationTypeUpsertNestedInput>;
+  connect?: Maybe<OrganizationTypeWhereUniqueInput>;
+}
+
+export interface OrganizationTypeUpdateDataInput {
+  name?: Maybe<String>;
+}
+
+export interface OrganizationTypeUpsertNestedInput {
+  update: OrganizationTypeUpdateDataInput;
+  create: OrganizationTypeCreateInput;
+}
+
+export interface BankUpdateOneRequiredInput {
+  create?: Maybe<BankCreateInput>;
+  update?: Maybe<BankUpdateDataInput>;
+  upsert?: Maybe<BankUpsertNestedInput>;
+  connect?: Maybe<BankWhereUniqueInput>;
+}
+
+export interface BankUpdateDataInput {
+  accountNumber?: Maybe<String>;
+  accountName?: Maybe<String>;
+  bankName?: Maybe<String>;
+  bankCode?: Maybe<String>;
+}
+
+export interface BankUpsertNestedInput {
+  update: BankUpdateDataInput;
+  create: BankCreateInput;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface AuthUpdateManyMutationInput {
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  pin?: Maybe<String>;
+  userId?: Maybe<String>;
+}
+
+export interface BankUpdateInput {
+  accountNumber?: Maybe<String>;
+  accountName?: Maybe<String>;
+  bankName?: Maybe<String>;
+  bankCode?: Maybe<String>;
+}
+
+export interface BankUpdateManyMutationInput {
+  accountNumber?: Maybe<String>;
+  accountName?: Maybe<String>;
+  bankName?: Maybe<String>;
+  bankCode?: Maybe<String>;
+}
+
+export interface ChatCreateInput {
+  id?: Maybe<ID_Input>;
+  merchantId: String;
+  warehouserId: String;
+  merchant: UserCreateOneInput;
+  warehouser: UserCreateOneInput;
+  requisitionId: String;
+  messages?: Maybe<MessageCreateManyInput>;
+}
+
+export interface MessageCreateManyInput {
+  create?: Maybe<MessageCreateInput[] | MessageCreateInput>;
+  connect?: Maybe<MessageWhereUniqueInput[] | MessageWhereUniqueInput>;
+}
+
+export interface MessageCreateInput {
+  id?: Maybe<ID_Input>;
+  chatId: String;
+  from: UserCreateOneInput;
+  text?: Maybe<String>;
+}
+
+export interface ChatUpdateInput {
+  merchantId?: Maybe<String>;
+  warehouserId?: Maybe<String>;
+  merchant?: Maybe<UserUpdateOneRequiredInput>;
+  warehouser?: Maybe<UserUpdateOneRequiredInput>;
+  requisitionId?: Maybe<String>;
+  messages?: Maybe<MessageUpdateManyInput>;
+}
+
+export interface MessageUpdateManyInput {
+  create?: Maybe<MessageCreateInput[] | MessageCreateInput>;
+  update?: Maybe<
+    | MessageUpdateWithWhereUniqueNestedInput[]
+    | MessageUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | MessageUpsertWithWhereUniqueNestedInput[]
+    | MessageUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<MessageWhereUniqueInput[] | MessageWhereUniqueInput>;
+  connect?: Maybe<MessageWhereUniqueInput[] | MessageWhereUniqueInput>;
+  set?: Maybe<MessageWhereUniqueInput[] | MessageWhereUniqueInput>;
+  disconnect?: Maybe<MessageWhereUniqueInput[] | MessageWhereUniqueInput>;
+  deleteMany?: Maybe<MessageScalarWhereInput[] | MessageScalarWhereInput>;
+  updateMany?: Maybe<
+    | MessageUpdateManyWithWhereNestedInput[]
+    | MessageUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface MessageUpdateWithWhereUniqueNestedInput {
+  where: MessageWhereUniqueInput;
+  data: MessageUpdateDataInput;
+}
+
+export interface MessageUpdateDataInput {
+  chatId?: Maybe<String>;
+  from?: Maybe<UserUpdateOneRequiredInput>;
+  text?: Maybe<String>;
+}
+>>>>>>> Worrked on statistics, referrals
 
 export type StatesWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
@@ -11520,7 +9548,84 @@ export interface PropertiesOptionsUpsertWithWhereUniqueNestedInput {
   create: PropertiesOptionsCreateInput;
 }
 
+<<<<<<< HEAD
 export interface PropertiesOptionsScalarWhereInput {
+=======
+export interface StockProductUpdateManyMutationInput {
+  productBrandName?: Maybe<String>;
+  productType?: Maybe<String>;
+  productPackageSize?: Maybe<String>;
+  quantityPerPackageSize?: Maybe<Int>;
+  totalQuantity?: Maybe<Int>;
+  productImage?: Maybe<String>;
+}
+
+export interface SuccessCreateInput {
+  id?: Maybe<ID_Input>;
+  success: Boolean;
+}
+
+export interface SuccessUpdateInput {
+  success?: Maybe<Boolean>;
+}
+
+export interface SuccessUpdateManyMutationInput {
+  success?: Maybe<Boolean>;
+}
+
+export interface TransactionCreateInput {
+  id?: Maybe<ID_Input>;
+  type: String;
+  to: UserCreateOneInput;
+  user: UserCreateOneInput;
+  description?: Maybe<String>;
+  status: Int;
+  amount: Float;
+  fees: Int;
+}
+
+export interface TransactionUpdateInput {
+  type?: Maybe<String>;
+  to?: Maybe<UserUpdateOneRequiredInput>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  description?: Maybe<String>;
+  status?: Maybe<Int>;
+  amount?: Maybe<Float>;
+  fees?: Maybe<Int>;
+}
+
+export interface TransactionUpdateManyMutationInput {
+  type?: Maybe<String>;
+  description?: Maybe<String>;
+  status?: Maybe<Int>;
+  amount?: Maybe<Float>;
+  fees?: Maybe<Int>;
+}
+
+export interface UserUpdateInput {
+  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+}
+
+export interface UserUpdateManyMutationInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+}
+
+export interface UserOrganizationRoleCreateInput {
+>>>>>>> Worrked on statistics, referrals
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -13118,6 +11223,7 @@ export interface SpacesOptionsUpdateManyDataInput {
   NOT?: Maybe<FloorsOptionsScalarWhereInput[] | FloorsOptionsScalarWhereInput>;
 }
 
+<<<<<<< HEAD
 export interface FloorsOptionsUpdateManyWithWhereNestedInput {
   where: FloorsOptionsScalarWhereInput;
   data: FloorsOptionsUpdateManyDataInput;
@@ -13161,6 +11267,94 @@ export interface WallFinishesOptionsUpdateManyInput {
     | WallFinishesOptionsUpdateManyWithWhereNestedInput[]
     | WallFinishesOptionsUpdateManyWithWhereNestedInput
   >;
+=======
+export interface User {
+  id: ID_Output;
+  firstName: String;
+  lastName: String;
+  email: String;
+  phoneNumber: String;
+  dob: String;
+  status: Int;
+  terms?: Boolean;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: <T = OrganizationTypePromise>() => T;
+  bank: <T = BankPromise>() => T;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  email: () => Promise<String>;
+  phoneNumber: () => Promise<String>;
+  dob: () => Promise<String>;
+  status: () => Promise<Int>;
+  terms: () => Promise<Boolean>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: <T = OrganizationTypeSubscription>() => T;
+  bank: <T = BankSubscription>() => T;
+  firstName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
+  phoneNumber: () => Promise<AsyncIterator<String>>;
+  dob: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
+  terms: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface UserNullablePromise
+  extends Promise<User | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: <T = OrganizationTypePromise>() => T;
+  bank: <T = BankPromise>() => T;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  email: () => Promise<String>;
+  phoneNumber: () => Promise<String>;
+  dob: () => Promise<String>;
+  status: () => Promise<Int>;
+  terms: () => Promise<Boolean>;
+}
+
+export interface OrganizationType {
+  id: ID_Output;
+  name?: String;
+}
+
+export interface OrganizationTypePromise
+  extends Promise<OrganizationType>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface OrganizationTypeSubscription
+  extends Promise<AsyncIterator<OrganizationType>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+}
+
+export interface OrganizationTypeNullablePromise
+  extends Promise<OrganizationType | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+}
+
+export interface Bank {
+  id: ID_Output;
+  accountNumber: String;
+  accountName: String;
+  bankName: String;
+  bankCode: String;
+>>>>>>> Worrked on statistics, referrals
 }
 
 export interface WallFinishesOptionsUpdateWithWhereUniqueNestedInput {
@@ -13181,6 +11375,7 @@ export interface WallFinishesOptionsUpsertWithWhereUniqueNestedInput {
   create: WallFinishesOptionsCreateInput;
 }
 
+<<<<<<< HEAD
 export interface WallFinishesOptionsScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
@@ -13304,6 +11499,11 @@ export interface RoofingMaterialOptionsUpdateManyInput {
 export interface RoofingMaterialOptionsUpdateWithWhereUniqueNestedInput {
   where: RoofingMaterialOptionsWhereUniqueInput;
   data: RoofingMaterialOptionsUpdateDataInput;
+=======
+export interface AuthConnection {
+  pageInfo: PageInfo;
+  edges: AuthEdge[];
+>>>>>>> Worrked on statistics, referrals
 }
 
 export interface RoofingMaterialOptionsUpdateDataInput {
@@ -33932,6 +32132,7 @@ export interface UserPreviousValues {
   email: String;
   phoneNumber: String;
   dob: String;
+  status: Int;
   terms?: Boolean;
 }
 
@@ -33944,6 +32145,7 @@ export interface UserPreviousValuesPromise
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
   dob: () => Promise<String>;
+  status: () => Promise<Int>;
   terms: () => Promise<Boolean>;
 }
 
@@ -33956,6 +32158,7 @@ export interface UserPreviousValuesSubscription
   email: () => Promise<AsyncIterator<String>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
   dob: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
   terms: () => Promise<AsyncIterator<Boolean>>;
 }
 

@@ -4,7 +4,7 @@ import firstTimeLaunchService from '../../services/admin/firstTimeLaunch';
 const firstTimeLaunchController: any = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
         const data = await firstTimeLaunchService(res);
-        return res.json(data);
+        return data;
     } catch (error) {
         return next(error);
     }

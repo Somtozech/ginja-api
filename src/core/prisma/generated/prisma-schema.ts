@@ -9302,15 +9302,21 @@ input TransactionWhereUniqueInput {
 
 type User {
   id: ID!
+  type: OrganizationType!
+  bank: Bank!
   firstName: String!
   lastName: String!
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
+<<<<<<< HEAD
   bank: Bank!
   type: OrganizationType!
   status: UserStatus
+=======
+>>>>>>> Worrked on statistics, referrals
 }
 
 type UserConnection {
@@ -9321,15 +9327,21 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
+  type: OrganizationTypeCreateOneInput!
+  bank: BankCreateOneInput!
   firstName: String!
   lastName: String!
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
+<<<<<<< HEAD
   bank: BankCreateOneInput!
   type: OrganizationTypeCreateOneInput!
   status: UserStatusCreateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserCreateOneInput {
@@ -9355,6 +9367,8 @@ enum UserOrderByInput {
   phoneNumber_DESC
   dob_ASC
   dob_DESC
+  status_ASC
+  status_DESC
   terms_ASC
   terms_DESC
 }
@@ -9451,6 +9465,7 @@ type UserPreviousValues {
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
 }
 
@@ -9616,27 +9631,39 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateDataInput {
+  type: OrganizationTypeUpdateOneRequiredInput
+  bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
+<<<<<<< HEAD
   bank: BankUpdateOneRequiredInput
   type: OrganizationTypeUpdateOneRequiredInput
   status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserUpdateInput {
+  type: OrganizationTypeUpdateOneRequiredInput
+  bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
+<<<<<<< HEAD
   bank: BankUpdateOneRequiredInput
   type: OrganizationTypeUpdateOneRequiredInput
   status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
 }
 
 input UserUpdateManyMutationInput {
@@ -9645,6 +9672,7 @@ input UserUpdateManyMutationInput {
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
 }
 
@@ -9675,6 +9703,8 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  type: OrganizationTypeWhereInput
+  bank: BankWhereInput
   firstName: String
   firstName_not: String
   firstName_in: [String!]
@@ -9745,11 +9775,22 @@ input UserWhereInput {
   dob_not_starts_with: String
   dob_ends_with: String
   dob_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
   terms: Boolean
   terms_not: Boolean
+<<<<<<< HEAD
   bank: BankWhereInput
   type: OrganizationTypeWhereInput
   status: UserStatusWhereInput
+=======
+>>>>>>> Worrked on statistics, referrals
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

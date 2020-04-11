@@ -6,6 +6,8 @@ import loginAuthController from '../../../../controllers/admin/loginAuth';
 import usersController from '../../../../controllers/admin/users';
 import adminUsersController from '../../../../controllers/admin/adminUsers';
 import adminRolesController from '../../../../controllers/admin/adminRoles';
+import transactionsController from '../../../../controllers/admin/transactions';
+import referralsController from '../../../../controllers/admin/referrals';
 
 // MIDDLEWARES
 import loginAuth from '../../../../core/middlewares/admin/loginAuth';
@@ -23,13 +25,23 @@ const router = express.Router();
 
 // GET REQUESTS
 router.get('/', adminController);
-router.get('/users', auth, usersController);
-router.get('/admin-users', [auth, managementPermit], adminUsersController);
-router.get('/admin-roles', [auth, superAdminPermit], adminRolesController);
+router.get('/users', auth, usersController.allUsers);
+router.get('/users/:id', auth, usersController.singleUser);
+router.get('/admin-users', [auth, managementPermit], adminUsersController.getAdmins);
+router.get('/admin-roles', [auth, superAdminPermit], adminRolesController.allRoles);
+router.get('/transactions', [auth, managementPermit], transactionsController);
+router.get('/referrals', [auth, managementPermit], referralsController.allReferrals);
 
 // POST REQUESTS
 // router.post('/', loginAuth, firstTimeLaunchController);
 router.post('/authenticate', loginAuth, loginAuthController);
+router.post('/admin-users', [auth, superAdminPermit], adminUsersController.createAdmin);
+router.post('/admin-roles', [auth, superAdminPermit], adminRolesController.createRole);
+
+// UPDATE REQUESTS
+
+// DELETE REQUESTS
+router.delete('/admin-roles', [auth, superAdminPermit], adminRolesController.deleteRole);
 
 // UPDATE REQUESTS
 
