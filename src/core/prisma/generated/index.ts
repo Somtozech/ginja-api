@@ -2220,7 +2220,7 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type AdminRoleOrderByInput =
+export type OrganizationTypeOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -2242,7 +2242,7 @@ export type OrganizationOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type AdminUserOrderByInput =
+export type MessageOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "firstName_ASC"
@@ -2321,8 +2321,6 @@ export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
 export type AmenitiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
   | "default_ASC"
@@ -2390,17 +2388,15 @@ export type StockDispatchOrderByInput =
   | "pickupDateMax_ASC"
   | "pickupDateMax_DESC";
 
-export type BankOrderByInput =
+export type WarehouserIdentificationOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "accountNumber_ASC"
-  | "accountNumber_DESC"
-  | "accountName_ASC"
-  | "accountName_DESC"
-  | "bankName_ASC"
-  | "bankName_DESC"
-  | "bankCode_ASC"
-  | "bankCode_DESC";
+  | "idNumber_ASC"
+  | "idNumber_DESC"
+  | "expiryDate_ASC"
+  | "expiryDate_DESC"
+  | "idType_ASC"
+  | "idType_DESC";
 
 export type StockProductOrderByInput =
   | "id_ASC"
@@ -2418,23 +2414,37 @@ export type StockProductOrderByInput =
   | "productImage_ASC"
   | "productImage_DESC";
 
-export type CrownOrderByInput =
+export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
+
+export type ListingRatingOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "requiredReferrals_ASC"
-  | "requiredReferrals_DESC"
-  | "noOfDays_ASC"
-  | "noOfDays_DESC"
-  | "bonus_ASC"
-  | "bonus_DESC"
+  | "count_ASC"
+  | "count_DESC"
+  | "rates_ASC"
+  | "rates_DESC"
+  | "average_ASC"
+  | "average_DESC";
+
+export type TransactionOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "type_ASC"
+  | "type_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "amount_ASC"
+  | "amount_DESC"
+  | "fees_ASC"
+  | "fees_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "compensationCount_ASC"
-  | "compensationCount_DESC"
-  | "compensationBonus_ASC"
-  | "compensationBonus_DESC";
+  | "updatedAt_DESC";
 
 export type SelectOptionsOrderByInput =
   | "id_ASC"
@@ -2444,17 +2454,23 @@ export type SelectOptionsOrderByInput =
   | "name_ASC"
   | "name_DESC";
 
-export type FloorsOptionsOrderByInput =
+export type StockDispatchOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
+  | "pickupAgentName_ASC"
+  | "pickupAgentName_DESC"
+  | "pickupAgentPhone_ASC"
+  | "pickupAgentPhone_DESC"
+  | "pickupAgentIdentification_ASC"
+  | "pickupAgentIdentification_DESC"
+  | "pickupAgentIdNumber_ASC"
+  | "pickupAgentIdNumber_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "pickupDateMin_ASC"
+  | "pickupDateMin_DESC"
+  | "pickupDateMax_ASC"
+  | "pickupDateMax_DESC";
 
 export type RequisitionDurationOrderByInput =
   | "id_ASC"
@@ -2464,11 +2480,25 @@ export type RequisitionDurationOrderByInput =
   | "slug_ASC"
   | "slug_DESC";
 
-export type IdentificationsOptionsOrderByInput =
+export type StockProductOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
+  | "productBrandName_ASC"
+  | "productBrandName_DESC"
+  | "productType_ASC"
+  | "productType_DESC"
+  | "productPackageSize_ASC"
+  | "productPackageSize_DESC"
+  | "quantityPerPackageSize_ASC"
+  | "quantityPerPackageSize_DESC"
+  | "totalQuantity_ASC"
+  | "totalQuantity_DESC"
+  | "productImage_ASC"
+  | "productImage_DESC";
+
+export type ListingOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
   | "name_ASC"
   | "name_DESC"
   | "default_ASC"
@@ -2522,11 +2552,7 @@ export type WallFinishesOptionsOrderByInput =
   | "slug_ASC"
   | "slug_DESC"
   | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
+  | "name_DESC";
 
 export type PaymentCustomerOrderByInput =
   | "id_ASC"
@@ -2581,14 +2607,10 @@ export type AuthOrderByInput =
 export type AmenitiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
+  | "slug_ASC"
+  | "slug_DESC";
 
 export type AuthOrderByInput =
   | "id_ASC"
@@ -2604,7 +2626,19 @@ export type AuthOrderByInput =
   | "pin_ASC"
   | "pin_DESC"
   | "userId_ASC"
-  | "userId_DESC";
+  | "userId_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "startDate_ASC"
+  | "startDate_DESC"
+  | "endDate_ASC"
+  | "endDate_DESC"
+  | "boost_ASC"
+  | "boost_DESC"
+  | "rollover_ASC"
+  | "rollover_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -2620,15 +2654,21 @@ export type ListingRequirementsOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type ListingPhotosOrderByInput =
+export type PaymentCustomerOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "url_ASC"
-  | "url_DESC"
-  | "default_ASC"
-  | "default_DESC";
+  | "paystackId_ASC"
+  | "paystackId_DESC"
+  | "customerCode_ASC"
+  | "customerCode_DESC"
+  | "firstName_ASC"
+  | "firstName_DESC"
+  | "lastName_ASC"
+  | "lastName_DESC"
+  | "email_ASC"
+  | "email_DESC";
 
-export type ListingRequirementsOrderByInput =
+export type RoofingMaterialOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2636,9 +2676,11 @@ export type ListingRequirementsOrderByInput =
   | "name_ASC"
   | "name_DESC"
   | "default_ASC"
-  | "default_DESC";
+  | "default_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
-export type ListingProductsOrderByInput =
+export type AmenitiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2660,13 +2702,7 @@ export type AdminRoleOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type ListingAvailabilityOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "from_ASC"
-  | "from_DESC"
-  | "to_ASC"
-  | "to_DESC";
+export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export type SuccessOrderByInput =
   | "id_ASC"
@@ -2677,30 +2713,26 @@ export type SuccessOrderByInput =
 export type ListingDimensionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "height_ASC"
-  | "height_DESC"
-  | "weight_ASC"
-  | "weight_DESC"
-  | "length_ASC"
-  | "length_DESC"
-  | "unitOfDimensions_ASC"
-  | "unitOfDimensions_DESC"
-  | "volume_ASC"
-  | "volume_DESC"
-  | "area_ASC"
-  | "area_DESC";
+  | "slug_ASC"
+  | "slug_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "default_ASC"
+  | "default_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
-export type ListingRatingOrderByInput =
+export type AdminRoleOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "count_ASC"
-  | "count_DESC"
-  | "rates_ASC"
-  | "rates_DESC"
-  | "average_ASC"
-  | "average_DESC";
+  | "name_ASC"
+  | "name_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
-export type ListingsFrequenciesOrderByInput =
+export type PropertiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2737,18 +2769,26 @@ export type IdentificationsOptionsOrderByInput =
 export type IdentificationsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "countryId_ASC"
+  | "countryId_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC";
+  | "default_ASC"
+  | "default_DESC";
 
-export type OrganizationTypeOrderByInput =
+export type IdentificationsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
   | "name_ASC"
-  | "name_DESC";
+  | "name_DESC"
+  | "default_ASC"
+  | "default_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
 export type AdminUserOrderByInput =
   | "id_ASC"
@@ -2802,17 +2842,7 @@ export type GameOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "channel_ASC"
-  | "channel_DESC"
-  | "info_ASC"
-  | "info_DESC";
+  | "updatedAt_DESC";
 
 export type OtpOrderByInput =
   | "id_ASC"
@@ -2869,8 +2899,6 @@ export type ChatOrderByInput =
 export type CountriesOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "countryId_ASC"
-  | "countryId_DESC"
   | "slug_ASC"
   | "slug_DESC"
   | "name_ASC"
@@ -2924,13 +2952,13 @@ export type DateRangeOrderByInput =
 
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
 
-export type UserStatusOrderByInput =
+export type StockOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "type_ASC"
+  | "type_DESC"
   | "status_ASC"
-  | "status_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
+  | "status_DESC";
 
 export type WalletOrderByInput =
   | "id_ASC"
@@ -2950,15 +2978,25 @@ export type WalletOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type WarehouserIdentificationOrderByInput =
+export type PaymentOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "idNumber_ASC"
-  | "idNumber_DESC"
-  | "expiryDate_ASC"
-  | "expiryDate_DESC"
-  | "idType_ASC"
-  | "idType_DESC";
+  | "email_ASC"
+  | "email_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "amount_ASC"
+  | "amount_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "currency_ASC"
+  | "currency_DESC"
+  | "channel_ASC"
+  | "channel_DESC"
+  | "info_ASC"
+  | "info_DESC";
 
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
 
@@ -3529,13 +3567,20 @@ export interface TransactionWhereInput {
   NOT?: Maybe<AmenitiesOptionsWhereInput[] | AmenitiesOptionsWhereInput>;
 }
 
-export type AuthWhereUniqueInput = AtLeastOne<{
+export type GameWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
 }>;
 
-export interface AuthWhereInput {
+export interface OrganizationCreateInput {
+  id?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  email: String;
+  type: OrganizationTypeCreateOneInput;
+  phoneNumber: String;
+  bank: BankCreateOneInput;
+}
+
+export interface GameWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -3579,19 +3624,6 @@ export interface AuthWhereInput {
   lastName_ends_with?: Maybe<String>;
   lastName_not_ends_with?: Maybe<String>;
   email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
   phoneNumber?: Maybe<String>;
   phoneNumber_not?: Maybe<String>;
   phoneNumber_in?: Maybe<String[] | String>;
@@ -6617,8 +6649,36 @@ export interface RequisitionDurationUpsertNestedInput {
 
 export interface CountriesUpdateInput {
   slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
-  default?: Maybe<Boolean>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  AND?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
+  OR?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
+  NOT?: Maybe<SelectOptionsWhereInput[] | SelectOptionsWhereInput>;
 }
 
 export interface RequisitionDurationUpdateOneRequiredInput {
@@ -6632,6 +6692,7 @@ export interface CountriesUpdateManyMutationInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
 }
 
 export interface RequisitionUpdateDataInput {
@@ -6647,11 +6708,70 @@ export interface RequisitionUpdateDataInput {
 
 export interface CrownCreateInput {
   id?: Maybe<ID_Input>;
-  requiredReferrals: Int;
-  noOfDays: Int;
-  bonus: Int;
-  compensationCount: Float;
-  compensationBonus: Float;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  height?: Maybe<Float>;
+  height_not?: Maybe<Float>;
+  height_in?: Maybe<Float[] | Float>;
+  height_not_in?: Maybe<Float[] | Float>;
+  height_lt?: Maybe<Float>;
+  height_lte?: Maybe<Float>;
+  height_gt?: Maybe<Float>;
+  height_gte?: Maybe<Float>;
+  weight?: Maybe<Float>;
+  weight_not?: Maybe<Float>;
+  weight_in?: Maybe<Float[] | Float>;
+  weight_not_in?: Maybe<Float[] | Float>;
+  weight_lt?: Maybe<Float>;
+  weight_lte?: Maybe<Float>;
+  weight_gt?: Maybe<Float>;
+  weight_gte?: Maybe<Float>;
+  length?: Maybe<Float>;
+  length_not?: Maybe<Float>;
+  length_in?: Maybe<Float[] | Float>;
+  length_not_in?: Maybe<Float[] | Float>;
+  length_lt?: Maybe<Float>;
+  length_lte?: Maybe<Float>;
+  length_gt?: Maybe<Float>;
+  length_gte?: Maybe<Float>;
+  unitOfDimensions?: Maybe<Int>;
+  unitOfDimensions_not?: Maybe<Int>;
+  unitOfDimensions_in?: Maybe<Int[] | Int>;
+  unitOfDimensions_not_in?: Maybe<Int[] | Int>;
+  unitOfDimensions_lt?: Maybe<Int>;
+  unitOfDimensions_lte?: Maybe<Int>;
+  unitOfDimensions_gt?: Maybe<Int>;
+  unitOfDimensions_gte?: Maybe<Int>;
+  volume?: Maybe<Float>;
+  volume_not?: Maybe<Float>;
+  volume_in?: Maybe<Float[] | Float>;
+  volume_not_in?: Maybe<Float[] | Float>;
+  volume_lt?: Maybe<Float>;
+  volume_lte?: Maybe<Float>;
+  volume_gt?: Maybe<Float>;
+  volume_gte?: Maybe<Float>;
+  area?: Maybe<Float>;
+  area_not?: Maybe<Float>;
+  area_in?: Maybe<Float[] | Float>;
+  area_not_in?: Maybe<Float[] | Float>;
+  area_lt?: Maybe<Float>;
+  area_lte?: Maybe<Float>;
+  area_gt?: Maybe<Float>;
+  area_gte?: Maybe<Float>;
+  AND?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
+  OR?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
+  NOT?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
 }
 
 export type AdminUserWhereUniqueInput = AtLeastOne<{
@@ -6841,7 +6961,6 @@ export interface WalletSubscriptionWhereInput {
 export interface FloorsOptionsCreateInput {
   id?: Maybe<ID_Input>;
   slug?: Maybe<String>;
-  name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;
 }
@@ -7105,7 +7224,6 @@ export interface IdentificationsOptionsCreateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface ReferralSubscriptionWhereInput {
@@ -7870,7 +7988,6 @@ export interface ValueAddedServicesCreateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface UserOrganizationRoleUpdateInput {
@@ -8801,7 +8918,6 @@ export interface ListingProductsCreateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface CrownCreateOneInput {
@@ -9282,13 +9398,15 @@ export interface WallFinishesOptionsUpdateManyInput {
   >;
 }
 
-export interface PaymentCustomerCreateInput {
-  id?: Maybe<ID_Input>;
-  paystackId?: Maybe<String>;
-  customerCode?: Maybe<String>;
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  email?: Maybe<String>;
+export interface SuccessSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<SuccessWhereInput>;
+  AND?: Maybe<SuccessSubscriptionWhereInput[] | SuccessSubscriptionWhereInput>;
+  OR?: Maybe<SuccessSubscriptionWhereInput[] | SuccessSubscriptionWhereInput>;
+  NOT?: Maybe<SuccessSubscriptionWhereInput[] | SuccessSubscriptionWhereInput>;
 }
 
 export interface PropertiesOptionsUpdateManyDataInput {
@@ -9599,7 +9717,6 @@ export interface FloorsOptionsUpdateManyDataInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface WallFinishesOptionsWhereInput {
@@ -9618,8 +9735,35 @@ export interface WallFinishesOptionsWhereInput {
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
   slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -15400,23 +15544,25 @@ export interface AmenitiesOptionsPreviousValuesSubscription
 
 export interface AdminRoleConnection {
   pageInfo: PageInfo;
-  edges: AdminRoleEdge[];
+  edges: ValueAddedServicesEdge[];
 }
 
-export interface AdminRoleConnectionPromise
-  extends Promise<AdminRoleConnection>,
+export interface ValueAddedServicesConnectionPromise
+  extends Promise<ValueAddedServicesConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AdminRoleEdge>>() => T;
-  aggregate: <T = AggregateAdminRolePromise>() => T;
+  edges: <T = FragmentableArray<ValueAddedServicesEdge>>() => T;
+  aggregate: <T = AggregateValueAddedServicesPromise>() => T;
 }
 
-export interface AdminRoleConnectionSubscription
-  extends Promise<AsyncIterator<AdminRoleConnection>>,
+export interface ValueAddedServicesConnectionSubscription
+  extends Promise<AsyncIterator<ValueAddedServicesConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AdminRoleEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAdminRoleSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<ValueAddedServicesEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateValueAddedServicesSubscription>() => T;
 }
 
 export interface ListingRequirements {
@@ -15567,7 +15713,8 @@ export interface AggregateSuccessPromise
 export interface AggregateSuccessSubscription
   extends Promise<AsyncIterator<AggregateSuccess>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = UserSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface ListingsFrequencies {
@@ -16370,24 +16517,24 @@ export interface SelectOptionsEdgeSubscription
 
 export interface DateRangePreviousValues {
   id: ID_Output;
-  min?: String;
-  max: String;
+  slug?: String;
+  name?: String;
 }
 
 export interface DateRangePreviousValuesPromise
   extends Promise<DateRangePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  min: () => Promise<String>;
-  max: () => Promise<String>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
 }
 
 export interface DateRangePreviousValuesSubscription
   extends Promise<AsyncIterator<DateRangePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  min: () => Promise<AsyncIterator<String>>;
-  max: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Role {
@@ -16654,27 +16801,29 @@ export interface AggregateRequisitionCostSubscription
 
 export interface GamePreviousValues {
   id: ID_Output;
-  referralId: String;
-  userId: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
 export interface GamePreviousValuesPromise
   extends Promise<GamePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  referralId: () => Promise<String>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
   userId: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface GamePreviousValuesSubscription
   extends Promise<AsyncIterator<GamePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  referralId: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
   userId: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -20581,13 +20730,19 @@ export interface AggregateDateRange {
 export interface AggregateDateRangePromise
   extends Promise<AggregateDateRange>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingsFrequenciesPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingsFrequenciesPreviousValuesPromise>() => T;
 }
 
 export interface AggregateDateRangeSubscription
   extends Promise<AsyncIterator<AggregateDateRange>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingsFrequenciesSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingsFrequenciesPreviousValuesSubscription>() => T;
 }
 
 export interface AmenitiesOptionsConnection {
@@ -20664,13 +20819,19 @@ export interface AggregateListingPhotos {
 export interface AggregateListingPhotosPromise
   extends Promise<AggregateListingPhotos>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<IdentificationsOptionsEdge>>() => T;
+  aggregate: <T = AggregateIdentificationsOptionsPromise>() => T;
 }
 
 export interface AggregateListingPhotosSubscription
   extends Promise<AsyncIterator<AggregateListingPhotos>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<IdentificationsOptionsEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateIdentificationsOptionsSubscription>() => T;
 }
 
 export interface OrganizationConnection {
@@ -22067,19 +22228,17 @@ export interface AggregateListing {
 export interface AggregateListingPromise
   extends Promise<AggregateListing>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OtpPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OtpPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<PropertiesOptionsEdge>>() => T;
+  aggregate: <T = AggregatePropertiesOptionsPromise>() => T;
 }
 
 export interface AggregateListingSubscription
   extends Promise<AsyncIterator<AggregateListing>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OtpSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = OtpPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<PropertiesOptionsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregatePropertiesOptionsSubscription>() => T;
 }
 
 export interface AggregateCountries {
@@ -22090,11 +22249,10 @@ export interface AggregateCountriesPromise
   extends Promise<AggregateCountries>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  phoneNumber: () => Promise<String>;
-  code: () => Promise<String>;
-  validated: () => Promise<Boolean>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface AggregateCountriesSubscription
@@ -22137,28 +22295,20 @@ export interface AggregateListingProductsPromise
   extends Promise<AggregateListingProducts>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  amount: () => Promise<Float>;
-  status: () => Promise<Int>;
-  currency: () => Promise<String>;
-  channel: () => Promise<String>;
-  info: () => Promise<String>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface AggregateListingProductsSubscription
   extends Promise<AsyncIterator<AggregateListingProducts>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amount: () => Promise<AsyncIterator<Float>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  currency: () => Promise<AsyncIterator<String>>;
-  channel: () => Promise<AsyncIterator<String>>;
-  info: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface FloorsOptions {
@@ -22335,18 +22485,18 @@ export interface StockProductPromise
   extends Promise<StockProduct>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = ReferralPromise>() => T;
+  node: <T = RequisitionDurationPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = ReferralPreviousValuesPromise>() => T;
+  previousValues: <T = RequisitionDurationPreviousValuesPromise>() => T;
 }
 
 export interface StockProductSubscription
   extends Promise<AsyncIterator<StockProduct>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ReferralSubscription>() => T;
+  node: <T = RequisitionDurationSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ReferralPreviousValuesSubscription>() => T;
+  previousValues: <T = RequisitionDurationPreviousValuesSubscription>() => T;
 }
 
 export interface StockProductNullablePromise
@@ -22738,17 +22888,13 @@ export interface AggregateListingAvailability {
 export interface AggregateListingAvailabilityPromise
   extends Promise<AggregateListingAvailability>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  type: () => Promise<Int>;
-  status: () => Promise<Int>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateListingAvailabilitySubscription
   extends Promise<AsyncIterator<AggregateListingAvailability>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  type: () => Promise<AsyncIterator<Int>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Chat {
@@ -23099,32 +23245,68 @@ export interface AggregateChatSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ValueAddedServicesPreviousValues {
+export interface Countries {
   id: ID_Output;
   slug?: String;
-  default?: Boolean;
   name?: String;
-  userId?: String;
+  default?: Boolean;
 }
 
-export interface ValueAddedServicesPreviousValuesPromise
-  extends Promise<ValueAddedServicesPreviousValues>,
-    Fragmentable {
+export interface CountriesPromise extends Promise<Countries>, Fragmentable {
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
-  default: () => Promise<Boolean>;
   name: () => Promise<String>;
-  userId: () => Promise<String>;
+  default: () => Promise<Boolean>;
 }
 
-export interface ValueAddedServicesPreviousValuesSubscription
-  extends Promise<AsyncIterator<ValueAddedServicesPreviousValues>>,
+export interface CountriesSubscription
+  extends Promise<AsyncIterator<Countries>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   slug: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
   name: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+}
+
+export interface CountriesNullablePromise
+  extends Promise<Countries | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+}
+
+export interface AggregateLocations {
+  count: Int;
+}
+
+export interface AggregateLocationsPromise
+  extends Promise<AggregateLocations>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateLocationsSubscription
+  extends Promise<AsyncIterator<AggregateLocations>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface AggregateWallFinishesOptions {
+  count: Int;
+}
+
+export interface AggregateWallFinishesOptionsPromise
+  extends Promise<AggregateWallFinishesOptions>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateWallFinishesOptionsSubscription
+  extends Promise<AsyncIterator<AggregateWallFinishesOptions>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface WallFinishesOptionsSubscriptionPayload {
@@ -23259,12 +23441,12 @@ The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
 
+export type Long = string;
+
 /*
 The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
 */
 export type Float = number;
-
-export type Long = string;
 
 /**
  * Model Metadata
