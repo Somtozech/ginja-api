@@ -33,6 +33,14 @@ const statisticsController = {
         } catch (error) {
             return next(error);
         }
+    },
+    totalAvailableWarehouses: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await statisticsService.getAvailableWarehouses(res);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 

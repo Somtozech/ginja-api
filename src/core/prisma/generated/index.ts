@@ -2779,6 +2779,37 @@ export type StockOrderByInput =
   | "id_DESC"
   | "type_ASC"
   | "type_DESC"
+<<<<<<< HEAD
+=======
+  | "description_ASC"
+  | "description_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "amount_ASC"
+  | "amount_DESC"
+  | "fees_ASC"
+  | "fees_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "firstName_ASC"
+  | "firstName_DESC"
+  | "lastName_ASC"
+  | "lastName_DESC"
+  | "device_ASC"
+  | "device_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "phoneNumber_ASC"
+  | "phoneNumber_DESC"
+  | "dob_ASC"
+  | "dob_DESC"
+>>>>>>> Added Worked on transaction
   | "status_ASC"
   | "status_DESC";
 
@@ -3280,6 +3311,7 @@ export interface TransactionWhereInput {
   userId_not_ends_with?: Maybe<String>;
   to?: Maybe<UserWhereInput>;
   user?: Maybe<UserWhereInput>;
+<<<<<<< HEAD
   description?: Maybe<String>;
   description_not?: Maybe<String>;
   description_in?: Maybe<String[] | String>;
@@ -3294,6 +3326,108 @@ export interface TransactionWhereInput {
   description_not_starts_with?: Maybe<String>;
   description_ends_with?: Maybe<String>;
   description_not_ends_with?: Maybe<String>;
+=======
+  AND?: Maybe<AuthWhereInput[] | AuthWhereInput>;
+  OR?: Maybe<AuthWhereInput[] | AuthWhereInput>;
+  NOT?: Maybe<AuthWhereInput[] | AuthWhereInput>;
+}
+
+export interface UserWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  type?: Maybe<OrganizationTypeWhereInput>;
+  bank?: Maybe<BankWhereInput>;
+  firstName?: Maybe<String>;
+  firstName_not?: Maybe<String>;
+  firstName_in?: Maybe<String[] | String>;
+  firstName_not_in?: Maybe<String[] | String>;
+  firstName_lt?: Maybe<String>;
+  firstName_lte?: Maybe<String>;
+  firstName_gt?: Maybe<String>;
+  firstName_gte?: Maybe<String>;
+  firstName_contains?: Maybe<String>;
+  firstName_not_contains?: Maybe<String>;
+  firstName_starts_with?: Maybe<String>;
+  firstName_not_starts_with?: Maybe<String>;
+  firstName_ends_with?: Maybe<String>;
+  firstName_not_ends_with?: Maybe<String>;
+  lastName?: Maybe<String>;
+  lastName_not?: Maybe<String>;
+  lastName_in?: Maybe<String[] | String>;
+  lastName_not_in?: Maybe<String[] | String>;
+  lastName_lt?: Maybe<String>;
+  lastName_lte?: Maybe<String>;
+  lastName_gt?: Maybe<String>;
+  lastName_gte?: Maybe<String>;
+  lastName_contains?: Maybe<String>;
+  lastName_not_contains?: Maybe<String>;
+  lastName_starts_with?: Maybe<String>;
+  lastName_not_starts_with?: Maybe<String>;
+  lastName_ends_with?: Maybe<String>;
+  lastName_not_ends_with?: Maybe<String>;
+  device?: Maybe<Int>;
+  device_not?: Maybe<Int>;
+  device_in?: Maybe<Int[] | Int>;
+  device_not_in?: Maybe<Int[] | Int>;
+  device_lt?: Maybe<Int>;
+  device_lte?: Maybe<Int>;
+  device_gt?: Maybe<Int>;
+  device_gte?: Maybe<Int>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  phoneNumber_not?: Maybe<String>;
+  phoneNumber_in?: Maybe<String[] | String>;
+  phoneNumber_not_in?: Maybe<String[] | String>;
+  phoneNumber_lt?: Maybe<String>;
+  phoneNumber_lte?: Maybe<String>;
+  phoneNumber_gt?: Maybe<String>;
+  phoneNumber_gte?: Maybe<String>;
+  phoneNumber_contains?: Maybe<String>;
+  phoneNumber_not_contains?: Maybe<String>;
+  phoneNumber_starts_with?: Maybe<String>;
+  phoneNumber_not_starts_with?: Maybe<String>;
+  phoneNumber_ends_with?: Maybe<String>;
+  phoneNumber_not_ends_with?: Maybe<String>;
+  dob?: Maybe<String>;
+  dob_not?: Maybe<String>;
+  dob_in?: Maybe<String[] | String>;
+  dob_not_in?: Maybe<String[] | String>;
+  dob_lt?: Maybe<String>;
+  dob_lte?: Maybe<String>;
+  dob_gt?: Maybe<String>;
+  dob_gte?: Maybe<String>;
+  dob_contains?: Maybe<String>;
+  dob_not_contains?: Maybe<String>;
+  dob_starts_with?: Maybe<String>;
+  dob_not_starts_with?: Maybe<String>;
+  dob_ends_with?: Maybe<String>;
+  dob_not_ends_with?: Maybe<String>;
+>>>>>>> Added Worked on transaction
   status?: Maybe<Int>;
   status_not?: Maybe<Int>;
   status_in?: Maybe<Int[] | Int>;
@@ -7264,6 +7398,7 @@ export interface UserCreateInput {
   id?: Maybe<ID_Input>;
   firstName: String;
   lastName: String;
+  device?: Maybe<Int>;
   email: String;
   phoneNumber: String;
   dob: String;
@@ -7348,6 +7483,7 @@ export interface BankCreateInput {
   bankCode: String;
 }
 
+<<<<<<< HEAD
 export interface RequisitionCostWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
@@ -7390,6 +7526,34 @@ export interface RequisitionCostWhereInput {
   AND?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
   OR?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
   NOT?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
+=======
+export interface AuthUpdateInput {
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  pin?: Maybe<String>;
+  userId?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  device?: Maybe<Int>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+>>>>>>> Added Worked on transaction
 }
 
 export interface OrganizationTypeCreateOneInput {
@@ -10044,7 +10208,35 @@ export interface WallFinishesOptionsCreateManyInput {
   >;
 }
 
+<<<<<<< HEAD
 export interface ListingProductsWhereInput {
+=======
+export interface UserUpdateInput {
+  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+  bank?: Maybe<BankUpdateOneRequiredInput>;
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  device?: Maybe<Int>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+}
+
+export interface UserUpdateManyMutationInput {
+  firstName?: Maybe<String>;
+  lastName?: Maybe<String>;
+  device?: Maybe<Int>;
+  email?: Maybe<String>;
+  phoneNumber?: Maybe<String>;
+  dob?: Maybe<String>;
+  status?: Maybe<Int>;
+  terms?: Maybe<Boolean>;
+}
+
+export interface UserOrganizationRoleCreateInput {
+>>>>>>> Added Worked on transaction
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -25068,6 +25260,7 @@ export interface ListingAvailabilityEdgePromise
   cursor: () => Promise<String>;
 }
 
+<<<<<<< HEAD
 export interface ListingAvailabilityEdgeSubscription
   extends Promise<AsyncIterator<ListingAvailabilityEdge>>,
     Fragmentable {
@@ -25083,13 +25276,69 @@ export interface GameEdge {
 export interface GameEdgePromise extends Promise<GameEdge>, Fragmentable {
   node: <T = GamePromise>() => T;
   cursor: () => Promise<String>;
+=======
+export interface User {
+  id: ID_Output;
+  firstName: String;
+  lastName: String;
+  device?: Int;
+  email: String;
+  phoneNumber: String;
+  dob: String;
+  status: Int;
+  terms?: Boolean;
+}
+
+export interface UserPromise extends Promise<User>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  type: <T = OrganizationTypePromise>() => T;
+  bank: <T = BankPromise>() => T;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  device: () => Promise<Int>;
+  email: () => Promise<String>;
+  phoneNumber: () => Promise<String>;
+  dob: () => Promise<String>;
+  status: () => Promise<Int>;
+  terms: () => Promise<Boolean>;
+}
+
+export interface UserSubscription
+  extends Promise<AsyncIterator<User>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: <T = OrganizationTypeSubscription>() => T;
+  bank: <T = BankSubscription>() => T;
+  firstName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  device: () => Promise<AsyncIterator<Int>>;
+  email: () => Promise<AsyncIterator<String>>;
+  phoneNumber: () => Promise<AsyncIterator<String>>;
+  dob: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
+  terms: () => Promise<AsyncIterator<Boolean>>;
+>>>>>>> Added Worked on transaction
 }
 
 export interface GameEdgeSubscription
   extends Promise<AsyncIterator<GameEdge>>,
     Fragmentable {
+<<<<<<< HEAD
   node: <T = GameSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
+=======
+  id: () => Promise<ID_Output>;
+  type: <T = OrganizationTypePromise>() => T;
+  bank: <T = BankPromise>() => T;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  device: () => Promise<Int>;
+  email: () => Promise<String>;
+  phoneNumber: () => Promise<String>;
+  dob: () => Promise<String>;
+  status: () => Promise<Int>;
+  terms: () => Promise<Boolean>;
+>>>>>>> Added Worked on transaction
 }
 
 export interface OrganizationType {
@@ -32129,6 +32378,7 @@ export interface UserPreviousValues {
   id: ID_Output;
   firstName: String;
   lastName: String;
+  device?: Int;
   email: String;
   phoneNumber: String;
   dob: String;
@@ -32142,6 +32392,7 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
+  device: () => Promise<Int>;
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
   dob: () => Promise<String>;
@@ -32155,6 +32406,7 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
+  device: () => Promise<AsyncIterator<Int>>;
   email: () => Promise<AsyncIterator<String>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
   dob: () => Promise<AsyncIterator<String>>;
