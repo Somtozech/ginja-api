@@ -1,7 +1,7 @@
 import { prisma } from '../prisma/generated';
 import pubsub from '../prisma/pubsub';
 
-const setUserStatus = async (user: any, active: any): void => {
+const setUserStatus = async (user: any, active: any): Promise<any> => {
     const data = {
         status: active ? 'online' : 'offline'
     };

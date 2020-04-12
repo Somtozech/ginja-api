@@ -82,7 +82,7 @@ const options = {
     endpoint: '/api',
     subscriptions: {
         path: '/subscriptions',
-        onConnect: async (connectionParams, websocket) => {
+        onConnect: async (connectionParams: any, websocket: any) => {
             if (connectionParams.Authorization) {
                 const user = await validateWebSocketToken(connectionParams.Authorization);
 
@@ -94,7 +94,7 @@ const options = {
 
             throw new Error('Missing auth token!');
         },
-        onDisconnect: async (_, context) => {
+        onDisconnect: async (_: any, context: any) => {
             console.log('disconnecting...');
             const { user } = await context.initPromise;
             if (user) {
