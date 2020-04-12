@@ -2724,6 +2724,8 @@ export type UserOrderByInput =
   | "firstName_DESC"
   | "lastName_ASC"
   | "lastName_DESC"
+  | "device_ASC"
+  | "device_DESC"
   | "email_ASC"
   | "email_DESC"
   | "phoneNumber_ASC"
@@ -3153,6 +3155,14 @@ export interface UserWhereInput {
   lastName_not_starts_with?: Maybe<String>;
   lastName_ends_with?: Maybe<String>;
   lastName_not_ends_with?: Maybe<String>;
+  device?: Maybe<Int>;
+  device_not?: Maybe<Int>;
+  device_in?: Maybe<Int[] | Int>;
+  device_not_in?: Maybe<Int[] | Int>;
+  device_lt?: Maybe<Int>;
+  device_lte?: Maybe<Int>;
+  device_gt?: Maybe<Int>;
+  device_gte?: Maybe<Int>;
   email?: Maybe<String>;
   email_not?: Maybe<String>;
   email_in?: Maybe<String[] | String>;
@@ -6368,6 +6378,7 @@ export interface UserCreateInput {
   bank: BankCreateOneInput;
   firstName: String;
   lastName: String;
+  device?: Maybe<Int>;
   email: String;
   phoneNumber: String;
   dob: String;
@@ -6418,6 +6429,7 @@ export interface UserUpdateDataInput {
   bank?: Maybe<BankUpdateOneRequiredInput>;
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
+  device?: Maybe<Int>;
   email?: Maybe<String>;
   phoneNumber?: Maybe<String>;
   dob?: Maybe<String>;
@@ -9435,6 +9447,7 @@ export interface UserUpdateInput {
   bank?: Maybe<BankUpdateOneRequiredInput>;
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
+  device?: Maybe<Int>;
   email?: Maybe<String>;
   phoneNumber?: Maybe<String>;
   dob?: Maybe<String>;
@@ -9445,6 +9458,7 @@ export interface UserUpdateInput {
 export interface UserUpdateManyMutationInput {
   firstName?: Maybe<String>;
   lastName?: Maybe<String>;
+  device?: Maybe<Int>;
   email?: Maybe<String>;
   phoneNumber?: Maybe<String>;
   dob?: Maybe<String>;
@@ -10891,6 +10905,7 @@ export interface User {
   id: ID_Output;
   firstName: String;
   lastName: String;
+  device?: Int;
   email: String;
   phoneNumber: String;
   dob: String;
@@ -10904,6 +10919,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   bank: <T = BankPromise>() => T;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
+  device: () => Promise<Int>;
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
   dob: () => Promise<String>;
@@ -10919,6 +10935,7 @@ export interface UserSubscription
   bank: <T = BankSubscription>() => T;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
+  device: () => Promise<AsyncIterator<Int>>;
   email: () => Promise<AsyncIterator<String>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
   dob: () => Promise<AsyncIterator<String>>;
@@ -10934,6 +10951,7 @@ export interface UserNullablePromise
   bank: <T = BankPromise>() => T;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
+  device: () => Promise<Int>;
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
   dob: () => Promise<String>;
@@ -17951,6 +17969,7 @@ export interface UserPreviousValues {
   id: ID_Output;
   firstName: String;
   lastName: String;
+  device?: Int;
   email: String;
   phoneNumber: String;
   dob: String;
@@ -17964,6 +17983,7 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
+  device: () => Promise<Int>;
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
   dob: () => Promise<String>;
@@ -17977,6 +17997,7 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
+  device: () => Promise<AsyncIterator<Int>>;
   email: () => Promise<AsyncIterator<String>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
   dob: () => Promise<AsyncIterator<String>>;

@@ -5,7 +5,9 @@ import usersController from '../../../../controllers/admin/users';
 import adminUsersController from '../../../../controllers/admin/adminUsers';
 import adminRolesController from '../../../../controllers/admin/adminRoles';
 import transactionsController from '../../../../controllers/admin/transactions';
+import warehousersPaymentsController from '../../../../controllers/admin/warehousersPayments';
 import referralsController from '../../../../controllers/admin/referrals';
+import statisticsController from '../../../../controllers/admin/statistics';
 
 // MIDDLEWARES
 import loginAuth from '../../../../core/middlewares/admin/loginAuth';
@@ -28,7 +30,13 @@ router.get('/users/:id', auth, usersController.singleUser);
 router.get('/admin-users', [auth, managementPermit], adminUsersController.getAdmins);
 router.get('/admin-roles', [auth, superAdminPermit], adminRolesController.allRoles);
 router.get('/transactions', [auth, managementPermit], transactionsController);
+router.get('/warehousers-payments', [auth, managementPermit], warehousersPaymentsController.allPayments);
 router.get('/referrals', [auth, managementPermit], referralsController.allReferrals);
+router.get('/statistics/total-users', [auth, supportPermit], statisticsController.totalUsers);
+router.get('/statistics/users-os', [auth, supportPermit], statisticsController.usersByOs);
+router.get('/statistics/total-transactions', [auth, supportPermit], statisticsController.totalTransactions);
+router.get('/statistics/total-commissions', [auth, supportPermit], statisticsController.totalCommissions);
+router.get('/statistics/total-available-warehouses', [auth, supportPermit], statisticsController.totalAvailableWarehouses);
 
 // POST REQUESTS
 router.post('/authenticate', loginAuth, loginAuthController);

@@ -1,7 +1,7 @@
 {
   "name": "ginjabox-core-middleware",
   "version": "1.0.0",
-  "description": "Ginjabox Layer API",
+  "description": "Ginjabox Layer API", 
   "private": true,
   "scripts": {
     "start": "node ./dist/src/server",

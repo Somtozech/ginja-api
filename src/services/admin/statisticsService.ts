@@ -100,18 +100,60 @@ const statisticsService = {
 
             let android = 0;
             let ios = 0;
-            const total = android + ios;
 
             users.forEach((user: any): any => {
                 if (user.device === 1) android += 1;
                 if (user.device === 2) ios += 1;
             });
 
+            const total = android + ios;
+
             return res.json({
                 success: true,
                 error: false,
                 message: 'Success',
                 data: { android, ios, total }
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+    getAvailableWarehouses: async (res: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const listings = await prisma.listings();
+
+            if (!listings) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'No Users yet.',
+                    data: 0
+                });
+            }
+
+            let allListings: any[] = listings.map(
+                async (listing: any): Promise<any> => {
+                    const availability = await prisma.listing({ id: listing.id }).availability();
+                    return { ...listing, availability };
+                }
+            );
+
+            allListings = await Promise.all(allListings);
+
+            let available = 0;
+
+            allListings.forEach((listing: any): any => {
+                if (listing.availability.to > Date.now()) available += 1;
+            });
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Success',
+                data: available
             });
         } catch (err) {
             throw err;

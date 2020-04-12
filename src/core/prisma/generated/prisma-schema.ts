@@ -9051,6 +9051,7 @@ type User {
   bank: Bank!
   firstName: String!
   lastName: String!
+  device: Int
   email: String!
   phoneNumber: String!
   dob: String!
@@ -9070,6 +9071,7 @@ input UserCreateInput {
   bank: BankCreateOneInput!
   firstName: String!
   lastName: String!
+  device: Int
   email: String!
   phoneNumber: String!
   dob: String!
@@ -9094,6 +9096,8 @@ enum UserOrderByInput {
   firstName_DESC
   lastName_ASC
   lastName_DESC
+  device_ASC
+  device_DESC
   email_ASC
   email_DESC
   phoneNumber_ASC
@@ -9195,6 +9199,7 @@ type UserPreviousValues {
   id: ID!
   firstName: String!
   lastName: String!
+  device: Int
   email: String!
   phoneNumber: String!
   dob: String!
@@ -9225,6 +9230,7 @@ input UserUpdateDataInput {
   bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
+  device: Int
   email: String
   phoneNumber: String
   dob: String
@@ -9237,6 +9243,7 @@ input UserUpdateInput {
   bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
+  device: Int
   email: String
   phoneNumber: String
   dob: String
@@ -9247,6 +9254,7 @@ input UserUpdateInput {
 input UserUpdateManyMutationInput {
   firstName: String
   lastName: String
+  device: Int
   email: String
   phoneNumber: String
   dob: String
@@ -9311,6 +9319,14 @@ input UserWhereInput {
   lastName_not_starts_with: String
   lastName_ends_with: String
   lastName_not_ends_with: String
+  device: Int
+  device_not: Int
+  device_in: [Int!]
+  device_not_in: [Int!]
+  device_lt: Int
+  device_lte: Int
+  device_gt: Int
+  device_gte: Int
   email: String
   email_not: String
   email_in: [String!]
