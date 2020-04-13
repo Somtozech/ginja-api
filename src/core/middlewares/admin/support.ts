@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
 const supportPermit = (req: Request, res: Response, next: NextFunction): any => {
-    if (req.user.roleId > 4) {
+    if (res.locals.user.roleId > 4) {
         return res.status(403).json({
             success: false,
             error: true,

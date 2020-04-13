@@ -13,7 +13,7 @@ const auth = (req: Request, res: Response, next: NextFunction): any => {
     try {
         const decode = jwt.verify(token, process.env.JWT_SECRETE);
         res.locals.prisma = prisma;
-        req.user = decode;
+        res.locals.user = decode;
         return next();
     } catch (err) {
         res.status(400).json({
