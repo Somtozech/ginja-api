@@ -8,6 +8,7 @@ type User {
     email: String! @unique
     phoneNumber: String! @unique
     dob: String!
+    status: Int!
     terms: Boolean
     status: UserStatus
 }

@@ -6556,6 +6556,215 @@ input ReferralWhereUniqueInput {
   id: ID
 }
 
+type Referral {
+  id: ID!
+  status: Boolean!
+  refCode: Int!
+  userId: String!
+  crown: Crown!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
+}
+
+type ReferralConnection {
+  pageInfo: PageInfo!
+  edges: [ReferralEdge]!
+  aggregate: AggregateReferral!
+}
+
+input ReferralCreateInput {
+  id: ID
+  status: Boolean!
+  refCode: Int!
+  userId: String!
+  crown: CrownCreateOneInput!
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
+}
+
+type ReferralEdge {
+  node: Referral!
+  cursor: String!
+}
+
+enum ReferralOrderByInput {
+  id_ASC
+  id_DESC
+  status_ASC
+  status_DESC
+  refCode_ASC
+  refCode_DESC
+  userId_ASC
+  userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  startDate_ASC
+  startDate_DESC
+  endDate_ASC
+  endDate_DESC
+  boost_ASC
+  boost_DESC
+  rollover_ASC
+  rollover_DESC
+}
+
+type ReferralPreviousValues {
+  id: ID!
+  status: Boolean!
+  refCode: Int!
+  userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
+}
+
+type ReferralSubscriptionPayload {
+  mutation: MutationType!
+  node: Referral
+  updatedFields: [String!]
+  previousValues: ReferralPreviousValues
+}
+
+input ReferralSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ReferralWhereInput
+  AND: [ReferralSubscriptionWhereInput!]
+  OR: [ReferralSubscriptionWhereInput!]
+  NOT: [ReferralSubscriptionWhereInput!]
+}
+
+input ReferralUpdateInput {
+  status: Boolean
+  refCode: Int
+  userId: String
+  crown: CrownUpdateOneRequiredInput
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
+}
+
+input ReferralUpdateManyMutationInput {
+  status: Boolean
+  refCode: Int
+  userId: String
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
+}
+
+input ReferralWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  status: Boolean
+  status_not: Boolean
+  refCode: Int
+  refCode_not: Int
+  refCode_in: [Int!]
+  refCode_not_in: [Int!]
+  refCode_lt: Int
+  refCode_lte: Int
+  refCode_gt: Int
+  refCode_gte: Int
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
+  crown: CrownWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  boost: Float
+  boost_not: Float
+  boost_in: [Float!]
+  boost_not_in: [Float!]
+  boost_lt: Float
+  boost_lte: Float
+  boost_gt: Float
+  boost_gte: Float
+  rollover: Float
+  rollover_not: Float
+  rollover_in: [Float!]
+  rollover_not_in: [Float!]
+  rollover_lt: Float
+  rollover_lte: Float
+  rollover_gt: Float
+  rollover_gte: Float
+  AND: [ReferralWhereInput!]
+  OR: [ReferralWhereInput!]
+  NOT: [ReferralWhereInput!]
+}
+
+input ReferralWhereUniqueInput {
+  id: ID
+}
+
 type Requisition {
   id: ID!
   duration: RequisitionDuration!
@@ -9155,6 +9364,15 @@ type User {
   dob: String!
   status: Int!
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: Bank!
+  type: OrganizationType!
+  status: UserStatus
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> rest-setup
 }
 
 type UserConnection {
@@ -9175,6 +9393,15 @@ input UserCreateInput {
   dob: String!
   status: Int!
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankCreateOneInput!
+  type: OrganizationTypeCreateOneInput!
+  status: UserStatusCreateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> rest-setup
 }
 
 input UserCreateOneInput {
@@ -9477,6 +9704,15 @@ input UserUpdateDataInput {
   dob: String
   status: Int
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankUpdateOneRequiredInput
+  type: OrganizationTypeUpdateOneRequiredInput
+  status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> rest-setup
 }
 
 input UserUpdateInput {
@@ -9490,6 +9726,15 @@ input UserUpdateInput {
   dob: String
   status: Int
   terms: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankUpdateOneRequiredInput
+  type: OrganizationTypeUpdateOneRequiredInput
+  status: UserStatusUpdateOneInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> rest-setup
 }
 
 input UserUpdateManyMutationInput {
@@ -9620,6 +9865,15 @@ input UserWhereInput {
   status_gte: Int
   terms: Boolean
   terms_not: Boolean
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  bank: BankWhereInput
+  type: OrganizationTypeWhereInput
+  status: UserStatusWhereInput
+=======
+>>>>>>> Worrked on statistics, referrals
+>>>>>>> rest-setup
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
