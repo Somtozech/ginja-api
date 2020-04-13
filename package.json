@@ -1,7 +1,7 @@
 {
   "name": "ginjabox-core-middleware",
   "version": "1.0.0",
-  "description": "Ginjabox Layer API", 
+  "description": "Ginjabox Layer API",
   "private": true,
   "scripts": {
     "start": "node ./dist/src/server",
@@ -33,6 +33,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/register": "^7.5.5",
     "@sendgrid/mail": "^6.4.0",
+    "@types/bcrypt": "^3.0.0",
     "@types/bluebird": "^3.5.26",
     "@types/cookie-parser": "^1.4.1",
     "@types/cors": "^2.8.5",
@@ -76,6 +77,7 @@
     "mysql2": "^1.6.5",
     "node-cron": "^2.0.3",
     "node-expat": "^2.3.18",
+    "paystack-api": "^2.0.5",
     "paystack-node": "^0.2.2",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
