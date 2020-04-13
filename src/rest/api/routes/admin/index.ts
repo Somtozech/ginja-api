@@ -7,6 +7,8 @@ import adminRolesController from '../../../../controllers/admin/adminRoles';
 import transactionsController from '../../../../controllers/admin/transactions';
 import warehousersPaymentsController from '../../../../controllers/admin/warehousersPayments';
 import referralsController from '../../../../controllers/admin/referrals';
+import stocksController from '../../../../controllers/admin/stocks';
+import listingsController from '../../../../controllers/admin/listings';
 import statisticsController from '../../../../controllers/admin/statistics';
 
 // MIDDLEWARES
@@ -14,8 +16,8 @@ import loginAuth from '../../../../core/middlewares/admin/loginAuth';
 import auth from '../../../../core/middlewares/admin/auth';
 import managementPermit from '../../../../core/middlewares/admin/management';
 import superAdminPermit from '../../../../core/middlewares/admin/superAdmin';
-import supportPermit from '../../../../core/middlewares/admin/support';
 import teamLeadPermit from '../../../../core/middlewares/admin/teamLead';
+import supportPermit from '../../../../core/middlewares/admin/support';
 
 const router = express.Router();
 
@@ -32,6 +34,10 @@ router.get('/admin-roles', [auth, superAdminPermit], adminRolesController.allRol
 router.get('/transactions', [auth, managementPermit], transactionsController);
 router.get('/warehousers-payments', [auth, managementPermit], warehousersPaymentsController.allPayments);
 router.get('/referrals', [auth, managementPermit], referralsController.allReferrals);
+router.get('/listings', [auth, managementPermit], listingsController.allListings);
+router.get('/requisitions', [auth, managementPermit], listingsController.allRequisitions);
+router.get('/dispatch-orders', [auth, managementPermit], stocksController.dispatchOrders);
+router.get('/stocks', [auth, managementPermit], stocksController.allStocks);
 router.get('/statistics/total-users', [auth, supportPermit], statisticsController.totalUsers);
 router.get('/statistics/users-os', [auth, supportPermit], statisticsController.usersByOs);
 router.get('/statistics/total-transactions', [auth, supportPermit], statisticsController.totalTransactions);
