@@ -16,9 +16,10 @@ const listingsService = {
             }
 
             let allLisitings: any[] = listings.map(
-                async (disp: any): Promise<any> => {
-                    const pickupDate = await prisma.stockDispatch({ id: disp.id }).pickupDate();
-                    return { ...disp, pickupDate };
+                async (listing: any): Promise<any> => {
+                    const availability = await prisma.listing({ id: listing.id }).availability();
+                    const user = await prisma.listing({ id: listing.id }).user();
+                    return { ...listing, availability, user };
                 }
             );
 
