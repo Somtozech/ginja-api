@@ -50,11 +50,16 @@ export default class Paystack {
     };
 
     public verifyTransaction = async ({ reference }: any): Promise<any> => {
-        const response = await this.paystack.verifyTransaction({
-            reference
-        });
+        try {
+            const response = await this.paystack.verifyTransaction({
+                reference
+            });
 
-        return response.body;
+            return response.body;
+        } catch (error) {
+            logger.error('verify transaction', error);
+            throw error;
+        }
     };
 
     // public verifyTransaction = async (params: object): Promise<any> => {
@@ -76,15 +81,20 @@ export default class Paystack {
     public createTransferRecipient = async (params: any): Promise<any> => {
         // TODO add validation
 
-        const response = await PaystackApi.transfer_recipient.create({
-            type: 'nuban',
-            name: params.name,
-            account_number: params.accountNumber,
-            bank_code: params.bankCode,
-            currency: 'NGN'
-        });
+        try {
+            const response = await PaystackApi.transfer_recipient.create({
+                type: 'nuban',
+                name: params.name,
+                account_number: params.accountNumber,
+                bank_code: params.bankCode,
+                currency: 'NGN'
+            });
 
-        return response;
+            return response;
+        } catch (error) {
+            logger.error('verify transaction', error);
+            throw error;
+        }
     };
 
     public initializeTransfer = async (params: any): Promise<any> => {
