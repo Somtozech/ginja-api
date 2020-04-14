@@ -35,13 +35,26 @@ const createRequisition = async (graph: any) => {
 };
 
 const requisitions = async (graph: any) => {
-    const { args, context } = graph;
-    const { prisma } = context;
+    const {
+        args,
+        context: { role, user: authUser, prisma }
+    } = graph;
+    const { name } = role;
+
     const { first, skip, user, limit, nextToken, listing, status } = args;
-    const filterbyUser = user ? { user: { id: user } } : {};
-    const filterbyListing = listing ? { listing: { id: listing } } : {};
+    let filterbyUser = user ? { user: { id: user } } : {};
+    let filterbyListing = listing ? { listing: { id: listing } } : {};
     let statusQuery = {};
 
+    if (name === 'warehouser') {
+        filterbyUser = {};
+        filterbyListing = {
+            listing: {
+                ...(filterbyListing.listing && filterbyListing.listing),
+                user: { id: authUser.id }
+            }
+        };
+    }
     if (status !== 4) {
         statusQuery = { status };
     }
