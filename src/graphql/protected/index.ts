@@ -34,7 +34,8 @@ const permissions = {
         initializePayment: authMiddleware,
         verifyPayment: authMiddleware,
         transfer: authMiddleware,
-        withdraw: authMiddleware
+        withdraw: authMiddleware,
+        updateStockStatus: authMiddleware
     }
 };
 

@@ -111,6 +111,7 @@ type Mutation {
     fundWallet(reference: String!, userId: String!): Success!
     transfer(recipientId: String!, amount: Float!): Success!
     withdraw(amount: Float!): Success!
+    updateStockStatus(stockId: String!, status: Int!): Success!
 }
 
 type Subscription {

@@ -156,15 +156,20 @@ const makePayment = async (graph: any) => {
         const {
             user,
             listing: { user: warehouser },
-            cost: { baseCost, discount }
+            cost: { baseCost, discount, vat },
+            space
         } = requisition;
 
         // calculate total Payable Amount
 
-        const totalAmount = baseCost - (discount / 100) * baseCost + (7.5 / 100) * baseCost;
+        const warehouseCost = baseCost * (space ? parseInt(space, 10) : 0);
+
+        const disCountAmount = (discount / 100) * warehouseCost;
+        const vatAmount = (vat / 100) * warehouseCost;
+        const totalAmount = warehouseCost - disCountAmount + vatAmount;
 
         //calculate amount payable to warehouser
-        const payableAmountInKobo = (baseCost - (discount / 100) * baseCost) * 100;
+        const payableAmountInKobo = warehouseCost - disCountAmount;
         // convert totalAmount to Kobo
         const amountInKobo = totalAmount * 100;
 
