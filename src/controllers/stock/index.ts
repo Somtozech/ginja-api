@@ -32,4 +32,12 @@ const stocks = async (parent: any, args: any, context: any): Promise<any> => {
     }
 };
 
-export { createStock, updateStockProduct, createDispatch, stocks };
+const updateStockStatus = async (parent: any, args: any, context: any): Promise<any> => {
+    try {
+        return await stockService.updateStockStatus({ parent, args, context });
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { createStock, updateStockProduct, createDispatch, stocks, updateStockStatus };

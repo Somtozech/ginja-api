@@ -17,11 +17,11 @@ const createStock = async (graph: any) => {
             },
             dispatch: {
                 create: {
-                    status: 0
+                    status: 1
                 }
             },
             type,
-            status: 0
+            status: 1
         });
         if (result) {
             return { success: true };
@@ -152,4 +152,20 @@ const stocks = async (graph: any) => {
     }
 };
 
-export { createStock, createDispatch, updateStockProduct, stocks };
+// update stock status
+const updateStockStatus = async (graph: any) => {
+    const {
+        args: { stockId, status },
+        context: { prisma }
+    } = graph;
+
+    const updatedStock = await prisma.updateStock({ where: { id: stockId }, data: { status } });
+
+    if (updatedStock) {
+        return { id: updatedStock.id, success: true };
+    }
+
+    return { id: stockId, success: false };
+};
+
+export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus };
