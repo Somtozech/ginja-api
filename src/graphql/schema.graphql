@@ -112,6 +112,7 @@ type Mutation {
     transfer(recipientId: String!, amount: Float!): Success!
     withdraw(amount: Float!): Success!
     updateStockStatus(stockId: String!, status: Int!): StockUpdateSuccess!
+    updateDispatchStatus(stockId: String!, status: Int!): StockUpdateSuccess!
 }
 
 type StockUpdateSuccess {

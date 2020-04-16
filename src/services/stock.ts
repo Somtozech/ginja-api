@@ -5,7 +5,6 @@ const createStock = async (graph: any) => {
     const { context, args } = graph;
     const { prisma } = context;
     const { products, requisition, type } = args;
-    console.log(args);
     try {
         const result = await prisma.createStock({
             products: {
@@ -39,7 +38,16 @@ const createDispatch = async (graph: any) => {
     const { prisma } = context;
     const {
         id,
-        dispatch: { pickupAgentName, pickupAgentPhone, pickupAgentIdentification, pickupAgentIdNumber, pickupDateMin, pickupDateMax }
+        dispatch: {
+            pickupAgentName,
+            pickupAgentPhone,
+            pickupAgentIdentification,
+            pickupAgentIdNumber,
+            pickupDateMin,
+            pickupDateMax,
+            status,
+            pickupDate
+        }
     } = args;
     try {
         const result = await prisma.updateStock({
@@ -52,7 +60,9 @@ const createDispatch = async (graph: any) => {
                         pickupAgentIdentification,
                         pickupAgentIdNumber,
                         pickupDateMin,
-                        pickupDateMax
+                        pickupDateMax,
+                        pickupDate,
+                        status
                     }
                 }
             }
@@ -169,4 +179,29 @@ const updateStockStatus = async (graph: any) => {
     return { id: stockId, success: false, status };
 };
 
-export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus };
+// update stock dispatch status
+const updateDispatchStatus = async (graph: any) => {
+    const {
+        args: { stockId, status },
+        context: { prisma }
+    } = graph;
+
+    const updatedDispatch = await prisma.updateStock({
+        where: { id: stockId },
+        data: {
+            dispatch: {
+                update: {
+                    status
+                }
+            }
+        }
+    });
+
+    if (updatedDispatch) {
+        return { id: updatedDispatch.id, success: true, status };
+    }
+
+    return { id: stockId, success: false, status };
+};
+
+export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus, updateDispatchStatus };
