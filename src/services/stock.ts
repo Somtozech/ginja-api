@@ -5,6 +5,7 @@ const createStock = async (graph: any) => {
     const { context, args } = graph;
     const { prisma } = context;
     const { products, requisition, type } = args;
+    console.log(args);
     try {
         const result = await prisma.createStock({
             products: {
@@ -162,10 +163,10 @@ const updateStockStatus = async (graph: any) => {
     const updatedStock = await prisma.updateStock({ where: { id: stockId }, data: { status } });
 
     if (updatedStock) {
-        return { id: updatedStock.id, success: true };
+        return { id: updatedStock.id, success: true, status };
     }
 
-    return { id: stockId, success: false };
+    return { id: stockId, success: false, status };
 };
 
 export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus };
