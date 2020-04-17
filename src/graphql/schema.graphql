@@ -326,6 +326,12 @@ type StockProduct {
     quantityPerPackageSize: Int!
     totalQuantity: Int!
     productImage: String!
+    estimatedValue: Float
+    shipmentDate: String
+    deliveryDate: String
+    partnerLogistics: String
+    expiryDate: String
+    condition: String
 }
 
 input StockProductInput {
@@ -335,6 +341,12 @@ input StockProductInput {
     quantityPerPackageSize: Int!
     totalQuantity: Int!
     productImage: String!
+    estimatedValue: Float
+    shipmentDate: String
+    deliveryDate: String
+    partnerLogistics: String
+    expiryDate: String
+    condition: String
 }
 
 input RequisitionCostInput {

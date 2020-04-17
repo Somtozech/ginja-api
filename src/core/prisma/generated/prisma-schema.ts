@@ -8245,6 +8245,12 @@ type StockProduct {
   quantityPerPackageSize: Int!
   totalQuantity: Int!
   productImage: String!
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 type StockProductConnection {
@@ -8261,6 +8267,12 @@ input StockProductCreateInput {
   quantityPerPackageSize: Int!
   totalQuantity: Int!
   productImage: String!
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductCreateManyInput {
@@ -8288,6 +8300,18 @@ enum StockProductOrderByInput {
   totalQuantity_DESC
   productImage_ASC
   productImage_DESC
+  estimatedValue_ASC
+  estimatedValue_DESC
+  shipmentDate_ASC
+  shipmentDate_DESC
+  deliveryDate_ASC
+  deliveryDate_DESC
+  partnerLogistics_ASC
+  partnerLogistics_DESC
+  expiryDate_ASC
+  expiryDate_DESC
+  condition_ASC
+  condition_DESC
 }
 
 type StockProductPreviousValues {
@@ -8298,6 +8322,12 @@ type StockProductPreviousValues {
   quantityPerPackageSize: Int!
   totalQuantity: Int!
   productImage: String!
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductScalarWhereInput {
@@ -8387,6 +8417,66 @@ input StockProductScalarWhereInput {
   productImage_not_starts_with: String
   productImage_ends_with: String
   productImage_not_ends_with: String
+  estimatedValue: Float
+  estimatedValue_not: Float
+  estimatedValue_in: [Float!]
+  estimatedValue_not_in: [Float!]
+  estimatedValue_lt: Float
+  estimatedValue_lte: Float
+  estimatedValue_gt: Float
+  estimatedValue_gte: Float
+  shipmentDate: DateTime
+  shipmentDate_not: DateTime
+  shipmentDate_in: [DateTime!]
+  shipmentDate_not_in: [DateTime!]
+  shipmentDate_lt: DateTime
+  shipmentDate_lte: DateTime
+  shipmentDate_gt: DateTime
+  shipmentDate_gte: DateTime
+  deliveryDate: DateTime
+  deliveryDate_not: DateTime
+  deliveryDate_in: [DateTime!]
+  deliveryDate_not_in: [DateTime!]
+  deliveryDate_lt: DateTime
+  deliveryDate_lte: DateTime
+  deliveryDate_gt: DateTime
+  deliveryDate_gte: DateTime
+  partnerLogistics: String
+  partnerLogistics_not: String
+  partnerLogistics_in: [String!]
+  partnerLogistics_not_in: [String!]
+  partnerLogistics_lt: String
+  partnerLogistics_lte: String
+  partnerLogistics_gt: String
+  partnerLogistics_gte: String
+  partnerLogistics_contains: String
+  partnerLogistics_not_contains: String
+  partnerLogistics_starts_with: String
+  partnerLogistics_not_starts_with: String
+  partnerLogistics_ends_with: String
+  partnerLogistics_not_ends_with: String
+  expiryDate: DateTime
+  expiryDate_not: DateTime
+  expiryDate_in: [DateTime!]
+  expiryDate_not_in: [DateTime!]
+  expiryDate_lt: DateTime
+  expiryDate_lte: DateTime
+  expiryDate_gt: DateTime
+  expiryDate_gte: DateTime
+  condition: String
+  condition_not: String
+  condition_in: [String!]
+  condition_not_in: [String!]
+  condition_lt: String
+  condition_lte: String
+  condition_gt: String
+  condition_gte: String
+  condition_contains: String
+  condition_not_contains: String
+  condition_starts_with: String
+  condition_not_starts_with: String
+  condition_ends_with: String
+  condition_not_ends_with: String
   AND: [StockProductScalarWhereInput!]
   OR: [StockProductScalarWhereInput!]
   NOT: [StockProductScalarWhereInput!]
@@ -8417,6 +8507,12 @@ input StockProductUpdateDataInput {
   quantityPerPackageSize: Int
   totalQuantity: Int
   productImage: String
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductUpdateInput {
@@ -8426,6 +8522,12 @@ input StockProductUpdateInput {
   quantityPerPackageSize: Int
   totalQuantity: Int
   productImage: String
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductUpdateManyDataInput {
@@ -8435,6 +8537,12 @@ input StockProductUpdateManyDataInput {
   quantityPerPackageSize: Int
   totalQuantity: Int
   productImage: String
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductUpdateManyInput {
@@ -8456,6 +8564,12 @@ input StockProductUpdateManyMutationInput {
   quantityPerPackageSize: Int
   totalQuantity: Int
   productImage: String
+  estimatedValue: Float
+  shipmentDate: DateTime
+  deliveryDate: DateTime
+  partnerLogistics: String
+  expiryDate: DateTime
+  condition: String
 }
 
 input StockProductUpdateManyWithWhereNestedInput {
@@ -8561,6 +8675,66 @@ input StockProductWhereInput {
   productImage_not_starts_with: String
   productImage_ends_with: String
   productImage_not_ends_with: String
+  estimatedValue: Float
+  estimatedValue_not: Float
+  estimatedValue_in: [Float!]
+  estimatedValue_not_in: [Float!]
+  estimatedValue_lt: Float
+  estimatedValue_lte: Float
+  estimatedValue_gt: Float
+  estimatedValue_gte: Float
+  shipmentDate: DateTime
+  shipmentDate_not: DateTime
+  shipmentDate_in: [DateTime!]
+  shipmentDate_not_in: [DateTime!]
+  shipmentDate_lt: DateTime
+  shipmentDate_lte: DateTime
+  shipmentDate_gt: DateTime
+  shipmentDate_gte: DateTime
+  deliveryDate: DateTime
+  deliveryDate_not: DateTime
+  deliveryDate_in: [DateTime!]
+  deliveryDate_not_in: [DateTime!]
+  deliveryDate_lt: DateTime
+  deliveryDate_lte: DateTime
+  deliveryDate_gt: DateTime
+  deliveryDate_gte: DateTime
+  partnerLogistics: String
+  partnerLogistics_not: String
+  partnerLogistics_in: [String!]
+  partnerLogistics_not_in: [String!]
+  partnerLogistics_lt: String
+  partnerLogistics_lte: String
+  partnerLogistics_gt: String
+  partnerLogistics_gte: String
+  partnerLogistics_contains: String
+  partnerLogistics_not_contains: String
+  partnerLogistics_starts_with: String
+  partnerLogistics_not_starts_with: String
+  partnerLogistics_ends_with: String
+  partnerLogistics_not_ends_with: String
+  expiryDate: DateTime
+  expiryDate_not: DateTime
+  expiryDate_in: [DateTime!]
+  expiryDate_not_in: [DateTime!]
+  expiryDate_lt: DateTime
+  expiryDate_lte: DateTime
+  expiryDate_gt: DateTime
+  expiryDate_gte: DateTime
+  condition: String
+  condition_not: String
+  condition_in: [String!]
+  condition_not_in: [String!]
+  condition_lt: String
+  condition_lte: String
+  condition_gt: String
+  condition_gte: String
+  condition_contains: String
+  condition_not_contains: String
+  condition_starts_with: String
+  condition_not_starts_with: String
+  condition_ends_with: String
+  condition_not_ends_with: String
   AND: [StockProductWhereInput!]
   OR: [StockProductWhereInput!]
   NOT: [StockProductWhereInput!]

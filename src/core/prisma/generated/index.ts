@@ -2926,7 +2926,19 @@ export type StockOrderByInput =
   | "totalQuantity_ASC"
   | "totalQuantity_DESC"
   | "productImage_ASC"
-  | "productImage_DESC";
+  | "productImage_DESC"
+  | "estimatedValue_ASC"
+  | "estimatedValue_DESC"
+  | "shipmentDate_ASC"
+  | "shipmentDate_DESC"
+  | "deliveryDate_ASC"
+  | "deliveryDate_DESC"
+  | "partnerLogistics_ASC"
+  | "partnerLogistics_DESC"
+  | "expiryDate_ASC"
+  | "expiryDate_DESC"
+  | "condition_ASC"
+  | "condition_DESC";
 
 export type StockOrderByInput =
   | "id_ASC"
@@ -20215,6 +20227,12 @@ export interface StockProductPreviousValues {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Float;
+  shipmentDate?: DateTimeOutput;
+  deliveryDate?: DateTimeOutput;
+  partnerLogistics?: String;
+  expiryDate?: DateTimeOutput;
+  condition?: String;
 }
 
 export interface StockProductPreviousValuesPromise
@@ -20227,6 +20245,12 @@ export interface StockProductPreviousValuesPromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockProductPreviousValuesSubscription
@@ -20239,6 +20263,12 @@ export interface StockProductPreviousValuesSubscription
   quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
   totalQuantity: () => Promise<AsyncIterator<Int>>;
   productImage: () => Promise<AsyncIterator<String>>;
+  estimatedValue: () => Promise<AsyncIterator<Float>>;
+  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  partnerLogistics: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  condition: () => Promise<AsyncIterator<String>>;
 }
 
 export interface SuccessSubscriptionPayload {
