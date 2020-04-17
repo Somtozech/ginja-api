@@ -2722,7 +2722,19 @@ export type StockProductOrderByInput =
   | "totalQuantity_ASC"
   | "totalQuantity_DESC"
   | "productImage_ASC"
-  | "productImage_DESC";
+  | "productImage_DESC"
+  | "estimatedValue_ASC"
+  | "estimatedValue_DESC"
+  | "shipmentDate_ASC"
+  | "shipmentDate_DESC"
+  | "deliveryDate_ASC"
+  | "deliveryDate_DESC"
+  | "partnerLogistics_ASC"
+  | "partnerLogistics_DESC"
+  | "expiryDate_ASC"
+  | "expiryDate_DESC"
+  | "condition_ASC"
+  | "condition_DESC";
 
 export type StockOrderByInput =
   | "id_ASC"
@@ -5997,6 +6009,66 @@ export interface StockProductWhereInput {
   productImage_not_starts_with?: Maybe<String>;
   productImage_ends_with?: Maybe<String>;
   productImage_not_ends_with?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  estimatedValue_not?: Maybe<Float>;
+  estimatedValue_in?: Maybe<Float[] | Float>;
+  estimatedValue_not_in?: Maybe<Float[] | Float>;
+  estimatedValue_lt?: Maybe<Float>;
+  estimatedValue_lte?: Maybe<Float>;
+  estimatedValue_gt?: Maybe<Float>;
+  estimatedValue_gte?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  shipmentDate_not?: Maybe<DateTimeInput>;
+  shipmentDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_lt?: Maybe<DateTimeInput>;
+  shipmentDate_lte?: Maybe<DateTimeInput>;
+  shipmentDate_gt?: Maybe<DateTimeInput>;
+  shipmentDate_gte?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  deliveryDate_not?: Maybe<DateTimeInput>;
+  deliveryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_lt?: Maybe<DateTimeInput>;
+  deliveryDate_lte?: Maybe<DateTimeInput>;
+  deliveryDate_gt?: Maybe<DateTimeInput>;
+  deliveryDate_gte?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  partnerLogistics_not?: Maybe<String>;
+  partnerLogistics_in?: Maybe<String[] | String>;
+  partnerLogistics_not_in?: Maybe<String[] | String>;
+  partnerLogistics_lt?: Maybe<String>;
+  partnerLogistics_lte?: Maybe<String>;
+  partnerLogistics_gt?: Maybe<String>;
+  partnerLogistics_gte?: Maybe<String>;
+  partnerLogistics_contains?: Maybe<String>;
+  partnerLogistics_not_contains?: Maybe<String>;
+  partnerLogistics_starts_with?: Maybe<String>;
+  partnerLogistics_not_starts_with?: Maybe<String>;
+  partnerLogistics_ends_with?: Maybe<String>;
+  partnerLogistics_not_ends_with?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  expiryDate_not?: Maybe<DateTimeInput>;
+  expiryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_lt?: Maybe<DateTimeInput>;
+  expiryDate_lte?: Maybe<DateTimeInput>;
+  expiryDate_gt?: Maybe<DateTimeInput>;
+  expiryDate_gte?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
+  condition_not?: Maybe<String>;
+  condition_in?: Maybe<String[] | String>;
+  condition_not_in?: Maybe<String[] | String>;
+  condition_lt?: Maybe<String>;
+  condition_lte?: Maybe<String>;
+  condition_gt?: Maybe<String>;
+  condition_gte?: Maybe<String>;
+  condition_contains?: Maybe<String>;
+  condition_not_contains?: Maybe<String>;
+  condition_starts_with?: Maybe<String>;
+  condition_not_starts_with?: Maybe<String>;
+  condition_ends_with?: Maybe<String>;
+  condition_not_ends_with?: Maybe<String>;
   AND?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
   OR?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
   NOT?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
@@ -9292,6 +9364,12 @@ export interface StockProductCreateInput {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface StockDispatchCreateOneInput {
@@ -9363,6 +9441,12 @@ export interface StockProductUpdateDataInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface StockProductUpsertWithWhereUniqueNestedInput {
@@ -9458,6 +9542,66 @@ export interface StockProductScalarWhereInput {
   productImage_not_starts_with?: Maybe<String>;
   productImage_ends_with?: Maybe<String>;
   productImage_not_ends_with?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  estimatedValue_not?: Maybe<Float>;
+  estimatedValue_in?: Maybe<Float[] | Float>;
+  estimatedValue_not_in?: Maybe<Float[] | Float>;
+  estimatedValue_lt?: Maybe<Float>;
+  estimatedValue_lte?: Maybe<Float>;
+  estimatedValue_gt?: Maybe<Float>;
+  estimatedValue_gte?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  shipmentDate_not?: Maybe<DateTimeInput>;
+  shipmentDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_lt?: Maybe<DateTimeInput>;
+  shipmentDate_lte?: Maybe<DateTimeInput>;
+  shipmentDate_gt?: Maybe<DateTimeInput>;
+  shipmentDate_gte?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  deliveryDate_not?: Maybe<DateTimeInput>;
+  deliveryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_lt?: Maybe<DateTimeInput>;
+  deliveryDate_lte?: Maybe<DateTimeInput>;
+  deliveryDate_gt?: Maybe<DateTimeInput>;
+  deliveryDate_gte?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  partnerLogistics_not?: Maybe<String>;
+  partnerLogistics_in?: Maybe<String[] | String>;
+  partnerLogistics_not_in?: Maybe<String[] | String>;
+  partnerLogistics_lt?: Maybe<String>;
+  partnerLogistics_lte?: Maybe<String>;
+  partnerLogistics_gt?: Maybe<String>;
+  partnerLogistics_gte?: Maybe<String>;
+  partnerLogistics_contains?: Maybe<String>;
+  partnerLogistics_not_contains?: Maybe<String>;
+  partnerLogistics_starts_with?: Maybe<String>;
+  partnerLogistics_not_starts_with?: Maybe<String>;
+  partnerLogistics_ends_with?: Maybe<String>;
+  partnerLogistics_not_ends_with?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  expiryDate_not?: Maybe<DateTimeInput>;
+  expiryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_lt?: Maybe<DateTimeInput>;
+  expiryDate_lte?: Maybe<DateTimeInput>;
+  expiryDate_gt?: Maybe<DateTimeInput>;
+  expiryDate_gte?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
+  condition_not?: Maybe<String>;
+  condition_in?: Maybe<String[] | String>;
+  condition_not_in?: Maybe<String[] | String>;
+  condition_lt?: Maybe<String>;
+  condition_lte?: Maybe<String>;
+  condition_gt?: Maybe<String>;
+  condition_gte?: Maybe<String>;
+  condition_contains?: Maybe<String>;
+  condition_not_contains?: Maybe<String>;
+  condition_starts_with?: Maybe<String>;
+  condition_not_starts_with?: Maybe<String>;
+  condition_ends_with?: Maybe<String>;
+  condition_not_ends_with?: Maybe<String>;
   AND?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
   OR?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
   NOT?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
@@ -9475,6 +9619,12 @@ export interface StockProductUpdateManyDataInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface StockDispatchUpdateOneInput {
@@ -9554,6 +9704,12 @@ export interface StockProductUpdateInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface StockProductUpdateManyMutationInput {
@@ -9563,6 +9719,12 @@ export interface StockProductUpdateManyMutationInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface SuccessCreateInput {
@@ -14950,6 +15112,12 @@ export interface StockProduct {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Float;
+  shipmentDate?: DateTimeOutput;
+  deliveryDate?: DateTimeOutput;
+  partnerLogistics?: String;
+  expiryDate?: DateTimeOutput;
+  condition?: String;
 }
 
 export interface StockProductPromise
@@ -14962,6 +15130,12 @@ export interface StockProductPromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockProductSubscription
@@ -14974,6 +15148,12 @@ export interface StockProductSubscription
   quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
   totalQuantity: () => Promise<AsyncIterator<Int>>;
   productImage: () => Promise<AsyncIterator<String>>;
+  estimatedValue: () => Promise<AsyncIterator<Float>>;
+  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  partnerLogistics: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  condition: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StockProductNullablePromise
@@ -14986,6 +15166,12 @@ export interface StockProductNullablePromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockDispatch {
@@ -18101,6 +18287,12 @@ export interface StockProductPreviousValues {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Float;
+  shipmentDate?: DateTimeOutput;
+  deliveryDate?: DateTimeOutput;
+  partnerLogistics?: String;
+  expiryDate?: DateTimeOutput;
+  condition?: String;
 }
 
 export interface StockProductPreviousValuesPromise
@@ -18113,6 +18305,12 @@ export interface StockProductPreviousValuesPromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockProductPreviousValuesSubscription
@@ -18125,6 +18323,12 @@ export interface StockProductPreviousValuesSubscription
   quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
   totalQuantity: () => Promise<AsyncIterator<Int>>;
   productImage: () => Promise<AsyncIterator<String>>;
+  estimatedValue: () => Promise<AsyncIterator<Float>>;
+  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  partnerLogistics: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  condition: () => Promise<AsyncIterator<String>>;
 }
 
 export interface SuccessSubscriptionPayload {

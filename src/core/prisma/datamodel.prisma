@@ -344,6 +344,12 @@ type StockProduct {
     quantityPerPackageSize: Int!
     totalQuantity: Int!
     productImage: String!
+     estimatedValue: Float
+    shipmentDate: DateTime
+    deliveryDate: DateTime
+    partnerLogistics: String
+    expiryDate: DateTime
+    condition: String
 }
 
 type Wallet {
