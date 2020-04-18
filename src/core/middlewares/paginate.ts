@@ -7,9 +7,9 @@ const handle = (defaultLimit: number = 10, maxLimit: number = 50): any => (req: 
     let limit = 10;
 
     // Validate Page Number
-    page = req.query.page !== undefined ? parseInt(req.query.page, 10) || 1 : 1;
+    page = req.query.page !== undefined ? parseInt(`${req.query.page}`, 10) || 1 : 1;
     // Validate Limit
-    limit = req.query.limit !== undefined ? parseInt(req.query.limit, 10) || 0 : defaultLimit;
+    limit = req.query.limit !== undefined ? parseInt(`${req.query.limit}`, 10) || 0 : defaultLimit;
 
     // Make sure limit is not greater than the allowed maximum
     if (limit > maxLimit) {
@@ -31,9 +31,9 @@ const handle = (defaultLimit: number = 10, maxLimit: number = 50): any => (req: 
     res.locals.paginate.hasPreviousPages = page > 1;
     // eslint-disable-next-line no-multi-assign
     res.locals.paginate.skip = res.locals.paginate.offset = (page - 1) * limit;
-    res.locals.paginate.url = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
+    res.locals.paginate.url = `${ req.protocol }://${req.get('host')}${req.originalUrl}`;
 
-    next();
+next();
 };
 
 export default handle;
