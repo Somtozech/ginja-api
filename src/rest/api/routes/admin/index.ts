@@ -45,6 +45,7 @@ router.get('/statistics/total-commissions', [auth, supportPermit], statisticsCon
 router.get('/statistics/total-available-warehouses', [auth, supportPermit], statisticsController.totalAvailableWarehouses);
 router.get('/statistics/signups', [auth, supportPermit], statisticsController.signups);
 router.get('/statistics/commissions-by-date', [auth, supportPermit], statisticsController.commissionsByDate);
+router.get('/statistics/transactions-by-date', [auth, supportPermit], statisticsController.transactionsByDate);
 
 // POST REQUESTS
 router.post('/authenticate', loginAuth, loginAuthController);

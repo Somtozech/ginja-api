@@ -241,7 +241,7 @@ const statisticsService = {
                 if (today === commissionDay) commissionsToday += commission.fees;
                 if (commissionDay >= last7Days) commissionsLast7Days += commission.fees;
                 if (commissionDay >= last30Days) commissionsLast30Days += commission.fees;
-                totalCommissions += 1;
+                totalCommissions += commission.fees;
             });
 
             return res.json({
@@ -253,6 +253,57 @@ const statisticsService = {
                     lastWeek: commissionsLast7Days,
                     lastMonth: commissionsLast30Days,
                     total: totalCommissions
+                }
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+    getTransactionsByDate: async (res: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const transactions = await prisma.transactions();
+
+            if (!transactions) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'No transaction yet.',
+                    data: 0
+                });
+            }
+
+            let transactionsToday = 0;
+            let transactionsLast7Days = 0;
+            let transactionsLast30Days = 0;
+            let totalTransactions = 0;
+
+            transactions.forEach((transaction: any): any => {
+                const today = new Date().getDate() + new Date().getMonth() + new Date().getFullYear();
+                const last7Days = new Date().getDate() + new Date().getMonth() + new Date().getFullYear() - 7;
+                const last30Days = new Date().getDate() + new Date().getMonth() + new Date().getFullYear() - 30;
+
+                const commissionDay =
+                    new Date(transaction.createdAt).getDate() +
+                    new Date(transaction.createdAt).getMonth() +
+                    new Date(transaction.createdAt).getFullYear();
+                if (today === commissionDay) transactionsToday += transaction.amount;
+                if (commissionDay >= last7Days) transactionsLast7Days += transaction.amount;
+                if (commissionDay >= last30Days) transactionsLast30Days += transaction.amount;
+                totalTransactions += transaction.amount;
+            });
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Success',
+                data: {
+                    today: transactionsToday,
+                    lastWeek: transactionsLast7Days,
+                    lastMonth: transactionsLast30Days,
+                    total: totalTransactions
                 }
             });
         } catch (err) {

@@ -57,6 +57,14 @@ const statisticsController = {
         } catch (error) {
             return next(error);
         }
+    },
+    transactionsByDate: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await statisticsService.getTransactionsByDate(res);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 
