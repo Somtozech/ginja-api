@@ -17,6 +17,22 @@ const adminUsersController = {
         } catch (error) {
             return next(error);
         }
+    },
+    deleteAdmin: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await adminUsersService.deleteAdmin(res, req);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
+    },
+    updatePassword: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await adminUsersService.updatePassword(res, req);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 

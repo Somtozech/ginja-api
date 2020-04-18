@@ -40,22 +40,24 @@ const listingsService = {
         const { prisma } = locals;
 
         try {
-            const requisitions = await prisma.stocks();
+            const requisitions = await prisma.requisitions();
 
             if (!requisitions) {
                 return res.json({
                     success: true,
                     error: false,
-                    message: 'There are no Stocks yet.',
+                    message: 'There are no Requisitions yet.',
                     data: []
                 });
             }
 
             let allRequisitions: any[] = requisitions.map(
                 async (requisition: any): Promise<any> => {
-                    const products = await prisma.stock({ id: requisition.id }).products();
-                    const stockDispatch = await prisma.stock({ id: requisition.id }).stockDispatch();
-                    return { ...requisition, products, requisition, stockDispatch };
+                    const products = await prisma.requisition({ id: requisition.id }).products();
+                    const duration = await prisma.requisition({ id: requisition.id }).duration();
+                    const cost = await prisma.requisition({ id: requisition.id }).cost();
+                    const listing = await prisma.requisition({ id: requisition.id }).listing();
+                    return { ...requisition, products, duration, cost, listing };
                 }
             );
 
@@ -66,6 +68,64 @@ const listingsService = {
                 error: false,
                 message: 'Success',
                 data: allRequisitions
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+    updateListing: async (res: any, req: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const data = req.body;
+            const listing = await prisma.updateListing({
+                data,
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            if (!listing) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'Unable to update Listing.',
+                    data: []
+                });
+            }
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Success',
+                data: listing
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+    deleteListing: async (res: any, req: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const listing = await prisma.deleteListing({ id: req.params.id });
+
+            if (!listing) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'Unable to delete Listing.',
+                    data: []
+                });
+            }
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Success',
+                data: listing
             });
         } catch (err) {
             throw err;

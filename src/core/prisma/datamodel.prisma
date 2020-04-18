@@ -9,7 +9,9 @@ type User {
     phoneNumber: String!
     dob: String!
     status: Int!
-    terms: Boolean
+    terms: Boolean,
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type SpacesOptions {

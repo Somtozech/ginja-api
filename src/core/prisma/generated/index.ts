@@ -2735,7 +2735,11 @@ export type UserOrderByInput =
   | "status_ASC"
   | "status_DESC"
   | "terms_ASC"
-  | "terms_DESC";
+  | "terms_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
 
@@ -3215,6 +3219,22 @@ export interface UserWhereInput {
   status_gte?: Maybe<Int>;
   terms?: Maybe<Boolean>;
   terms_not?: Maybe<Boolean>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -10911,6 +10931,8 @@ export interface User {
   dob: String;
   status: Int;
   terms?: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -10925,6 +10947,8 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   dob: () => Promise<String>;
   status: () => Promise<Int>;
   terms: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserSubscription
@@ -10941,6 +10965,8 @@ export interface UserSubscription
   dob: () => Promise<AsyncIterator<String>>;
   status: () => Promise<AsyncIterator<Int>>;
   terms: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserNullablePromise
@@ -10957,6 +10983,8 @@ export interface UserNullablePromise
   dob: () => Promise<String>;
   status: () => Promise<Int>;
   terms: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface OrganizationType {
@@ -17975,6 +18003,8 @@ export interface UserPreviousValues {
   dob: String;
   status: Int;
   terms?: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface UserPreviousValuesPromise
@@ -17989,6 +18019,8 @@ export interface UserPreviousValuesPromise
   dob: () => Promise<String>;
   status: () => Promise<Int>;
   terms: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -18003,6 +18035,8 @@ export interface UserPreviousValuesSubscription
   dob: () => Promise<AsyncIterator<String>>;
   status: () => Promise<AsyncIterator<Int>>;
   terms: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserOrganizationRoleSubscriptionPayload {

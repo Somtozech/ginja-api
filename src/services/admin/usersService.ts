@@ -66,6 +66,38 @@ const usersService = {
         } catch (err) {
             throw err;
         }
+    },
+    updateUser: async (res: any, req: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const data = req.body;
+            const user = await prisma.updateUser({
+                data,
+                where: {
+                    id: req.params.id
+                }
+            });
+
+            if (!user) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'Unable to update user!',
+                    data: []
+                });
+            }
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Success',
+                data: user
+            });
+        } catch (err) {
+            throw err;
+        }
     }
 };
 export default usersService;

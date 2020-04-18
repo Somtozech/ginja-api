@@ -71,6 +71,86 @@ const adminUsersService = {
         } catch (err) {
             throw err;
         }
+    },
+    deleteAdmin: async (res: any, req: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const staff = await prisma.deleteAdminUser({ id: req.params.id });
+
+            if (!staff) {
+                return res.json({
+                    success: true,
+                    error: false,
+                    message: 'Unable to Delete AdminUser!',
+                    data: []
+                });
+            }
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'AdminUser deleted successfully!',
+                data: staff
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+    updatePassword: async (res: any, req: any): Promise<any> => {
+        const { locals } = res;
+        const { prisma } = locals;
+
+        try {
+            const staff = await prisma.adminUser({ email: req.body.email });
+
+            if (!staff) {
+                return res.json({
+                    success: false,
+                    error: true,
+                    message: 'Unable to update password!',
+                    data: []
+                });
+            }
+            const match = await bcrypt.compare(req.body.oldPassword, staff.password);
+            if (!match) {
+                return res.json({
+                    success: false,
+                    error: true,
+                    message: 'Old password is not correct!',
+                    data: []
+                });
+            }
+
+            const salt = await bcrypt.genSalt(10);
+            const update = await prisma.updateAdminUser({
+                data: {
+                    password: await bcrypt.hash(req.body.newPassword.toString(), salt)
+                },
+                where: {
+                    email: req.body.email
+                }
+            });
+
+            if (!update) {
+                return res.json({
+                    success: false,
+                    error: true,
+                    message: 'Unable to update password!',
+                    data: []
+                });
+            }
+
+            return res.json({
+                success: true,
+                error: false,
+                message: 'Password Updated Successfully!',
+                data: staff
+            });
+        } catch (err) {
+            throw err;
+        }
     }
 };
 

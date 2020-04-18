@@ -54,8 +54,8 @@ const stocksService = {
                 async (stock: any): Promise<any> => {
                     const products = await prisma.stock({ id: stock.id }).products();
                     const requisition = await prisma.stock({ id: stock.id }).requisition();
-                    const stockDispatch = await prisma.stock({ id: stock.id }).stockDispatch();
-                    return { ...stock, products, requisition, stockDispatch };
+                    const dispatch = await prisma.stock({ id: stock.id }).dispatch();
+                    return { ...stock, products, requisition, dispatch };
                 }
             );
 

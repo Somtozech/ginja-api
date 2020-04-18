@@ -17,6 +17,14 @@ const usersController = {
         } catch (error) {
             return next(error);
         }
+    },
+    updateUser: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await usersService.updateUser(res, req);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 

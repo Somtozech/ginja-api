@@ -25,6 +25,14 @@ const adminRolesController: any = {
         } catch (error) {
             return next(error);
         }
+    },
+    updateRole: async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+        try {
+            const data = await adminRolesService.updateRole(res, req);
+            return data;
+        } catch (error) {
+            return next(error);
+        }
     }
 };
 

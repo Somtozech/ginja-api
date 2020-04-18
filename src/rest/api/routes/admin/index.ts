@@ -43,6 +43,8 @@ router.get('/statistics/users-os', [auth, supportPermit], statisticsController.u
 router.get('/statistics/total-transactions', [auth, supportPermit], statisticsController.totalTransactions);
 router.get('/statistics/total-commissions', [auth, supportPermit], statisticsController.totalCommissions);
 router.get('/statistics/total-available-warehouses', [auth, supportPermit], statisticsController.totalAvailableWarehouses);
+router.get('/statistics/signups', [auth, supportPermit], statisticsController.signups);
+router.get('/statistics/commissions-by-date', [auth, supportPermit], statisticsController.commissionsByDate);
 
 // POST REQUESTS
 router.post('/authenticate', loginAuth, loginAuthController);
@@ -50,8 +52,14 @@ router.post('/admin-users', [auth, superAdminPermit], adminUsersController.creat
 router.post('/admin-roles', [auth, superAdminPermit], adminRolesController.createRole);
 
 // UPDATE REQUESTS
+router.put('/admin-roles', [auth, superAdminPermit], adminRolesController.updateRole);
+router.put('/users/:id', [auth, superAdminPermit], usersController.updateUser);
+router.put('/listings/:id', [auth, superAdminPermit], listingsController.updateListing);
+router.put('/admin-users/update-password', auth, adminUsersController.updatePassword);
 
 // DELETE REQUESTS
-router.delete('/admin-roles', [auth, superAdminPermit], adminRolesController.deleteRole);
+router.delete('/admin-roles/:id', [auth, superAdminPermit], adminRolesController.deleteRole);
+router.delete('/admin-users/:id', [auth, superAdminPermit], adminUsersController.deleteAdmin);
+router.delete('/listings/:id', [auth, superAdminPermit], listingsController.deleteListing);
 
 export default router;
