@@ -6349,12 +6349,16 @@ input RatingWhereUniqueInput {
 
 type Referral {
   id: ID!
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
-  referrals(where: GameWhereInput, orderBy: GameOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Game!]
+  crown: Crown!
   createdAt: DateTime!
   updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralConnection {
@@ -6365,10 +6369,14 @@ type ReferralConnection {
 
 input ReferralCreateInput {
   id: ID
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
-  referrals: GameCreateManyInput
+  crown: CrownCreateOneInput!
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralEdge {
@@ -6389,15 +6397,27 @@ enum ReferralOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
+  startDate_ASC
+  startDate_DESC
+  endDate_ASC
+  endDate_DESC
+  boost_ASC
+  boost_DESC
+  rollover_ASC
+  rollover_DESC
 }
 
 type ReferralPreviousValues {
   id: ID!
-  status: Int!
+  status: Boolean!
   refCode: Int!
   userId: String!
   createdAt: DateTime!
   updatedAt: DateTime
+  startDate: DateTime!
+  endDate: DateTime!
+  boost: Float!
+  rollover: Float!
 }
 
 type ReferralSubscriptionPayload {
@@ -6419,16 +6439,24 @@ input ReferralSubscriptionWhereInput {
 }
 
 input ReferralUpdateInput {
-  status: Int
+  status: Boolean
   refCode: Int
   userId: String
-  referrals: GameUpdateManyInput
+  crown: CrownUpdateOneRequiredInput
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
 }
 
 input ReferralUpdateManyMutationInput {
-  status: Int
+  status: Boolean
   refCode: Int
   userId: String
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
 }
 
 input ReferralWhereInput {
@@ -6446,14 +6474,8 @@ input ReferralWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  status: Int
-  status_not: Int
-  status_in: [Int!]
-  status_not_in: [Int!]
-  status_lt: Int
-  status_lte: Int
-  status_gt: Int
-  status_gte: Int
+  status: Boolean
+  status_not: Boolean
   refCode: Int
   refCode_not: Int
   refCode_in: [Int!]
@@ -6476,9 +6498,7 @@ input ReferralWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
-  referrals_every: GameWhereInput
-  referrals_some: GameWhereInput
-  referrals_none: GameWhereInput
+  crown: CrownWhereInput
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -6495,6 +6515,38 @@ input ReferralWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
+  startDate: DateTime
+  startDate_not: DateTime
+  startDate_in: [DateTime!]
+  startDate_not_in: [DateTime!]
+  startDate_lt: DateTime
+  startDate_lte: DateTime
+  startDate_gt: DateTime
+  startDate_gte: DateTime
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  boost: Float
+  boost_not: Float
+  boost_in: [Float!]
+  boost_not_in: [Float!]
+  boost_lt: Float
+  boost_lte: Float
+  boost_gt: Float
+  boost_gte: Float
+  rollover: Float
+  rollover_not: Float
+  rollover_in: [Float!]
+  rollover_not_in: [Float!]
+  rollover_lt: Float
+  rollover_lte: Float
+  rollover_gt: Float
+  rollover_gte: Float
   AND: [ReferralWhereInput!]
   OR: [ReferralWhereInput!]
   NOT: [ReferralWhereInput!]
@@ -9101,22 +9153,10 @@ type User {
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
-<<<<<<< HEAD
-<<<<<<< HEAD
   createdAt: DateTime!
   updatedAt: DateTime
-=======
-<<<<<<< HEAD
-  bank: Bank!
-  type: OrganizationType!
-  status: UserStatus
-=======
->>>>>>> Worrked on statistics, referrals
->>>>>>> Worrked on statistics, referrals
-=======
-  status: UserStatus
->>>>>>> Unified rest and gql servers
 }
 
 type UserConnection {
@@ -9135,14 +9175,8 @@ input UserCreateInput {
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
-  status: UserStatusCreateOneInput
-<<<<<<< HEAD
-=======
->>>>>>> Worrked on statistics, referrals
->>>>>>> Worrked on statistics, referrals
-=======
->>>>>>> Unified rest and gql servers
 }
 
 input UserCreateOneInput {
@@ -9170,6 +9204,8 @@ enum UserOrderByInput {
   phoneNumber_DESC
   dob_ASC
   dob_DESC
+  status_ASC
+  status_DESC
   terms_ASC
   terms_DESC
   createdAt_ASC
@@ -9271,6 +9307,7 @@ type UserPreviousValues {
   email: String!
   phoneNumber: String!
   dob: String!
+  status: Int!
   terms: Boolean
   createdAt: DateTime!
   updatedAt: DateTime
@@ -9294,11 +9331,6 @@ input UserStatusCreateInput {
   userId: String!
 }
 
-input UserStatusCreateOneInput {
-  create: UserStatusCreateInput
-  connect: UserStatusWhereUniqueInput
-}
-
 type UserStatusEdge {
   node: UserStatus!
   cursor: String!
@@ -9337,11 +9369,6 @@ input UserStatusSubscriptionWhereInput {
   NOT: [UserStatusSubscriptionWhereInput!]
 }
 
-input UserStatusUpdateDataInput {
-  status: String
-  userId: String
-}
-
 input UserStatusUpdateInput {
   status: String
   userId: String
@@ -9350,163 +9377,6 @@ input UserStatusUpdateInput {
 input UserStatusUpdateManyMutationInput {
   status: String
   userId: String
-}
-
-input UserStatusUpdateOneInput {
-  create: UserStatusCreateInput
-  update: UserStatusUpdateDataInput
-  upsert: UserStatusUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserStatusWhereUniqueInput
-}
-
-input UserStatusUpsertNestedInput {
-  update: UserStatusUpdateDataInput!
-  create: UserStatusCreateInput!
-}
-
-input UserStatusWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  status: String
-  status_not: String
-  status_in: [String!]
-  status_not_in: [String!]
-  status_lt: String
-  status_lte: String
-  status_gt: String
-  status_gte: String
-  status_contains: String
-  status_not_contains: String
-  status_starts_with: String
-  status_not_starts_with: String
-  status_ends_with: String
-  status_not_ends_with: String
-  userId: String
-  userId_not: String
-  userId_in: [String!]
-  userId_not_in: [String!]
-  userId_lt: String
-  userId_lte: String
-  userId_gt: String
-  userId_gte: String
-  userId_contains: String
-  userId_not_contains: String
-  userId_starts_with: String
-  userId_not_starts_with: String
-  userId_ends_with: String
-  userId_not_ends_with: String
-  AND: [UserStatusWhereInput!]
-  OR: [UserStatusWhereInput!]
-  NOT: [UserStatusWhereInput!]
-}
-
-input UserStatusWhereUniqueInput {
-  id: ID
-  userId: String
-}
-
-type UserStatus {
-  id: ID!
-  status: String!
-  userId: String!
-}
-
-type UserStatusConnection {
-  pageInfo: PageInfo!
-  edges: [UserStatusEdge]!
-  aggregate: AggregateUserStatus!
-}
-
-input UserStatusCreateInput {
-  id: ID
-  status: String
-  userId: String!
-}
-
-input UserStatusCreateOneInput {
-  create: UserStatusCreateInput
-  connect: UserStatusWhereUniqueInput
-}
-
-type UserStatusEdge {
-  node: UserStatus!
-  cursor: String!
-}
-
-enum UserStatusOrderByInput {
-  id_ASC
-  id_DESC
-  status_ASC
-  status_DESC
-  userId_ASC
-  userId_DESC
-}
-
-type UserStatusPreviousValues {
-  id: ID!
-  status: String!
-  userId: String!
-}
-
-type UserStatusSubscriptionPayload {
-  mutation: MutationType!
-  node: UserStatus
-  updatedFields: [String!]
-  previousValues: UserStatusPreviousValues
-}
-
-input UserStatusSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: UserStatusWhereInput
-  AND: [UserStatusSubscriptionWhereInput!]
-  OR: [UserStatusSubscriptionWhereInput!]
-  NOT: [UserStatusSubscriptionWhereInput!]
-}
-
-input UserStatusUpdateDataInput {
-  status: String
-  userId: String
-}
-
-input UserStatusUpdateInput {
-  status: String
-  userId: String
-}
-
-input UserStatusUpdateManyMutationInput {
-  status: String
-  userId: String
-}
-
-input UserStatusUpdateOneInput {
-  create: UserStatusCreateInput
-  update: UserStatusUpdateDataInput
-  upsert: UserStatusUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserStatusWhereUniqueInput
-}
-
-input UserStatusUpsertNestedInput {
-  update: UserStatusUpdateDataInput!
-  create: UserStatusCreateInput!
 }
 
 input UserStatusWhereInput {
@@ -9589,14 +9459,8 @@ input UserUpdateDataInput {
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
-  status: UserStatusUpdateOneInput
-<<<<<<< HEAD
-=======
->>>>>>> Worrked on statistics, referrals
->>>>>>> Worrked on statistics, referrals
-=======
->>>>>>> Unified rest and gql servers
 }
 
 input UserUpdateInput {
@@ -9608,14 +9472,8 @@ input UserUpdateInput {
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
-  status: UserStatusUpdateOneInput
-<<<<<<< HEAD
-=======
->>>>>>> Worrked on statistics, referrals
->>>>>>> Worrked on statistics, referrals
-=======
->>>>>>> Unified rest and gql servers
 }
 
 input UserUpdateManyMutationInput {
@@ -9625,6 +9483,7 @@ input UserUpdateManyMutationInput {
   email: String
   phoneNumber: String
   dob: String
+  status: Int
   terms: Boolean
 }
 
@@ -9735,10 +9594,16 @@ input UserWhereInput {
   dob_not_starts_with: String
   dob_ends_with: String
   dob_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
   terms: Boolean
   terms_not: Boolean
-<<<<<<< HEAD
-<<<<<<< HEAD
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -9755,17 +9620,6 @@ input UserWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
-=======
-<<<<<<< HEAD
-  bank: BankWhereInput
-  type: OrganizationTypeWhereInput
-  status: UserStatusWhereInput
-=======
->>>>>>> Worrked on statistics, referrals
->>>>>>> Worrked on statistics, referrals
-=======
-  status: UserStatusWhereInput
->>>>>>> Unified rest and gql servers
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
