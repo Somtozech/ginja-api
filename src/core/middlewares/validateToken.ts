@@ -21,13 +21,15 @@ const verifyToken = async (resolve: any, parent: any, args: any, context: any, i
             // Decode JWT
             let publicKey: Buffer;
             const dir = path.resolve(__dirname, './oauth-public.key');
+
             try {
                 publicKey = fs.readFileSync('./oauth-public.key');
             } catch (err) {
                 publicKey = fs.readFileSync(dir);
             }
+            
             const { userId }: any = jwt.verify(token, publicKey, verifyOptions) || {};
-            console.log(userId);
+
             // eslint-disable-next-line no-param-reassign
             const user = await context.prisma.user({
                 id: userId

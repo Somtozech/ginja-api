@@ -2220,7 +2220,7 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type AdminRoleOrderByInput =
+export type OrganizationTypeOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "name_ASC"
@@ -2240,17 +2240,11 @@ export type OrganizationOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type AdminUserOrderByInput =
+  | "updatedAt_DESC"
   | "id_ASC"
   | "id_DESC"
-  | "firstName_ASC"
-  | "firstName_DESC"
-  | "lastName_ASC"
-  | "lastName_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
+  | "name_ASC"
+  | "name_DESC"
   | "email_ASC"
   | "email_DESC"
   | "phoneNumber_ASC"
@@ -2290,35 +2284,7 @@ export type UserStatusOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type WarehouserIdentificationOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "idNumber_ASC"
-  | "idNumber_DESC"
-  | "expiryDate_ASC"
-  | "expiryDate_DESC"
-  | "idType_ASC"
-  | "idType_DESC";
-
-export type LocationsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "country_ASC"
-  | "country_DESC"
-  | "state_ASC"
-  | "state_DESC"
-  | "geo_ASC"
-  | "geo_DESC"
-  | "lga_ASC"
-  | "lga_DESC"
-  | "street_ASC"
-  | "street_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type UserOrganizationRoleOrderByInput = "id_ASC" | "id_DESC";
-
-export type AmenitiesOptionsOrderByInput =
+export type ListingsFrequenciesOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2362,15 +2328,21 @@ export type TransactionOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type ListingRatingOrderByInput =
+export type ListingDimensionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "count_ASC"
-  | "count_DESC"
-  | "rates_ASC"
-  | "rates_DESC"
-  | "average_ASC"
-  | "average_DESC";
+  | "height_ASC"
+  | "height_DESC"
+  | "weight_ASC"
+  | "weight_DESC"
+  | "length_ASC"
+  | "length_DESC"
+  | "unitOfDimensions_ASC"
+  | "unitOfDimensions_DESC"
+  | "volume_ASC"
+  | "volume_DESC"
+  | "area_ASC"
+  | "area_DESC";
 
 export type StockDispatchOrderByInput =
   | "id_ASC"
@@ -2390,17 +2362,13 @@ export type StockDispatchOrderByInput =
   | "pickupDateMax_ASC"
   | "pickupDateMax_DESC";
 
-export type BankOrderByInput =
+export type ListingAvailabilityOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "accountNumber_ASC"
-  | "accountNumber_DESC"
-  | "accountName_ASC"
-  | "accountName_DESC"
-  | "bankName_ASC"
-  | "bankName_DESC"
-  | "bankCode_ASC"
-  | "bankCode_DESC";
+  | "from_ASC"
+  | "from_DESC"
+  | "to_ASC"
+  | "to_DESC";
 
 export type StockProductOrderByInput =
   | "id_ASC"
@@ -2416,25 +2384,43 @@ export type StockProductOrderByInput =
   | "totalQuantity_ASC"
   | "totalQuantity_DESC"
   | "productImage_ASC"
-  | "productImage_DESC";
+  | "productImage_DESC"
+  | "estimatedValue_ASC"
+  | "estimatedValue_DESC"
+  | "shipmentDate_ASC"
+  | "shipmentDate_DESC"
+  | "deliveryDate_ASC"
+  | "deliveryDate_DESC"
+  | "partnerLogistics_ASC"
+  | "partnerLogistics_DESC"
+  | "expiryDate_ASC"
+  | "expiryDate_DESC"
+  | "condition_ASC"
+  | "condition_DESC";
 
-export type CrownOrderByInput =
+export type ListingOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "requiredReferrals_ASC"
-  | "requiredReferrals_DESC"
-  | "noOfDays_ASC"
-  | "noOfDays_DESC"
-  | "bonus_ASC"
-  | "bonus_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "compensationCount_ASC"
-  | "compensationCount_DESC"
-  | "compensationBonus_ASC"
-  | "compensationBonus_DESC";
+  | "name_ASC"
+  | "name_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "price_ASC"
+  | "price_DESC"
+  | "discount_ASC"
+  | "discount_DESC"
+  | "currency_ASC"
+  | "currency_DESC"
+  | "proofOfOwnership_ASC"
+  | "proofOfOwnership_DESC"
+  | "windows_ASC"
+  | "windows_DESC"
+  | "avatar_ASC"
+  | "avatar_DESC"
+  | "status_ASC"
+  | "status_DESC";
 
 export type SelectOptionsOrderByInput =
   | "id_ASC"
@@ -2444,7 +2430,7 @@ export type SelectOptionsOrderByInput =
   | "name_ASC"
   | "name_DESC";
 
-export type FloorsOptionsOrderByInput =
+export type ListingProductsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2477,16 +2463,14 @@ export type AuthOrderByInput =
 export type RequisitionCostOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "referralId_ASC"
-  | "referralId_DESC"
-  | "userId_ASC"
-  | "userId_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "baseCost_ASC"
+  | "baseCost_DESC"
+  | "vat_ASC"
+  | "vat_DESC"
+  | "discount_ASC"
+  | "discount_DESC";
 
-export type IdentificationsOptionsOrderByInput =
+export type ListingRequirementsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2518,15 +2502,13 @@ export type ReferralOrderByInput =
   | "rollover_ASC"
   | "rollover_DESC";
 
-export type RequisitionOrderByInput =
+export type ListingPhotosOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "expires_ASC"
-  | "expires_DESC"
-  | "space_ASC"
-  | "space_DESC"
-  | "status_ASC"
-  | "status_DESC";
+  | "url_ASC"
+  | "url_DESC"
+  | "default_ASC"
+  | "default_DESC";
 
 export type AmenitiesOptionsOrderByInput =
   | "id_ASC"
@@ -2540,27 +2522,15 @@ export type AmenitiesOptionsOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type PropertiesOptionsOrderByInput =
+export type ValueAddedServicesOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
   | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
   | "default_ASC"
   | "default_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type WallFinishesOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
   | "userId_ASC"
   | "userId_DESC";
 
@@ -2587,36 +2557,12 @@ export type PaymentOrderByInput =
 export type RoofingMaterialOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "channel_ASC"
-  | "channel_DESC"
-  | "info_ASC"
-  | "info_DESC";
-
-export type AuthOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "pin_ASC"
-  | "pin_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "default_ASC"
+  | "default_DESC"
   | "userId_ASC"
   | "userId_DESC";
 
@@ -2644,37 +2590,7 @@ export type AdminRoleOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type ListingRequirementsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "default_ASC"
-  | "default_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "userId_ASC"
-  | "userId_DESC";
-
-export type ListingPhotosOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "url_ASC"
-  | "url_DESC"
-  | "default_ASC"
-  | "default_DESC";
-
-export type ListingRequirementsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC";
-
-export type ListingProductsOrderByInput =
+export type WallFinishesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2692,13 +2608,17 @@ export type SuccessOrderByInput =
   | "success_ASC"
   | "success_DESC";
 
-export type ListingAvailabilityOrderByInput =
+export type PropertiesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "from_ASC"
-  | "from_DESC"
-  | "to_ASC"
-  | "to_DESC";
+  | "slug_ASC"
+  | "slug_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "default_ASC"
+  | "default_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
 export type StatesOrderByInput =
   | "id_ASC"
@@ -2712,17 +2632,7 @@ export type StatesOrderByInput =
   | "default_ASC"
   | "default_DESC";
 
-export type ListingRatingOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "count_ASC"
-  | "count_DESC"
-  | "rates_ASC"
-  | "rates_DESC"
-  | "average_ASC"
-  | "average_DESC";
-
-export type ListingsFrequenciesOrderByInput =
+export type SpacesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "slug_ASC"
@@ -2745,28 +2655,14 @@ export type RequisitionDurationOrderByInput =
 export type IdentificationsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC";
-
-export type IdentificationsOptionsOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC";
-
-export type OrganizationTypeOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "name_ASC"
-  | "name_DESC";
+  | "default_ASC"
+  | "default_DESC"
+  | "userId_ASC"
+  | "userId_DESC";
 
 export type RatingOrderByInput =
   | "id_ASC"
@@ -2780,7 +2676,7 @@ export type RatingOrderByInput =
   | "userId_ASC"
   | "userId_DESC";
 
-export type PaymentOrderByInput =
+export type GameOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "referralId_ASC"
@@ -2790,17 +2686,7 @@ export type PaymentOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "currency_ASC"
-  | "currency_DESC"
-  | "channel_ASC"
-  | "channel_DESC"
-  | "info_ASC"
-  | "info_DESC";
+  | "updatedAt_DESC";
 
 export type OtpOrderByInput =
   | "id_ASC"
@@ -2816,15 +2702,15 @@ export type OtpOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type RatingOrderByInput =
+export type FloorsOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "listingId_ASC"
-  | "listingId_DESC"
-  | "ratingId_ASC"
-  | "ratingId_DESC"
-  | "rate_ASC"
-  | "rate_DESC"
+  | "slug_ASC"
+  | "slug_DESC"
+  | "name_ASC"
+  | "name_DESC"
+  | "default_ASC"
+  | "default_DESC"
   | "userId_ASC"
   | "userId_DESC";
 
@@ -2850,15 +2736,7 @@ export type UserOrderByInput =
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
-  | "updatedAt_DESC"
-  | "startDate_ASC"
-  | "startDate_DESC"
-  | "endDate_ASC"
-  | "endDate_DESC"
-  | "boost_ASC"
-  | "boost_DESC"
-  | "rollover_ASC"
-  | "rollover_DESC";
+  | "updatedAt_DESC";
 
 export type ChatOrderByInput =
   | "id_ASC"
@@ -2891,16 +2769,10 @@ export type CrownOrderByInput =
 export type DateRangeOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "requiredReferrals_ASC"
-  | "requiredReferrals_DESC"
-  | "noOfDays_ASC"
-  | "noOfDays_DESC"
-  | "bonus_ASC"
-  | "bonus_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
+  | "min_ASC"
+  | "min_DESC"
+  | "max_ASC"
+  | "max_DESC";
 
 export type MessageOrderByInput =
   | "id_ASC"
@@ -2911,34 +2783,6 @@ export type MessageOrderByInput =
   | "text_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC";
-
-export type StockOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "productBrandName_ASC"
-  | "productBrandName_DESC"
-  | "productType_ASC"
-  | "productType_DESC"
-  | "productPackageSize_ASC"
-  | "productPackageSize_DESC"
-  | "quantityPerPackageSize_ASC"
-  | "quantityPerPackageSize_DESC"
-  | "totalQuantity_ASC"
-  | "totalQuantity_DESC"
-  | "productImage_ASC"
-  | "productImage_DESC"
-  | "estimatedValue_ASC"
-  | "estimatedValue_DESC"
-  | "shipmentDate_ASC"
-  | "shipmentDate_DESC"
-  | "deliveryDate_ASC"
-  | "deliveryDate_DESC"
-  | "partnerLogistics_ASC"
-  | "partnerLogistics_DESC"
-  | "expiryDate_ASC"
-  | "expiryDate_DESC"
-  | "condition_ASC"
-  | "condition_DESC";
 
 export type StockOrderByInput =
   | "id_ASC"
@@ -2968,59 +2812,19 @@ export type WalletOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type TransactionOrderByInput =
+export type PaymentCustomerOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "type_ASC"
-  | "type_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "fees_ASC"
-  | "fees_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type TransactionOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
-  | "type_ASC"
-  | "type_DESC"
-  | "userId_ASC"
-  | "userId_DESC"
-  | "description_ASC"
-  | "description_DESC"
-  | "status_ASC"
-  | "status_DESC"
-  | "amount_ASC"
-  | "amount_DESC"
-  | "fees_ASC"
-  | "fees_DESC"
-  | "createdAt_ASC"
-  | "createdAt_DESC"
-  | "updatedAt_ASC"
-  | "updatedAt_DESC";
-
-export type UserOrderByInput =
-  | "id_ASC"
-  | "id_DESC"
+  | "paystackId_ASC"
+  | "paystackId_DESC"
+  | "customerCode_ASC"
+  | "customerCode_DESC"
   | "firstName_ASC"
   | "firstName_DESC"
   | "lastName_ASC"
   | "lastName_DESC"
   | "email_ASC"
-  | "email_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "dob_ASC"
-  | "dob_DESC"
-  | "terms_ASC"
-  | "terms_DESC";
+  | "email_DESC";
 
 export type RequisitionOrderByInput =
   | "id_ASC"
@@ -3434,10 +3238,6 @@ export type TransactionWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export type ChatWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
 export interface MessageWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
@@ -3490,17 +3290,9 @@ export interface MessageWhereInput {
   createdAt_lte?: Maybe<DateTimeInput>;
   createdAt_gt?: Maybe<DateTimeInput>;
   createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<TransactionWhereInput[] | TransactionWhereInput>;
-  OR?: Maybe<TransactionWhereInput[] | TransactionWhereInput>;
-  NOT?: Maybe<TransactionWhereInput[] | TransactionWhereInput>;
+  AND?: Maybe<MessageWhereInput[] | MessageWhereInput>;
+  OR?: Maybe<MessageWhereInput[] | MessageWhereInput>;
+  NOT?: Maybe<MessageWhereInput[] | MessageWhereInput>;
 }
 
 export interface RequisitionCreateOneInput {
@@ -3528,7 +3320,7 @@ export interface RequisitionDurationSubscriptionWhereInput {
   >;
 }
 
-export interface OrganizationTypeWhereInput {
+export interface TransactionWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4021,6 +3813,20 @@ export interface RoofingMaterialOptionsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -4362,7 +4168,7 @@ export interface ListingsFrequenciesUpdateInput {
   userId?: Maybe<String>;
 }
 
-export interface GameWhereInput {
+export interface BankWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -4487,7 +4293,7 @@ export interface AdminRoleSubscriptionWhereInput {
   >;
 }
 
-export type IdentificationsOptionsWhereUniqueInput = AtLeastOne<{
+export type ValueAddedServicesWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -4725,52 +4531,9 @@ export interface ListingAvailabilityWhereInput {
 
 export interface ListingProductsUpdateManyMutationInput {
   slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  AND?: Maybe<ListingsFrequenciesWhereInput[] | ListingsFrequenciesWhereInput>;
-  OR?: Maybe<ListingsFrequenciesWhereInput[] | ListingsFrequenciesWhereInput>;
-  NOT?: Maybe<ListingsFrequenciesWhereInput[] | ListingsFrequenciesWhereInput>;
 }
 
 export interface ListingRatingWhereInput {
@@ -5187,120 +4950,12 @@ export interface ListingUpdateManyMutationInput {
   slug?: Maybe<String>;
   description?: Maybe<String>;
   price?: Maybe<Float>;
-  price_not?: Maybe<Float>;
-  price_in?: Maybe<Float[] | Float>;
-  price_not_in?: Maybe<Float[] | Float>;
-  price_lt?: Maybe<Float>;
-  price_lte?: Maybe<Float>;
-  price_gt?: Maybe<Float>;
-  price_gte?: Maybe<Float>;
   discount?: Maybe<Int>;
-  discount_not?: Maybe<Int>;
-  discount_in?: Maybe<Int[] | Int>;
-  discount_not_in?: Maybe<Int[] | Int>;
-  discount_lt?: Maybe<Int>;
-  discount_lte?: Maybe<Int>;
-  discount_gt?: Maybe<Int>;
-  discount_gte?: Maybe<Int>;
   currency?: Maybe<String>;
-  currency_not?: Maybe<String>;
-  currency_in?: Maybe<String[] | String>;
-  currency_not_in?: Maybe<String[] | String>;
-  currency_lt?: Maybe<String>;
-  currency_lte?: Maybe<String>;
-  currency_gt?: Maybe<String>;
-  currency_gte?: Maybe<String>;
-  currency_contains?: Maybe<String>;
-  currency_not_contains?: Maybe<String>;
-  currency_starts_with?: Maybe<String>;
-  currency_not_starts_with?: Maybe<String>;
-  currency_ends_with?: Maybe<String>;
-  currency_not_ends_with?: Maybe<String>;
   proofOfOwnership?: Maybe<String>;
-  proofOfOwnership_not?: Maybe<String>;
-  proofOfOwnership_in?: Maybe<String[] | String>;
-  proofOfOwnership_not_in?: Maybe<String[] | String>;
-  proofOfOwnership_lt?: Maybe<String>;
-  proofOfOwnership_lte?: Maybe<String>;
-  proofOfOwnership_gt?: Maybe<String>;
-  proofOfOwnership_gte?: Maybe<String>;
-  proofOfOwnership_contains?: Maybe<String>;
-  proofOfOwnership_not_contains?: Maybe<String>;
-  proofOfOwnership_starts_with?: Maybe<String>;
-  proofOfOwnership_not_starts_with?: Maybe<String>;
-  proofOfOwnership_ends_with?: Maybe<String>;
-  proofOfOwnership_not_ends_with?: Maybe<String>;
-  identification?: Maybe<WarehouserIdentificationWhereInput>;
-  spacing_every?: Maybe<SpacesOptionsWhereInput>;
-  spacing_some?: Maybe<SpacesOptionsWhereInput>;
-  spacing_none?: Maybe<SpacesOptionsWhereInput>;
-  property_every?: Maybe<PropertiesOptionsWhereInput>;
-  property_some?: Maybe<PropertiesOptionsWhereInput>;
-  property_none?: Maybe<PropertiesOptionsWhereInput>;
-  floor_every?: Maybe<FloorsOptionsWhereInput>;
-  floor_some?: Maybe<FloorsOptionsWhereInput>;
-  floor_none?: Maybe<FloorsOptionsWhereInput>;
-  wallFinish_every?: Maybe<WallFinishesOptionsWhereInput>;
-  wallFinish_some?: Maybe<WallFinishesOptionsWhereInput>;
-  wallFinish_none?: Maybe<WallFinishesOptionsWhereInput>;
-  roofing_every?: Maybe<RoofingMaterialOptionsWhereInput>;
-  roofing_some?: Maybe<RoofingMaterialOptionsWhereInput>;
-  roofing_none?: Maybe<RoofingMaterialOptionsWhereInput>;
-  isSecure?: Maybe<SelectOptionsWhereInput>;
-  pest?: Maybe<SelectOptionsWhereInput>;
   windows?: Maybe<Int>;
-  windows_not?: Maybe<Int>;
-  windows_in?: Maybe<Int[] | Int>;
-  windows_not_in?: Maybe<Int[] | Int>;
-  windows_lt?: Maybe<Int>;
-  windows_lte?: Maybe<Int>;
-  windows_gt?: Maybe<Int>;
-  windows_gte?: Maybe<Int>;
-  location?: Maybe<LocationsWhereInput>;
-  amenities_every?: Maybe<AmenitiesOptionsWhereInput>;
-  amenities_some?: Maybe<AmenitiesOptionsWhereInput>;
-  amenities_none?: Maybe<AmenitiesOptionsWhereInput>;
   avatar?: Maybe<String>;
-  avatar_not?: Maybe<String>;
-  avatar_in?: Maybe<String[] | String>;
-  avatar_not_in?: Maybe<String[] | String>;
-  avatar_lt?: Maybe<String>;
-  avatar_lte?: Maybe<String>;
-  avatar_gt?: Maybe<String>;
-  avatar_gte?: Maybe<String>;
-  avatar_contains?: Maybe<String>;
-  avatar_not_contains?: Maybe<String>;
-  avatar_starts_with?: Maybe<String>;
-  avatar_not_starts_with?: Maybe<String>;
-  avatar_ends_with?: Maybe<String>;
-  avatar_not_ends_with?: Maybe<String>;
-  vas_every?: Maybe<ValueAddedServicesWhereInput>;
-  vas_some?: Maybe<ValueAddedServicesWhereInput>;
-  vas_none?: Maybe<ValueAddedServicesWhereInput>;
-  listingPhotos_every?: Maybe<ListingPhotosWhereInput>;
-  listingPhotos_some?: Maybe<ListingPhotosWhereInput>;
-  listingPhotos_none?: Maybe<ListingPhotosWhereInput>;
-  frequency?: Maybe<ListingsFrequenciesWhereInput>;
-  requirements_every?: Maybe<ListingRequirementsWhereInput>;
-  requirements_some?: Maybe<ListingRequirementsWhereInput>;
-  requirements_none?: Maybe<ListingRequirementsWhereInput>;
-  products_every?: Maybe<ListingProductsWhereInput>;
-  products_some?: Maybe<ListingProductsWhereInput>;
-  products_none?: Maybe<ListingProductsWhereInput>;
-  availability?: Maybe<ListingAvailabilityWhereInput>;
-  dimensions?: Maybe<ListingDimensionsWhereInput>;
   status?: Maybe<Int>;
-  status_not?: Maybe<Int>;
-  status_in?: Maybe<Int[] | Int>;
-  status_not_in?: Maybe<Int[] | Int>;
-  status_lt?: Maybe<Int>;
-  status_lte?: Maybe<Int>;
-  status_gt?: Maybe<Int>;
-  status_gte?: Maybe<Int>;
-  rating?: Maybe<ListingRatingWhereInput>;
-  AND?: Maybe<ListingWhereInput[] | ListingWhereInput>;
-  OR?: Maybe<ListingWhereInput[] | ListingWhereInput>;
-  NOT?: Maybe<ListingWhereInput[] | ListingWhereInput>;
 }
 
 export interface WallFinishesOptionsUpdateInput {
@@ -5376,70 +5031,7 @@ export interface RoleUpdateOneRequiredInput {
 
 export interface AdminRoleCreateInput {
   id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  height?: Maybe<Float>;
-  height_not?: Maybe<Float>;
-  height_in?: Maybe<Float[] | Float>;
-  height_not_in?: Maybe<Float[] | Float>;
-  height_lt?: Maybe<Float>;
-  height_lte?: Maybe<Float>;
-  height_gt?: Maybe<Float>;
-  height_gte?: Maybe<Float>;
-  weight?: Maybe<Float>;
-  weight_not?: Maybe<Float>;
-  weight_in?: Maybe<Float[] | Float>;
-  weight_not_in?: Maybe<Float[] | Float>;
-  weight_lt?: Maybe<Float>;
-  weight_lte?: Maybe<Float>;
-  weight_gt?: Maybe<Float>;
-  weight_gte?: Maybe<Float>;
-  length?: Maybe<Float>;
-  length_not?: Maybe<Float>;
-  length_in?: Maybe<Float[] | Float>;
-  length_not_in?: Maybe<Float[] | Float>;
-  length_lt?: Maybe<Float>;
-  length_lte?: Maybe<Float>;
-  length_gt?: Maybe<Float>;
-  length_gte?: Maybe<Float>;
-  unitOfDimensions?: Maybe<Int>;
-  unitOfDimensions_not?: Maybe<Int>;
-  unitOfDimensions_in?: Maybe<Int[] | Int>;
-  unitOfDimensions_not_in?: Maybe<Int[] | Int>;
-  unitOfDimensions_lt?: Maybe<Int>;
-  unitOfDimensions_lte?: Maybe<Int>;
-  unitOfDimensions_gt?: Maybe<Int>;
-  unitOfDimensions_gte?: Maybe<Int>;
-  volume?: Maybe<Float>;
-  volume_not?: Maybe<Float>;
-  volume_in?: Maybe<Float[] | Float>;
-  volume_not_in?: Maybe<Float[] | Float>;
-  volume_lt?: Maybe<Float>;
-  volume_lte?: Maybe<Float>;
-  volume_gt?: Maybe<Float>;
-  volume_gte?: Maybe<Float>;
-  area?: Maybe<Float>;
-  area_not?: Maybe<Float>;
-  area_in?: Maybe<Float[] | Float>;
-  area_not_in?: Maybe<Float[] | Float>;
-  area_lt?: Maybe<Float>;
-  area_lte?: Maybe<Float>;
-  area_gt?: Maybe<Float>;
-  area_gte?: Maybe<Float>;
-  AND?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
-  OR?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
-  NOT?: Maybe<ListingDimensionsWhereInput[] | ListingDimensionsWhereInput>;
+  name: String;
 }
 
 export interface UserOrganizationRoleUpdateInput {
@@ -5448,18 +5040,18 @@ export interface UserOrganizationRoleUpdateInput {
   organization?: Maybe<OrganizationUpdateOneRequiredInput>;
 }
 
-export type ListingAvailabilityWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface AdminRoleUpdateInput {
+  name?: Maybe<String>;
+}
 
 export interface RoleCreateOneInput {
   create?: Maybe<RoleCreateInput>;
   connect?: Maybe<RoleWhereUniqueInput>;
 }
 
-export type ListingPhotosWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface AdminRoleUpdateManyMutationInput {
+  name?: Maybe<String>;
+}
 
 export type MessageWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
@@ -5526,9 +5118,67 @@ export interface OrganizationWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<WalletWhereInput[] | WalletWhereInput>;
-  OR?: Maybe<WalletWhereInput[] | WalletWhereInput>;
-  NOT?: Maybe<WalletWhereInput[] | WalletWhereInput>;
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
+  type?: Maybe<OrganizationTypeWhereInput>;
+  phoneNumber?: Maybe<String>;
+  phoneNumber_not?: Maybe<String>;
+  phoneNumber_in?: Maybe<String[] | String>;
+  phoneNumber_not_in?: Maybe<String[] | String>;
+  phoneNumber_lt?: Maybe<String>;
+  phoneNumber_lte?: Maybe<String>;
+  phoneNumber_gt?: Maybe<String>;
+  phoneNumber_gte?: Maybe<String>;
+  phoneNumber_contains?: Maybe<String>;
+  phoneNumber_not_contains?: Maybe<String>;
+  phoneNumber_starts_with?: Maybe<String>;
+  phoneNumber_not_starts_with?: Maybe<String>;
+  phoneNumber_ends_with?: Maybe<String>;
+  phoneNumber_not_ends_with?: Maybe<String>;
+  bank?: Maybe<BankWhereInput>;
+  AND?: Maybe<OrganizationWhereInput[] | OrganizationWhereInput>;
+  OR?: Maybe<OrganizationWhereInput[] | OrganizationWhereInput>;
+  NOT?: Maybe<OrganizationWhereInput[] | OrganizationWhereInput>;
 }
 
 export interface AdminRoleCreateOneInput {
@@ -5579,6 +5229,12 @@ export interface StockProductUpdateInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface AdminRoleUpsertNestedInput {
@@ -5588,6 +5244,7 @@ export interface AdminRoleUpsertNestedInput {
 
 export type OtpWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  phoneNumber?: Maybe<String>;
 }>;
 
 export interface AdminUserUpdateManyMutationInput {
@@ -5677,12 +5334,9 @@ export interface StockDispatchUpsertNestedInput {
   update: StockDispatchUpdateDataInput;
   create: StockDispatchCreateInput;
 }
-export type UserWhereUniqueInput = AtLeastOne<{
-  email?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-}>;
 
 export interface AmenitiesOptionsUpdateInput {
+  slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;
@@ -5693,9 +5347,12 @@ export interface DateRangeUpdateDataInput {
   max?: Maybe<String>;
 }
 
-export type PaymentWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface AmenitiesOptionsUpdateManyMutationInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
 
 export interface DateRangeUpdateOneInput {
   create?: Maybe<DateRangeCreateInput>;
@@ -5748,14 +5405,61 @@ export interface UserCreateInput {
   terms?: Maybe<Boolean>;
 }
 
-export interface TransactionUpdateDataInput {
-  type?: Maybe<String>;
-  to?: Maybe<UserUpdateOneRequiredInput>;
-  user?: Maybe<UserUpdateOneRequiredInput>;
-  description?: Maybe<String>;
+export interface RequisitionWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  duration?: Maybe<RequisitionDurationWhereInput>;
+  cost?: Maybe<RequisitionCostWhereInput>;
+  user?: Maybe<UserWhereInput>;
+  expires?: Maybe<String>;
+  expires_not?: Maybe<String>;
+  expires_in?: Maybe<String[] | String>;
+  expires_not_in?: Maybe<String[] | String>;
+  expires_lt?: Maybe<String>;
+  expires_lte?: Maybe<String>;
+  expires_gt?: Maybe<String>;
+  expires_gte?: Maybe<String>;
+  expires_contains?: Maybe<String>;
+  expires_not_contains?: Maybe<String>;
+  expires_starts_with?: Maybe<String>;
+  expires_not_starts_with?: Maybe<String>;
+  expires_ends_with?: Maybe<String>;
+  expires_not_ends_with?: Maybe<String>;
+  products_every?: Maybe<ListingProductsWhereInput>;
+  products_some?: Maybe<ListingProductsWhereInput>;
+  products_none?: Maybe<ListingProductsWhereInput>;
+  listing?: Maybe<ListingWhereInput>;
+  space?: Maybe<Int>;
+  space_not?: Maybe<Int>;
+  space_in?: Maybe<Int[] | Int>;
+  space_not_in?: Maybe<Int[] | Int>;
+  space_lt?: Maybe<Int>;
+  space_lte?: Maybe<Int>;
+  space_gt?: Maybe<Int>;
+  space_gte?: Maybe<Int>;
   status?: Maybe<Int>;
-  amount?: Maybe<Float>;
-  fees?: Maybe<Int>;
+  status_not?: Maybe<Int>;
+  status_in?: Maybe<Int[] | Int>;
+  status_not_in?: Maybe<Int[] | Int>;
+  status_lt?: Maybe<Int>;
+  status_lte?: Maybe<Int>;
+  status_gt?: Maybe<Int>;
+  status_gte?: Maybe<Int>;
+  AND?: Maybe<RequisitionWhereInput[] | RequisitionWhereInput>;
+  OR?: Maybe<RequisitionWhereInput[] | RequisitionWhereInput>;
+  NOT?: Maybe<RequisitionWhereInput[] | RequisitionWhereInput>;
 }
 
 export interface OrganizationTypeCreateOneInput {
@@ -5763,9 +5467,48 @@ export interface OrganizationTypeCreateOneInput {
   connect?: Maybe<OrganizationTypeWhereUniqueInput>;
 }
 
-export interface TransactionUpdateWithWhereUniqueNestedInput {
-  where: TransactionWhereUniqueInput;
-  data: TransactionUpdateDataInput;
+export interface RequisitionCostWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  baseCost?: Maybe<Float>;
+  baseCost_not?: Maybe<Float>;
+  baseCost_in?: Maybe<Float[] | Float>;
+  baseCost_not_in?: Maybe<Float[] | Float>;
+  baseCost_lt?: Maybe<Float>;
+  baseCost_lte?: Maybe<Float>;
+  baseCost_gt?: Maybe<Float>;
+  baseCost_gte?: Maybe<Float>;
+  vat?: Maybe<Float>;
+  vat_not?: Maybe<Float>;
+  vat_in?: Maybe<Float[] | Float>;
+  vat_not_in?: Maybe<Float[] | Float>;
+  vat_lt?: Maybe<Float>;
+  vat_lte?: Maybe<Float>;
+  vat_gt?: Maybe<Float>;
+  vat_gte?: Maybe<Float>;
+  discount?: Maybe<Float>;
+  discount_not?: Maybe<Float>;
+  discount_in?: Maybe<Float[] | Float>;
+  discount_not_in?: Maybe<Float[] | Float>;
+  discount_lt?: Maybe<Float>;
+  discount_lte?: Maybe<Float>;
+  discount_gt?: Maybe<Float>;
+  discount_gte?: Maybe<Float>;
+  AND?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
+  OR?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
+  NOT?: Maybe<RequisitionCostWhereInput[] | RequisitionCostWhereInput>;
 }
 
 export interface OrganizationTypeCreateInput {
@@ -5860,6 +5603,66 @@ export interface StockProductScalarWhereInput {
   productImage_not_starts_with?: Maybe<String>;
   productImage_ends_with?: Maybe<String>;
   productImage_not_ends_with?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  estimatedValue_not?: Maybe<Float>;
+  estimatedValue_in?: Maybe<Float[] | Float>;
+  estimatedValue_not_in?: Maybe<Float[] | Float>;
+  estimatedValue_lt?: Maybe<Float>;
+  estimatedValue_lte?: Maybe<Float>;
+  estimatedValue_gt?: Maybe<Float>;
+  estimatedValue_gte?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  shipmentDate_not?: Maybe<DateTimeInput>;
+  shipmentDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_lt?: Maybe<DateTimeInput>;
+  shipmentDate_lte?: Maybe<DateTimeInput>;
+  shipmentDate_gt?: Maybe<DateTimeInput>;
+  shipmentDate_gte?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  deliveryDate_not?: Maybe<DateTimeInput>;
+  deliveryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_lt?: Maybe<DateTimeInput>;
+  deliveryDate_lte?: Maybe<DateTimeInput>;
+  deliveryDate_gt?: Maybe<DateTimeInput>;
+  deliveryDate_gte?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  partnerLogistics_not?: Maybe<String>;
+  partnerLogistics_in?: Maybe<String[] | String>;
+  partnerLogistics_not_in?: Maybe<String[] | String>;
+  partnerLogistics_lt?: Maybe<String>;
+  partnerLogistics_lte?: Maybe<String>;
+  partnerLogistics_gt?: Maybe<String>;
+  partnerLogistics_gte?: Maybe<String>;
+  partnerLogistics_contains?: Maybe<String>;
+  partnerLogistics_not_contains?: Maybe<String>;
+  partnerLogistics_starts_with?: Maybe<String>;
+  partnerLogistics_not_starts_with?: Maybe<String>;
+  partnerLogistics_ends_with?: Maybe<String>;
+  partnerLogistics_not_ends_with?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  expiryDate_not?: Maybe<DateTimeInput>;
+  expiryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_lt?: Maybe<DateTimeInput>;
+  expiryDate_lte?: Maybe<DateTimeInput>;
+  expiryDate_gt?: Maybe<DateTimeInput>;
+  expiryDate_gte?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
+  condition_not?: Maybe<String>;
+  condition_in?: Maybe<String[] | String>;
+  condition_not_in?: Maybe<String[] | String>;
+  condition_lt?: Maybe<String>;
+  condition_lte?: Maybe<String>;
+  condition_gt?: Maybe<String>;
+  condition_gte?: Maybe<String>;
+  condition_contains?: Maybe<String>;
+  condition_not_contains?: Maybe<String>;
+  condition_starts_with?: Maybe<String>;
+  condition_not_starts_with?: Maybe<String>;
+  condition_ends_with?: Maybe<String>;
+  condition_not_ends_with?: Maybe<String>;
   AND?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
   OR?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
   NOT?: Maybe<StockProductScalarWhereInput[] | StockProductScalarWhereInput>;
@@ -5877,6 +5680,12 @@ export interface StockProductUpdateDataInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface BankCreateInput {
@@ -6021,20 +5830,6 @@ export interface AmenitiesOptionsWhereInput {
   name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
-  recipientCode?: Maybe<String>;
-  recipientCode_not?: Maybe<String>;
-  recipientCode_in?: Maybe<String[] | String>;
-  recipientCode_not_in?: Maybe<String[] | String>;
-  recipientCode_lt?: Maybe<String>;
-  recipientCode_lte?: Maybe<String>;
-  recipientCode_gt?: Maybe<String>;
-  recipientCode_gte?: Maybe<String>;
-  recipientCode_contains?: Maybe<String>;
-  recipientCode_not_contains?: Maybe<String>;
-  recipientCode_starts_with?: Maybe<String>;
-  recipientCode_not_starts_with?: Maybe<String>;
-  recipientCode_ends_with?: Maybe<String>;
-  recipientCode_not_ends_with?: Maybe<String>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -6670,7 +6465,33 @@ export interface StatesWhereInput {
   countryId_ends_with?: Maybe<String>;
   countryId_not_ends_with?: Maybe<String>;
   slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
   AND?: Maybe<StatesWhereInput[] | StatesWhereInput>;
@@ -6770,6 +6591,7 @@ export interface FloorsOptionsUpdateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
 }
 
 export interface StockDispatchWhereInput {
@@ -7482,62 +7304,10 @@ export interface ListingSubscriptionWhereInput {
 
 export interface RoofingMaterialOptionsCreateInput {
   id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  requiredReferrals?: Maybe<Int>;
-  requiredReferrals_not?: Maybe<Int>;
-  requiredReferrals_in?: Maybe<Int[] | Int>;
-  requiredReferrals_not_in?: Maybe<Int[] | Int>;
-  requiredReferrals_lt?: Maybe<Int>;
-  requiredReferrals_lte?: Maybe<Int>;
-  requiredReferrals_gt?: Maybe<Int>;
-  requiredReferrals_gte?: Maybe<Int>;
-  noOfDays?: Maybe<Int>;
-  noOfDays_not?: Maybe<Int>;
-  noOfDays_in?: Maybe<Int[] | Int>;
-  noOfDays_not_in?: Maybe<Int[] | Int>;
-  noOfDays_lt?: Maybe<Int>;
-  noOfDays_lte?: Maybe<Int>;
-  noOfDays_gt?: Maybe<Int>;
-  noOfDays_gte?: Maybe<Int>;
-  bonus?: Maybe<Int>;
-  bonus_not?: Maybe<Int>;
-  bonus_in?: Maybe<Int[] | Int>;
-  bonus_not_in?: Maybe<Int[] | Int>;
-  bonus_lt?: Maybe<Int>;
-  bonus_lte?: Maybe<Int>;
-  bonus_gt?: Maybe<Int>;
-  bonus_gte?: Maybe<Int>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<CrownWhereInput[] | CrownWhereInput>;
-  OR?: Maybe<CrownWhereInput[] | CrownWhereInput>;
-  NOT?: Maybe<CrownWhereInput[] | CrownWhereInput>;
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
 }
 
 export interface FloorsOptionsSubscriptionWhereInput {
@@ -7600,20 +7370,36 @@ export interface ListingProductsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  recipientCode?: Maybe<String>;
-  recipientCode_not?: Maybe<String>;
-  recipientCode_in?: Maybe<String[] | String>;
-  recipientCode_not_in?: Maybe<String[] | String>;
-  recipientCode_lt?: Maybe<String>;
-  recipientCode_lte?: Maybe<String>;
-  recipientCode_gt?: Maybe<String>;
-  recipientCode_gte?: Maybe<String>;
-  recipientCode_contains?: Maybe<String>;
-  recipientCode_not_contains?: Maybe<String>;
-  recipientCode_starts_with?: Maybe<String>;
-  recipientCode_not_starts_with?: Maybe<String>;
-  recipientCode_ends_with?: Maybe<String>;
-  recipientCode_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -7657,66 +7443,12 @@ export interface AdminUserSubscriptionWhereInput {
 
 export interface LocationsCreateInput {
   id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
-  from?: Maybe<String>;
-  from_not?: Maybe<String>;
-  from_in?: Maybe<String[] | String>;
-  from_not_in?: Maybe<String[] | String>;
-  from_lt?: Maybe<String>;
-  from_lte?: Maybe<String>;
-  from_gt?: Maybe<String>;
-  from_gte?: Maybe<String>;
-  from_contains?: Maybe<String>;
-  from_not_contains?: Maybe<String>;
-  from_starts_with?: Maybe<String>;
-  from_not_starts_with?: Maybe<String>;
-  from_ends_with?: Maybe<String>;
-  from_not_ends_with?: Maybe<String>;
-  to?: Maybe<String>;
-  to_not?: Maybe<String>;
-  to_in?: Maybe<String[] | String>;
-  to_not_in?: Maybe<String[] | String>;
-  to_lt?: Maybe<String>;
-  to_lte?: Maybe<String>;
-  to_gt?: Maybe<String>;
-  to_gte?: Maybe<String>;
-  to_contains?: Maybe<String>;
-  to_not_contains?: Maybe<String>;
-  to_starts_with?: Maybe<String>;
-  to_not_starts_with?: Maybe<String>;
-  to_ends_with?: Maybe<String>;
-  to_not_ends_with?: Maybe<String>;
-  AND?: Maybe<ListingAvailabilityWhereInput[] | ListingAvailabilityWhereInput>;
-  OR?: Maybe<ListingAvailabilityWhereInput[] | ListingAvailabilityWhereInput>;
-  NOT?: Maybe<ListingAvailabilityWhereInput[] | ListingAvailabilityWhereInput>;
-}
-
-export interface LocationsCreateInput {
-  id?: Maybe<ID_Input>;
   country: String;
   state?: Maybe<String>;
   geo?: Maybe<String>;
   lga?: Maybe<String>;
   street?: Maybe<String>;
   userId?: Maybe<String>;
-}
-
-export interface WarehouserIdentificationUpdateInput {
-  idNumber?: Maybe<String>;
-  expiryDate?: Maybe<String>;
-  idType?: Maybe<String>;
 }
 
 export interface SelectOptionsWhereInput {
@@ -7735,6 +7467,19 @@ export interface SelectOptionsWhereInput {
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
   slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -8011,7 +7756,6 @@ export interface ListingRequirementsCreateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface OrganizationUpdateDataInput {
@@ -8062,11 +7806,6 @@ export interface UserUpdateManyMutationInput {
   terms?: Maybe<Boolean>;
 }
 
-export interface DateRangeUpsertNestedInput {
-  update: DateRangeUpdateDataInput;
-  create: DateRangeCreateInput;
-}
-
 export interface ListingAvailabilityCreateInput {
   id?: Maybe<ID_Input>;
   from: String;
@@ -8110,6 +7849,12 @@ export interface StockProductUpdateManyMutationInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface ListingRatingCreateOneInput {
@@ -8130,10 +7875,9 @@ export interface StockDispatchUpdateInput {
 
 export interface ListingRatingCreateInput {
   id?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+  count: Int;
+  rates: Int;
+  average: Float;
 }
 
 export interface DateRangeUpsertNestedInput {
@@ -8141,12 +7885,36 @@ export interface DateRangeUpsertNestedInput {
   create: DateRangeCreateInput;
 }
 
-export interface PropertiesOptionsCreateInput {
-  id?: Maybe<ID_Input>;
-  slug?: Maybe<String>;
+export interface ListingUpdateInput {
   name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+  slug?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
+  description?: Maybe<String>;
+  price?: Maybe<Float>;
+  discount?: Maybe<Int>;
+  currency?: Maybe<String>;
+  proofOfOwnership?: Maybe<String>;
+  identification?: Maybe<WarehouserIdentificationUpdateOneRequiredInput>;
+  spacing?: Maybe<SpacesOptionsUpdateManyInput>;
+  property?: Maybe<PropertiesOptionsUpdateManyInput>;
+  floor?: Maybe<FloorsOptionsUpdateManyInput>;
+  wallFinish?: Maybe<WallFinishesOptionsUpdateManyInput>;
+  roofing?: Maybe<RoofingMaterialOptionsUpdateManyInput>;
+  isSecure?: Maybe<SelectOptionsUpdateOneRequiredInput>;
+  pest?: Maybe<SelectOptionsUpdateOneRequiredInput>;
+  windows?: Maybe<Int>;
+  location?: Maybe<LocationsUpdateOneRequiredInput>;
+  amenities?: Maybe<AmenitiesOptionsUpdateManyInput>;
+  avatar?: Maybe<String>;
+  vas?: Maybe<ValueAddedServicesUpdateManyInput>;
+  listingPhotos?: Maybe<ListingPhotosUpdateManyInput>;
+  frequency?: Maybe<ListingsFrequenciesUpdateOneRequiredInput>;
+  requirements?: Maybe<ListingRequirementsUpdateManyInput>;
+  products?: Maybe<ListingProductsUpdateManyInput>;
+  availability?: Maybe<ListingAvailabilityUpdateOneRequiredInput>;
+  dimensions?: Maybe<ListingDimensionsUpdateOneRequiredInput>;
+  status?: Maybe<Int>;
+  rating?: Maybe<ListingRatingUpdateOneRequiredInput>;
 }
 
 export interface StockDispatchUpdateDataInput {
@@ -8160,13 +7928,11 @@ export interface StockDispatchUpdateDataInput {
   pickupDateMax?: Maybe<String>;
 }
 
-export interface WallFinishesOptionsCreateManyInput {
-  create?: Maybe<
-    WallFinishesOptionsCreateInput[] | WallFinishesOptionsCreateInput
-  >;
-  connect?: Maybe<
-    WallFinishesOptionsWhereUniqueInput[] | WallFinishesOptionsWhereUniqueInput
-  >;
+export interface WarehouserIdentificationUpdateOneRequiredInput {
+  create?: Maybe<WarehouserIdentificationCreateInput>;
+  update?: Maybe<WarehouserIdentificationUpdateDataInput>;
+  upsert?: Maybe<WarehouserIdentificationUpsertNestedInput>;
+  connect?: Maybe<WarehouserIdentificationWhereUniqueInput>;
 }
 
 export interface PaymentWhereInput {
@@ -8385,13 +8151,6 @@ export interface StockProductUpdateWithWhereUniqueNestedInput {
   data: StockProductUpdateDataInput;
 }
 
-export interface SpacesOptionsUpdateInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-}
-
 export interface SpacesOptionsUpdateManyInput {
   create?: Maybe<SpacesOptionsCreateInput[] | SpacesOptionsCreateInput>;
   update?: Maybe<
@@ -8439,6 +8198,12 @@ export interface StockProductCreateInput {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface SpacesOptionsUpdateDataInput {
@@ -8942,6 +8707,66 @@ export interface StockProductWhereInput {
   productImage_not_starts_with?: Maybe<String>;
   productImage_ends_with?: Maybe<String>;
   productImage_not_ends_with?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  estimatedValue_not?: Maybe<Float>;
+  estimatedValue_in?: Maybe<Float[] | Float>;
+  estimatedValue_not_in?: Maybe<Float[] | Float>;
+  estimatedValue_lt?: Maybe<Float>;
+  estimatedValue_lte?: Maybe<Float>;
+  estimatedValue_gt?: Maybe<Float>;
+  estimatedValue_gte?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  shipmentDate_not?: Maybe<DateTimeInput>;
+  shipmentDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  shipmentDate_lt?: Maybe<DateTimeInput>;
+  shipmentDate_lte?: Maybe<DateTimeInput>;
+  shipmentDate_gt?: Maybe<DateTimeInput>;
+  shipmentDate_gte?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  deliveryDate_not?: Maybe<DateTimeInput>;
+  deliveryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  deliveryDate_lt?: Maybe<DateTimeInput>;
+  deliveryDate_lte?: Maybe<DateTimeInput>;
+  deliveryDate_gt?: Maybe<DateTimeInput>;
+  deliveryDate_gte?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  partnerLogistics_not?: Maybe<String>;
+  partnerLogistics_in?: Maybe<String[] | String>;
+  partnerLogistics_not_in?: Maybe<String[] | String>;
+  partnerLogistics_lt?: Maybe<String>;
+  partnerLogistics_lte?: Maybe<String>;
+  partnerLogistics_gt?: Maybe<String>;
+  partnerLogistics_gte?: Maybe<String>;
+  partnerLogistics_contains?: Maybe<String>;
+  partnerLogistics_not_contains?: Maybe<String>;
+  partnerLogistics_starts_with?: Maybe<String>;
+  partnerLogistics_not_starts_with?: Maybe<String>;
+  partnerLogistics_ends_with?: Maybe<String>;
+  partnerLogistics_not_ends_with?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  expiryDate_not?: Maybe<DateTimeInput>;
+  expiryDate_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  expiryDate_lt?: Maybe<DateTimeInput>;
+  expiryDate_lte?: Maybe<DateTimeInput>;
+  expiryDate_gt?: Maybe<DateTimeInput>;
+  expiryDate_gte?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
+  condition_not?: Maybe<String>;
+  condition_in?: Maybe<String[] | String>;
+  condition_not_in?: Maybe<String[] | String>;
+  condition_lt?: Maybe<String>;
+  condition_lte?: Maybe<String>;
+  condition_gt?: Maybe<String>;
+  condition_gte?: Maybe<String>;
+  condition_contains?: Maybe<String>;
+  condition_not_contains?: Maybe<String>;
+  condition_starts_with?: Maybe<String>;
+  condition_not_starts_with?: Maybe<String>;
+  condition_ends_with?: Maybe<String>;
+  condition_not_ends_with?: Maybe<String>;
   AND?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
   OR?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
   NOT?: Maybe<StockProductWhereInput[] | StockProductWhereInput>;
@@ -9010,8 +8835,35 @@ export interface FloorsOptionsScalarWhereInput {
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
   slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -9048,26 +8900,7 @@ export type CountriesWhereUniqueInput = AtLeastOne<{
 export interface FloorsOptionsUpdateManyDataInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
-}
-
-export interface SelectOptionsUpsertNestedInput {
-  update: SelectOptionsUpdateDataInput;
-  create: SelectOptionsCreateInput;
-}
-
-export interface LocationsUpdateOneRequiredInput {
-  create?: Maybe<LocationsCreateInput>;
-  update?: Maybe<LocationsUpdateDataInput>;
-  upsert?: Maybe<LocationsUpsertNestedInput>;
-  connect?: Maybe<LocationsWhereUniqueInput>;
-}
-
-export interface LocationsUpdateDataInput {
-  country?: Maybe<String>;
-  state?: Maybe<String>;
-  geo?: Maybe<String>;
-  lga?: Maybe<String>;
-  street?: Maybe<String>;
+  default?: Maybe<Boolean>;
   userId?: Maybe<String>;
 }
 
@@ -9096,27 +8929,27 @@ export interface WallFinishesOptionsUpdateManyInput {
     WallFinishesOptionsCreateInput[] | WallFinishesOptionsCreateInput
   >;
   update?: Maybe<
-    | ValueAddedServicesUpdateWithWhereUniqueNestedInput[]
-    | ValueAddedServicesUpdateWithWhereUniqueNestedInput
+    | WallFinishesOptionsUpdateWithWhereUniqueNestedInput[]
+    | WallFinishesOptionsUpdateWithWhereUniqueNestedInput
   >;
   upsert?: Maybe<
-    | ValueAddedServicesUpsertWithWhereUniqueNestedInput[]
-    | ValueAddedServicesUpsertWithWhereUniqueNestedInput
+    | WallFinishesOptionsUpsertWithWhereUniqueNestedInput[]
+    | WallFinishesOptionsUpsertWithWhereUniqueNestedInput
   >;
   delete?: Maybe<
-    ValueAddedServicesWhereUniqueInput[] | ValueAddedServicesWhereUniqueInput
+    WallFinishesOptionsWhereUniqueInput[] | WallFinishesOptionsWhereUniqueInput
   >;
   connect?: Maybe<
-    ValueAddedServicesWhereUniqueInput[] | ValueAddedServicesWhereUniqueInput
+    WallFinishesOptionsWhereUniqueInput[] | WallFinishesOptionsWhereUniqueInput
   >;
   set?: Maybe<
-    ValueAddedServicesWhereUniqueInput[] | ValueAddedServicesWhereUniqueInput
+    WallFinishesOptionsWhereUniqueInput[] | WallFinishesOptionsWhereUniqueInput
   >;
   disconnect?: Maybe<
-    ValueAddedServicesWhereUniqueInput[] | ValueAddedServicesWhereUniqueInput
+    WallFinishesOptionsWhereUniqueInput[] | WallFinishesOptionsWhereUniqueInput
   >;
   deleteMany?: Maybe<
-    ValueAddedServicesScalarWhereInput[] | ValueAddedServicesScalarWhereInput
+    WallFinishesOptionsScalarWhereInput[] | WallFinishesOptionsScalarWhereInput
   >;
   updateMany?: Maybe<
     | WallFinishesOptionsUpdateManyWithWhereNestedInput[]
@@ -9141,9 +8974,9 @@ export interface StockDispatchSubscriptionWhereInput {
   >;
 }
 
-export interface AmenitiesOptionsUpdateWithWhereUniqueNestedInput {
-  where: AmenitiesOptionsWhereUniqueInput;
-  data: AmenitiesOptionsUpdateDataInput;
+export interface WallFinishesOptionsUpdateWithWhereUniqueNestedInput {
+  where: WallFinishesOptionsWhereUniqueInput;
+  data: WallFinishesOptionsUpdateDataInput;
 }
 
 export interface FloorsOptionsWhereInput {
@@ -9161,64 +8994,36 @@ export interface FloorsOptionsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  pin?: Maybe<String>;
-  pin_not?: Maybe<String>;
-  pin_in?: Maybe<String[] | String>;
-  pin_not_in?: Maybe<String[] | String>;
-  pin_lt?: Maybe<String>;
-  pin_lte?: Maybe<String>;
-  pin_gt?: Maybe<String>;
-  pin_gte?: Maybe<String>;
-  pin_contains?: Maybe<String>;
-  pin_not_contains?: Maybe<String>;
-  pin_starts_with?: Maybe<String>;
-  pin_not_starts_with?: Maybe<String>;
-  pin_ends_with?: Maybe<String>;
-  pin_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -9260,9 +9065,10 @@ export interface ReferralSubscriptionWhereInput {
   >;
 }
 
-export interface AmenitiesOptionsUpdateManyWithWhereNestedInput {
-  where: AmenitiesOptionsScalarWhereInput;
-  data: AmenitiesOptionsUpdateManyDataInput;
+export interface WallFinishesOptionsUpsertWithWhereUniqueNestedInput {
+  where: WallFinishesOptionsWhereUniqueInput;
+  update: WallFinishesOptionsUpdateDataInput;
+  create: WallFinishesOptionsCreateInput;
 }
 
 export interface OtpSubscriptionWhereInput {
@@ -9276,56 +9082,7 @@ export interface OtpSubscriptionWhereInput {
   NOT?: Maybe<OtpSubscriptionWhereInput[] | OtpSubscriptionWhereInput>;
 }
 
-export interface ValueAddedServicesUpdateManyInput {
-  create?: Maybe<
-    ListingRequirementsCreateInput[] | ListingRequirementsCreateInput
-  >;
-  update?: Maybe<
-    | ListingRequirementsUpdateWithWhereUniqueNestedInput[]
-    | ListingRequirementsUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | ListingRequirementsUpsertWithWhereUniqueNestedInput[]
-    | ListingRequirementsUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
-  >;
-  set?: Maybe<
-    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    ListingRequirementsScalarWhereInput[] | ListingRequirementsScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ListingRequirementsUpdateManyWithWhereNestedInput[]
-    | ListingRequirementsUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ValueAddedServicesUpdateWithWhereUniqueNestedInput {
-  where: ValueAddedServicesWhereUniqueInput;
-  data: ValueAddedServicesUpdateDataInput;
-}
-
-export interface ValueAddedServicesUpdateDataInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-}
-
-export interface WallFinishesOptionsUpdateManyWithWhereNestedInput {
-  where: WallFinishesOptionsScalarWhereInput;
-  data: WallFinishesOptionsUpdateManyDataInput;
-}
-
-export interface LocationsWhereInput {
+export interface WallFinishesOptionsScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -9340,76 +9097,36 @@ export interface LocationsWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  country?: Maybe<String>;
-  country_not?: Maybe<String>;
-  country_in?: Maybe<String[] | String>;
-  country_not_in?: Maybe<String[] | String>;
-  country_lt?: Maybe<String>;
-  country_lte?: Maybe<String>;
-  country_gt?: Maybe<String>;
-  country_gte?: Maybe<String>;
-  country_contains?: Maybe<String>;
-  country_not_contains?: Maybe<String>;
-  country_starts_with?: Maybe<String>;
-  country_not_starts_with?: Maybe<String>;
-  country_ends_with?: Maybe<String>;
-  country_not_ends_with?: Maybe<String>;
-  state?: Maybe<String>;
-  state_not?: Maybe<String>;
-  state_in?: Maybe<String[] | String>;
-  state_not_in?: Maybe<String[] | String>;
-  state_lt?: Maybe<String>;
-  state_lte?: Maybe<String>;
-  state_gt?: Maybe<String>;
-  state_gte?: Maybe<String>;
-  state_contains?: Maybe<String>;
-  state_not_contains?: Maybe<String>;
-  state_starts_with?: Maybe<String>;
-  state_not_starts_with?: Maybe<String>;
-  state_ends_with?: Maybe<String>;
-  state_not_ends_with?: Maybe<String>;
-  geo?: Maybe<String>;
-  geo_not?: Maybe<String>;
-  geo_in?: Maybe<String[] | String>;
-  geo_not_in?: Maybe<String[] | String>;
-  geo_lt?: Maybe<String>;
-  geo_lte?: Maybe<String>;
-  geo_gt?: Maybe<String>;
-  geo_gte?: Maybe<String>;
-  geo_contains?: Maybe<String>;
-  geo_not_contains?: Maybe<String>;
-  geo_starts_with?: Maybe<String>;
-  geo_not_starts_with?: Maybe<String>;
-  geo_ends_with?: Maybe<String>;
-  geo_not_ends_with?: Maybe<String>;
-  lga?: Maybe<String>;
-  lga_not?: Maybe<String>;
-  lga_in?: Maybe<String[] | String>;
-  lga_not_in?: Maybe<String[] | String>;
-  lga_lt?: Maybe<String>;
-  lga_lte?: Maybe<String>;
-  lga_gt?: Maybe<String>;
-  lga_gte?: Maybe<String>;
-  lga_contains?: Maybe<String>;
-  lga_not_contains?: Maybe<String>;
-  lga_starts_with?: Maybe<String>;
-  lga_not_starts_with?: Maybe<String>;
-  lga_ends_with?: Maybe<String>;
-  lga_not_ends_with?: Maybe<String>;
-  street?: Maybe<String>;
-  street_not?: Maybe<String>;
-  street_in?: Maybe<String[] | String>;
-  street_not_in?: Maybe<String[] | String>;
-  street_lt?: Maybe<String>;
-  street_lte?: Maybe<String>;
-  street_gt?: Maybe<String>;
-  street_gte?: Maybe<String>;
-  street_contains?: Maybe<String>;
-  street_not_contains?: Maybe<String>;
-  street_starts_with?: Maybe<String>;
-  street_not_starts_with?: Maybe<String>;
-  street_ends_with?: Maybe<String>;
-  street_not_ends_with?: Maybe<String>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -9425,13 +9142,13 @@ export interface LocationsWhereInput {
   userId_ends_with?: Maybe<String>;
   userId_not_ends_with?: Maybe<String>;
   AND?: Maybe<
-    ValueAddedServicesScalarWhereInput[] | ValueAddedServicesScalarWhereInput
+    WallFinishesOptionsScalarWhereInput[] | WallFinishesOptionsScalarWhereInput
   >;
   OR?: Maybe<
-    ValueAddedServicesScalarWhereInput[] | ValueAddedServicesScalarWhereInput
+    WallFinishesOptionsScalarWhereInput[] | WallFinishesOptionsScalarWhereInput
   >;
   NOT?: Maybe<
-    ValueAddedServicesScalarWhereInput[] | ValueAddedServicesScalarWhereInput
+    WallFinishesOptionsScalarWhereInput[] | WallFinishesOptionsScalarWhereInput
   >;
 }
 
@@ -9649,224 +9366,6 @@ export interface RoofingMaterialOptionsScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  code?: Maybe<String>;
-  code_not?: Maybe<String>;
-  code_in?: Maybe<String[] | String>;
-  code_not_in?: Maybe<String[] | String>;
-  code_lt?: Maybe<String>;
-  code_lte?: Maybe<String>;
-  code_gt?: Maybe<String>;
-  code_gte?: Maybe<String>;
-  code_contains?: Maybe<String>;
-  code_not_contains?: Maybe<String>;
-  code_starts_with?: Maybe<String>;
-  code_not_starts_with?: Maybe<String>;
-  code_ends_with?: Maybe<String>;
-  code_not_ends_with?: Maybe<String>;
-  validated?: Maybe<Boolean>;
-  validated_not?: Maybe<Boolean>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<OtpWhereInput[] | OtpWhereInput>;
-  OR?: Maybe<OtpWhereInput[] | OtpWhereInput>;
-  NOT?: Maybe<OtpWhereInput[] | OtpWhereInput>;
-}
-
-export interface SelectOptionsUpdateOneRequiredInput {
-  create?: Maybe<SelectOptionsCreateInput>;
-  update?: Maybe<SelectOptionsUpdateDataInput>;
-  upsert?: Maybe<SelectOptionsUpsertNestedInput>;
-  connect?: Maybe<SelectOptionsWhereUniqueInput>;
-}
-
-export interface DateRangeCreateOneInput {
-  create?: Maybe<DateRangeCreateInput>;
-  connect?: Maybe<DateRangeWhereUniqueInput>;
-}
-
-export interface SelectOptionsUpdateDataInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-}
-
-export interface StockProductCreateInput {
-  id?: Maybe<ID_Input>;
-  productBrandName: String;
-  productType: String;
-  productPackageSize: String;
-  quantityPerPackageSize: Int;
-  totalQuantity: Int;
-  productImage: String;
-}
-
-export interface SelectOptionsUpsertNestedInput {
-  update: SelectOptionsUpdateDataInput;
-  create: SelectOptionsCreateInput;
-}
-
-export interface SpacesOptionsUpdateManyMutationInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-}
-
-export interface LocationsUpdateOneRequiredInput {
-  create?: Maybe<LocationsCreateInput>;
-  update?: Maybe<LocationsUpdateDataInput>;
-  upsert?: Maybe<LocationsUpsertNestedInput>;
-  connect?: Maybe<LocationsWhereUniqueInput>;
-}
-
-export interface RoofingMaterialOptionsUpdateInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-}
-
-export interface LocationsUpdateDataInput {
-  country?: Maybe<String>;
-  state?: Maybe<String>;
-  geo?: Maybe<String>;
-  lga?: Maybe<String>;
-  street?: Maybe<String>;
-  userId?: Maybe<String>;
-}
-
-export interface RequisitionCostUpdateInput {
-  baseCost?: Maybe<Float>;
-  vat?: Maybe<Float>;
-  discount?: Maybe<Float>;
-}
-
-export interface LocationsUpsertNestedInput {
-  update: LocationsUpdateDataInput;
-  create: LocationsCreateInput;
-}
-
-export type RequisitionCostWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface AmenitiesOptionsUpdateManyInput {
-  create?: Maybe<AmenitiesOptionsCreateInput[] | AmenitiesOptionsCreateInput>;
-  update?: Maybe<
-    | AmenitiesOptionsUpdateWithWhereUniqueNestedInput[]
-    | AmenitiesOptionsUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | AmenitiesOptionsUpsertWithWhereUniqueNestedInput[]
-    | AmenitiesOptionsUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    AmenitiesOptionsWhereUniqueInput[] | AmenitiesOptionsWhereUniqueInput
-  >;
-  connect?: Maybe<
-    AmenitiesOptionsWhereUniqueInput[] | AmenitiesOptionsWhereUniqueInput
-  >;
-  set?: Maybe<
-    AmenitiesOptionsWhereUniqueInput[] | AmenitiesOptionsWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    AmenitiesOptionsWhereUniqueInput[] | AmenitiesOptionsWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    AmenitiesOptionsScalarWhereInput[] | AmenitiesOptionsScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | AmenitiesOptionsUpdateManyWithWhereNestedInput[]
-    | AmenitiesOptionsUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface ReferralCreateInput {
-  id?: Maybe<ID_Input>;
-  status: Int;
-  refCode: Int;
-  userId: String;
-  referrals?: Maybe<GameCreateManyInput>;
-}
-
-export interface AmenitiesOptionsUpdateWithWhereUniqueNestedInput {
-  where: AmenitiesOptionsWhereUniqueInput;
-  data: AmenitiesOptionsUpdateDataInput;
-}
-
-export interface PaymentCustomerUpdateManyMutationInput {
-  paystackId?: Maybe<String>;
-  customerCode?: Maybe<String>;
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  email?: Maybe<String>;
-}
-
-export interface AmenitiesOptionsUpdateDataInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
-}
-
-export type SpacesOptionsWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface AmenitiesOptionsUpsertWithWhereUniqueNestedInput {
-  where: AmenitiesOptionsWhereUniqueInput;
-  update: AmenitiesOptionsUpdateDataInput;
-  create: AmenitiesOptionsCreateInput;
-}
-
-export interface RequisitionCostUpdateDataInput {
-  baseCost?: Maybe<Float>;
-  vat?: Maybe<Float>;
-  discount?: Maybe<Float>;
-}
-
-export interface AmenitiesOptionsScalarWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
   slug?: Maybe<String>;
   slug_not?: Maybe<String>;
   slug_in?: Maybe<String[] | String>;
@@ -10004,6 +9503,12 @@ export interface StockProductUpdateManyDataInput {
   quantityPerPackageSize?: Maybe<Int>;
   totalQuantity?: Maybe<Int>;
   productImage?: Maybe<String>;
+  estimatedValue?: Maybe<Float>;
+  shipmentDate?: Maybe<DateTimeInput>;
+  deliveryDate?: Maybe<DateTimeInput>;
+  partnerLogistics?: Maybe<String>;
+  expiryDate?: Maybe<DateTimeInput>;
+  condition?: Maybe<String>;
 }
 
 export interface LocationsUpdateDataInput {
@@ -10073,10 +9578,9 @@ export interface AmenitiesOptionsUpdateWithWhereUniqueNestedInput {
   data: AmenitiesOptionsUpdateDataInput;
 }
 
-export interface ListingRequirementsUpdateManyMutationInput {
+export interface SelectOptionsUpdateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
-  default?: Maybe<Boolean>;
 }
 
 export interface AmenitiesOptionsUpdateDataInput {
@@ -10152,6 +9656,20 @@ export interface AmenitiesOptionsScalarWhereInput {
   name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
   AND?: Maybe<
     AmenitiesOptionsScalarWhereInput[] | AmenitiesOptionsScalarWhereInput
   >;
@@ -10181,6 +9699,9 @@ export interface PropertiesOptionsUpdateInput {
 
 export interface AmenitiesOptionsUpdateManyDataInput {
   slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
 }
 
 export interface PaymentCustomerUpdateDataInput {
@@ -10622,9 +10143,33 @@ export interface ListingWhereInput {
   NOT?: Maybe<ListingWhereInput[] | ListingWhereInput>;
 }
 
-export interface RequisitionCostCreateOneInput {
-  create?: Maybe<RequisitionCostCreateInput>;
-  connect?: Maybe<RequisitionCostWhereUniqueInput>;
+export interface ListingPhotosUpdateManyInput {
+  create?: Maybe<ListingPhotosCreateInput[] | ListingPhotosCreateInput>;
+  update?: Maybe<
+    | ListingPhotosUpdateWithWhereUniqueNestedInput[]
+    | ListingPhotosUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | ListingPhotosUpsertWithWhereUniqueNestedInput[]
+    | ListingPhotosUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    ListingPhotosWhereUniqueInput[] | ListingPhotosWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ListingPhotosWhereUniqueInput[] | ListingPhotosWhereUniqueInput
+  >;
+  set?: Maybe<ListingPhotosWhereUniqueInput[] | ListingPhotosWhereUniqueInput>;
+  disconnect?: Maybe<
+    ListingPhotosWhereUniqueInput[] | ListingPhotosWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    ListingPhotosScalarWhereInput[] | ListingPhotosScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ListingPhotosUpdateManyWithWhereNestedInput[]
+    | ListingPhotosUpdateManyWithWhereNestedInput
+  >;
 }
 
 export interface TransactionScalarWhereInput {
@@ -10763,11 +10308,40 @@ export interface StockDispatchUpdateManyMutationInput {
   pickupDateMax?: Maybe<String>;
 }
 
-export interface RequisitionUpdateOneRequiredInput {
-  create?: Maybe<RequisitionCreateInput>;
-  update?: Maybe<RequisitionUpdateDataInput>;
-  upsert?: Maybe<RequisitionUpsertNestedInput>;
-  connect?: Maybe<RequisitionWhereUniqueInput>;
+export interface ListingPhotosScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  url?: Maybe<String>;
+  url_not?: Maybe<String>;
+  url_in?: Maybe<String[] | String>;
+  url_not_in?: Maybe<String[] | String>;
+  url_lt?: Maybe<String>;
+  url_lte?: Maybe<String>;
+  url_gt?: Maybe<String>;
+  url_gte?: Maybe<String>;
+  url_contains?: Maybe<String>;
+  url_not_contains?: Maybe<String>;
+  url_starts_with?: Maybe<String>;
+  url_not_starts_with?: Maybe<String>;
+  url_ends_with?: Maybe<String>;
+  url_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
+  AND?: Maybe<ListingPhotosScalarWhereInput[] | ListingPhotosScalarWhereInput>;
+  OR?: Maybe<ListingPhotosScalarWhereInput[] | ListingPhotosScalarWhereInput>;
+  NOT?: Maybe<ListingPhotosScalarWhereInput[] | ListingPhotosScalarWhereInput>;
 }
 
 export interface RequisitionDurationWhereInput {
@@ -10818,20 +10392,18 @@ export interface RequisitionDurationWhereInput {
   NOT?: Maybe<RequisitionDurationWhereInput[] | RequisitionDurationWhereInput>;
 }
 
-export interface RequisitionDurationUpdateOneRequiredInput {
-  create?: Maybe<RequisitionDurationCreateInput>;
-  update?: Maybe<RequisitionDurationUpdateDataInput>;
-  upsert?: Maybe<RequisitionDurationUpsertNestedInput>;
-  connect?: Maybe<RequisitionDurationWhereUniqueInput>;
+export interface ListingPhotosUpdateManyWithWhereNestedInput {
+  where: ListingPhotosScalarWhereInput;
+  data: ListingPhotosUpdateManyDataInput;
 }
 
 export type RatingWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export interface RequisitionDurationUpsertNestedInput {
-  update: RequisitionDurationUpdateDataInput;
-  create: RequisitionDurationCreateInput;
+export interface ListingPhotosUpdateManyDataInput {
+  url?: Maybe<String>;
+  default?: Maybe<Boolean>;
 }
 
 export interface RoofingMaterialOptionsUpdateInput {
@@ -10841,10 +10413,11 @@ export interface RoofingMaterialOptionsUpdateInput {
   userId?: Maybe<String>;
 }
 
-export interface RequisitionCostUpdateDataInput {
-  baseCost?: Maybe<Float>;
-  vat?: Maybe<Float>;
-  discount?: Maybe<Float>;
+export interface ListingsFrequenciesUpdateOneRequiredInput {
+  create?: Maybe<ListingsFrequenciesCreateInput>;
+  update?: Maybe<ListingsFrequenciesUpdateDataInput>;
+  upsert?: Maybe<ListingsFrequenciesUpsertNestedInput>;
+  connect?: Maybe<ListingsFrequenciesWhereUniqueInput>;
 }
 
 export interface CrownUpdateDataInput {
@@ -10855,11 +10428,11 @@ export interface CrownUpdateDataInput {
   compensationBonus?: Maybe<Float>;
 }
 
-export interface ListingUpdateOneRequiredInput {
-  create?: Maybe<ListingCreateInput>;
-  update?: Maybe<ListingUpdateDataInput>;
-  upsert?: Maybe<ListingUpsertNestedInput>;
-  connect?: Maybe<ListingWhereUniqueInput>;
+export interface ListingsFrequenciesUpdateDataInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
 }
 
 export interface PaymentUpdateManyMutationInput {
@@ -10871,9 +10444,9 @@ export interface PaymentUpdateManyMutationInput {
   info?: Maybe<String>;
 }
 
-export interface ListingUpsertNestedInput {
-  update: ListingUpdateDataInput;
-  create: ListingCreateInput;
+export interface ListingsFrequenciesUpsertNestedInput {
+  update: ListingsFrequenciesUpdateDataInput;
+  create: ListingsFrequenciesCreateInput;
 }
 
 export interface RequisitionCostUpdateDataInput {
@@ -10882,13 +10455,37 @@ export interface RequisitionCostUpdateDataInput {
   discount?: Maybe<Float>;
 }
 
-export interface PaymentCustomerUpdateOneInput {
-  create?: Maybe<PaymentCustomerCreateInput>;
-  update?: Maybe<PaymentCustomerUpdateDataInput>;
-  upsert?: Maybe<PaymentCustomerUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<PaymentCustomerWhereUniqueInput>;
+export interface ListingRequirementsUpdateManyInput {
+  create?: Maybe<
+    ListingRequirementsCreateInput[] | ListingRequirementsCreateInput
+  >;
+  update?: Maybe<
+    | ListingRequirementsUpdateWithWhereUniqueNestedInput[]
+    | ListingRequirementsUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | ListingRequirementsUpsertWithWhereUniqueNestedInput[]
+    | ListingRequirementsUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<
+    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
+  >;
+  connect?: Maybe<
+    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
+  >;
+  set?: Maybe<
+    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
+  >;
+  disconnect?: Maybe<
+    ListingRequirementsWhereUniqueInput[] | ListingRequirementsWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    ListingRequirementsScalarWhereInput[] | ListingRequirementsScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | ListingRequirementsUpdateManyWithWhereNestedInput[]
+    | ListingRequirementsUpdateManyWithWhereNestedInput
+  >;
 }
 
 export interface SpacesOptionsSubscriptionWhereInput {
@@ -10977,11 +10574,10 @@ export interface WallFinishesOptionsWhereInput {
   NOT?: Maybe<WallFinishesOptionsWhereInput[] | WallFinishesOptionsWhereInput>;
 }
 
-export interface PropertiesOptionsUpdateManyMutationInput {
+export interface ListingRequirementsUpdateDataInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
 }
 
 export interface OrganizationTypeWhereInput {
@@ -11018,11 +10614,10 @@ export interface OrganizationTypeWhereInput {
   NOT?: Maybe<OrganizationTypeWhereInput[] | OrganizationTypeWhereInput>;
 }
 
-export interface RatingUpdateInput {
-  listingId?: Maybe<String>;
-  ratingId?: Maybe<String>;
-  rate?: Maybe<Int>;
-  userId?: Maybe<String>;
+export interface ListingRequirementsUpsertWithWhereUniqueNestedInput {
+  where: ListingRequirementsWhereUniqueInput;
+  update: ListingRequirementsUpdateDataInput;
+  create: ListingRequirementsCreateInput;
 }
 
 export interface OrganizationUpdateOneRequiredInput {
@@ -11032,51 +10627,7 @@ export interface OrganizationUpdateOneRequiredInput {
   connect?: Maybe<OrganizationWhereUniqueInput>;
 }
 
-export interface GameCreateManyInput {
-  create?: Maybe<GameCreateInput[] | GameCreateInput>;
-  connect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-}
-
-export interface ReferralUpdateInput {
-  status?: Maybe<Int>;
-  refCode?: Maybe<Int>;
-  userId?: Maybe<String>;
-  referrals?: Maybe<GameUpdateManyInput>;
-}
-
-export interface GameUpdateManyInput {
-  create?: Maybe<GameCreateInput[] | GameCreateInput>;
-  update?: Maybe<
-    | GameUpdateWithWhereUniqueNestedInput[]
-    | GameUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | GameUpsertWithWhereUniqueNestedInput[]
-    | GameUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  connect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  set?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  disconnect?: Maybe<GameWhereUniqueInput[] | GameWhereUniqueInput>;
-  deleteMany?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-}
-
-export interface GameUpdateWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput;
-  data: GameUpdateDataInput;
-}
-
-export interface GameUpdateDataInput {
-  crown?: Maybe<CrownUpdateOneRequiredInput>;
-}
-
-export interface GameUpsertWithWhereUniqueNestedInput {
-  where: GameWhereUniqueInput;
-  update: GameUpdateDataInput;
-  create: GameCreateInput;
-}
-
-export interface GameScalarWhereInput {
+export interface ListingRequirementsScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -11091,47 +10642,58 @@ export interface GameScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  createdAt?: Maybe<DateTimeInput>;
-  createdAt_not?: Maybe<DateTimeInput>;
-  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  createdAt_lt?: Maybe<DateTimeInput>;
-  createdAt_lte?: Maybe<DateTimeInput>;
-  createdAt_gt?: Maybe<DateTimeInput>;
-  createdAt_gte?: Maybe<DateTimeInput>;
-  updatedAt?: Maybe<DateTimeInput>;
-  updatedAt_not?: Maybe<DateTimeInput>;
-  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
-  updatedAt_lt?: Maybe<DateTimeInput>;
-  updatedAt_lte?: Maybe<DateTimeInput>;
-  updatedAt_gt?: Maybe<DateTimeInput>;
-  updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-  OR?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
-  NOT?: Maybe<GameScalarWhereInput[] | GameScalarWhereInput>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
+  AND?: Maybe<
+    ListingRequirementsScalarWhereInput[] | ListingRequirementsScalarWhereInput
+  >;
+  OR?: Maybe<
+    ListingRequirementsScalarWhereInput[] | ListingRequirementsScalarWhereInput
+  >;
+  NOT?: Maybe<
+    ListingRequirementsScalarWhereInput[] | ListingRequirementsScalarWhereInput
+  >;
 }
 
 export type PaymentWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export interface RequisitionUpdateInput {
-  duration?: Maybe<RequisitionDurationUpdateOneRequiredInput>;
-  cost?: Maybe<RequisitionCostUpdateOneRequiredInput>;
-  user?: Maybe<UserUpdateOneRequiredInput>;
-  expires?: Maybe<String>;
-  products?: Maybe<ListingProductsUpdateManyInput>;
-  listing?: Maybe<ListingUpdateOneRequiredInput>;
-  space?: Maybe<Int>;
-  status?: Maybe<Int>;
+export interface ListingRequirementsUpdateManyWithWhereNestedInput {
+  where: ListingRequirementsScalarWhereInput;
+  data: ListingRequirementsUpdateManyDataInput;
 }
 
 export interface SpacesOptionsUpdateManyMutationInput {
   slug?: Maybe<String>;
-}
-
-export interface RequisitionDurationUpdateManyMutationInput {
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;
@@ -11376,26 +10938,29 @@ export interface NodeNode {
   id: ID_Output;
 }
 
-export interface SpacesOptionsUpdateInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+export interface WarehouserIdentificationPreviousValues {
+  id: ID_Output;
+  idNumber: String;
+  expiryDate: String;
+  idType: String;
 }
 
-export interface SpacesOptionsUpdateManyMutationInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+export interface WarehouserIdentificationPreviousValuesPromise
+  extends Promise<WarehouserIdentificationPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  idNumber: () => Promise<String>;
+  expiryDate: () => Promise<String>;
+  idType: () => Promise<String>;
 }
 
-export interface StatesCreateInput {
-  id?: Maybe<ID_Input>;
-  countryId: String;
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
+export interface WarehouserIdentificationPreviousValuesSubscription
+  extends Promise<AsyncIterator<WarehouserIdentificationPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  idNumber: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<String>>;
+  idType: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateListing {
@@ -11436,20 +11001,16 @@ export interface ListingEdge {
   cursor: String;
 }
 
-export interface StatesUpdateManyMutationInput {
-  countryId?: Maybe<String>;
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
+export interface ListingEdgePromise extends Promise<ListingEdge>, Fragmentable {
+  node: <T = ListingPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface StockCreateInput {
-  id?: Maybe<ID_Input>;
-  type: Int;
-  products?: Maybe<StockProductCreateManyInput>;
-  status: Int;
-  dispatch?: Maybe<StockDispatchCreateOneInput>;
-  requisition: RequisitionCreateOneInput;
+export interface ListingEdgeSubscription
+  extends Promise<AsyncIterator<ListingEdge>>,
+    Fragmentable {
+  node: <T = ListingSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateChat {
@@ -11468,29 +11029,25 @@ export interface AggregateChatSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface StockDispatchCreateInput {
-  id?: Maybe<ID_Input>;
-  pickupAgentName?: Maybe<String>;
-  pickupAgentPhone?: Maybe<String>;
-  pickupAgentIdentification?: Maybe<String>;
-  pickupAgentIdNumber?: Maybe<String>;
-  pickupDate?: Maybe<DateRangeCreateOneInput>;
-  status: Int;
-  pickupDateMin?: Maybe<String>;
-  pickupDateMax?: Maybe<String>;
+export interface ListingConnection {
+  pageInfo: PageInfo;
+  edges: ListingEdge[];
 }
 
-export interface DateRangeCreateOneInput {
-  create?: Maybe<DateRangeCreateInput>;
-  connect?: Maybe<DateRangeWhereUniqueInput>;
+export interface ListingConnectionPromise
+  extends Promise<ListingConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ListingEdge>>() => T;
+  aggregate: <T = AggregateListingPromise>() => T;
 }
 
-export interface StockUpdateInput {
-  type?: Maybe<Int>;
-  products?: Maybe<StockProductUpdateManyInput>;
-  status?: Maybe<Int>;
-  dispatch?: Maybe<StockDispatchUpdateOneInput>;
-  requisition?: Maybe<RequisitionUpdateOneRequiredInput>;
+export interface ListingConnectionSubscription
+  extends Promise<AsyncIterator<ListingConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ListingEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateListingSubscription>() => T;
 }
 
 export interface AggregateWarehouserIdentification {
@@ -11566,36 +11123,36 @@ export interface WarehouserIdentificationConnectionSubscription
   aggregate: <T = AggregateWarehouserIdentificationSubscription>() => T;
 }
 
-export interface UserUpdateInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  email?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-  dob?: Maybe<String>;
-  terms?: Maybe<Boolean>;
-  bank?: Maybe<BankUpdateOneRequiredInput>;
-  type?: Maybe<OrganizationTypeUpdateOneRequiredInput>;
+export interface AdminRole {
+  id: ID_Output;
+  name: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
-export interface UserUpdateManyMutationInput {
-  firstName?: Maybe<String>;
-  lastName?: Maybe<String>;
-  email?: Maybe<String>;
-  phoneNumber?: Maybe<String>;
-  dob?: Maybe<String>;
-  terms?: Maybe<Boolean>;
+export interface AdminRolePromise extends Promise<AdminRole>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface UserOrganizationRoleCreateInput {
-  id?: Maybe<ID_Input>;
-  user: UserCreateOneInput;
-  role: RoleCreateOneInput;
-  organization: OrganizationCreateOneInput;
+export interface AdminRoleSubscription
+  extends Promise<AsyncIterator<AdminRole>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface OrganizationCreateOneInput {
-  create?: Maybe<OrganizationCreateInput>;
-  connect?: Maybe<OrganizationWhereUniqueInput>;
+export interface AdminRoleNullablePromise
+  extends Promise<AdminRole | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface AggregateWallet {
@@ -11639,23 +11196,25 @@ export interface AdminRoleSubscriptionPayloadSubscription
   previousValues: <T = AdminRolePreviousValuesSubscription>() => T;
 }
 
-export interface OrganizationUpsertNestedInput {
-  update: OrganizationUpdateDataInput;
-  create: OrganizationCreateInput;
+export interface WalletConnection {
+  pageInfo: PageInfo;
+  edges: WalletEdge[];
 }
 
-export interface ValueAddedServicesUpdateInput {
-  slug?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  name?: Maybe<String>;
-  userId?: Maybe<String>;
+export interface WalletConnectionPromise
+  extends Promise<WalletConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<WalletEdge>>() => T;
+  aggregate: <T = AggregateWalletPromise>() => T;
 }
 
-export interface ValueAddedServicesUpdateManyMutationInput {
-  slug?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  name?: Maybe<String>;
-  userId?: Maybe<String>;
+export interface WalletConnectionSubscription
+  extends Promise<AsyncIterator<WalletConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<WalletEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateWalletSubscription>() => T;
 }
 
 export interface AdminRolePreviousValues {
@@ -11802,21 +11361,16 @@ export interface ListingDimensionsSubscription
   area: () => Promise<AsyncIterator<Float>>;
 }
 
-export interface CountriesSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<CountriesWhereInput>;
-  AND?: Maybe<
-    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
-  >;
+export interface ListingDimensionsNullablePromise
+  extends Promise<ListingDimensions | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  height: () => Promise<Float>;
+  weight: () => Promise<Float>;
+  length: () => Promise<Float>;
+  unitOfDimensions: () => Promise<Int>;
+  volume: () => Promise<Float>;
+  area: () => Promise<Float>;
 }
 
 export interface WallFinishesOptionsEdge {
@@ -11838,46 +11392,29 @@ export interface WallFinishesOptionsEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface GameSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<GameWhereInput>;
-  AND?: Maybe<GameSubscriptionWhereInput[] | GameSubscriptionWhereInput>;
-  OR?: Maybe<GameSubscriptionWhereInput[] | GameSubscriptionWhereInput>;
-  NOT?: Maybe<GameSubscriptionWhereInput[] | GameSubscriptionWhereInput>;
+export interface AdminUserSubscriptionPayload {
+  mutation: MutationType;
+  node: AdminUser;
+  updatedFields: String[];
+  previousValues: AdminUserPreviousValues;
 }
 
-export interface IdentificationsOptionsSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<IdentificationsOptionsWhereInput>;
-  AND?: Maybe<
-    | IdentificationsOptionsSubscriptionWhereInput[]
-    | IdentificationsOptionsSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | IdentificationsOptionsSubscriptionWhereInput[]
-    | IdentificationsOptionsSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | IdentificationsOptionsSubscriptionWhereInput[]
-    | IdentificationsOptionsSubscriptionWhereInput
-  >;
+export interface AdminUserSubscriptionPayloadPromise
+  extends Promise<AdminUserSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AdminUserPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AdminUserPreviousValuesPromise>() => T;
 }
 
-export interface ListingSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ListingWhereInput>;
-  AND?: Maybe<ListingSubscriptionWhereInput[] | ListingSubscriptionWhereInput>;
-  OR?: Maybe<ListingSubscriptionWhereInput[] | ListingSubscriptionWhereInput>;
-  NOT?: Maybe<ListingSubscriptionWhereInput[] | ListingSubscriptionWhereInput>;
+export interface AdminUserSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AdminUserSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AdminUserSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AdminUserPreviousValuesSubscription>() => T;
 }
 
 export interface AggregateValueAddedServices {
@@ -11959,63 +11496,34 @@ export interface ValueAddedServicesConnectionSubscription
   aggregate: <T = AggregateValueAddedServicesSubscription>() => T;
 }
 
-export interface OrganizationSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrganizationWhereInput>;
-  AND?: Maybe<
-    OrganizationSubscriptionWhereInput[] | OrganizationSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    OrganizationSubscriptionWhereInput[] | OrganizationSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    OrganizationSubscriptionWhereInput[] | OrganizationSubscriptionWhereInput
-  >;
+export interface ListingAvailability {
+  id: ID_Output;
+  from: String;
+  to: String;
 }
 
-export interface OrganizationTypeSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OrganizationTypeWhereInput>;
-  AND?: Maybe<
-    | OrganizationTypeSubscriptionWhereInput[]
-    | OrganizationTypeSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | OrganizationTypeSubscriptionWhereInput[]
-    | OrganizationTypeSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | OrganizationTypeSubscriptionWhereInput[]
-    | OrganizationTypeSubscriptionWhereInput
-  >;
+export interface ListingAvailabilityPromise
+  extends Promise<ListingAvailability>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  from: () => Promise<String>;
+  to: () => Promise<String>;
 }
 
-export interface OtpSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<OtpWhereInput>;
-  AND?: Maybe<OtpSubscriptionWhereInput[] | OtpSubscriptionWhereInput>;
-  OR?: Maybe<OtpSubscriptionWhereInput[] | OtpSubscriptionWhereInput>;
-  NOT?: Maybe<OtpSubscriptionWhereInput[] | OtpSubscriptionWhereInput>;
+export interface ListingAvailabilitySubscription
+  extends Promise<AsyncIterator<ListingAvailability>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  from: () => Promise<AsyncIterator<String>>;
+  to: () => Promise<AsyncIterator<String>>;
 }
 
-export interface PaymentSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<PaymentWhereInput>;
-  AND?: Maybe<PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput>;
-  OR?: Maybe<PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput>;
-  NOT?: Maybe<PaymentSubscriptionWhereInput[] | PaymentSubscriptionWhereInput>;
+export interface ListingAvailabilityNullablePromise
+  extends Promise<ListingAvailability | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  from: () => Promise<String>;
+  to: () => Promise<String>;
 }
 
 export interface UserStatusEdge {
@@ -12037,56 +11545,29 @@ export interface UserStatusEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ReferralSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ReferralWhereInput>;
-  AND?: Maybe<
-    ReferralSubscriptionWhereInput[] | ReferralSubscriptionWhereInput
-  >;
-  OR?: Maybe<ReferralSubscriptionWhereInput[] | ReferralSubscriptionWhereInput>;
-  NOT?: Maybe<
-    ReferralSubscriptionWhereInput[] | ReferralSubscriptionWhereInput
-  >;
+export interface AmenitiesOptionsSubscriptionPayload {
+  mutation: MutationType;
+  node: AmenitiesOptions;
+  updatedFields: String[];
+  previousValues: AmenitiesOptionsPreviousValues;
 }
 
-export interface RequisitionSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<RequisitionWhereInput>;
-  AND?: Maybe<
-    RequisitionSubscriptionWhereInput[] | RequisitionSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    RequisitionSubscriptionWhereInput[] | RequisitionSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    RequisitionSubscriptionWhereInput[] | RequisitionSubscriptionWhereInput
-  >;
+export interface AmenitiesOptionsSubscriptionPayloadPromise
+  extends Promise<AmenitiesOptionsSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = AmenitiesOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AmenitiesOptionsPreviousValuesPromise>() => T;
 }
 
-export interface RequisitionCostSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<RequisitionCostWhereInput>;
-  AND?: Maybe<
-    | RequisitionCostSubscriptionWhereInput[]
-    | RequisitionCostSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | RequisitionCostSubscriptionWhereInput[]
-    | RequisitionCostSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | RequisitionCostSubscriptionWhereInput[]
-    | RequisitionCostSubscriptionWhereInput
-  >;
+export interface AmenitiesOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AmenitiesOptionsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AmenitiesOptionsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AmenitiesOptionsPreviousValuesSubscription>() => T;
 }
 
 export interface UserStatus {
@@ -12117,49 +11598,32 @@ export interface UserStatusNullablePromise
   userId: () => Promise<String>;
 }
 
-export interface SelectOptionsSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<SelectOptionsWhereInput>;
-  AND?: Maybe<
-    SelectOptionsSubscriptionWhereInput[] | SelectOptionsSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    SelectOptionsSubscriptionWhereInput[] | SelectOptionsSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    SelectOptionsSubscriptionWhereInput[] | SelectOptionsSubscriptionWhereInput
-  >;
+export interface AmenitiesOptionsPreviousValues {
+  id: ID_Output;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export interface SpacesOptionsSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<SpacesOptionsWhereInput>;
-  AND?: Maybe<
-    SpacesOptionsSubscriptionWhereInput[] | SpacesOptionsSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    SpacesOptionsSubscriptionWhereInput[] | SpacesOptionsSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    SpacesOptionsSubscriptionWhereInput[] | SpacesOptionsSubscriptionWhereInput
-  >;
+export interface AmenitiesOptionsPreviousValuesPromise
+  extends Promise<AmenitiesOptionsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface StatesSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<StatesWhereInput>;
-  AND?: Maybe<StatesSubscriptionWhereInput[] | StatesSubscriptionWhereInput>;
-  OR?: Maybe<StatesSubscriptionWhereInput[] | StatesSubscriptionWhereInput>;
-  NOT?: Maybe<StatesSubscriptionWhereInput[] | StatesSubscriptionWhereInput>;
+export interface AmenitiesOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<AmenitiesOptionsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserOrganizationRoleEdge {
@@ -12204,24 +11668,30 @@ export interface UserStatusConnectionSubscription
 
 export interface WallFinishesOptionsPreviousValues {
   id: ID_Output;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
 export interface WallFinishesOptionsPreviousValuesPromise
   extends Promise<WallFinishesOptionsPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
   name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface WallFinishesOptionsPreviousValuesSubscription
   extends Promise<AsyncIterator<WallFinishesOptionsPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateUserOrganizationRole {
@@ -12370,27 +11840,29 @@ export interface AdminRoleConnectionSubscription
   aggregate: <T = AggregateAdminRoleSubscription>() => T;
 }
 
-export interface PageInfo {
-  hasNextPage: Boolean;
-  hasPreviousPage: Boolean;
-  startCursor?: String;
-  endCursor?: String;
+export interface AuthSubscriptionPayload {
+  mutation: MutationType;
+  node: Auth;
+  updatedFields: String[];
+  previousValues: AuthPreviousValues;
 }
 
-export interface PageInfoPromise extends Promise<PageInfo>, Fragmentable {
-  hasNextPage: () => Promise<Boolean>;
-  hasPreviousPage: () => Promise<Boolean>;
-  startCursor: () => Promise<String>;
-  endCursor: () => Promise<String>;
-}
-
-export interface PageInfoSubscription
-  extends Promise<AsyncIterator<PageInfo>>,
+export interface AuthSubscriptionPayloadPromise
+  extends Promise<AuthSubscriptionPayload>,
     Fragmentable {
-  hasNextPage: () => Promise<AsyncIterator<Boolean>>;
-  hasPreviousPage: () => Promise<AsyncIterator<Boolean>>;
-  startCursor: () => Promise<AsyncIterator<String>>;
-  endCursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = AuthPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = AuthPreviousValuesPromise>() => T;
+}
+
+export interface AuthSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<AuthSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = AuthSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = AuthPreviousValuesSubscription>() => T;
 }
 
 export interface TransactionEdge {
@@ -12412,39 +11884,33 @@ export interface TransactionEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AdminUser {
+export interface AuthPreviousValues {
   id: ID_Output;
-  firstName: String;
-  lastName: String;
-  phoneNumber: String;
   email: String;
-  password: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
+  phoneNumber: String;
+  pin: String;
+  userId?: String;
 }
 
-export interface AdminUserPromise extends Promise<AdminUser>, Fragmentable {
+export interface AuthPreviousValuesPromise
+  extends Promise<AuthPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
   email: () => Promise<String>;
-  password: () => Promise<String>;
-  role: <T = RolePromise>() => T;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
+  phoneNumber: () => Promise<String>;
+  pin: () => Promise<String>;
+  userId: () => Promise<String>;
 }
 
-export interface AdminUserSubscription
-  extends Promise<AsyncIterator<AdminUser>>,
+export interface AuthPreviousValuesSubscription
+  extends Promise<AsyncIterator<AuthPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  firstName: () => Promise<AsyncIterator<String>>;
-  lastName: () => Promise<AsyncIterator<String>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
-  password: () => Promise<AsyncIterator<String>>;
-  role: <T = RoleSubscription>() => T;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
@@ -12475,27 +11941,36 @@ export interface PageInfoSubscription
   endCursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Role {
+export interface ListingRequirements {
   id: ID_Output;
+  slug?: String;
   name?: String;
+  default?: Boolean;
 }
 
-export interface RolePromise extends Promise<Role>, Fragmentable {
+export interface ListingRequirementsPromise
+  extends Promise<ListingRequirements>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
   name: () => Promise<String>;
+  default: () => Promise<Boolean>;
 }
 
-export interface RoleSubscription
-  extends Promise<AsyncIterator<Role>>,
+export interface ListingRequirementsSubscription
+  extends Promise<AsyncIterator<ListingRequirements>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
 }
 
-export interface RoleNullablePromise
-  extends Promise<Role | null>,
+export interface ListingRequirementsNullablePromise
+  extends Promise<ListingRequirements | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
 }
@@ -12516,25 +11991,29 @@ export interface AggregateSuccessSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AdminUserConnection {
-  pageInfo: PageInfo;
-  edges: AdminUserEdge[];
+export interface BankSubscriptionPayload {
+  mutation: MutationType;
+  node: Bank;
+  updatedFields: String[];
+  previousValues: BankPreviousValues;
 }
 
-export interface AdminUserConnectionPromise
-  extends Promise<AdminUserConnection>,
+export interface BankSubscriptionPayloadPromise
+  extends Promise<BankSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<AdminUserEdge>>() => T;
-  aggregate: <T = AggregateAdminUserPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = BankPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = BankPreviousValuesPromise>() => T;
 }
 
-export interface AdminUserConnectionSubscription
-  extends Promise<AsyncIterator<AdminUserConnection>>,
+export interface BankSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<BankSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AdminUserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAdminUserSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = BankSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = BankPreviousValuesSubscription>() => T;
 }
 
 export interface SuccessConnection {
@@ -12650,23 +12129,29 @@ export interface StockProductEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AmenitiesOptionsEdge {
-  node: AmenitiesOptions;
-  cursor: String;
+export interface ChatSubscriptionPayload {
+  mutation: MutationType;
+  node: Chat;
+  updatedFields: String[];
+  previousValues: ChatPreviousValues;
 }
 
-export interface AmenitiesOptionsEdgePromise
-  extends Promise<AmenitiesOptionsEdge>,
+export interface ChatSubscriptionPayloadPromise
+  extends Promise<ChatSubscriptionPayload>,
     Fragmentable {
-  node: <T = AmenitiesOptionsPromise>() => T;
-  cursor: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ChatPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ChatPreviousValuesPromise>() => T;
 }
 
-export interface AmenitiesOptionsEdgeSubscription
-  extends Promise<AsyncIterator<AmenitiesOptionsEdge>>,
+export interface ChatSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ChatSubscriptionPayload>>,
     Fragmentable {
-  node: <T = AmenitiesOptionsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ChatSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ChatPreviousValuesSubscription>() => T;
 }
 
 export interface AggregateStockDispatch {
@@ -12685,38 +12170,29 @@ export interface AggregateStockDispatchSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface Auth {
+export interface ChatPreviousValues {
   id: ID_Output;
-  email: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  phoneNumber: String;
-  pin: String;
-  userId?: String;
+  merchantId: String;
+  warehouserId: String;
+  requisitionId: String;
 }
 
-export interface AuthPromise extends Promise<Auth>, Fragmentable {
+export interface ChatPreviousValuesPromise
+  extends Promise<ChatPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  phoneNumber: () => Promise<String>;
-  pin: () => Promise<String>;
-  userId: () => Promise<String>;
-  user: <T = UserPromise>() => T;
+  merchantId: () => Promise<String>;
+  warehouserId: () => Promise<String>;
+  requisitionId: () => Promise<String>;
 }
 
-export interface AuthSubscription
-  extends Promise<AsyncIterator<Auth>>,
+export interface ChatPreviousValuesSubscription
+  extends Promise<AsyncIterator<ChatPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
-  pin: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
-  user: <T = UserSubscription>() => T;
+  merchantId: () => Promise<AsyncIterator<String>>;
+  warehouserId: () => Promise<AsyncIterator<String>>;
+  requisitionId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StockDispatchConnection {
@@ -12794,41 +12270,15 @@ export interface AggregateStockSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface UserStatus {
-  id: ID_Output;
-  status: String;
-  userId: String;
+export interface CountriesSubscriptionPayload {
+  mutation: MutationType;
+  node: Countries;
+  updatedFields: String[];
+  previousValues: CountriesPreviousValues;
 }
 
-export interface UserStatusPromise extends Promise<UserStatus>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  status: () => Promise<String>;
-  userId: () => Promise<String>;
-}
-
-export interface UserStatusSubscription
-  extends Promise<AsyncIterator<UserStatus>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
-}
-
-export interface UserStatusNullablePromise
-  extends Promise<UserStatus | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  status: () => Promise<String>;
-  userId: () => Promise<String>;
-}
-
-export interface AuthConnection {
-  pageInfo: PageInfo;
-  edges: AuthEdge[];
-}
-
-export interface AuthConnectionPromise
-  extends Promise<AuthConnection>,
+export interface CountriesSubscriptionPayloadPromise
+  extends Promise<CountriesSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
   node: <T = CountriesPromise>() => T;
@@ -12866,21 +12316,29 @@ export interface StockConnectionSubscription
   aggregate: <T = AggregateStockSubscription>() => T;
 }
 
-export interface AuthEdge {
-  node: Auth;
-  cursor: String;
+export interface CountriesPreviousValues {
+  id: ID_Output;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
 }
 
-export interface AuthEdgePromise extends Promise<AuthEdge>, Fragmentable {
-  node: <T = AuthPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface AuthEdgeSubscription
-  extends Promise<AsyncIterator<AuthEdge>>,
+export interface CountriesPreviousValuesPromise
+  extends Promise<CountriesPreviousValues>,
     Fragmentable {
-  node: <T = AuthSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+}
+
+export interface CountriesPreviousValuesSubscription
+  extends Promise<AsyncIterator<CountriesPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface StockDispatch {
@@ -13027,23 +12485,29 @@ export interface StockNullablePromise
   requisition: <T = RequisitionPromise>() => T;
 }
 
-export interface AggregateBankPromise
-  extends Promise<AggregateBank>,
-    Fragmentable {
-  count: () => Promise<Int>;
+export interface CrownSubscriptionPayload {
+  mutation: MutationType;
+  node: Crown;
+  updatedFields: String[];
+  previousValues: CrownPreviousValues;
 }
 
-export interface AggregateBankSubscription
-  extends Promise<AsyncIterator<AggregateBank>>,
+export interface CrownSubscriptionPayloadPromise
+  extends Promise<CrownSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = CrownPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = CrownPreviousValuesPromise>() => T;
 }
 
-export interface Chat {
-  id: ID_Output;
-  merchantId: String;
-  warehouserId: String;
-  requisitionId: String;
+export interface CrownSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<CrownSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = CrownSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = CrownPreviousValuesSubscription>() => T;
 }
 
 export interface StatesEdge {
@@ -13063,41 +12527,44 @@ export interface StatesEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Message {
+export interface CrownPreviousValues {
   id: ID_Output;
-  chatId: String;
-  text: String;
+  requiredReferrals: Int;
+  noOfDays: Int;
+  bonus: Int;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
   compensationCount: Float;
   compensationBonus: Float;
 }
 
-export interface MessagePromise extends Promise<Message>, Fragmentable {
+export interface CrownPreviousValuesPromise
+  extends Promise<CrownPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  chatId: () => Promise<String>;
-  from: <T = UserPromise>() => T;
-  text: () => Promise<String>;
+  requiredReferrals: () => Promise<Int>;
+  noOfDays: () => Promise<Int>;
+  bonus: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   compensationCount: () => Promise<Float>;
   compensationBonus: () => Promise<Float>;
 }
 
-export interface MessageSubscription
-  extends Promise<AsyncIterator<Message>>,
+export interface CrownPreviousValuesSubscription
+  extends Promise<AsyncIterator<CrownPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  chatId: () => Promise<AsyncIterator<String>>;
-  from: <T = UserSubscription>() => T;
-  text: () => Promise<AsyncIterator<String>>;
+  requiredReferrals: () => Promise<AsyncIterator<Int>>;
+  noOfDays: () => Promise<AsyncIterator<Int>>;
+  bonus: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   compensationCount: () => Promise<AsyncIterator<Float>>;
   compensationBonus: () => Promise<AsyncIterator<Float>>;
 }
 
-export interface Crown {
+export interface AdminUser {
   id: ID_Output;
   firstName: String;
   lastName: String;
@@ -13109,7 +12576,7 @@ export interface Crown {
   updatedAt?: DateTimeOutput;
 }
 
-export interface CrownPromise extends Promise<Crown>, Fragmentable {
+export interface AdminUserPromise extends Promise<AdminUser>, Fragmentable {
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
@@ -13122,8 +12589,8 @@ export interface CrownPromise extends Promise<Crown>, Fragmentable {
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface CrownSubscription
-  extends Promise<AsyncIterator<Crown>>,
+export interface AdminUserSubscription
+  extends Promise<AsyncIterator<AdminUser>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
@@ -13137,8 +12604,8 @@ export interface CrownSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface CrownNullablePromise
-  extends Promise<Crown | null>,
+export interface AdminUserNullablePromise
+  extends Promise<AdminUser | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
@@ -13342,8 +12809,8 @@ export interface FloorsOptionsSubscriptionPayloadPromise
   previousValues: <T = FloorsOptionsPreviousValuesPromise>() => T;
 }
 
-export interface PropertiesOptionsPromise
-  extends Promise<PropertiesOptions>,
+export interface FloorsOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FloorsOptionsSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
   node: <T = FloorsOptionsSubscription>() => T;
@@ -13374,18 +12841,33 @@ export interface RoofingMaterialOptionsConnectionSubscription
   aggregate: <T = AggregateRoofingMaterialOptionsSubscription>() => T;
 }
 
-export type PaymentCustomerWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export interface ListingPhotosUpdateDataInput {
-  url?: Maybe<String>;
-  default?: Maybe<Boolean>;
+export interface FloorsOptionsPreviousValues {
+  id: ID_Output;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export type ReferralWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
+export interface FloorsOptionsPreviousValuesPromise
+  extends Promise<FloorsOptionsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
+}
+
+export interface FloorsOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<FloorsOptionsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
+}
 
 export interface RoleEdge {
   node: Role;
@@ -13448,22 +12930,22 @@ export interface GameSubscriptionPayload {
   previousValues: GamePreviousValues;
 }
 
-export interface SelectOptionsNullablePromise
-  extends Promise<SelectOptions | null>,
+export interface GameSubscriptionPayloadPromise
+  extends Promise<GameSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = GamePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = GamePreviousValuesPromise>() => T;
 }
 
-export interface Locations {
-  id: ID_Output;
-  country: String;
-  state?: String;
-  geo?: String;
-  lga?: String;
-  street?: String;
-  userId?: String;
+export interface GameSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<GameSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = GameSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = GamePreviousValuesSubscription>() => T;
 }
 
 export interface AggregateRequisitionDuration {
@@ -13482,7 +12964,7 @@ export interface AggregateRequisitionDurationSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ValueAddedServices {
+export interface GamePreviousValues {
   id: ID_Output;
   referralId: String;
   userId: String;
@@ -13490,8 +12972,8 @@ export interface ValueAddedServices {
   updatedAt?: DateTimeOutput;
 }
 
-export interface ValueAddedServicesPromise
-  extends Promise<ValueAddedServices>,
+export interface GamePreviousValuesPromise
+  extends Promise<GamePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   referralId: () => Promise<String>;
@@ -13500,8 +12982,8 @@ export interface ValueAddedServicesPromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface ValueAddedServicesSubscription
-  extends Promise<AsyncIterator<ValueAddedServices>>,
+export interface GamePreviousValuesSubscription
+  extends Promise<AsyncIterator<GamePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   referralId: () => Promise<AsyncIterator<String>>;
@@ -13533,53 +13015,48 @@ export interface RequisitionDurationConnectionSubscription
   aggregate: <T = AggregateRequisitionDurationSubscription>() => T;
 }
 
-export interface ListingsFrequenciesSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<ListingsFrequenciesWhereInput>;
-  AND?: Maybe<
-    | ListingsFrequenciesSubscriptionWhereInput[]
-    | ListingsFrequenciesSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    | ListingsFrequenciesSubscriptionWhereInput[]
-    | ListingsFrequenciesSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    | ListingsFrequenciesSubscriptionWhereInput[]
-    | ListingsFrequenciesSubscriptionWhereInput
-  >;
+export interface Locations {
+  id: ID_Output;
+  country: String;
+  state?: String;
+  geo?: String;
+  lga?: String;
+  street?: String;
+  userId?: String;
 }
 
-export interface ListingsFrequenciesUpdateDataInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+export interface LocationsPromise extends Promise<Locations>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  country: () => Promise<String>;
+  state: () => Promise<String>;
+  geo: () => Promise<String>;
+  lga: () => Promise<String>;
+  street: () => Promise<String>;
+  userId: () => Promise<String>;
 }
 
-export interface AdminRoleSubscriptionWhereInput {
-  mutation_in?: Maybe<MutationType[] | MutationType>;
-  updatedFields_contains?: Maybe<String>;
-  updatedFields_contains_every?: Maybe<String[] | String>;
-  updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<AdminRoleWhereInput>;
-  AND?: Maybe<
-    AdminRoleSubscriptionWhereInput[] | AdminRoleSubscriptionWhereInput
-  >;
-  OR?: Maybe<
-    AdminRoleSubscriptionWhereInput[] | AdminRoleSubscriptionWhereInput
-  >;
-  NOT?: Maybe<
-    AdminRoleSubscriptionWhereInput[] | AdminRoleSubscriptionWhereInput
-  >;
+export interface LocationsSubscription
+  extends Promise<AsyncIterator<Locations>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  country: () => Promise<AsyncIterator<String>>;
+  state: () => Promise<AsyncIterator<String>>;
+  geo: () => Promise<AsyncIterator<String>>;
+  lga: () => Promise<AsyncIterator<String>>;
+  street: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ListingsFrequenciesUpsertNestedInput {
-  update: ListingsFrequenciesUpdateDataInput;
-  create: ListingsFrequenciesCreateInput;
+export interface LocationsNullablePromise
+  extends Promise<Locations | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  country: () => Promise<String>;
+  state: () => Promise<String>;
+  geo: () => Promise<String>;
+  lga: () => Promise<String>;
+  street: () => Promise<String>;
+  userId: () => Promise<String>;
 }
 
 export interface AggregateRequisitionCost {
@@ -13605,14 +13082,22 @@ export interface IdentificationsOptionsSubscriptionPayload {
   previousValues: IdentificationsOptionsPreviousValues;
 }
 
-export interface ListingRequirementsUpdateManyWithWhereNestedInput {
-  where: ListingRequirementsScalarWhereInput;
-  data: ListingRequirementsUpdateManyDataInput;
+export interface IdentificationsOptionsSubscriptionPayloadPromise
+  extends Promise<IdentificationsOptionsSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = IdentificationsOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = IdentificationsOptionsPreviousValuesPromise>() => T;
 }
 
-export interface SuccessCreateInput {
-  id?: Maybe<ID_Input>;
-  success: Boolean;
+export interface IdentificationsOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<IdentificationsOptionsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = IdentificationsOptionsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = IdentificationsOptionsPreviousValuesSubscription>() => T;
 }
 
 export interface RequisitionCostConnection {
@@ -13636,47 +13121,32 @@ export interface RequisitionCostConnectionSubscription
   aggregate: <T = AggregateRequisitionCostSubscription>() => T;
 }
 
-export interface ListingProductsUpdateDataInput {
-  slug?: Maybe<String>;
-  name?: Maybe<String>;
-  default?: Maybe<Boolean>;
-  userId?: Maybe<String>;
+export interface IdentificationsOptionsPreviousValues {
+  id: ID_Output;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export interface ListingProductsUpdateWithWhereUniqueNestedInput {
-  where: ListingProductsWhereUniqueInput;
-  data: ListingProductsUpdateDataInput;
+export interface IdentificationsOptionsPreviousValuesPromise
+  extends Promise<IdentificationsOptionsPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface ListingProductsUpdateManyInput {
-  create?: Maybe<ListingProductsCreateInput[] | ListingProductsCreateInput>;
-  update?: Maybe<
-    | ListingProductsUpdateWithWhereUniqueNestedInput[]
-    | ListingProductsUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | ListingProductsUpsertWithWhereUniqueNestedInput[]
-    | ListingProductsUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<
-    ListingProductsWhereUniqueInput[] | ListingProductsWhereUniqueInput
-  >;
-  connect?: Maybe<
-    ListingProductsWhereUniqueInput[] | ListingProductsWhereUniqueInput
-  >;
-  set?: Maybe<
-    ListingProductsWhereUniqueInput[] | ListingProductsWhereUniqueInput
-  >;
-  disconnect?: Maybe<
-    ListingProductsWhereUniqueInput[] | ListingProductsWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    ListingProductsScalarWhereInput[] | ListingProductsScalarWhereInput
-  >;
-  updateMany?: Maybe<
-    | ListingProductsUpdateManyWithWhereNestedInput[]
-    | ListingProductsUpdateManyWithWhereNestedInput
-  >;
+export interface IdentificationsOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<IdentificationsOptionsPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateRequisition {
@@ -13746,25 +13216,29 @@ export interface RequisitionConnectionSubscription
   aggregate: <T = AggregateRequisitionSubscription>() => T;
 }
 
-export interface ListingConnection {
-  pageInfo: PageInfo;
-  edges: ListingEdge[];
+export interface ListingSubscriptionPayload {
+  mutation: MutationType;
+  node: Listing;
+  updatedFields: String[];
+  previousValues: ListingPreviousValues;
 }
 
-export interface ListingConnectionPromise
-  extends Promise<ListingConnection>,
+export interface ListingSubscriptionPayloadPromise
+  extends Promise<ListingSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ListingEdge>>() => T;
-  aggregate: <T = AggregateListingPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingPreviousValuesPromise>() => T;
 }
 
-export interface ListingConnectionSubscription
-  extends Promise<AsyncIterator<ListingConnection>>,
+export interface ListingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ListingEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateListingSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingPreviousValuesSubscription>() => T;
 }
 
 export interface ReferralEdge {
@@ -13786,99 +13260,50 @@ export interface ReferralEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface OrganizationType {
+export interface ListingPreviousValues {
   id: ID_Output;
   name?: String;
+  slug?: String;
+  description: String;
+  price: Float;
+  discount?: Int;
+  currency: String;
+  proofOfOwnership: String;
+  windows: Int;
+  avatar: String;
+  status: Int;
 }
 
-export interface OrganizationTypePromise
-  extends Promise<OrganizationType>,
+export interface ListingPreviousValuesPromise
+  extends Promise<ListingPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   name: () => Promise<String>;
+  slug: () => Promise<String>;
+  description: () => Promise<String>;
+  price: () => Promise<Float>;
+  discount: () => Promise<Int>;
+  currency: () => Promise<String>;
+  proofOfOwnership: () => Promise<String>;
+  windows: () => Promise<Int>;
+  avatar: () => Promise<String>;
+  status: () => Promise<Int>;
 }
 
-export interface OrganizationTypeSubscription
-  extends Promise<AsyncIterator<OrganizationType>>,
+export interface ListingPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   name: () => Promise<AsyncIterator<String>>;
-}
-
-export interface OrganizationTypeNullablePromise
-  extends Promise<OrganizationType | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface BatchPayload {
-  count: Long;
-}
-
-export interface BatchPayloadPromise
-  extends Promise<BatchPayload>,
-    Fragmentable {
-  count: () => Promise<Long>;
-}
-
-export interface BatchPayloadSubscription
-  extends Promise<AsyncIterator<BatchPayload>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Long>>;
-}
-
-export interface ListingRating {
-  id: ID_Output;
-  count: Int;
-  rates: Int;
-  average: Float;
-}
-
-export interface ListingRatingPromise
-  extends Promise<ListingRating>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  count: () => Promise<Int>;
-  rates: () => Promise<Int>;
-  average: () => Promise<Float>;
-}
-
-export interface ListingRatingSubscription
-  extends Promise<AsyncIterator<ListingRating>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  count: () => Promise<AsyncIterator<Int>>;
-  rates: () => Promise<AsyncIterator<Int>>;
-  average: () => Promise<AsyncIterator<Float>>;
-}
-
-export interface ListingRatingNullablePromise
-  extends Promise<ListingRating | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  count: () => Promise<Int>;
-  rates: () => Promise<Int>;
-  average: () => Promise<Float>;
-}
-
-export interface WarehouserIdentificationEdge {
-  node: WarehouserIdentification;
-  cursor: String;
-}
-
-export interface WarehouserIdentificationEdgePromise
-  extends Promise<WarehouserIdentificationEdge>,
-    Fragmentable {
-  node: <T = WarehouserIdentificationPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface WarehouserIdentificationEdgeSubscription
-  extends Promise<AsyncIterator<WarehouserIdentificationEdge>>,
-    Fragmentable {
-  node: <T = WarehouserIdentificationSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  price: () => Promise<AsyncIterator<Float>>;
+  discount: () => Promise<AsyncIterator<Int>>;
+  currency: () => Promise<AsyncIterator<String>>;
+  proofOfOwnership: () => Promise<AsyncIterator<String>>;
+  windows: () => Promise<AsyncIterator<Int>>;
+  avatar: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AmenitiesOptions {
@@ -13970,40 +13395,32 @@ export interface AggregateRatingPromise
 export interface AggregateRatingSubscription
   extends Promise<AsyncIterator<AggregateRating>>,
     Fragmentable {
-  node: <T = ListingDimensionsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AdminRole {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+export interface ListingAvailabilitySubscriptionPayload {
+  mutation: MutationType;
+  node: ListingAvailability;
+  updatedFields: String[];
+  previousValues: ListingAvailabilityPreviousValues;
 }
 
-export interface AdminRolePromise extends Promise<AdminRole>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface AdminRoleSubscription
-  extends Promise<AsyncIterator<AdminRole>>,
+export interface ListingAvailabilitySubscriptionPayloadPromise
+  extends Promise<ListingAvailabilitySubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingAvailabilityPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingAvailabilityPreviousValuesPromise>() => T;
 }
 
-export interface AdminRoleNullablePromise
-  extends Promise<AdminRole | null>,
+export interface ListingAvailabilitySubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingAvailabilitySubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingAvailabilitySubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingAvailabilityPreviousValuesSubscription>() => T;
 }
 
 export interface RatingConnection {
@@ -14027,25 +13444,26 @@ export interface RatingConnectionSubscription
   aggregate: <T = AggregateRatingSubscription>() => T;
 }
 
-export interface WalletConnection {
-  pageInfo: PageInfo;
-  edges: WalletEdge[];
+export interface ListingAvailabilityPreviousValues {
+  id: ID_Output;
+  from: String;
+  to: String;
 }
 
-export interface WalletConnectionPromise
-  extends Promise<WalletConnection>,
+export interface ListingAvailabilityPreviousValuesPromise
+  extends Promise<ListingAvailabilityPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<WalletEdge>>() => T;
-  aggregate: <T = AggregateWalletPromise>() => T;
+  id: () => Promise<ID_Output>;
+  from: () => Promise<String>;
+  to: () => Promise<String>;
 }
 
-export interface WalletConnectionSubscription
-  extends Promise<AsyncIterator<WalletConnection>>,
+export interface ListingAvailabilityPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingAvailabilityPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<WalletEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateWalletSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  from: () => Promise<AsyncIterator<String>>;
+  to: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregatePropertiesOptions {
@@ -14075,60 +13493,31 @@ export interface WallFinishesOptions {
 export interface WallFinishesOptionsPromise
   extends Promise<WallFinishesOptions>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  recipientCode: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
-  owner: <T = UserSubscription>() => T;
-  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  bank: <T = BankSubscription>() => T;
-  availableBalance: () => Promise<AsyncIterator<Float>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  ledgerBalance: () => Promise<AsyncIterator<Float>>;
-  currency: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface WallFinishesOptionsSubscription
   extends Promise<AsyncIterator<WallFinishesOptions>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  recipientCode: () => Promise<String>;
-  userId: () => Promise<String>;
-  owner: <T = UserPromise>() => T;
-  transactions: <T = FragmentableArray<Transaction>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  bank: <T = BankPromise>() => T;
-  availableBalance: () => Promise<Float>;
-  status: () => Promise<Int>;
-  ledgerBalance: () => Promise<Float>;
-  currency: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface WallFinishesOptionsNullablePromise
   extends Promise<WallFinishesOptions | null>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AdminRolePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AdminRolePreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface PropertiesOptionsConnection {
@@ -14152,45 +13541,29 @@ export interface PropertiesOptionsConnectionSubscription
   aggregate: <T = AggregatePropertiesOptionsSubscription>() => T;
 }
 
-export interface AdminRolePreviousValues {
-  id: ID_Output;
-  name: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+export interface ListingDimensionsSubscriptionPayload {
+  mutation: MutationType;
+  node: ListingDimensions;
+  updatedFields: String[];
+  previousValues: ListingDimensionsPreviousValues;
 }
 
-export interface AdminRolePreviousValuesPromise
-  extends Promise<AdminRolePreviousValues>,
+export interface ListingDimensionsSubscriptionPayloadPromise
+  extends Promise<ListingDimensionsSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingDimensionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingDimensionsPreviousValuesPromise>() => T;
 }
 
-export interface AdminRolePreviousValuesSubscription
-  extends Promise<AsyncIterator<AdminRolePreviousValues>>,
+export interface ListingDimensionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingDimensionsSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface AggregateValueAddedServices {
-  count: Int;
-}
-
-export interface AggregateValueAddedServicesPromise
-  extends Promise<AggregateValueAddedServices>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateValueAddedServicesSubscription
-  extends Promise<AsyncIterator<AggregateValueAddedServices>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingDimensionsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingDimensionsPreviousValuesSubscription>() => T;
 }
 
 export interface PaymentCustomerEdge {
@@ -14212,8 +13585,18 @@ export interface PaymentCustomerEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ListingDimensionsNullablePromise
-  extends Promise<ListingDimensions | null>,
+export interface ListingDimensionsPreviousValues {
+  id: ID_Output;
+  height: Float;
+  weight: Float;
+  length: Float;
+  unitOfDimensions?: Int;
+  volume?: Float;
+  area?: Float;
+}
+
+export interface ListingDimensionsPreviousValuesPromise
+  extends Promise<ListingDimensionsPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   height: () => Promise<Float>;
@@ -14224,21 +13607,8 @@ export interface ListingDimensionsNullablePromise
   area: () => Promise<Float>;
 }
 
-export interface ValueAddedServicesConnection {
-  pageInfo: PageInfo;
-  edges: ValueAddedServicesEdge[];
-}
-
-export interface ValueAddedServicesConnectionPromise
-  extends Promise<ValueAddedServicesConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ValueAddedServicesEdge>>() => T;
-  aggregate: <T = AggregateValueAddedServicesPromise>() => T;
-}
-
-export interface ValueAddedServicesConnectionSubscription
-  extends Promise<AsyncIterator<ValueAddedServicesConnection>>,
+export interface ListingDimensionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingDimensionsPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   height: () => Promise<AsyncIterator<Float>>;
@@ -14308,21 +13678,24 @@ export interface PaymentEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserOrganizationRole {
-  id: ID_Output;
+export interface ListingPhotosSubscriptionPayload {
+  mutation: MutationType;
+  node: ListingPhotos;
+  updatedFields: String[];
+  previousValues: ListingPhotosPreviousValues;
 }
 
-export interface UserOrganizationRolePromise
-  extends Promise<UserOrganizationRole>,
+export interface ListingPhotosSubscriptionPayloadPromise
+  extends Promise<ListingPhotosSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  user: <T = UserPromise>() => T;
-  role: <T = RolePromise>() => T;
-  organization: <T = OrganizationPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingPhotosPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingPhotosPreviousValuesPromise>() => T;
 }
 
-export interface UserOrganizationRoleSubscription
-  extends Promise<AsyncIterator<UserOrganizationRole>>,
+export interface ListingPhotosSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingPhotosSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
   node: <T = ListingPhotosSubscription>() => T;
@@ -14349,28 +13722,26 @@ export interface AmenitiesOptionsEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ListingAvailabilityPromise
-  extends Promise<ListingAvailability>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  from: () => Promise<String>;
-  to: () => Promise<String>;
+export interface ListingPhotosPreviousValues {
+  id: ID_Output;
+  url: String;
+  default?: Boolean;
 }
 
-export interface ListingAvailabilitySubscription
-  extends Promise<AsyncIterator<ListingAvailability>>,
+export interface ListingPhotosPreviousValuesPromise
+  extends Promise<ListingPhotosPreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  url: () => Promise<String>;
+  default: () => Promise<Boolean>;
+}
+
+export interface ListingPhotosPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingPhotosPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  from: () => Promise<AsyncIterator<String>>;
-  to: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ListingAvailabilityNullablePromise
-  extends Promise<ListingAvailability | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  from: () => Promise<String>;
-  to: () => Promise<String>;
+  url: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface RequisitionCost {
@@ -14428,10 +13799,11 @@ export interface PropertiesOptionsPromise
 export interface PropertiesOptionsSubscription
   extends Promise<AsyncIterator<PropertiesOptions>>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AmenitiesOptionsPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AmenitiesOptionsPreviousValuesPromise>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface PropertiesOptionsNullablePromise
@@ -14515,32 +13887,29 @@ export interface RequisitionNullablePromise
   status: () => Promise<Int>;
 }
 
-export interface AmenitiesOptionsPreviousValues {
-  id: ID_Output;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
-  userId?: String;
+export interface ListingProductsSubscriptionPayload {
+  mutation: MutationType;
+  node: ListingProducts;
+  updatedFields: String[];
+  previousValues: ListingProductsPreviousValues;
 }
 
-export interface AmenitiesOptionsPreviousValuesPromise
-  extends Promise<AmenitiesOptionsPreviousValues>,
+export interface ListingProductsSubscriptionPayloadPromise
+  extends Promise<ListingProductsSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
-  userId: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingProductsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingProductsPreviousValuesPromise>() => T;
 }
 
-export interface AmenitiesOptionsPreviousValuesSubscription
-  extends Promise<AsyncIterator<AmenitiesOptionsPreviousValues>>,
+export interface ListingProductsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingProductsSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingProductsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingProductsPreviousValuesSubscription>() => T;
 }
 
 export interface AggregateOtp {
@@ -14550,18 +13919,16 @@ export interface AggregateOtp {
 export interface AggregateOtpPromise
   extends Promise<AggregateOtp>,
     Fragmentable {
-  node: <T = TransactionPromise>() => T;
-  cursor: () => Promise<String>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateOtpSubscription
   extends Promise<AsyncIterator<AggregateOtp>>,
     Fragmentable {
-  node: <T = TransactionSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ListingProducts {
+export interface ListingProductsPreviousValues {
   id: ID_Output;
   slug?: String;
   name?: String;
@@ -14569,8 +13936,8 @@ export interface ListingProducts {
   userId?: String;
 }
 
-export interface ListingProductsPromise
-  extends Promise<ListingProducts>,
+export interface ListingProductsPreviousValuesPromise
+  extends Promise<ListingProductsPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
@@ -14579,8 +13946,8 @@ export interface ListingProductsPromise
   userId: () => Promise<String>;
 }
 
-export interface ListingProductsSubscription
-  extends Promise<AsyncIterator<ListingProducts>>,
+export interface ListingProductsPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingProductsPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   slug: () => Promise<AsyncIterator<String>>;
@@ -14629,80 +13996,109 @@ export interface BankEdgeSubscription
 
 export interface Otp {
   id: ID_Output;
-  success: Boolean;
+  phoneNumber: String;
+  code: String;
+  validated: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
-export interface SuccessPromise extends Promise<Success>, Fragmentable {
+export interface OtpPromise extends Promise<Otp>, Fragmentable {
   id: () => Promise<ID_Output>;
-  success: () => Promise<Boolean>;
+  phoneNumber: () => Promise<String>;
+  code: () => Promise<String>;
+  validated: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface SuccessSubscription
-  extends Promise<AsyncIterator<Success>>,
+export interface OtpSubscription
+  extends Promise<AsyncIterator<Otp>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  success: () => Promise<AsyncIterator<Boolean>>;
+  phoneNumber: () => Promise<AsyncIterator<String>>;
+  code: () => Promise<AsyncIterator<String>>;
+  validated: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface SuccessNullablePromise
-  extends Promise<Success | null>,
+export interface OtpNullablePromise extends Promise<Otp | null>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  phoneNumber: () => Promise<String>;
+  code: () => Promise<String>;
+  validated: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface ListingRatingSubscriptionPayload {
+  mutation: MutationType;
+  node: ListingRating;
+  updatedFields: String[];
+  previousValues: ListingRatingPreviousValues;
+}
+
+export interface ListingRatingSubscriptionPayloadPromise
+  extends Promise<ListingRatingSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingRatingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingRatingPreviousValuesPromise>() => T;
+}
+
+export interface ListingRatingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingRatingSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingRatingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingRatingPreviousValuesSubscription>() => T;
+}
+
+export interface OrganizationTypeEdge {
+  node: OrganizationType;
+  cursor: String;
+}
+
+export interface OrganizationTypeEdgePromise
+  extends Promise<OrganizationTypeEdge>,
+    Fragmentable {
+  node: <T = OrganizationTypePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface OrganizationTypeEdgeSubscription
+  extends Promise<AsyncIterator<OrganizationTypeEdge>>,
+    Fragmentable {
+  node: <T = OrganizationTypeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface ListingRatingPreviousValues {
+  id: ID_Output;
+  count: Int;
+  rates: Int;
+  average: Float;
+}
+
+export interface ListingRatingPreviousValuesPromise
+  extends Promise<ListingRatingPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  success: () => Promise<Boolean>;
-}
-
-export interface AggregateOrganization {
-  count: Int;
-}
-
-export interface AggregateOrganizationPromise
-  extends Promise<AggregateOrganization>,
-    Fragmentable {
   count: () => Promise<Int>;
+  rates: () => Promise<Int>;
+  average: () => Promise<Float>;
 }
 
-export interface AggregateOrganizationSubscription
-  extends Promise<AsyncIterator<AggregateOrganization>>,
+export interface ListingRatingPreviousValuesSubscription
+  extends Promise<AsyncIterator<ListingRatingPreviousValues>>,
     Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
   count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface OrganizationTypeEdge {
-  node: OrganizationType;
-  cursor: String;
-}
-
-export interface OrganizationTypeEdgePromise
-  extends Promise<OrganizationTypeEdge>,
-    Fragmentable {
-  node: <T = OrganizationTypePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface OrganizationTypeEdgeSubscription
-  extends Promise<AsyncIterator<OrganizationTypeEdge>>,
-    Fragmentable {
-  node: <T = OrganizationTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface OrganizationTypeEdge {
-  node: OrganizationType;
-  cursor: String;
-}
-
-export interface OrganizationTypeEdgePromise
-  extends Promise<OrganizationTypeEdge>,
-    Fragmentable {
-  node: <T = OrganizationTypePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface OrganizationTypeEdgeSubscription
-  extends Promise<AsyncIterator<OrganizationTypeEdge>>,
-    Fragmentable {
-  node: <T = OrganizationTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  rates: () => Promise<AsyncIterator<Int>>;
+  average: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface AggregateOrganization {
@@ -14780,21 +14176,29 @@ export interface OrganizationConnectionSubscription
   aggregate: <T = AggregateOrganizationSubscription>() => T;
 }
 
-export interface OtpEdge {
-  node: Otp;
-  cursor: String;
+export interface ListingRequirementsSubscriptionPayload {
+  mutation: MutationType;
+  node: ListingRequirements;
+  updatedFields: String[];
+  previousValues: ListingRequirementsPreviousValues;
 }
 
-export interface OtpEdgePromise extends Promise<OtpEdge>, Fragmentable {
-  node: <T = OtpPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface OtpEdgeSubscription
-  extends Promise<AsyncIterator<OtpEdge>>,
+export interface ListingRequirementsSubscriptionPayloadPromise
+  extends Promise<ListingRequirementsSubscriptionPayload>,
     Fragmentable {
-  node: <T = OtpSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ListingRequirementsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ListingRequirementsPreviousValuesPromise>() => T;
+}
+
+export interface ListingRequirementsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ListingRequirementsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ListingRequirementsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ListingRequirementsPreviousValuesSubscription>() => T;
 }
 
 export interface Organization {
@@ -14845,19 +14249,16 @@ export interface OrganizationNullablePromise
   bank: <T = BankPromise>() => T;
 }
 
-export interface Payment {
+export interface ListingRequirementsPreviousValues {
   id: ID_Output;
-  email: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  amount: Float;
-  status: Int;
-  currency: String;
-  channel?: String;
-  info: String;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
 }
 
-export interface PaymentPromise extends Promise<Payment>, Fragmentable {
+export interface ListingRequirementsPreviousValuesPromise
+  extends Promise<ListingRequirementsPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
   name: () => Promise<String>;
@@ -14897,33 +14298,13 @@ export interface AggregateBank {
 export interface AggregateBankPromise
   extends Promise<AggregateBank>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amount: () => Promise<AsyncIterator<Float>>;
-  requisition: <T = RequisitionSubscription>() => T;
-  status: () => Promise<AsyncIterator<Int>>;
-  currency: () => Promise<AsyncIterator<String>>;
-  channel: () => Promise<AsyncIterator<String>>;
-  customer: <T = PaymentCustomerSubscription>() => T;
-  info: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateBankSubscription
   extends Promise<AsyncIterator<AggregateBank>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  amount: () => Promise<Float>;
-  requisition: <T = RequisitionPromise>() => T;
-  status: () => Promise<Int>;
-  currency: () => Promise<String>;
-  channel: () => Promise<String>;
-  customer: <T = PaymentCustomerPromise>() => T;
-  info: () => Promise<String>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AggregateLocations {
@@ -15023,19 +14404,13 @@ export interface AggregateListingsFrequencies {
 export interface AggregateListingsFrequenciesPromise
   extends Promise<AggregateListingsFrequencies>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = CrownPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = CrownPreviousValuesPromise>() => T;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateListingsFrequenciesSubscription
   extends Promise<AsyncIterator<AggregateListingsFrequencies>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = CrownSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = CrownPreviousValuesSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface WarehouserIdentification {
@@ -15582,31 +14957,6 @@ export interface MessageSubscriptionPayload {
   node: Message;
   updatedFields: String[];
   previousValues: MessagePreviousValues;
-export interface Wallet {
-  id: ID_Output;
-  recipientCode: String;
-  userId: String;
-  availableBalance: Int;
-  ledgerBalance: Int;
-}
-
-export interface WalletPromise extends Promise<Wallet>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  recipientCode: () => Promise<String>;
-  userId: () => Promise<String>;
-  owner: <T = UserPromise>() => T;
-  availableBalance: () => Promise<Int>;
-  ledgerBalance: () => Promise<Int>;
-  transactions: <T = FragmentableArray<Transaction>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  bank: <T = BankPromise>() => T;
 }
 
 export interface MessageSubscriptionPayloadPromise
@@ -15616,22 +14966,6 @@ export interface MessageSubscriptionPayloadPromise
   node: <T = MessagePromise>() => T;
   updatedFields: () => Promise<String[]>;
   previousValues: <T = MessagePreviousValuesPromise>() => T;
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  recipientCode: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
-  owner: <T = UserSubscription>() => T;
-  availableBalance: () => Promise<AsyncIterator<Int>>;
-  ledgerBalance: () => Promise<AsyncIterator<Int>>;
-  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  bank: <T = BankSubscription>() => T;
 }
 
 export interface MessageSubscriptionPayloadSubscription
@@ -15641,22 +14975,6 @@ export interface MessageSubscriptionPayloadSubscription
   node: <T = MessageSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = MessagePreviousValuesSubscription>() => T;
-  id: () => Promise<ID_Output>;
-  recipientCode: () => Promise<String>;
-  userId: () => Promise<String>;
-  owner: <T = UserPromise>() => T;
-  availableBalance: () => Promise<Int>;
-  ledgerBalance: () => Promise<Int>;
-  transactions: <T = FragmentableArray<Transaction>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  bank: <T = BankPromise>() => T;
 }
 
 export interface Bank {
@@ -15695,29 +15013,29 @@ export interface BankNullablePromise
   bankCode: () => Promise<String>;
 }
 
-export interface GameSubscriptionPayload {
-  mutation: MutationType;
-  node: Game;
-  updatedFields: String[];
-  previousValues: GamePreviousValues;
+export interface MessagePreviousValues {
+  id: ID_Output;
+  chatId: String;
+  text: String;
+  createdAt: DateTimeOutput;
 }
 
-export interface GameSubscriptionPayloadPromise
-  extends Promise<GameSubscriptionPayload>,
+export interface MessagePreviousValuesPromise
+  extends Promise<MessagePreviousValues>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = GamePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = GamePreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  chatId: () => Promise<String>;
+  text: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
-export interface RoofingMaterialOptionsPromise
-  extends Promise<RoofingMaterialOptions>,
+export interface MessagePreviousValuesSubscription
+  extends Promise<AsyncIterator<MessagePreviousValues>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = GameSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = GamePreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  chatId: () => Promise<AsyncIterator<String>>;
+  text: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ListingProductsEdge {
@@ -15762,53 +15080,38 @@ export interface AggregateListingPhotos {
 export interface AggregateListingPhotosPromise
   extends Promise<AggregateListingPhotos>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  country: () => Promise<AsyncIterator<String>>;
-  state: () => Promise<AsyncIterator<String>>;
-  geo: () => Promise<AsyncIterator<String>>;
-  lga: () => Promise<AsyncIterator<String>>;
-  street: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateListingPhotosSubscription
   extends Promise<AsyncIterator<AggregateListingPhotos>>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  country: () => Promise<String>;
-  state: () => Promise<String>;
-  geo: () => Promise<String>;
-  lga: () => Promise<String>;
-  street: () => Promise<String>;
-  userId: () => Promise<String>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ValueAddedServices {
-  id: ID_Output;
-  slug?: String;
-  default?: Boolean;
-  name?: String;
-  userId?: String;
+export interface OrganizationSubscriptionPayload {
+  mutation: MutationType;
+  node: Organization;
+  updatedFields: String[];
+  previousValues: OrganizationPreviousValues;
 }
 
-export interface ValueAddedServicesPromise
-  extends Promise<ValueAddedServices>,
+export interface OrganizationSubscriptionPayloadPromise
+  extends Promise<OrganizationSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  default: () => Promise<Boolean>;
-  name: () => Promise<String>;
-  userId: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = OrganizationPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = OrganizationPreviousValuesPromise>() => T;
 }
 
-export interface ValueAddedServicesSubscription
-  extends Promise<AsyncIterator<ValueAddedServices>>,
+export interface OrganizationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<OrganizationSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-  name: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = OrganizationSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = OrganizationPreviousValuesSubscription>() => T;
 }
 
 export interface ListingPhotosConnection {
@@ -15832,24 +15135,28 @@ export interface ListingPhotosConnectionSubscription
   aggregate: <T = AggregateListingPhotosSubscription>() => T;
 }
 
-export interface ListingPhotosSubscription
-  extends Promise<AsyncIterator<ListingPhotos>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
+export interface OrganizationPreviousValues {
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
+  id: ID_Output;
+  name?: String;
+  email: String;
+  phoneNumber: String;
 }
 
-export interface ListingPhotosNullablePromise
-  extends Promise<ListingPhotos | null>,
+export interface OrganizationPreviousValuesPromise
+  extends Promise<OrganizationPreviousValues>,
     Fragmentable {
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
   id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  default: () => Promise<Boolean>;
+  name: () => Promise<String>;
+  email: () => Promise<String>;
+  phoneNumber: () => Promise<String>;
 }
 
-export interface IdentificationsOptionsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<IdentificationsOptionsSubscriptionPayload>>,
+export interface OrganizationPreviousValuesSubscription
+  extends Promise<AsyncIterator<OrganizationPreviousValues>>,
     Fragmentable {
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -15913,32 +15220,29 @@ export interface AggregateListingAvailabilitySubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ListingProducts {
-  id: ID_Output;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
-  userId?: String;
+export interface OrganizationTypeSubscriptionPayload {
+  mutation: MutationType;
+  node: OrganizationType;
+  updatedFields: String[];
+  previousValues: OrganizationTypePreviousValues;
 }
 
-export interface ListingProductsPromise
-  extends Promise<ListingProducts>,
+export interface OrganizationTypeSubscriptionPayloadPromise
+  extends Promise<OrganizationTypeSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
-  userId: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = OrganizationTypePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = OrganizationTypePreviousValuesPromise>() => T;
 }
 
-export interface ListingProductsSubscription
-  extends Promise<AsyncIterator<ListingProducts>>,
+export interface OrganizationTypeSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<OrganizationTypeSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = OrganizationTypeSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = OrganizationTypePreviousValuesSubscription>() => T;
 }
 
 export interface ListingAvailabilityConnection {
@@ -15964,38 +15268,23 @@ export interface ListingAvailabilityConnectionSubscription
   aggregate: <T = AggregateListingAvailabilitySubscription>() => T;
 }
 
-export interface ListingDimensions {
+export interface OrganizationTypePreviousValues {
   id: ID_Output;
-  height: Float;
-  weight: Float;
-  length: Float;
-  unitOfDimensions?: Int;
-  volume?: Float;
-  area?: Float;
+  name?: String;
 }
 
-export interface ListingDimensionsPromise
-  extends Promise<ListingDimensions>,
+export interface OrganizationTypePreviousValuesPromise
+  extends Promise<OrganizationTypePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  height: () => Promise<Float>;
-  weight: () => Promise<Float>;
-  length: () => Promise<Float>;
-  unitOfDimensions: () => Promise<Int>;
-  volume: () => Promise<Float>;
-  area: () => Promise<Float>;
+  name: () => Promise<String>;
 }
 
-export interface ListingDimensionsSubscription
-  extends Promise<AsyncIterator<ListingDimensions>>,
+export interface OrganizationTypePreviousValuesSubscription
+  extends Promise<AsyncIterator<OrganizationTypePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  height: () => Promise<AsyncIterator<Float>>;
-  weight: () => Promise<AsyncIterator<Float>>;
-  length: () => Promise<AsyncIterator<Float>>;
-  unitOfDimensions: () => Promise<AsyncIterator<Int>>;
-  volume: () => Promise<AsyncIterator<Float>>;
-  area: () => Promise<AsyncIterator<Float>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
 export interface BatchPayload {
@@ -16077,33 +15366,29 @@ export interface WalletPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface AggregateListingAvailability {
-  count: Int;
+export interface OtpSubscriptionPayload {
+  mutation: MutationType;
+  node: Otp;
+  updatedFields: String[];
+  previousValues: OtpPreviousValues;
 }
 
-export interface AggregateListingAvailabilityPromise
-  extends Promise<AggregateListingAvailability>,
+export interface OtpSubscriptionPayloadPromise
+  extends Promise<OtpSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = OtpPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = OtpPreviousValuesPromise>() => T;
 }
 
-export interface AggregateListingAvailabilitySubscription
-  extends Promise<AsyncIterator<AggregateListingAvailability>>,
+export interface OtpSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<OtpSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ListingDimensionsConnection {
-  pageInfo: PageInfo;
-  edges: ListingDimensionsEdge[];
-}
-
-export interface ListingDimensionsConnectionPromise
-  extends Promise<ListingDimensionsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ListingDimensionsEdge>>() => T;
-  aggregate: <T = AggregateListingDimensionsPromise>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = OtpSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = OtpPreviousValuesSubscription>() => T;
 }
 
 export interface WalletSubscriptionPayload {
@@ -16131,20 +15416,35 @@ export interface WalletSubscriptionPayloadSubscription
   previousValues: <T = WalletPreviousValuesSubscription>() => T;
 }
 
-export interface AggregatePayment {
-  count: Int;
+export interface OtpPreviousValues {
+  id: ID_Output;
+  phoneNumber: String;
+  code: String;
+  validated: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
-export interface AggregatePaymentPromise
-  extends Promise<AggregatePayment>,
+export interface OtpPreviousValuesPromise
+  extends Promise<OtpPreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  phoneNumber: () => Promise<String>;
+  code: () => Promise<String>;
+  validated: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface AggregatePaymentSubscription
-  extends Promise<AsyncIterator<AggregatePayment>>,
+export interface OtpPreviousValuesSubscription
+  extends Promise<AsyncIterator<OtpPreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  phoneNumber: () => Promise<AsyncIterator<String>>;
+  code: () => Promise<AsyncIterator<String>>;
+  validated: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface WallFinishesOptionsConnection {
@@ -16181,24 +15481,31 @@ export interface IdentificationsOptions {
 export interface IdentificationsOptionsPromise
   extends Promise<IdentificationsOptions>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ListingPhotosEdge>>() => T;
-  aggregate: <T = AggregateListingPhotosPromise>() => T;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface IdentificationsOptionsSubscription
   extends Promise<AsyncIterator<IdentificationsOptions>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<ListingPhotosEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateListingPhotosSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface IdentificationsOptionsNullablePromise
   extends Promise<IdentificationsOptions | null>,
     Fragmentable {
-  node: <T = ListingPhotosPromise>() => T;
-  cursor: () => Promise<String>;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface AggregateUserStatus {
@@ -16224,17 +15531,17 @@ export interface PaymentSubscriptionPayload {
   previousValues: PaymentPreviousValues;
 }
 
-export interface PaymentCustomer {
-  id: ID_Output;
-  paystackId?: String;
-  customerCode?: String;
-  firstName?: String;
-  lastName?: String;
-  email?: String;
+export interface PaymentSubscriptionPayloadPromise
+  extends Promise<PaymentSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PaymentPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PaymentPreviousValuesPromise>() => T;
 }
 
-export interface PaymentCustomerPromise
-  extends Promise<PaymentCustomer>,
+export interface PaymentSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PaymentSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
   node: <T = PaymentSubscription>() => T;
@@ -16263,39 +15570,44 @@ export interface UserConnectionSubscription
   aggregate: <T = AggregateUserSubscription>() => T;
 }
 
-export interface ListingRatingEdge {
-  node: ListingRating;
-  cursor: String;
+export interface PaymentPreviousValues {
+  id: ID_Output;
+  email: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
+  amount: Float;
+  status: Int;
+  currency: String;
+  channel?: String;
+  info: String;
 }
 
-export interface ListingRatingEdgePromise
-  extends Promise<ListingRatingEdge>,
+export interface PaymentPreviousValuesPromise
+  extends Promise<PaymentPreviousValues>,
     Fragmentable {
-  node: <T = ListingRatingPromise>() => T;
-  cursor: () => Promise<String>;
+  id: () => Promise<ID_Output>;
+  email: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  amount: () => Promise<Float>;
+  status: () => Promise<Int>;
+  currency: () => Promise<String>;
+  channel: () => Promise<String>;
+  info: () => Promise<String>;
 }
 
-export interface ListingRatingEdgeSubscription
-  extends Promise<AsyncIterator<ListingRatingEdge>>,
+export interface PaymentPreviousValuesSubscription
+  extends Promise<AsyncIterator<PaymentPreviousValues>>,
     Fragmentable {
-  node: <T = ListingRatingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface AggregateListingRating {
-  count: Int;
-}
-
-export interface AggregateListingRatingPromise
-  extends Promise<AggregateListingRating>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateListingRatingSubscription
-  extends Promise<AsyncIterator<AggregateListingRating>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  email: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  amount: () => Promise<AsyncIterator<Float>>;
+  status: () => Promise<AsyncIterator<Int>>;
+  currency: () => Promise<AsyncIterator<String>>;
+  channel: () => Promise<AsyncIterator<String>>;
+  info: () => Promise<AsyncIterator<String>>;
 }
 
 export interface TransactionConnection {
@@ -16326,14 +15638,13 @@ export interface AggregateGame {
 export interface AggregateGamePromise
   extends Promise<AggregateGame>,
     Fragmentable {
-  node: <T = ListingRequirementsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateGameSubscription
   extends Promise<AsyncIterator<AggregateGame>>,
     Fragmentable {
-  count: () => Promise<Int>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface SuccessEdge {
@@ -16353,33 +15664,29 @@ export interface SuccessEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ListingsFrequenciesConnectionSubscription
-  extends Promise<AsyncIterator<ListingsFrequenciesConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <
-    T = Promise<AsyncIterator<ListingsFrequenciesEdgeSubscription>>
-  >() => T;
-  aggregate: <T = AggregateListingsFrequenciesSubscription>() => T;
+export interface PaymentCustomerSubscriptionPayload {
+  mutation: MutationType;
+  node: PaymentCustomer;
+  updatedFields: String[];
+  previousValues: PaymentCustomerPreviousValues;
 }
 
-export interface ListingsFrequenciesEdge {
-  node: ListingsFrequencies;
-  cursor: String;
+export interface PaymentCustomerSubscriptionPayloadPromise
+  extends Promise<PaymentCustomerSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = PaymentCustomerPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PaymentCustomerPreviousValuesPromise>() => T;
 }
 
-export interface ListingsFrequenciesEdgePromise
-  extends Promise<ListingsFrequenciesEdge>,
+export interface PaymentCustomerSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PaymentCustomerSubscriptionPayload>>,
     Fragmentable {
-  node: <T = ListingsFrequenciesPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ListingsFrequenciesEdgeSubscription
-  extends Promise<AsyncIterator<ListingsFrequenciesEdge>>,
-    Fragmentable {
-  node: <T = ListingsFrequenciesSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PaymentCustomerSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PaymentCustomerPreviousValuesSubscription>() => T;
 }
 
 export interface AggregateStockProduct {
@@ -16398,25 +15705,35 @@ export interface AggregateStockProductSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface LocationsConnection {
-  pageInfo: PageInfo;
-  edges: LocationsEdge[];
+export interface PaymentCustomerPreviousValues {
+  id: ID_Output;
+  paystackId?: String;
+  customerCode?: String;
+  firstName?: String;
+  lastName?: String;
+  email?: String;
 }
 
-export interface LocationsConnectionPromise
-  extends Promise<LocationsConnection>,
+export interface PaymentCustomerPreviousValuesPromise
+  extends Promise<PaymentCustomerPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<LocationsEdge>>() => T;
-  aggregate: <T = AggregateLocationsPromise>() => T;
+  id: () => Promise<ID_Output>;
+  paystackId: () => Promise<String>;
+  customerCode: () => Promise<String>;
+  firstName: () => Promise<String>;
+  lastName: () => Promise<String>;
+  email: () => Promise<String>;
 }
 
-export interface LocationsConnectionSubscription
-  extends Promise<AsyncIterator<LocationsConnection>>,
+export interface PaymentCustomerPreviousValuesSubscription
+  extends Promise<AsyncIterator<PaymentCustomerPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<LocationsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateLocationsSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  paystackId: () => Promise<AsyncIterator<String>>;
+  customerCode: () => Promise<AsyncIterator<String>>;
+  firstName: () => Promise<AsyncIterator<String>>;
+  lastName: () => Promise<AsyncIterator<String>>;
+  email: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StockDispatchEdge {
@@ -16472,21 +15789,29 @@ export interface StockEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface MessageEdge {
-  node: Message;
-  cursor: String;
+export interface PropertiesOptionsSubscriptionPayload {
+  mutation: MutationType;
+  node: PropertiesOptions;
+  updatedFields: String[];
+  previousValues: PropertiesOptionsPreviousValues;
 }
 
-export interface MessageEdgePromise extends Promise<MessageEdge>, Fragmentable {
-  node: <T = MessagePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface MessageEdgeSubscription
-  extends Promise<AsyncIterator<MessageEdge>>,
+export interface PropertiesOptionsSubscriptionPayloadPromise
+  extends Promise<PropertiesOptionsSubscriptionPayload>,
     Fragmentable {
-  node: <T = MessageSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<MutationType>;
+  node: <T = PropertiesOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = PropertiesOptionsPreviousValuesPromise>() => T;
+}
+
+export interface PropertiesOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<PropertiesOptionsSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = PropertiesOptionsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = PropertiesOptionsPreviousValuesSubscription>() => T;
 }
 
 export interface StockProduct {
@@ -16497,6 +15822,12 @@ export interface StockProduct {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Float;
+  shipmentDate?: DateTimeOutput;
+  deliveryDate?: DateTimeOutput;
+  partnerLogistics?: String;
+  expiryDate?: DateTimeOutput;
+  condition?: String;
 }
 
 export interface StockProductPromise
@@ -16509,6 +15840,12 @@ export interface StockProductPromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockProductSubscription
@@ -16521,6 +15858,12 @@ export interface StockProductSubscription
   quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
   totalQuantity: () => Promise<AsyncIterator<Int>>;
   productImage: () => Promise<AsyncIterator<String>>;
+  estimatedValue: () => Promise<AsyncIterator<Float>>;
+  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  partnerLogistics: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  condition: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StockProductNullablePromise
@@ -16533,36 +15876,40 @@ export interface StockProductNullablePromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
-export interface Organization {
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+export interface PropertiesOptionsPreviousValues {
   id: ID_Output;
+  slug?: String;
   name?: String;
-  email: String;
-  phoneNumber: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export interface OrganizationPromise
-  extends Promise<Organization>,
+export interface PropertiesOptionsPreviousValuesPromise
+  extends Promise<PropertiesOptionsPreviousValues>,
     Fragmentable {
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
   id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
   name: () => Promise<String>;
-  email: () => Promise<String>;
-  type: <T = OrganizationTypePromise>() => T;
-  phoneNumber: () => Promise<String>;
-  bank: <T = BankPromise>() => T;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface OrganizationSubscription
-  extends Promise<AsyncIterator<Organization>>,
+export interface PropertiesOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<PropertiesOptionsPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<AmenitiesOptionsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateAmenitiesOptionsSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface StatesConnection {
@@ -16626,44 +15973,29 @@ export interface SpacesOptionsEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface OrganizationTypeConnection {
-  pageInfo: PageInfo;
-  edges: OrganizationTypeEdge[];
+export interface RatingSubscriptionPayload {
+  mutation: MutationType;
+  node: Rating;
+  updatedFields: String[];
+  previousValues: RatingPreviousValues;
 }
 
-export interface OrganizationTypeConnectionPromise
-  extends Promise<OrganizationTypeConnection>,
+export interface RatingSubscriptionPayloadPromise
+  extends Promise<RatingSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<OrganizationTypeEdge>>() => T;
-  aggregate: <T = AggregateOrganizationTypePromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = RatingPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RatingPreviousValuesPromise>() => T;
 }
 
-export interface OrganizationTypeConnectionSubscription
-  extends Promise<AsyncIterator<OrganizationTypeConnection>>,
+export interface RatingSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RatingSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<OrganizationTypeEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateOrganizationTypeSubscription>() => T;
-}
-
-export interface OrganizationTypeEdge {
-  node: OrganizationType;
-  cursor: String;
-}
-
-export interface OrganizationTypeEdgePromise
-  extends Promise<OrganizationTypeEdge>,
-    Fragmentable {
-  node: <T = OrganizationTypePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface OrganizationTypeEdgeSubscription
-  extends Promise<AsyncIterator<OrganizationTypeEdge>>,
-    Fragmentable {
-  node: <T = OrganizationTypeSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RatingSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RatingPreviousValuesSubscription>() => T;
 }
 
 export interface SelectOptionsConnection {
@@ -16687,42 +16019,32 @@ export interface SelectOptionsConnectionSubscription
   aggregate: <T = AggregateSelectOptionsSubscription>() => T;
 }
 
-export interface Otp {
+export interface RatingPreviousValues {
   id: ID_Output;
-  phoneNumber: String;
-  code: String;
-  validated: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+  listingId: String;
+  ratingId: String;
+  rate: Int;
+  userId: String;
 }
 
-export interface OtpPromise extends Promise<Otp>, Fragmentable {
+export interface RatingPreviousValuesPromise
+  extends Promise<RatingPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  phoneNumber: () => Promise<String>;
-  code: () => Promise<String>;
-  validated: () => Promise<Boolean>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  listingId: () => Promise<String>;
+  ratingId: () => Promise<String>;
+  rate: () => Promise<Int>;
+  userId: () => Promise<String>;
 }
 
-export interface OtpSubscription
-  extends Promise<AsyncIterator<Otp>>,
+export interface RatingPreviousValuesSubscription
+  extends Promise<AsyncIterator<RatingPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
-  code: () => Promise<AsyncIterator<String>>;
-  validated: () => Promise<AsyncIterator<Boolean>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface OtpNullablePromise extends Promise<Otp | null>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  phoneNumber: () => Promise<String>;
-  code: () => Promise<String>;
-  validated: () => Promise<Boolean>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
+  listingId: () => Promise<AsyncIterator<String>>;
+  ratingId: () => Promise<AsyncIterator<String>>;
+  rate: () => Promise<AsyncIterator<Int>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateRole {
@@ -16830,54 +16152,55 @@ export interface RoleNullablePromise
   name: () => Promise<String>;
 }
 
-export interface ListingRequirementsPreviousValues {
-  id: ID_Output;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
+export interface ReferralSubscriptionPayload {
+  mutation: MutationType;
+  node: Referral;
+  updatedFields: String[];
+  previousValues: ReferralPreviousValues;
 }
 
-export interface ListingRequirementsPreviousValuesPromise
-  extends Promise<ListingRequirementsPreviousValues>,
+export interface ReferralSubscriptionPayloadPromise
+  extends Promise<ReferralSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
+  mutation: () => Promise<MutationType>;
+  node: <T = ReferralPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = ReferralPreviousValuesPromise>() => T;
 }
 
-export interface OtpEdgeSubscription
-  extends Promise<AsyncIterator<OtpEdge>>,
+export interface ReferralSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ReferralSubscriptionPayload>>,
     Fragmentable {
-  node: <T = OtpSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = ReferralSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = ReferralPreviousValuesSubscription>() => T;
+}
+
+export interface AdminUserEdge {
+  node: AdminUser;
+  cursor: String;
+}
+
+export interface AdminUserEdgePromise
+  extends Promise<AdminUserEdge>,
+    Fragmentable {
+  node: <T = AdminUserPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface AdminUserEdgeSubscription
+  extends Promise<AsyncIterator<AdminUserEdge>>,
+    Fragmentable {
+  node: <T = AdminUserSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateOtp {
-  count: Int;
-}
-
-export interface AggregateOtpPromise
-  extends Promise<AggregateOtp>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateAmenitiesOptionsSubscription
-  extends Promise<AsyncIterator<AggregateAmenitiesOptions>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface Listing {
+export interface ReferralPreviousValues {
   id: ID_Output;
   status: Boolean;
   refCode: Int;
   userId: String;
-  availableBalance: Float;
-  status?: Int;
-  ledgerBalance: Float;
-  currency?: String;
   createdAt: DateTimeOutput;
   updatedAt?: DateTimeOutput;
   startDate: DateTimeOutput;
@@ -16886,45 +16209,13 @@ export interface Listing {
   rollover: Float;
 }
 
-export interface ListingPromise extends Promise<Listing>, Fragmentable {
+export interface ReferralPreviousValuesPromise
+  extends Promise<ReferralPreviousValues>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
   status: () => Promise<Boolean>;
   refCode: () => Promise<Int>;
   userId: () => Promise<String>;
-  owner: <T = UserPromise>() => T;
-  transactions: <T = FragmentableArray<Transaction>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  frequency: <T = ListingsFrequenciesPromise>() => T;
-  requirements: <T = FragmentableArray<ListingRequirements>>(args?: {
-    where?: ListingRequirementsWhereInput;
-    orderBy?: ListingRequirementsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  products: <T = FragmentableArray<ListingProducts>>(args?: {
-    where?: ListingProductsWhereInput;
-    orderBy?: ListingProductsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  availability: <T = ListingAvailabilityPromise>() => T;
-  dimensions: <T = ListingDimensionsPromise>() => T;
-  status: () => Promise<Int>;
-  ledgerBalance: () => Promise<Float>;
-  currency: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   startDate: () => Promise<DateTimeOutput>;
@@ -16933,146 +16224,13 @@ export interface ListingPromise extends Promise<Listing>, Fragmentable {
   rollover: () => Promise<Float>;
 }
 
-export interface PaymentSubscription
-  extends Promise<AsyncIterator<Payment>>,
+export interface ReferralPreviousValuesSubscription
+  extends Promise<AsyncIterator<ReferralPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   status: () => Promise<AsyncIterator<Boolean>>;
   refCode: () => Promise<AsyncIterator<Int>>;
   userId: () => Promise<AsyncIterator<String>>;
-  owner: <T = UserSubscription>() => T;
-  transactions: <T = Promise<AsyncIterator<TransactionSubscription>>>(args?: {
-    where?: TransactionWhereInput;
-    orderBy?: TransactionOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  property: <T = Promise<AsyncIterator<PropertiesOptionsSubscription>>>(args?: {
-    where?: PropertiesOptionsWhereInput;
-    orderBy?: PropertiesOptionsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  floor: <T = Promise<AsyncIterator<FloorsOptionsSubscription>>>(args?: {
-    where?: FloorsOptionsWhereInput;
-    orderBy?: FloorsOptionsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  wallFinish: <
-    T = Promise<AsyncIterator<WallFinishesOptionsSubscription>>
-  >(args?: {
-    where?: WallFinishesOptionsWhereInput;
-    orderBy?: WallFinishesOptionsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  roofing: <
-    T = Promise<AsyncIterator<RoofingMaterialOptionsSubscription>>
-  >(args?: {
-    where?: RoofingMaterialOptionsWhereInput;
-    orderBy?: RoofingMaterialOptionsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  isSecure: <T = SelectOptionsSubscription>() => T;
-  pest: <T = SelectOptionsSubscription>() => T;
-  windows: () => Promise<AsyncIterator<Int>>;
-  location: <T = LocationsSubscription>() => T;
-  amenities: <T = Promise<AsyncIterator<AmenitiesOptionsSubscription>>>(args?: {
-    where?: AmenitiesOptionsWhereInput;
-    orderBy?: AmenitiesOptionsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  avatar: () => Promise<AsyncIterator<String>>;
-  vas: <T = Promise<AsyncIterator<ValueAddedServicesSubscription>>>(args?: {
-    where?: ValueAddedServicesWhereInput;
-    orderBy?: ValueAddedServicesOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  listingPhotos: <
-    T = Promise<AsyncIterator<ListingPhotosSubscription>>
-  >(args?: {
-    where?: ListingPhotosWhereInput;
-    orderBy?: ListingPhotosOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  listing: <T = ListingPromise>() => T;
-  space: () => Promise<Int>;
-  status: () => Promise<Int>;
-}
-
-export interface RequisitionSubscription
-  extends Promise<AsyncIterator<Requisition>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  duration: <T = RequisitionDurationSubscription>() => T;
-  cost: <T = RequisitionCostSubscription>() => T;
-  user: <T = UserSubscription>() => T;
-  expires: () => Promise<AsyncIterator<String>>;
-  products: <T = Promise<AsyncIterator<ListingProductsSubscription>>>(args?: {
-    where?: ListingProductsWhereInput;
-    orderBy?: ListingProductsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  listing: <T = ListingSubscription>() => T;
-  space: () => Promise<AsyncIterator<Int>>;
-  status: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface RequisitionNullablePromise
-  extends Promise<Requisition | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  duration: <T = RequisitionDurationPromise>() => T;
-  cost: <T = RequisitionCostPromise>() => T;
-  user: <T = UserPromise>() => T;
-  expires: () => Promise<String>;
-  products: <T = FragmentableArray<ListingProducts>>(args?: {
-    where?: ListingProductsWhereInput;
-    orderBy?: ListingProductsOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  availability: <T = ListingAvailabilitySubscription>() => T;
-  dimensions: <T = ListingDimensionsSubscription>() => T;
-  status: () => Promise<AsyncIterator<Int>>;
-  ledgerBalance: () => Promise<AsyncIterator<Float>>;
-  currency: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   startDate: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -17149,20 +16307,29 @@ export interface AggregateReferralSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AggregateWarehouserIdentification {
-  count: Int;
+export interface RequisitionSubscriptionPayload {
+  mutation: MutationType;
+  node: Requisition;
+  updatedFields: String[];
+  previousValues: RequisitionPreviousValues;
 }
 
-export interface AggregateWarehouserIdentificationPromise
-  extends Promise<AggregateWarehouserIdentification>,
+export interface RequisitionSubscriptionPayloadPromise
+  extends Promise<RequisitionSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = RequisitionPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RequisitionPreviousValuesPromise>() => T;
 }
 
-export interface AggregateWarehouserIdentificationSubscription
-  extends Promise<AsyncIterator<AggregateWarehouserIdentification>>,
+export interface RequisitionSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RequisitionSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RequisitionSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RequisitionPreviousValuesSubscription>() => T;
 }
 
 export interface Referral {
@@ -17224,29 +16391,29 @@ export interface ReferralNullablePromise
   rollover: () => Promise<Float>;
 }
 
-export interface AdminRoleSubscriptionPayload {
-  mutation: MutationType;
-  node: AdminRole;
-  updatedFields: String[];
-  previousValues: AdminRolePreviousValues;
+export interface RequisitionPreviousValues {
+  id: ID_Output;
+  expires?: String;
+  space: Int;
+  status: Int;
 }
 
-export interface AdminRoleSubscriptionPayloadPromise
-  extends Promise<AdminRoleSubscriptionPayload>,
+export interface RequisitionPreviousValuesPromise
+  extends Promise<RequisitionPreviousValues>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = AdminRolePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = AdminRolePreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  expires: () => Promise<String>;
+  space: () => Promise<Int>;
+  status: () => Promise<Int>;
 }
 
-export interface AdminRoleSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<AdminRoleSubscriptionPayload>>,
+export interface RequisitionPreviousValuesSubscription
+  extends Promise<AsyncIterator<RequisitionPreviousValues>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = AdminRoleSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = AdminRolePreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  expires: () => Promise<AsyncIterator<String>>;
+  space: () => Promise<AsyncIterator<Int>>;
+  status: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface Rating {
@@ -17317,27 +16484,29 @@ export interface AggregatePaymentCustomerSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AmenitiesOptionsSubscriptionPayload {
+export interface RequisitionCostSubscriptionPayload {
   mutation: MutationType;
-  node: AmenitiesOptions;
+  node: RequisitionCost;
   updatedFields: String[];
-  previousValues: AmenitiesOptionsPreviousValues;
+  previousValues: RequisitionCostPreviousValues;
 }
 
-export interface AggregateListingRequirements {
-  count: Int;
-}
-
-export interface AggregateListingRequirementsPromise
-  extends Promise<AggregateListingRequirements>,
+export interface RequisitionCostSubscriptionPayloadPromise
+  extends Promise<RequisitionCostSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = RequisitionCostPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RequisitionCostPreviousValuesPromise>() => T;
 }
 
-export interface AggregateListingRequirementsSubscription
-  extends Promise<AsyncIterator<AggregateListingRequirements>>,
+export interface RequisitionCostSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RequisitionCostSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = RequisitionCostSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = RequisitionCostPreviousValuesSubscription>() => T;
 }
 
 export interface AggregatePayment {
@@ -17356,87 +16525,29 @@ export interface AggregatePaymentSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface ListingRequirementsConnection {
-  pageInfo: PageInfo;
-  edges: ListingRequirementsEdge[];
+export interface RequisitionCostPreviousValues {
+  id: ID_Output;
+  baseCost: Float;
+  vat: Float;
+  discount?: Float;
 }
 
-export interface ListingRequirementsConnectionPromise
-  extends Promise<ListingRequirementsConnection>,
+export interface RequisitionCostPreviousValuesPromise
+  extends Promise<RequisitionCostPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<ListingRequirementsEdge>>() => T;
-  aggregate: <T = AggregateListingRequirementsPromise>() => T;
+  id: () => Promise<ID_Output>;
+  baseCost: () => Promise<Float>;
+  vat: () => Promise<Float>;
+  discount: () => Promise<Float>;
 }
 
-export interface ListingRequirementsConnectionSubscription
-  extends Promise<AsyncIterator<ListingRequirementsConnection>>,
+export interface RequisitionCostPreviousValuesSubscription
+  extends Promise<AsyncIterator<RequisitionCostPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <
-    T = Promise<AsyncIterator<ListingRequirementsEdgeSubscription>>
-  >() => T;
-  aggregate: <T = AggregateListingRequirementsSubscription>() => T;
-}
-
-export interface AggregateIdentificationsOptions {
-  count: Int;
-}
-
-export interface AggregateIdentificationsOptionsPromise
-  extends Promise<AggregateIdentificationsOptions>,
-    Fragmentable {
-  count: () => Promise<Int>;
-}
-
-export interface AggregateIdentificationsOptionsSubscription
-  extends Promise<AsyncIterator<AggregateIdentificationsOptions>>,
-    Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface ListingRatingEdge {
-  node: ListingRating;
-  cursor: String;
-}
-
-export interface ListingRatingEdgePromise
-  extends Promise<ListingRatingEdge>,
-    Fragmentable {
-  node: <T = ListingRatingPromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface ListingRatingEdgeSubscription
-  extends Promise<AsyncIterator<ListingRatingEdge>>,
-    Fragmentable {
-  node: <T = ListingRatingSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface LocationsSubscriptionPayload {
-  mutation: MutationType;
-  node: Locations;
-  updatedFields: String[];
-  previousValues: LocationsPreviousValues;
-}
-
-export interface LocationsSubscriptionPayloadPromise
-  extends Promise<LocationsSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = LocationsPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = LocationsPreviousValuesPromise>() => T;
-}
-
-export interface LocationsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<LocationsSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = LocationsSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = LocationsPreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  baseCost: () => Promise<AsyncIterator<Float>>;
+  vat: () => Promise<AsyncIterator<Float>>;
+  discount: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface PaymentCustomer {
@@ -17558,29 +16669,29 @@ export interface PaymentNullablePromise
   info: () => Promise<String>;
 }
 
-export interface ChatSubscriptionPayload {
+export interface RequisitionDurationSubscriptionPayload {
   mutation: MutationType;
-  node: Chat;
+  node: RequisitionDuration;
   updatedFields: String[];
-  previousValues: ChatPreviousValues;
+  previousValues: RequisitionDurationPreviousValues;
 }
 
-export interface ChatSubscriptionPayloadPromise
-  extends Promise<ChatSubscriptionPayload>,
+export interface RequisitionDurationSubscriptionPayloadPromise
+  extends Promise<RequisitionDurationSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = ChatPromise>() => T;
+  node: <T = RequisitionDurationPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = ChatPreviousValuesPromise>() => T;
+  previousValues: <T = RequisitionDurationPreviousValuesPromise>() => T;
 }
 
-export interface ChatSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ChatSubscriptionPayload>>,
+export interface RequisitionDurationSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RequisitionDurationSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ChatSubscription>() => T;
+  node: <T = RequisitionDurationSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ChatPreviousValuesSubscription>() => T;
+  previousValues: <T = RequisitionDurationPreviousValuesSubscription>() => T;
 }
 
 export interface AggregateAmenitiesOptions {
@@ -17599,20 +16710,26 @@ export interface AggregateAmenitiesOptionsSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface AggregateListingPhotos {
-  count: Int;
+export interface RequisitionDurationPreviousValues {
+  id: ID_Output;
+  name: String;
+  slug?: String;
 }
 
-export interface AggregateListingPhotosPromise
-  extends Promise<AggregateListingPhotos>,
+export interface RequisitionDurationPreviousValuesPromise
+  extends Promise<RequisitionDurationPreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
+  slug: () => Promise<String>;
 }
 
-export interface AggregateListingPhotosSubscription
-  extends Promise<AsyncIterator<AggregateListingPhotos>>,
+export interface RequisitionDurationPreviousValuesSubscription
+  extends Promise<AsyncIterator<RequisitionDurationPreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
 }
 
 export interface OrganizationTypeConnection {
@@ -17704,27 +16821,27 @@ export interface AuthNullablePromise
   user: <T = UserPromise>() => T;
 }
 
-export interface MessagePreviousValues {
-  id: ID_Output;
-  chatId: String;
-  text: String;
-  createdAt: DateTimeOutput;
+export interface RoleSubscriptionPayload {
+  mutation: MutationType;
+  node: Role;
+  updatedFields: String[];
+  previousValues: RolePreviousValues;
 }
 
-export interface MessagePreviousValuesPromise
-  extends Promise<MessagePreviousValues>,
+export interface RoleSubscriptionPayloadPromise
+  extends Promise<RoleSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  chatId: () => Promise<String>;
-  text: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
+  mutation: () => Promise<MutationType>;
+  node: <T = RolePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RolePreviousValuesPromise>() => T;
 }
 
-export interface MessagePreviousValuesSubscription
-  extends Promise<AsyncIterator<MessagePreviousValues>>,
+export interface RoleSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RoleSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = DateRangeSubscription>() => T;
+  node: <T = RoleSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = RolePreviousValuesSubscription>() => T;
 }
@@ -17750,23 +16867,23 @@ export interface MessageConnectionSubscription
   aggregate: <T = AggregateMessageSubscription>() => T;
 }
 
-export interface ListingDimensionsEdge {
-  node: ListingDimensions;
-  cursor: String;
+export interface RolePreviousValues {
+  id: ID_Output;
+  name?: String;
 }
 
-export interface ListingDimensionsEdgePromise
-  extends Promise<ListingDimensionsEdge>,
+export interface RolePreviousValuesPromise
+  extends Promise<RolePreviousValues>,
     Fragmentable {
-  node: <T = ListingDimensionsPromise>() => T;
-  cursor: () => Promise<String>;
+  id: () => Promise<ID_Output>;
+  name: () => Promise<String>;
 }
 
-export interface ListingDimensionsEdgeSubscription
-  extends Promise<AsyncIterator<ListingDimensionsEdge>>,
+export interface RolePreviousValuesSubscription
+  extends Promise<AsyncIterator<RolePreviousValues>>,
     Fragmentable {
-  node: <T = ListingDimensionsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
 export interface User {
@@ -17835,70 +16952,42 @@ export interface UserNullablePromise
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
-export interface User {
+export interface FloorsOptions {
   id: ID_Output;
-  firstName: String;
-  lastName: String;
-  email: String;
-  phoneNumber: String;
-  dob: String;
-  terms?: Boolean;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export interface UserPromise extends Promise<User>, Fragmentable {
+export interface FloorsOptionsPromise
+  extends Promise<FloorsOptions>,
+    Fragmentable {
   id: () => Promise<ID_Output>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
-  email: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
-  dob: () => Promise<String>;
-  terms: () => Promise<Boolean>;
-  bank: <T = BankPromise>() => T;
-  type: <T = OrganizationTypePromise>() => T;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface UserSubscription
-  extends Promise<AsyncIterator<User>>,
+export interface FloorsOptionsSubscription
+  extends Promise<AsyncIterator<FloorsOptions>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  firstName: () => Promise<AsyncIterator<String>>;
-  lastName: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
-  dob: () => Promise<AsyncIterator<String>>;
-  terms: () => Promise<AsyncIterator<Boolean>>;
-  bank: <T = BankSubscription>() => T;
-  type: <T = OrganizationTypeSubscription>() => T;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
-export interface UserNullablePromise
-  extends Promise<User | null>,
+export interface FloorsOptionsNullablePromise
+  extends Promise<FloorsOptions | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
-  email: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
-  dob: () => Promise<String>;
-  terms: () => Promise<Boolean>;
-  bank: <T = BankPromise>() => T;
-  type: <T = OrganizationTypePromise>() => T;
-}
-
-export interface OrganizationSubscriptionPayload {
-  mutation: MutationType;
-  node: Organization;
-  updatedFields: String[];
-  previousValues: OrganizationPreviousValues;
-}
-
-export interface OrganizationSubscriptionPayloadPromise
-  extends Promise<OrganizationSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OrganizationPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OrganizationPreviousValuesPromise>() => T;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
 export interface OrganizationType {
@@ -17927,23 +17016,27 @@ export interface OrganizationTypeNullablePromise
   name: () => Promise<String>;
 }
 
-export interface ListingAvailabilityEdge {
-  node: ListingAvailability;
-  cursor: String;
+export interface RoofingMaterialOptionsSubscriptionPayload {
+  mutation: MutationType;
+  node: RoofingMaterialOptions;
+  updatedFields: String[];
+  previousValues: RoofingMaterialOptionsPreviousValues;
 }
 
-export interface ListingAvailabilityEdgePromise
-  extends Promise<ListingAvailabilityEdge>,
+export interface RoofingMaterialOptionsSubscriptionPayloadPromise
+  extends Promise<RoofingMaterialOptionsSubscriptionPayload>,
     Fragmentable {
-  node: <T = ListingAvailabilityPromise>() => T;
-  cursor: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = RoofingMaterialOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = RoofingMaterialOptionsPreviousValuesPromise>() => T;
 }
 
-export interface ListingAvailabilityEdgeSubscription
-  extends Promise<AsyncIterator<ListingAvailabilityEdge>>,
+export interface RoofingMaterialOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<RoofingMaterialOptionsSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = IdentificationsOptionsSubscription>() => T;
+  node: <T = RoofingMaterialOptionsSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = RoofingMaterialOptionsPreviousValuesSubscription>() => T;
 }
@@ -17964,35 +17057,32 @@ export interface AggregateListingRatingSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface OrganizationPreviousValues {
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+export interface RoofingMaterialOptionsPreviousValues {
   id: ID_Output;
+  slug?: String;
   name?: String;
-  email: String;
-  phoneNumber: String;
+  default?: Boolean;
+  userId?: String;
 }
 
-export interface OrganizationPreviousValuesPromise
-  extends Promise<OrganizationPreviousValues>,
+export interface RoofingMaterialOptionsPreviousValuesPromise
+  extends Promise<RoofingMaterialOptionsPreviousValues>,
     Fragmentable {
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
   id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
   name: () => Promise<String>;
-  email: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface OrganizationPreviousValuesSubscription
-  extends Promise<AsyncIterator<OrganizationPreviousValues>>,
+export interface RoofingMaterialOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<RoofingMaterialOptionsPreviousValues>>,
     Fragmentable {
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateListingProducts {
@@ -18015,22 +17105,14 @@ export interface AggregateDateRange {
   count: Int;
 }
 
-export interface ListingPreviousValues {
-  id: ID_Output;
-  name?: String;
-  slug?: String;
-  description: String;
-  price: Float;
-  discount?: Int;
-  currency: String;
-  proofOfOwnership: String;
-  windows: Int;
-  avatar: String;
-  status: Int;
+export interface AggregateDateRangePromise
+  extends Promise<AggregateDateRange>,
+    Fragmentable {
+  count: () => Promise<Int>;
 }
 
-export interface BankNullablePromise
-  extends Promise<Bank | null>,
+export interface AggregateDateRangeSubscription
+  extends Promise<AsyncIterator<AggregateDateRange>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -18054,25 +17136,29 @@ export interface ListingPhotosEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface BankConnection {
-  pageInfo: PageInfo;
-  edges: BankEdge[];
+export interface SelectOptionsSubscriptionPayload {
+  mutation: MutationType;
+  node: SelectOptions;
+  updatedFields: String[];
+  previousValues: SelectOptionsPreviousValues;
 }
 
-export interface BankConnectionPromise
-  extends Promise<BankConnection>,
+export interface SelectOptionsSubscriptionPayloadPromise
+  extends Promise<SelectOptionsSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<BankEdge>>() => T;
-  aggregate: <T = AggregateBankPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = SelectOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SelectOptionsPreviousValuesPromise>() => T;
 }
 
-export interface BankConnectionSubscription
-  extends Promise<AsyncIterator<BankConnection>>,
+export interface SelectOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SelectOptionsSubscriptionPayload>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<BankEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateBankSubscription>() => T;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = SelectOptionsSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = SelectOptionsPreviousValuesSubscription>() => T;
 }
 
 export interface ListingDimensionsConnection {
@@ -18096,29 +17182,26 @@ export interface ListingDimensionsConnectionSubscription
   aggregate: <T = AggregateListingDimensionsSubscription>() => T;
 }
 
-export interface OrganizationTypeSubscriptionPayload {
-  mutation: MutationType;
-  node: OrganizationType;
-  updatedFields: String[];
-  previousValues: OrganizationTypePreviousValues;
+export interface SelectOptionsPreviousValues {
+  id: ID_Output;
+  slug?: String;
+  name?: String;
 }
 
-export interface OrganizationTypeSubscriptionPayloadPromise
-  extends Promise<OrganizationTypeSubscriptionPayload>,
+export interface SelectOptionsPreviousValuesPromise
+  extends Promise<SelectOptionsPreviousValues>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OrganizationTypePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OrganizationTypePreviousValuesPromise>() => T;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
 }
 
-export interface OrganizationTypeSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<OrganizationTypeSubscriptionPayload>>,
+export interface SelectOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<SelectOptionsPreviousValues>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OrganizationTypeSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ListingDimensionsPreviousValuesSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
 }
 
 export interface Countries {
@@ -18153,31 +17236,23 @@ export interface CountriesNullablePromise
   default: () => Promise<Boolean>;
 }
 
-export interface WarehouserIdentificationSubscriptionPayload {
-  mutation: MutationType;
-  node: WarehouserIdentification;
-  updatedFields: String[];
-  previousValues: WarehouserIdentificationPreviousValues;
+export interface DateRangeEdge {
+  node: DateRange;
+  cursor: String;
 }
 
-export interface WarehouserIdentificationSubscriptionPayloadPromise
-  extends Promise<WarehouserIdentificationSubscriptionPayload>,
+export interface DateRangeEdgePromise
+  extends Promise<DateRangeEdge>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = WarehouserIdentificationPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = WarehouserIdentificationPreviousValuesPromise>() => T;
+  node: <T = DateRangePromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface WarehouserIdentificationSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<WarehouserIdentificationSubscriptionPayload>>,
+export interface DateRangeEdgeSubscription
+  extends Promise<AsyncIterator<DateRangeEdge>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = WarehouserIdentificationSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <
-    T = WarehouserIdentificationPreviousValuesSubscription
-  >() => T;
+  node: <T = DateRangeSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface WalletEdge {
@@ -18197,24 +17272,27 @@ export interface WalletEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface WallFinishesOptionsConnection {
-  pageInfo: PageInfo;
-  edges: WallFinishesOptionsEdge[];
+export interface SpacesOptionsSubscriptionPayload {
+  mutation: MutationType;
+  node: SpacesOptions;
+  updatedFields: String[];
+  previousValues: SpacesOptionsPreviousValues;
 }
 
-export interface WallFinishesOptionsConnectionPromise
-  extends Promise<WallFinishesOptionsConnection>,
+export interface SpacesOptionsSubscriptionPayloadPromise
+  extends Promise<SpacesOptionsSubscriptionPayload>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<WallFinishesOptionsEdge>>() => T;
-  aggregate: <T = AggregateWallFinishesOptionsPromise>() => T;
+  mutation: () => Promise<MutationType>;
+  node: <T = SpacesOptionsPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = SpacesOptionsPreviousValuesPromise>() => T;
 }
 
-export interface WallFinishesOptionsConnectionSubscription
-  extends Promise<AsyncIterator<WallFinishesOptionsConnection>>,
+export interface SpacesOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<SpacesOptionsSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ListingProductsSubscription>() => T;
+  node: <T = SpacesOptionsSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
   previousValues: <T = SpacesOptionsPreviousValuesSubscription>() => T;
 }
@@ -18238,7 +17316,7 @@ export interface ValueAddedServicesEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface IdentificationsOptions {
+export interface SpacesOptionsPreviousValues {
   id: ID_Output;
   slug?: String;
   name?: String;
@@ -18246,20 +17324,24 @@ export interface IdentificationsOptions {
   userId?: String;
 }
 
-export interface IdentificationsOptionsPromise
-  extends Promise<IdentificationsOptions>,
+export interface SpacesOptionsPreviousValuesPromise
+  extends Promise<SpacesOptionsPreviousValues>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<UserEdge>>() => T;
-  aggregate: <T = AggregateUserPromise>() => T;
+  id: () => Promise<ID_Output>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
+  userId: () => Promise<String>;
 }
 
-export interface IdentificationsOptionsSubscription
-  extends Promise<AsyncIterator<IdentificationsOptions>>,
+export interface SpacesOptionsPreviousValuesSubscription
+  extends Promise<AsyncIterator<SpacesOptionsPreviousValues>>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<UserEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateUserSubscription>() => T;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
+  userId: () => Promise<AsyncIterator<String>>;
 }
 
 export interface AggregateTransaction {
@@ -18275,8 +17357,7 @@ export interface AggregateTransactionPromise
 export interface AggregateTransactionSubscription
   extends Promise<AsyncIterator<AggregateTransaction>>,
     Fragmentable {
-  node: <T = UserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface DateRangeConnection {
@@ -18284,22 +17365,20 @@ export interface DateRangeConnection {
   edges: DateRangeEdge[];
 }
 
-export interface OtpSubscriptionPayloadPromise
-  extends Promise<OtpSubscriptionPayload>,
+export interface DateRangeConnectionPromise
+  extends Promise<DateRangeConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OtpPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OtpPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<DateRangeEdge>>() => T;
+  aggregate: <T = AggregateDateRangePromise>() => T;
 }
 
-export interface OtpSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<OtpSubscriptionPayload>>,
+export interface DateRangeConnectionSubscription
+  extends Promise<AsyncIterator<DateRangeConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OtpSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = OtpPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<DateRangeEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateDateRangeSubscription>() => T;
 }
 
 export interface WarehouserIdentificationSubscriptionPayload {
@@ -18329,20 +17408,18 @@ export interface WarehouserIdentificationSubscriptionPayloadSubscription
   >() => T;
 }
 
-export interface OtpPreviousValues {
-  id: ID_Output;
-  phoneNumber: String;
-  code: String;
-  validated: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
+export interface StatesSubscriptionPayload {
+  mutation: MutationType;
+  node: States;
+  updatedFields: String[];
+  previousValues: StatesPreviousValues;
 }
 
-export interface OtpPreviousValuesPromise
-  extends Promise<OtpPreviousValues>,
+export interface StatesSubscriptionPayloadPromise
+  extends Promise<StatesSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = ListingRequirementsPromise>() => T;
+  node: <T = StatesPromise>() => T;
   updatedFields: () => Promise<String[]>;
   previousValues: <T = StatesPreviousValuesPromise>() => T;
 }
@@ -18375,20 +17452,32 @@ export interface AdminRoleEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateTransaction {
-  count: Int;
+export interface StatesPreviousValues {
+  id: ID_Output;
+  countryId: String;
+  slug?: String;
+  name?: String;
+  default?: Boolean;
 }
 
-export interface AggregateTransactionPromise
-  extends Promise<AggregateTransaction>,
+export interface StatesPreviousValuesPromise
+  extends Promise<StatesPreviousValues>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<ID_Output>;
+  countryId: () => Promise<String>;
+  slug: () => Promise<String>;
+  name: () => Promise<String>;
+  default: () => Promise<Boolean>;
 }
 
-export interface AggregateTransactionSubscription
-  extends Promise<AsyncIterator<AggregateTransaction>>,
+export interface StatesPreviousValuesSubscription
+  extends Promise<AsyncIterator<StatesPreviousValues>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  countryId: () => Promise<AsyncIterator<String>>;
+  slug: () => Promise<AsyncIterator<String>>;
+  name: () => Promise<AsyncIterator<String>>;
+  default: () => Promise<AsyncIterator<Boolean>>;
 }
 
 export interface AggregateStates {
@@ -18458,44 +17547,29 @@ export interface AggregateSelectOptionsSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface PaymentPreviousValues {
-  id: ID_Output;
-  email: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  amount: Float;
-  status: Int;
-  currency: String;
-  channel?: String;
-  info: String;
+export interface StockSubscriptionPayload {
+  mutation: MutationType;
+  node: Stock;
+  updatedFields: String[];
+  previousValues: StockPreviousValues;
 }
 
-export interface PaymentPreviousValuesPromise
-  extends Promise<PaymentPreviousValues>,
+export interface StockSubscriptionPayloadPromise
+  extends Promise<StockSubscriptionPayload>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  email: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  amount: () => Promise<Float>;
-  status: () => Promise<Int>;
-  currency: () => Promise<String>;
-  channel: () => Promise<String>;
-  info: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = StockPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StockPreviousValuesPromise>() => T;
 }
 
-export interface PaymentPreviousValuesSubscription
-  extends Promise<AsyncIterator<PaymentPreviousValues>>,
+export interface StockSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StockSubscriptionPayload>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  email: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  amount: () => Promise<AsyncIterator<Float>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  currency: () => Promise<AsyncIterator<String>>;
-  channel: () => Promise<AsyncIterator<String>>;
-  info: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StockSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StockPreviousValuesSubscription>() => T;
 }
 
 export interface RoleConnection {
@@ -18519,21 +17593,26 @@ export interface RoleConnectionSubscription
   aggregate: <T = AggregateRoleSubscription>() => T;
 }
 
-export interface GameEdge {
-  node: Game;
-  cursor: String;
+export interface StockPreviousValues {
+  id: ID_Output;
+  type: Int;
+  status: Int;
 }
 
-export interface GameEdgePromise extends Promise<GameEdge>, Fragmentable {
-  node: <T = GamePromise>() => T;
-  cursor: () => Promise<String>;
-}
-
-export interface GameEdgeSubscription
-  extends Promise<AsyncIterator<GameEdge>>,
+export interface StockPreviousValuesPromise
+  extends Promise<StockPreviousValues>,
     Fragmentable {
-  node: <T = GameSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  id: () => Promise<ID_Output>;
+  type: () => Promise<Int>;
+  status: () => Promise<Int>;
+}
+
+export interface StockPreviousValuesSubscription
+  extends Promise<AsyncIterator<StockPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<Int>>;
+  status: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface RequisitionCostEdge {
@@ -18604,23 +17683,29 @@ export interface ReferralConnectionSubscription
   aggregate: <T = AggregateReferralSubscription>() => T;
 }
 
-export interface AdminRoleEdge {
-  node: AdminRole;
-  cursor: String;
+export interface StockDispatchSubscriptionPayload {
+  mutation: MutationType;
+  node: StockDispatch;
+  updatedFields: String[];
+  previousValues: StockDispatchPreviousValues;
 }
 
-export interface AdminRoleEdgePromise
-  extends Promise<AdminRoleEdge>,
+export interface StockDispatchSubscriptionPayloadPromise
+  extends Promise<StockDispatchSubscriptionPayload>,
     Fragmentable {
-  node: <T = AdminRolePromise>() => T;
-  cursor: () => Promise<String>;
+  mutation: () => Promise<MutationType>;
+  node: <T = StockDispatchPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = StockDispatchPreviousValuesPromise>() => T;
 }
 
-export interface AdminRoleEdgeSubscription
-  extends Promise<AsyncIterator<AdminRoleEdge>>,
+export interface StockDispatchSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<StockDispatchSubscriptionPayload>>,
     Fragmentable {
-  node: <T = AdminRoleSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = StockDispatchSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = StockDispatchPreviousValuesSubscription>() => T;
 }
 
 export interface PropertiesOptionsEdge {
@@ -18642,36 +17727,41 @@ export interface PropertiesOptionsEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface Stock {
+export interface StockDispatchPreviousValues {
   id: ID_Output;
-  type: Int;
+  pickupAgentName?: String;
+  pickupAgentPhone?: String;
+  pickupAgentIdentification?: String;
+  pickupAgentIdNumber?: String;
   status: Int;
+  pickupDateMin?: String;
+  pickupDateMax?: String;
 }
 
-export interface StockPromise extends Promise<Stock>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  type: () => Promise<Int>;
-  products: <T = FragmentableArray<StockProduct>>(args?: {
-    where?: StockProductWhereInput;
-    orderBy?: StockProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  status: () => Promise<Int>;
-  dispatch: <T = StockDispatchPromise>() => T;
-  requisition: <T = RequisitionPromise>() => T;
-}
-
-export interface StockSubscription
-  extends Promise<AsyncIterator<Stock>>,
+export interface StockDispatchPreviousValuesPromise
+  extends Promise<StockDispatchPreviousValues>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PaymentSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PaymentPreviousValuesSubscription>() => T;
+  id: () => Promise<ID_Output>;
+  pickupAgentName: () => Promise<String>;
+  pickupAgentPhone: () => Promise<String>;
+  pickupAgentIdentification: () => Promise<String>;
+  pickupAgentIdNumber: () => Promise<String>;
+  status: () => Promise<Int>;
+  pickupDateMin: () => Promise<String>;
+  pickupDateMax: () => Promise<String>;
+}
+
+export interface StockDispatchPreviousValuesSubscription
+  extends Promise<AsyncIterator<StockDispatchPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  pickupAgentName: () => Promise<AsyncIterator<String>>;
+  pickupAgentPhone: () => Promise<AsyncIterator<String>>;
+  pickupAgentIdentification: () => Promise<AsyncIterator<String>>;
+  pickupAgentIdNumber: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
+  pickupDateMin: () => Promise<AsyncIterator<String>>;
+  pickupDateMax: () => Promise<AsyncIterator<String>>;
 }
 
 export interface PaymentConnection {
@@ -18702,21 +17792,7 @@ export interface AggregateCrown {
 export interface AggregateCrownPromise
   extends Promise<AggregateCrown>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  type: () => Promise<Int>;
-  products: <T = FragmentableArray<StockProduct>>(args?: {
-    where?: StockProductWhereInput;
-    orderBy?: StockProductOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-  status: () => Promise<Int>;
-  currency: () => Promise<String>;
-  channel: () => Promise<String>;
-  info: () => Promise<String>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateCrownSubscription
@@ -18794,6 +17870,12 @@ export interface StockProductPreviousValues {
   quantityPerPackageSize: Int;
   totalQuantity: Int;
   productImage: String;
+  estimatedValue?: Float;
+  shipmentDate?: DateTimeOutput;
+  deliveryDate?: DateTimeOutput;
+  partnerLogistics?: String;
+  expiryDate?: DateTimeOutput;
+  condition?: String;
 }
 
 export interface StockProductPreviousValuesPromise
@@ -18806,6 +17888,12 @@ export interface StockProductPreviousValuesPromise
   quantityPerPackageSize: () => Promise<Int>;
   totalQuantity: () => Promise<Int>;
   productImage: () => Promise<String>;
+  estimatedValue: () => Promise<Float>;
+  shipmentDate: () => Promise<DateTimeOutput>;
+  deliveryDate: () => Promise<DateTimeOutput>;
+  partnerLogistics: () => Promise<String>;
+  expiryDate: () => Promise<DateTimeOutput>;
+  condition: () => Promise<String>;
 }
 
 export interface StockProductPreviousValuesSubscription
@@ -18818,6 +17906,12 @@ export interface StockProductPreviousValuesSubscription
   quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
   totalQuantity: () => Promise<AsyncIterator<Int>>;
   productImage: () => Promise<AsyncIterator<String>>;
+  estimatedValue: () => Promise<AsyncIterator<Float>>;
+  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  partnerLogistics: () => Promise<AsyncIterator<String>>;
+  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  condition: () => Promise<AsyncIterator<String>>;
 }
 
 export interface LocationsEdge {
@@ -18839,61 +17933,40 @@ export interface LocationsEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface GameConnection {
-  pageInfo: PageInfo;
-  edges: GameEdge[];
+export interface CrownEdge {
+  node: Crown;
+  cursor: String;
 }
 
-export interface GameConnectionPromise
-  extends Promise<GameConnection>,
+export interface CrownEdgePromise extends Promise<CrownEdge>, Fragmentable {
+  node: <T = CrownPromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface CrownEdgeSubscription
+  extends Promise<AsyncIterator<CrownEdge>>,
     Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<GameEdge>>() => T;
-  aggregate: <T = AggregateGamePromise>() => T;
+  node: <T = CrownSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface GameConnectionSubscription
-  extends Promise<AsyncIterator<GameConnection>>,
+export interface ListingRequirementsEdge {
+  node: ListingRequirements;
+  cursor: String;
+}
+
+export interface ListingRequirementsEdgePromise
+  extends Promise<ListingRequirementsEdge>,
     Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<GameEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateGameSubscription>() => T;
+  node: <T = ListingRequirementsPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
-export interface States {
-  id: ID_Output;
-  countryId: String;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
-}
-
-export interface StatesPromise extends Promise<States>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  countryId: () => Promise<String>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
-}
-
-export interface StatesSubscription
-  extends Promise<AsyncIterator<States>>,
+export interface ListingRequirementsEdgeSubscription
+  extends Promise<AsyncIterator<ListingRequirementsEdge>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  countryId: () => Promise<AsyncIterator<String>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface StatesNullablePromise
-  extends Promise<States | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  countryId: () => Promise<String>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
+  node: <T = ListingRequirementsSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface SuccessSubscriptionPayload {
@@ -18921,48 +17994,25 @@ export interface SuccessSubscriptionPayloadSubscription
   previousValues: <T = SuccessPreviousValuesSubscription>() => T;
 }
 
-export interface AggregateSelectOptions {
-  count: Int;
+export interface ListingProductsConnection {
+  pageInfo: PageInfo;
+  edges: ListingProductsEdge[];
 }
 
-export interface AggregateSelectOptionsPromise
-  extends Promise<AggregateSelectOptions>,
+export interface ListingProductsConnectionPromise
+  extends Promise<ListingProductsConnection>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ListingProductsEdge>>() => T;
+  aggregate: <T = AggregateListingProductsPromise>() => T;
 }
 
-export interface AggregateSelectOptionsSubscription
-  extends Promise<AsyncIterator<AggregateSelectOptions>>,
+export interface ListingProductsConnectionSubscription
+  extends Promise<AsyncIterator<ListingProductsConnection>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
-}
-
-export interface PropertiesOptionsPreviousValues {
-  id: ID_Output;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
-  userId?: String;
-}
-
-export interface PropertiesOptionsPreviousValuesPromise
-  extends Promise<PropertiesOptionsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
-  userId: () => Promise<String>;
-}
-
-export interface PropertiesOptionsPreviousValuesSubscription
-  extends Promise<AsyncIterator<PropertiesOptionsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-  userId: () => Promise<AsyncIterator<String>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ListingProductsEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateListingProductsSubscription>() => T;
 }
 
 export interface SuccessPreviousValues {
@@ -19003,79 +18053,41 @@ export interface ListingAvailabilityEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface ReferralSubscriptionPayload {
-  mutation: MutationType;
-  node: Referral;
-  updatedFields: String[];
-  previousValues: ReferralPreviousValues;
+export interface CrownConnection {
+  pageInfo: PageInfo;
+  edges: CrownEdge[];
 }
 
-export interface ReferralSubscriptionPayloadPromise
-  extends Promise<ReferralSubscriptionPayload>,
+export interface CrownConnectionPromise
+  extends Promise<CrownConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ReferralPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ReferralPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CrownEdge>>() => T;
+  aggregate: <T = AggregateCrownPromise>() => T;
 }
 
-export interface ReferralSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ReferralSubscriptionPayload>>,
+export interface CrownConnectionSubscription
+  extends Promise<AsyncIterator<CrownConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ReferralSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ReferralPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CrownEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCrownSubscription>() => T;
 }
 
-export interface AdminUserEdge {
-  node: AdminUser;
-  cursor: String;
+export interface AggregateWallFinishesOptions {
+  count: Int;
 }
 
-export interface AdminUserEdgePromise
-  extends Promise<AdminUserEdge>,
+export interface AggregateWallFinishesOptionsPromise
+  extends Promise<AggregateWallFinishesOptions>,
     Fragmentable {
-  node: <T = AdminUserPromise>() => T;
-  cursor: () => Promise<String>;
+  count: () => Promise<Int>;
 }
 
-export interface AdminUserEdgeSubscription
-  extends Promise<AsyncIterator<AdminUserEdge>>,
+export interface AggregateWallFinishesOptionsSubscription
+  extends Promise<AsyncIterator<AggregateWallFinishesOptions>>,
     Fragmentable {
-  node: <T = AdminUserSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ReferralPreviousValues {
-  id: ID_Output;
-  status: Int;
-  refCode: Int;
-  userId: String;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-}
-
-export interface ReferralPreviousValuesPromise
-  extends Promise<ReferralPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  status: () => Promise<Int>;
-  refCode: () => Promise<Int>;
-  userId: () => Promise<String>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface ReferralPreviousValuesSubscription
-  extends Promise<AsyncIterator<ReferralPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  refCode: () => Promise<AsyncIterator<Int>>;
-  userId: () => Promise<AsyncIterator<String>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface TransactionSubscriptionPayload {
@@ -19368,29 +18380,7 @@ export interface PaymentCustomerConnectionSubscription
   aggregate: <T = AggregatePaymentCustomerSubscription>() => T;
 }
 
-export interface ListingAvailabilityPreviousValues {
-  id: ID_Output;
-  from: String;
-  to: String;
-}
-
-export interface ListingAvailabilityPreviousValuesPromise
-  extends Promise<ListingAvailabilityPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  from: () => Promise<String>;
-  to: () => Promise<String>;
-}
-
-export interface ListingAvailabilityPreviousValuesSubscription
-  extends Promise<AsyncIterator<ListingAvailabilityPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  from: () => Promise<AsyncIterator<String>>;
-  to: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SelectOptionsPreviousValues {
+export interface Crown {
   id: ID_Output;
   requiredReferrals: Int;
   noOfDays: Int;
@@ -19401,9 +18391,7 @@ export interface SelectOptionsPreviousValues {
   compensationBonus: Float;
 }
 
-export interface ListingDimensionsSubscriptionPayloadPromise
-  extends Promise<ListingDimensionsSubscriptionPayload>,
-    Fragmentable {
+export interface CrownPromise extends Promise<Crown>, Fragmentable {
   id: () => Promise<ID_Output>;
   requiredReferrals: () => Promise<Int>;
   noOfDays: () => Promise<Int>;
@@ -19414,8 +18402,8 @@ export interface ListingDimensionsSubscriptionPayloadPromise
   compensationBonus: () => Promise<Float>;
 }
 
-export interface ListingDimensionsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ListingDimensionsSubscriptionPayload>>,
+export interface CrownSubscription
+  extends Promise<AsyncIterator<Crown>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   requiredReferrals: () => Promise<AsyncIterator<Int>>;
@@ -19427,96 +18415,8 @@ export interface ListingDimensionsSubscriptionPayloadSubscription
   compensationBonus: () => Promise<AsyncIterator<Float>>;
 }
 
-export interface ListingDimensionsPreviousValues {
-  id: ID_Output;
-  height: Float;
-  weight: Float;
-  length: Float;
-  unitOfDimensions?: Int;
-  volume?: Float;
-  area?: Float;
-}
-
-export interface ListingDimensionsPreviousValuesPromise
-  extends Promise<ListingDimensionsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  height: () => Promise<Float>;
-  weight: () => Promise<Float>;
-  length: () => Promise<Float>;
-  unitOfDimensions: () => Promise<Int>;
-  volume: () => Promise<Float>;
-  area: () => Promise<Float>;
-}
-
-export interface ListingDimensionsPreviousValuesSubscription
-  extends Promise<AsyncIterator<ListingDimensionsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  height: () => Promise<AsyncIterator<Float>>;
-  weight: () => Promise<AsyncIterator<Float>>;
-  length: () => Promise<AsyncIterator<Float>>;
-  unitOfDimensions: () => Promise<AsyncIterator<Int>>;
-  volume: () => Promise<AsyncIterator<Float>>;
-  area: () => Promise<AsyncIterator<Float>>;
-}
-
-export interface ListingPhotosSubscriptionPayload {
-  mutation: MutationType;
-  node: ListingPhotos;
-  updatedFields: String[];
-  previousValues: ListingPhotosPreviousValues;
-}
-
-export interface ListingPhotosSubscriptionPayloadPromise
-  extends Promise<ListingPhotosSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ListingPhotosPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ListingPhotosPreviousValuesPromise>() => T;
-}
-
-export interface ListingPhotosSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ListingPhotosSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ListingPhotosSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ListingPhotosPreviousValuesSubscription>() => T;
-}
-
-export interface ListingPhotosPreviousValues {
-  id: ID_Output;
-  url: String;
-  default?: Boolean;
-}
-
-export interface ListingPhotosPreviousValuesPromise
-  extends Promise<ListingPhotosPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  url: () => Promise<String>;
-  default: () => Promise<Boolean>;
-}
-
-export interface ListingPhotosPreviousValuesSubscription
-  extends Promise<AsyncIterator<ListingPhotosPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  url: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface ListingProductsSubscriptionPayload {
-  mutation: MutationType;
-  node: ListingProducts;
-  updatedFields: String[];
-  previousValues: ListingProductsPreviousValues;
-}
-
-export interface ListingProductsSubscriptionPayloadPromise
-  extends Promise<ListingProductsSubscriptionPayload>,
+export interface CrownNullablePromise
+  extends Promise<Crown | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   requiredReferrals: () => Promise<Int>;
@@ -19528,114 +18428,20 @@ export interface ListingProductsSubscriptionPayloadPromise
   compensationBonus: () => Promise<Float>;
 }
 
-export interface ListingProductsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ListingProductsSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ListingProductsSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ListingProductsPreviousValuesSubscription>() => T;
-}
-
-export interface ListingProductsPreviousValues {
-  id: ID_Output;
-  slug?: String;
-  name?: String;
-  default?: Boolean;
-  userId?: String;
-}
-
-export interface ListingProductsPreviousValuesPromise
-  extends Promise<ListingProductsPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  slug: () => Promise<String>;
-  name: () => Promise<String>;
-  default: () => Promise<Boolean>;
-  userId: () => Promise<String>;
-}
-
-export interface ListingProductsPreviousValuesSubscription
-  extends Promise<AsyncIterator<ListingProductsPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  slug: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
-  default: () => Promise<AsyncIterator<Boolean>>;
-  userId: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ListingRatingSubscriptionPayload {
-  mutation: MutationType;
-  node: ListingRating;
-  updatedFields: String[];
-  previousValues: ListingRatingPreviousValues;
-}
-
-export interface ListingRatingSubscriptionPayloadPromise
-  extends Promise<ListingRatingSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ListingRatingPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ListingRatingPreviousValuesPromise>() => T;
-}
-
-export interface ListingRatingSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ListingRatingSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ListingRatingSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ListingRatingPreviousValuesSubscription>() => T;
-}
-
-export interface ListingRatingPreviousValues {
-  id: ID_Output;
+export interface AggregateOrganizationType {
   count: Int;
-  rates: Int;
-  average: Float;
 }
 
-export interface ListingRatingPreviousValuesPromise
-  extends Promise<ListingRatingPreviousValues>,
+export interface AggregateOrganizationTypePromise
+  extends Promise<AggregateOrganizationType>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
   count: () => Promise<Int>;
-  rates: () => Promise<Int>;
-  average: () => Promise<Float>;
 }
 
-export interface ListingRatingPreviousValuesSubscription
-  extends Promise<AsyncIterator<ListingRatingPreviousValues>>,
+export interface AggregateOrganizationTypeSubscription
+  extends Promise<AsyncIterator<AggregateOrganizationType>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
   count: () => Promise<AsyncIterator<Int>>;
-  rates: () => Promise<AsyncIterator<Int>>;
-  average: () => Promise<AsyncIterator<Float>>;
-}
-
-export interface ListingRequirementsSubscriptionPayload {
-  mutation: MutationType;
-  node: ListingRequirements;
-  updatedFields: String[];
-  previousValues: ListingRequirementsPreviousValues;
-}
-
-export interface ListingRequirementsSubscriptionPayloadPromise
-  extends Promise<ListingRequirementsSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ListingRequirementsPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ListingRequirementsPreviousValuesPromise>() => T;
-}
-
-export interface SpacesOptionsEdgeSubscription
-  extends Promise<AsyncIterator<SpacesOptionsEdge>>,
-    Fragmentable {
-  node: <T = SpacesOptionsSubscription>() => T;
-  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserOrganizationRoleSubscriptionPayload {
@@ -19698,160 +18504,36 @@ export interface UserOrganizationRolePreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
 }
 
-export interface OrganizationPreviousValues {
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-  id: ID_Output;
-  name?: String;
-  email: String;
-  phoneNumber: String;
+export interface AggregateListingDimensions {
+  count: Int;
 }
 
-export interface OrganizationPreviousValuesPromise
-  extends Promise<OrganizationPreviousValues>,
+export interface AggregateListingDimensionsPromise
+  extends Promise<AggregateListingDimensions>,
     Fragmentable {
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-  email: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
+  count: () => Promise<Int>;
 }
 
-export interface OrganizationPreviousValuesSubscription
-  extends Promise<AsyncIterator<OrganizationPreviousValues>>,
+export interface AggregateListingDimensionsSubscription
+  extends Promise<AsyncIterator<AggregateListingDimensions>>,
     Fragmentable {
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface OrganizationTypeSubscriptionPayload {
-  mutation: MutationType;
-  node: OrganizationType;
-  updatedFields: String[];
-  previousValues: OrganizationTypePreviousValues;
+export interface AggregateCountries {
+  count: Int;
 }
 
-export interface OrganizationTypeSubscriptionPayloadPromise
-  extends Promise<OrganizationTypeSubscriptionPayload>,
+export interface AggregateCountriesPromise
+  extends Promise<AggregateCountries>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OrganizationTypePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OrganizationTypePreviousValuesPromise>() => T;
+  count: () => Promise<Int>;
 }
 
-export interface OrganizationTypeSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<OrganizationTypeSubscriptionPayload>>,
+export interface AggregateCountriesSubscription
+  extends Promise<AsyncIterator<AggregateCountries>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OrganizationTypeSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = OrganizationTypePreviousValuesSubscription>() => T;
-}
-
-export interface OrganizationTypePreviousValues {
-  id: ID_Output;
-  name?: String;
-}
-
-export interface OrganizationTypePreviousValuesPromise
-  extends Promise<OrganizationTypePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface OrganizationTypePreviousValuesSubscription
-  extends Promise<AsyncIterator<OrganizationTypePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
-}
-
-export interface OtpSubscriptionPayload {
-  mutation: MutationType;
-  node: Otp;
-  updatedFields: String[];
-  previousValues: OtpPreviousValues;
-}
-
-export interface OtpSubscriptionPayloadPromise
-  extends Promise<OtpSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = OtpPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = OtpPreviousValuesPromise>() => T;
-}
-
-export interface OtpSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<OtpSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = OtpSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = OtpPreviousValuesSubscription>() => T;
-}
-
-export interface OtpPreviousValues {
-  id: ID_Output;
-  phoneNumber: String;
-  code: String;
-  validated: Boolean;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-}
-
-export interface OtpPreviousValuesPromise
-  extends Promise<OtpPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  phoneNumber: () => Promise<String>;
-  code: () => Promise<String>;
-  validated: () => Promise<Boolean>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface OtpPreviousValuesSubscription
-  extends Promise<AsyncIterator<OtpPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
-  code: () => Promise<AsyncIterator<String>>;
-  validated: () => Promise<AsyncIterator<Boolean>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface PaymentSubscriptionPayload {
-  mutation: MutationType;
-  node: Payment;
-  updatedFields: String[];
-  previousValues: PaymentPreviousValues;
-}
-
-export interface PaymentSubscriptionPayloadPromise
-  extends Promise<PaymentSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = PaymentPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = PaymentPreviousValuesPromise>() => T;
-}
-
-export interface PaymentSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<PaymentSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = PaymentSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = PaymentPreviousValuesSubscription>() => T;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface AggregateUser {
@@ -19861,19 +18543,13 @@ export interface AggregateUser {
 export interface AggregateUserPromise
   extends Promise<AggregateUser>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  expires: () => Promise<String>;
-  space: () => Promise<Int>;
-  status: () => Promise<Int>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateUserSubscription
   extends Promise<AsyncIterator<AggregateUser>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  expires: () => Promise<AsyncIterator<String>>;
-  space: () => Promise<AsyncIterator<Int>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface UserStatusSubscriptionPayload {
@@ -19976,145 +18652,22 @@ export interface RatingEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface RoleSubscriptionPayload {
-  mutation: MutationType;
-  node: Role;
-  updatedFields: String[];
-  previousValues: RolePreviousValues;
-}
-
-export interface RoleSubscriptionPayloadPromise
-  extends Promise<RoleSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = RolePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = RolePreviousValuesPromise>() => T;
-}
-
-export interface RoleSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<RoleSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = RoleSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = RolePreviousValuesSubscription>() => T;
-}
-
-export interface RolePreviousValues {
-  id: ID_Output;
-  name?: String;
-}
-
-export interface RolePreviousValuesPromise
-  extends Promise<RolePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
-}
-
-export interface ChatSubscription
-  extends Promise<AsyncIterator<Chat>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  merchantId: () => Promise<AsyncIterator<String>>;
-  warehouserId: () => Promise<AsyncIterator<String>>;
-  merchant: <T = UserSubscription>() => T;
-  warehouser: <T = UserSubscription>() => T;
-  requisitionId: () => Promise<AsyncIterator<String>>;
-  messages: <T = Promise<AsyncIterator<MessageSubscription>>>(args?: {
-    where?: MessageWhereInput;
-    orderBy?: MessageOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface ChatNullablePromise
-  extends Promise<Chat | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  merchantId: () => Promise<String>;
-  warehouserId: () => Promise<String>;
-  merchant: <T = UserPromise>() => T;
-  warehouser: <T = UserPromise>() => T;
-  requisitionId: () => Promise<String>;
-  messages: <T = FragmentableArray<Message>>(args?: {
-    where?: MessageWhereInput;
-    orderBy?: MessageOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface SelectOptionsConnection {
-  pageInfo: PageInfo;
-  edges: SelectOptionsEdge[];
-}
-
-export interface SelectOptionsConnectionPromise
-  extends Promise<SelectOptionsConnection>,
-    Fragmentable {
-  pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<SelectOptionsEdge>>() => T;
-  aggregate: <T = AggregateSelectOptionsPromise>() => T;
-}
-
-export interface SelectOptionsConnectionSubscription
-  extends Promise<AsyncIterator<SelectOptionsConnection>>,
-    Fragmentable {
-  pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<SelectOptionsEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateSelectOptionsSubscription>() => T;
-}
-
-export interface TransactionSubscriptionPayload {
-  mutation: MutationType;
-  node: Transaction;
-  updatedFields: String[];
-  previousValues: TransactionPreviousValues;
-}
-
-export interface TransactionSubscriptionPayloadPromise
-  extends Promise<TransactionSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TransactionPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TransactionPreviousValuesPromise>() => T;
-}
-
-export interface TransactionSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TransactionSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TransactionSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TransactionPreviousValuesSubscription>() => T;
-}
-
-export interface RequisitionEdge {
-  node: Requisition;
+export interface CountriesEdge {
+  node: Countries;
   cursor: String;
 }
 
-export interface RequisitionEdgePromise
-  extends Promise<RequisitionEdge>,
+export interface CountriesEdgePromise
+  extends Promise<CountriesEdge>,
     Fragmentable {
-  node: <T = RequisitionPromise>() => T;
+  node: <T = CountriesPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface RequisitionEdgeSubscription
-  extends Promise<AsyncIterator<RequisitionEdge>>,
+export interface CountriesEdgeSubscription
+  extends Promise<AsyncIterator<CountriesEdge>>,
     Fragmentable {
-  node: <T = RequisitionSubscription>() => T;
+  node: <T = CountriesSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
@@ -20125,17 +18678,13 @@ export interface AggregateMessage {
 export interface AggregateMessagePromise
   extends Promise<AggregateMessage>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  type: () => Promise<Int>;
-  status: () => Promise<Int>;
+  count: () => Promise<Int>;
 }
 
 export interface AggregateMessageSubscription
   extends Promise<AsyncIterator<AggregateMessage>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  type: () => Promise<AsyncIterator<Int>>;
-  status: () => Promise<AsyncIterator<Int>>;
+  count: () => Promise<AsyncIterator<Int>>;
 }
 
 export interface WarehouserIdentificationEdge {
@@ -20157,399 +18706,50 @@ export interface WarehouserIdentificationEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface StockDispatchPreviousValues {
-  id: ID_Output;
-  pickupAgentName?: String;
-  pickupAgentPhone?: String;
-  pickupAgentIdentification?: String;
-  pickupAgentIdNumber?: String;
-  status: Int;
-  pickupDateMin?: String;
-  pickupDateMax?: String;
-}
-
-export interface StockDispatchPreviousValuesPromise
-  extends Promise<StockDispatchPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  pickupAgentName: () => Promise<String>;
-  pickupAgentPhone: () => Promise<String>;
-  pickupAgentIdentification: () => Promise<String>;
-  pickupAgentIdNumber: () => Promise<String>;
-  status: () => Promise<Int>;
-  pickupDateMin: () => Promise<String>;
-  pickupDateMax: () => Promise<String>;
-}
-
-export interface StockDispatchPreviousValuesSubscription
-  extends Promise<AsyncIterator<StockDispatchPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  pickupAgentName: () => Promise<AsyncIterator<String>>;
-  pickupAgentPhone: () => Promise<AsyncIterator<String>>;
-  pickupAgentIdentification: () => Promise<AsyncIterator<String>>;
-  pickupAgentIdNumber: () => Promise<AsyncIterator<String>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  pickupDateMin: () => Promise<AsyncIterator<String>>;
-  pickupDateMax: () => Promise<AsyncIterator<String>>;
-}
-
-export interface StockProductSubscriptionPayload {
+export interface WallFinishesOptionsSubscriptionPayload {
   mutation: MutationType;
-  node: StockProduct;
+  node: WallFinishesOptions;
   updatedFields: String[];
-  previousValues: StockProductPreviousValues;
+  previousValues: WallFinishesOptionsPreviousValues;
 }
 
-export interface StockProductSubscriptionPayloadPromise
-  extends Promise<StockProductSubscriptionPayload>,
+export interface WallFinishesOptionsSubscriptionPayloadPromise
+  extends Promise<WallFinishesOptionsSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = StockProductPromise>() => T;
+  node: <T = WallFinishesOptionsPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = StockProductPreviousValuesPromise>() => T;
+  previousValues: <T = WallFinishesOptionsPreviousValuesPromise>() => T;
 }
 
-export interface StockProductSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<StockProductSubscriptionPayload>>,
+export interface WallFinishesOptionsSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<WallFinishesOptionsSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = StockProductSubscription>() => T;
+  node: <T = WallFinishesOptionsSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = StockProductPreviousValuesSubscription>() => T;
+  previousValues: <T = WallFinishesOptionsPreviousValuesSubscription>() => T;
 }
 
-export interface StockProductPreviousValues {
-  id: ID_Output;
-  productBrandName: String;
-  productType: String;
-  productPackageSize: String;
-  quantityPerPackageSize: Int;
-  totalQuantity: Int;
-  productImage: String;
-  estimatedValue?: Float;
-  shipmentDate?: DateTimeOutput;
-  deliveryDate?: DateTimeOutput;
-  partnerLogistics?: String;
-  expiryDate?: DateTimeOutput;
-  condition?: String;
+export interface CountriesConnection {
+  pageInfo: PageInfo;
+  edges: CountriesEdge[];
 }
 
-export interface StockProductPreviousValuesPromise
-  extends Promise<StockProductPreviousValues>,
+export interface CountriesConnectionPromise
+  extends Promise<CountriesConnection>,
     Fragmentable {
-  id: () => Promise<ID_Output>;
-  productBrandName: () => Promise<String>;
-  productType: () => Promise<String>;
-  productPackageSize: () => Promise<String>;
-  quantityPerPackageSize: () => Promise<Int>;
-  totalQuantity: () => Promise<Int>;
-  productImage: () => Promise<String>;
-  estimatedValue: () => Promise<Float>;
-  shipmentDate: () => Promise<DateTimeOutput>;
-  deliveryDate: () => Promise<DateTimeOutput>;
-  partnerLogistics: () => Promise<String>;
-  expiryDate: () => Promise<DateTimeOutput>;
-  condition: () => Promise<String>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<CountriesEdge>>() => T;
+  aggregate: <T = AggregateCountriesPromise>() => T;
 }
 
-export interface StockProductPreviousValuesSubscription
-  extends Promise<AsyncIterator<StockProductPreviousValues>>,
+export interface CountriesConnectionSubscription
+  extends Promise<AsyncIterator<CountriesConnection>>,
     Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  productBrandName: () => Promise<AsyncIterator<String>>;
-  productType: () => Promise<AsyncIterator<String>>;
-  productPackageSize: () => Promise<AsyncIterator<String>>;
-  quantityPerPackageSize: () => Promise<AsyncIterator<Int>>;
-  totalQuantity: () => Promise<AsyncIterator<Int>>;
-  productImage: () => Promise<AsyncIterator<String>>;
-  estimatedValue: () => Promise<AsyncIterator<Float>>;
-  shipmentDate: () => Promise<AsyncIterator<DateTimeOutput>>;
-  deliveryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
-  partnerLogistics: () => Promise<AsyncIterator<String>>;
-  expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
-  condition: () => Promise<AsyncIterator<String>>;
-}
-
-export interface SuccessSubscriptionPayload {
-  mutation: MutationType;
-  node: Success;
-  updatedFields: String[];
-  previousValues: SuccessPreviousValues;
-}
-
-export interface SuccessSubscriptionPayloadPromise
-  extends Promise<SuccessSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = SuccessPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = SuccessPreviousValuesPromise>() => T;
-}
-
-export interface SuccessSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<SuccessSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = SuccessSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = SuccessPreviousValuesSubscription>() => T;
-}
-
-export interface SuccessPreviousValues {
-  id: ID_Output;
-  success: Boolean;
-}
-
-export interface SuccessPreviousValuesPromise
-  extends Promise<SuccessPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  success: () => Promise<Boolean>;
-}
-
-export interface SuccessPreviousValuesSubscription
-  extends Promise<AsyncIterator<SuccessPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  success: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface TransactionSubscriptionPayload {
-  mutation: MutationType;
-  node: Transaction;
-  updatedFields: String[];
-  previousValues: TransactionPreviousValues;
-}
-
-export interface TransactionSubscriptionPayloadPromise
-  extends Promise<TransactionSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = TransactionPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = TransactionPreviousValuesPromise>() => T;
-}
-
-export interface TransactionSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<TransactionSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = TransactionSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = TransactionPreviousValuesSubscription>() => T;
-}
-
-export interface TransactionPreviousValues {
-  id: ID_Output;
-  type: Int;
-  userId: String;
-  description?: String;
-  status: Int;
-  amount: Float;
-  fees: Float;
-  createdAt: DateTimeOutput;
-  updatedAt?: DateTimeOutput;
-}
-
-export interface TransactionPreviousValuesPromise
-  extends Promise<TransactionPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  type: () => Promise<Int>;
-  userId: () => Promise<String>;
-  description: () => Promise<String>;
-  status: () => Promise<Int>;
-  amount: () => Promise<Float>;
-  fees: () => Promise<Float>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-}
-
-export interface TransactionPreviousValuesSubscription
-  extends Promise<AsyncIterator<TransactionPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  type: () => Promise<AsyncIterator<Int>>;
-  userId: () => Promise<AsyncIterator<String>>;
-  description: () => Promise<AsyncIterator<String>>;
-  status: () => Promise<AsyncIterator<Int>>;
-  amount: () => Promise<AsyncIterator<Float>>;
-  fees: () => Promise<AsyncIterator<Float>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-}
-
-export interface UserSubscriptionPayload {
-  mutation: MutationType;
-  node: User;
-  updatedFields: String[];
-  previousValues: UserPreviousValues;
-}
-
-export interface UserSubscriptionPayloadPromise
-  extends Promise<UserSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserPreviousValuesPromise>() => T;
-}
-
-export interface UserSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserPreviousValuesSubscription>() => T;
-}
-
-export interface UserPreviousValues {
-  id: ID_Output;
-  firstName: String;
-  lastName: String;
-  email: String;
-  phoneNumber: String;
-  dob: String;
-  terms?: Boolean;
-}
-
-export interface UserPreviousValuesPromise
-  extends Promise<UserPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  firstName: () => Promise<String>;
-  lastName: () => Promise<String>;
-  email: () => Promise<String>;
-  phoneNumber: () => Promise<String>;
-  dob: () => Promise<String>;
-  terms: () => Promise<Boolean>;
-}
-
-export interface UserPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  firstName: () => Promise<AsyncIterator<String>>;
-  lastName: () => Promise<AsyncIterator<String>>;
-  email: () => Promise<AsyncIterator<String>>;
-  phoneNumber: () => Promise<AsyncIterator<String>>;
-  dob: () => Promise<AsyncIterator<String>>;
-  terms: () => Promise<AsyncIterator<Boolean>>;
-}
-
-export interface UserOrganizationRoleSubscriptionPayload {
-  mutation: MutationType;
-  node: UserOrganizationRole;
-  updatedFields: String[];
-  previousValues: UserOrganizationRolePreviousValues;
-}
-
-export interface UserOrganizationRoleSubscriptionPayloadPromise
-  extends Promise<UserOrganizationRoleSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserOrganizationRolePromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserOrganizationRolePreviousValuesPromise>() => T;
-}
-
-export interface UserOrganizationRoleSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserOrganizationRoleSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserOrganizationRoleSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserOrganizationRolePreviousValuesSubscription>() => T;
-}
-
-export interface UserOrganizationRolePreviousValues {
-  id: ID_Output;
-}
-
-export interface UserOrganizationRolePreviousValuesPromise
-  extends Promise<UserOrganizationRolePreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-}
-
-export interface UserOrganizationRolePreviousValuesSubscription
-  extends Promise<AsyncIterator<UserOrganizationRolePreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-}
-
-export interface UserStatusSubscriptionPayload {
-  mutation: MutationType;
-  node: UserStatus;
-  updatedFields: String[];
-  previousValues: UserStatusPreviousValues;
-}
-
-export interface UserStatusSubscriptionPayloadPromise
-  extends Promise<UserStatusSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = UserStatusPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = UserStatusPreviousValuesPromise>() => T;
-}
-
-export interface UserStatusSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<UserStatusSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = UserStatusSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = UserStatusPreviousValuesSubscription>() => T;
-}
-
-export interface UserStatusPreviousValues {
-  id: ID_Output;
-  status: String;
-  userId: String;
-}
-
-export interface UserStatusPreviousValuesPromise
-  extends Promise<UserStatusPreviousValues>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
-  status: () => Promise<String>;
-  userId: () => Promise<String>;
-}
-
-export interface UserStatusPreviousValuesSubscription
-  extends Promise<AsyncIterator<UserStatusPreviousValues>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  status: () => Promise<AsyncIterator<String>>;
-  userId: () => Promise<AsyncIterator<String>>;
-}
-
-export interface ValueAddedServicesSubscriptionPayload {
-  mutation: MutationType;
-  node: ValueAddedServices;
-  updatedFields: String[];
-  previousValues: ValueAddedServicesPreviousValues;
-}
-
-export interface ValueAddedServicesSubscriptionPayloadPromise
-  extends Promise<ValueAddedServicesSubscriptionPayload>,
-    Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = ValueAddedServicesPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = ValueAddedServicesPreviousValuesPromise>() => T;
-}
-
-export interface ValueAddedServicesSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<ValueAddedServicesSubscriptionPayload>>,
-    Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = ValueAddedServicesSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = ValueAddedServicesPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<CountriesEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateCountriesSubscription>() => T;
 }
 
 export interface ValueAddedServicesPreviousValues {
@@ -20580,29 +18780,29 @@ export interface ValueAddedServicesPreviousValuesSubscription
   userId: () => Promise<AsyncIterator<String>>;
 }
 
-export interface WallFinishesOptionsSubscriptionPayload {
+export interface ValueAddedServicesSubscriptionPayload {
   mutation: MutationType;
-  node: WallFinishesOptions;
+  node: ValueAddedServices;
   updatedFields: String[];
-  previousValues: WallFinishesOptionsPreviousValues;
+  previousValues: ValueAddedServicesPreviousValues;
 }
 
-export interface WallFinishesOptionsSubscriptionPayloadPromise
-  extends Promise<WallFinishesOptionsSubscriptionPayload>,
+export interface ValueAddedServicesSubscriptionPayloadPromise
+  extends Promise<ValueAddedServicesSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = WallFinishesOptionsPromise>() => T;
+  node: <T = ValueAddedServicesPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = WallFinishesOptionsPreviousValuesPromise>() => T;
+  previousValues: <T = ValueAddedServicesPreviousValuesPromise>() => T;
 }
 
-export interface WallFinishesOptionsSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<WallFinishesOptionsSubscriptionPayload>>,
+export interface ValueAddedServicesSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<ValueAddedServicesSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = WallFinishesOptionsSubscription>() => T;
+  node: <T = ValueAddedServicesSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = WallFinishesOptionsPreviousValuesSubscription>() => T;
+  previousValues: <T = ValueAddedServicesPreviousValuesSubscription>() => T;
 }
 
 export interface StockProductConnection {
@@ -20626,29 +18826,25 @@ export interface StockProductConnectionSubscription
   aggregate: <T = AggregateStockProductSubscription>() => T;
 }
 
-export interface WalletSubscriptionPayload {
-  mutation: MutationType;
-  node: Wallet;
-  updatedFields: String[];
-  previousValues: WalletPreviousValues;
+export interface ListingRatingConnection {
+  pageInfo: PageInfo;
+  edges: ListingRatingEdge[];
 }
 
-export interface WalletSubscriptionPayloadPromise
-  extends Promise<WalletSubscriptionPayload>,
+export interface ListingRatingConnectionPromise
+  extends Promise<ListingRatingConnection>,
     Fragmentable {
-  mutation: () => Promise<MutationType>;
-  node: <T = WalletPromise>() => T;
-  updatedFields: () => Promise<String[]>;
-  previousValues: <T = WalletPreviousValuesPromise>() => T;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ListingRatingEdge>>() => T;
+  aggregate: <T = AggregateListingRatingPromise>() => T;
 }
 
-export interface WalletSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<WalletSubscriptionPayload>>,
+export interface ListingRatingConnectionSubscription
+  extends Promise<AsyncIterator<ListingRatingConnection>>,
     Fragmentable {
-  mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = WalletSubscription>() => T;
-  updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = WalletPreviousValuesSubscription>() => T;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ListingRatingEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateListingRatingSubscription>() => T;
 }
 
 export interface RequisitionDuration {
@@ -20737,8 +18933,6 @@ export type DateTimeOutput = string;
 The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
 */
 export type Float = number;
-
-export type Long = string;
 
 /**
  * Model Metadata

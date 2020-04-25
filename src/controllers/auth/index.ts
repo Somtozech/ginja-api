@@ -13,21 +13,21 @@ const signUp = async (parent: any, args: UserModel, context: any): Promise<any> 
         const newArgs = { ...args, pin };
 
         // Create auth and user
-        const user = await authService.createAuth({ parent, args: newArgs, context });
+        const user: any = await authService.createAuth({ parent, args: newArgs, context });
 
         const {
             id: userId,
-            bank: { id: bank }
+            bank: { id: bankId }
         } = user;
 
-        const { id: organization } = await organizationService.createOrganization({ parent, args, context }, { bank: bank.id });
+        const { id: organizationId } = await organizationService.createOrganization({ parent, args, context }, { bankId });
 
         // Create Wallet for user
         await createWallet({ parent, args, context }, { bank: user.bank, userId });
         // get owner role
-        const { id: role } = await roleService.getRoleByParam({ parent, args, context }, { name: 'owner' });
+        const { id: roleId } = await roleService.getRoleByParam({ parent, args, context }, { name: 'owner' });
 
-        await organizationService.createUserOrganizationRoles({ parent, args, context }, { role, organization, userId });
+        await organizationService.createUserOrganizationRoles({ parent, args, context }, { roleId, organizationId, userId });
 
         // 3
         const token = jwtUtility.signPayload({ userId });

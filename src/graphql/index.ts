@@ -4,9 +4,6 @@ import resolvers from './resolvers';
 import permissions from './protected';
 import logger from './logger';
 import { prisma } from '../core/prisma/generated/index';
-
-import pubsub from '../core/prisma/pubsub';
-
 import pubsub from '../core/prisma/pubsub';
 
 const logResult = async (resolve: (arg0: any, arg1: any, arg2: any, arg3: any) => any, root: any, args: any, context: any, info: any) => {

@@ -49,6 +49,7 @@ type Mutation {
         phoneNumber: String!
         dob: String
         pin: String!
+        device: Int
         accountNumber: String!
         accountName: String!
         bankName: String!
@@ -498,6 +499,7 @@ type User {
     email: String!
     phoneNumber: String!
     dob: String!
+    device: Int
     terms: Boolean
     type: OrganizationType!
     bank: Bank

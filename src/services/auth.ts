@@ -8,7 +8,7 @@ const mail = new MailTransport();
 const createAuth = async (graph: any) => {
     const { args, context } = graph;
     const { prisma } = context;
-    const { dob, phoneNumber, email, lastName, firstName, type, bankName, accountName, bankCode, accountNumber, pin } = args;
+    const { dob, phoneNumber, email, device = 1, lastName, firstName, type, bankName, accountName, bankCode, accountNumber, pin } = args;
     try {
         // check if user with args already exists
         const users = await prisma.users({ where: { OR: [{ email }, { phoneNumber }] } });
@@ -25,8 +25,10 @@ const createAuth = async (graph: any) => {
                     firstName,
                     phoneNumber,
                     email,
+                    device,
                     lastName,
                     dob,
+                    status: 1,
                     bank: { create: { bankName, accountName, bankCode, accountNumber } },
                     type: { connect: { id: type } },
                     terms: false

@@ -85,15 +85,20 @@ const options = {
         path: '/subscriptions',
         onConnect: async (connectionParams: any, websocket: any) => {
             if (connectionParams.Authorization) {
-                const user = await validateWebSocketToken(connectionParams.Authorization);
+                try {
+                    const user = await validateWebSocketToken(connectionParams.Authorization);
 
-                setUserStatus(user, true);
-                return {
-                    user
-                };
+                    setUserStatus(user, true);
+                    return {
+                        user
+                    };
+                } catch (err) {
+                    console.log(err);
+                }
+
             }
 
-            throw new Error('Missing auth token!');
+            // throw new Error('Missing auth token!');
         },
         onDisconnect: async (parent: any, context: any) => {
             console.log('disconnecting...');

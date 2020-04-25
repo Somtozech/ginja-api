@@ -38,11 +38,11 @@ const requisitions = async (graph: any) => {
     const {
         args,
         context: { role, user: authUser, prisma }
-    } = graph;
+    }: any = graph;
     const { name } = role;
-
-    const { first, skip, user, limit, nextToken, listing, status } = args;
-    let filterbyUser = user ? { user: { id: user } } : {};
+    const user: any = { user: { id: (authUser && authUser.id) || '' } };
+    const { first, skip, user: searcher, listing, status } = args;
+    let filterbyUser = user ? { user: { id: searcher } } : {};
     let filterbyListing = listing ? { listing: { id: listing } } : {};
     let statusQuery = {};
 
@@ -50,8 +50,8 @@ const requisitions = async (graph: any) => {
         filterbyUser = {};
         filterbyListing = {
             listing: {
-                ...(filterbyListing.listing && filterbyListing.listing),
-                user: { id: authUser.id }
+                ...(filterbyListing && filterbyListing.listing),
+                ...user
             }
         };
     }

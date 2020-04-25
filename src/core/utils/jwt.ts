@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import jwt, { NotBeforeError, TokenExpiredError } from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { NotAuthenticatedError } from '../errors';
 
 interface SignOptions {
@@ -10,6 +10,7 @@ interface SignOptions {
     expiresIn: string;
     algorithm: any | Algorithm;
 }
+
 const signPayload = (payload: object): any => {
     // SIGNING OPTIONS
     const signOptions: SignOptions = {
@@ -31,7 +32,6 @@ const signPayload = (payload: object): any => {
         const token = jwt.sign(payload, privateKey, signOptions);
         return token;
     } catch (error) {
-        console.log(error);
         throw new NotAuthenticatedError('Unable to complete authentication', error);
     }
 };

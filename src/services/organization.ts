@@ -6,7 +6,7 @@ const createOrganization = async (graph: any, params: any) => {
     const { prisma } = context;
     const { firstName, lastName, email, phoneNumber, type } = args;
 
-    const { bank } = params;
+    const { bankId } = params;
 
     try {
         return await prisma.createOrganization({
@@ -15,7 +15,7 @@ const createOrganization = async (graph: any, params: any) => {
             phoneNumber,
             bank: {
                 connect: {
-                    id: bank
+                    id: bankId
                 }
             },
             type: {
@@ -33,7 +33,7 @@ const createOrganization = async (graph: any, params: any) => {
 const createUserOrganizationRoles = async (graph: any, params: any) => {
     const { parent, args, context } = graph;
     const { prisma } = context;
-    const { userId, role, organization } = params;
+    const { userId, roleId, organizationId } = params;
     try {
         return await prisma.createUserOrganizationRole({
             user: {
@@ -43,12 +43,12 @@ const createUserOrganizationRoles = async (graph: any, params: any) => {
             },
             role: {
                 connect: {
-                    id: role
+                    id: roleId
                 }
             },
             organization: {
                 connect: {
-                    id: organization
+                    id: organizationId
                 }
             }
         });
