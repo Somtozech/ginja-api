@@ -114,6 +114,8 @@ type Mutation {
     withdraw(amount: Float!): Success!
     updateStockStatus(stockId: String!, status: Int!): StockUpdateSuccess!
     updateDispatchStatus(stockId: String!, status: Int!): StockUpdateSuccess!
+    createAmenitiesOption(name: String!): Success!
+    createValueAddedServices(name: String!): Success!
 }
 
 type StockUpdateSuccess {

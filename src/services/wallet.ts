@@ -54,11 +54,11 @@ const createWallet = async (graph: any, params: any) => {
 const fundWallet = async (graph: any): Promise<any> => {
     // verify if payment was successful
     const {
-        args: {
-            reference,
+        args: { reference },
+        context: {
+            prisma,
             user: { id: userId }
-        },
-        context: { prisma }
+        }
     } = graph;
 
     const { data, status } = await payment.paystack.verifyTransaction({
@@ -253,7 +253,7 @@ const transfer = async (graph: any) => {
     } = graph;
 
     const recipient = await prisma.user({ id: recipientId });
-    
+
     if (!recipient) throw new Error("Transfer Recipient dosen't exist");
 
     const amountInKobo = amount * 100;

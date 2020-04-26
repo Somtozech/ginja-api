@@ -12,11 +12,13 @@ const permissions = {
         chatMessages: authMiddleware,
         listings: authMiddleware,
         payments: authMiddleware,
+        amenitiesOptions: authMiddleware,
         stocks: authMiddleware,
         userOrganizationRoles: authMiddleware,
         requisitions: authMiddleware,
         getUser: authMiddleware,
-        wallet: authMiddleware
+        wallet: authMiddleware,
+        valueAddedServices: authMiddleware
     },
     Mutation: {
         acceptTerms: authMiddleware,
@@ -35,7 +37,9 @@ const permissions = {
         verifyPayment: authMiddleware,
         transfer: authMiddleware,
         withdraw: authMiddleware,
-        updateStockStatus: authMiddleware
+        updateStockStatus: authMiddleware,
+        createAmenitiesOption: authMiddleware,
+        createValueAddedServices: authMiddleware
     }
 };
 
