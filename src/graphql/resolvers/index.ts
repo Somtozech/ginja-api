@@ -13,6 +13,7 @@ import { ratingMutations } from './rating';
 import { walletMutations, walletQueries, walletTypes } from './wallet';
 import { chatMutations, chatQueries, chatSubscriptions, chatTypes } from './chats';
 import { TransactionTypes } from './transaction';
+import { uploadMutations } from './upload';
 
 const resolvers = {
     Query: {
@@ -44,7 +45,8 @@ const resolvers = {
         ...walletMutations,
         ...chatMutations,
         ...paymentMutations,
-        ...miscMutations
+        ...miscMutations,
+        ...uploadMutations
     },
     Subscription: {
         ...chatSubscriptions,

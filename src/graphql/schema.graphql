@@ -1,5 +1,7 @@
 # import * from "../core/prisma/generated/prisma.graphql"
 
+scalar Upload
+
 type Query {
     info: String
     users: [User!]!
@@ -116,6 +118,12 @@ type Mutation {
     updateDispatchStatus(stockId: String!, status: Int!): StockUpdateSuccess!
     createAmenitiesOption(name: String!): Success!
     createValueAddedServices(name: String!): Success!
+    singleFileUpload(file: Upload!): uploadFile
+    multipleUploads(files: [Upload!]): [uploadFile]
+}
+
+type uploadFile {
+    url: String!
 }
 
 type StockUpdateSuccess {

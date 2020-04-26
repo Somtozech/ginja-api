@@ -39,7 +39,9 @@ const permissions = {
         withdraw: authMiddleware,
         updateStockStatus: authMiddleware,
         createAmenitiesOption: authMiddleware,
-        createValueAddedServices: authMiddleware
+        createValueAddedServices: authMiddleware,
+        singleFileUpload: authMiddleware,
+        multipleUploads: authMiddleware
     }
 };
 
