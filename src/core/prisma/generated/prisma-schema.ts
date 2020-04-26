@@ -3424,6 +3424,7 @@ type ListingRequirements {
   id: ID!
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
@@ -3437,6 +3438,7 @@ input ListingRequirementsCreateInput {
   id: ID
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
@@ -3457,6 +3459,8 @@ enum ListingRequirementsOrderByInput {
   slug_DESC
   name_ASC
   name_DESC
+  userId_ASC
+  userId_DESC
   default_ASC
   default_DESC
 }
@@ -3465,6 +3469,7 @@ type ListingRequirementsPreviousValues {
   id: ID!
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
@@ -3511,6 +3516,20 @@ input ListingRequirementsScalarWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
   default: Boolean
   default_not: Boolean
   AND: [ListingRequirementsScalarWhereInput!]
@@ -3539,18 +3558,21 @@ input ListingRequirementsSubscriptionWhereInput {
 input ListingRequirementsUpdateDataInput {
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
 input ListingRequirementsUpdateInput {
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
 input ListingRequirementsUpdateManyDataInput {
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
@@ -3569,6 +3591,7 @@ input ListingRequirementsUpdateManyInput {
 input ListingRequirementsUpdateManyMutationInput {
   slug: String
   name: String
+  userId: String
   default: Boolean
 }
 
@@ -3631,6 +3654,20 @@ input ListingRequirementsWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
   default: Boolean
   default_not: Boolean
   AND: [ListingRequirementsWhereInput!]

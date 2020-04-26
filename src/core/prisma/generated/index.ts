@@ -2457,6 +2457,8 @@ export type ListingRequirementsOrderByInput =
   | "slug_DESC"
   | "name_ASC"
   | "name_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
   | "default_ASC"
   | "default_DESC";
 
@@ -4370,6 +4372,20 @@ export interface ListingRequirementsWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
   AND?: Maybe<ListingRequirementsWhereInput[] | ListingRequirementsWhereInput>;
@@ -7272,6 +7288,7 @@ export interface ListingRequirementsCreateInput {
   id?: Maybe<ID_Input>;
   slug?: Maybe<String>;
   name?: Maybe<String>;
+  userId?: Maybe<String>;
   default?: Maybe<Boolean>;
 }
 
@@ -8482,6 +8499,7 @@ export interface ListingRequirementsUpdateWithWhereUniqueNestedInput {
 export interface ListingRequirementsUpdateDataInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
+  userId?: Maybe<String>;
   default?: Maybe<Boolean>;
 }
 
@@ -8534,6 +8552,20 @@ export interface ListingRequirementsScalarWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
   default_not?: Maybe<Boolean>;
   AND?: Maybe<
@@ -8555,6 +8587,7 @@ export interface ListingRequirementsUpdateManyWithWhereNestedInput {
 export interface ListingRequirementsUpdateManyDataInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
+  userId?: Maybe<String>;
   default?: Maybe<Boolean>;
 }
 
@@ -8825,12 +8858,14 @@ export interface ListingRatingUpdateManyMutationInput {
 export interface ListingRequirementsUpdateInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
+  userId?: Maybe<String>;
   default?: Maybe<Boolean>;
 }
 
 export interface ListingRequirementsUpdateManyMutationInput {
   slug?: Maybe<String>;
   name?: Maybe<String>;
+  userId?: Maybe<String>;
   default?: Maybe<Boolean>;
 }
 
@@ -12980,6 +13015,7 @@ export interface ListingRequirements {
   id: ID_Output;
   slug?: String;
   name?: String;
+  userId?: String;
   default?: Boolean;
 }
 
@@ -12989,6 +13025,7 @@ export interface ListingRequirementsPromise
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
   name: () => Promise<String>;
+  userId: () => Promise<String>;
   default: () => Promise<Boolean>;
 }
 
@@ -12998,6 +13035,7 @@ export interface ListingRequirementsSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
 }
 
@@ -13007,6 +13045,7 @@ export interface ListingRequirementsNullablePromise
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
   name: () => Promise<String>;
+  userId: () => Promise<String>;
   default: () => Promise<Boolean>;
 }
 
@@ -17188,6 +17227,7 @@ export interface ListingRequirementsPreviousValues {
   id: ID_Output;
   slug?: String;
   name?: String;
+  userId?: String;
   default?: Boolean;
 }
 
@@ -17197,6 +17237,7 @@ export interface ListingRequirementsPreviousValuesPromise
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
   name: () => Promise<String>;
+  userId: () => Promise<String>;
   default: () => Promise<Boolean>;
 }
 
@@ -17206,6 +17247,7 @@ export interface ListingRequirementsPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
 }
 

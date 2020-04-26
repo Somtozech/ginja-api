@@ -148,6 +148,7 @@ type ListingRequirements {
     id: ID!  @id @unique
     slug: String
     name: String
+    userId: String
     default: Boolean
 }
 

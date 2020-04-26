@@ -120,6 +120,7 @@ type Mutation {
     createValueAddedServices(name: String!): Success!
     singleFileUpload(file: Upload!): uploadFile
     multipleUploads(files: [Upload!]): [uploadFile]
+    createListingRequirement(name: String!): Success!
 }
 
 type uploadFile {
@@ -412,6 +413,7 @@ type ListingRequirements {
     id: ID!
     slug: String!
     name: String!
+    userId: String
     default: Boolean
 }
 
