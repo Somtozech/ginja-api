@@ -405,6 +405,10 @@ type AggregateDateRange {
   count: Int!
 }
 
+type AggregateDispatchProduct {
+  count: Int!
+}
+
 type AggregateFloorsOptions {
   count: Int!
 }
@@ -486,6 +490,10 @@ type AggregateRating {
 }
 
 type AggregateReferral {
+  count: Int!
+}
+
+type AggregateReferralHistory {
   count: Int!
 }
 
@@ -575,6 +583,8 @@ type AmenitiesOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type AmenitiesOptionsConnection {
@@ -612,6 +622,10 @@ enum AmenitiesOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type AmenitiesOptionsPreviousValues {
@@ -620,6 +634,8 @@ type AmenitiesOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input AmenitiesOptionsScalarWhereInput {
@@ -681,6 +697,22 @@ input AmenitiesOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [AmenitiesOptionsScalarWhereInput!]
   OR: [AmenitiesOptionsScalarWhereInput!]
   NOT: [AmenitiesOptionsScalarWhereInput!]
@@ -819,6 +851,22 @@ input AmenitiesOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [AmenitiesOptionsWhereInput!]
   OR: [AmenitiesOptionsWhereInput!]
   NOT: [AmenitiesOptionsWhereInput!]
@@ -1024,6 +1072,8 @@ type Bank {
   accountName: String!
   bankName: String!
   bankCode: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type BankConnection {
@@ -1061,6 +1111,10 @@ enum BankOrderByInput {
   bankName_DESC
   bankCode_ASC
   bankCode_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type BankPreviousValues {
@@ -1069,6 +1123,8 @@ type BankPreviousValues {
   accountName: String!
   bankName: String!
   bankCode: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type BankSubscriptionPayload {
@@ -1193,6 +1249,22 @@ input BankWhereInput {
   bankCode_not_starts_with: String
   bankCode_ends_with: String
   bankCode_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [BankWhereInput!]
   OR: [BankWhereInput!]
   NOT: [BankWhereInput!]
@@ -1214,6 +1286,8 @@ type Chat {
   warehouser: User!
   requisitionId: String!
   messages(where: MessageWhereInput, orderBy: MessageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Message!]
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ChatConnection {
@@ -1246,6 +1320,10 @@ enum ChatOrderByInput {
   warehouserId_DESC
   requisitionId_ASC
   requisitionId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ChatPreviousValues {
@@ -1253,6 +1331,8 @@ type ChatPreviousValues {
   merchantId: String!
   warehouserId: String!
   requisitionId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ChatSubscriptionPayload {
@@ -1350,6 +1430,22 @@ input ChatWhereInput {
   messages_every: MessageWhereInput
   messages_some: MessageWhereInput
   messages_none: MessageWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ChatWhereInput!]
   OR: [ChatWhereInput!]
   NOT: [ChatWhereInput!]
@@ -1364,6 +1460,8 @@ type Countries {
   slug: String
   name: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type CountriesConnection {
@@ -1393,6 +1491,10 @@ enum CountriesOrderByInput {
   name_DESC
   default_ASC
   default_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type CountriesPreviousValues {
@@ -1400,6 +1502,8 @@ type CountriesPreviousValues {
   slug: String
   name: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type CountriesSubscriptionPayload {
@@ -1477,6 +1581,22 @@ input CountriesWhereInput {
   name_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [CountriesWhereInput!]
   OR: [CountriesWhereInput!]
   NOT: [CountriesWhereInput!]
@@ -1491,6 +1611,7 @@ type Crown {
   requiredReferrals: Int!
   noOfDays: Int!
   bonus: Int!
+  name: String!
   createdAt: DateTime!
   updatedAt: DateTime
   compensationCount: Float!
@@ -1508,6 +1629,7 @@ input CrownCreateInput {
   requiredReferrals: Int!
   noOfDays: Int!
   bonus: Int!
+  name: String!
   compensationCount: Float!
   compensationBonus: Float!
 }
@@ -1531,6 +1653,8 @@ enum CrownOrderByInput {
   noOfDays_DESC
   bonus_ASC
   bonus_DESC
+  name_ASC
+  name_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -1546,6 +1670,7 @@ type CrownPreviousValues {
   requiredReferrals: Int!
   noOfDays: Int!
   bonus: Int!
+  name: String!
   createdAt: DateTime!
   updatedAt: DateTime
   compensationCount: Float!
@@ -1574,6 +1699,7 @@ input CrownUpdateDataInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  name: String
   compensationCount: Float
   compensationBonus: Float
 }
@@ -1582,6 +1708,7 @@ input CrownUpdateInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  name: String
   compensationCount: Float
   compensationBonus: Float
 }
@@ -1590,14 +1717,17 @@ input CrownUpdateManyMutationInput {
   requiredReferrals: Int
   noOfDays: Int
   bonus: Int
+  name: String
   compensationCount: Float
   compensationBonus: Float
 }
 
-input CrownUpdateOneRequiredInput {
+input CrownUpdateOneInput {
   create: CrownCreateInput
   update: CrownUpdateDataInput
   upsert: CrownUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
   connect: CrownWhereUniqueInput
 }
 
@@ -1645,6 +1775,20 @@ input CrownWhereInput {
   bonus_lte: Int
   bonus_gt: Int
   bonus_gte: Int
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1690,6 +1834,8 @@ type DateRange {
   id: ID!
   min: String
   max: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type DateRangeConnection {
@@ -1721,12 +1867,18 @@ enum DateRangeOrderByInput {
   min_DESC
   max_ASC
   max_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type DateRangePreviousValues {
   id: ID!
   min: String
   max: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type DateRangeSubscriptionPayload {
@@ -1819,6 +1971,22 @@ input DateRangeWhereInput {
   max_not_starts_with: String
   max_ends_with: String
   max_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [DateRangeWhereInput!]
   OR: [DateRangeWhereInput!]
   NOT: [DateRangeWhereInput!]
@@ -1830,12 +1998,212 @@ input DateRangeWhereUniqueInput {
 
 scalar DateTime
 
+type DispatchProduct {
+  id: ID!
+  productName: String!
+  productSize: String!
+  quantityPerSize: Int!
+  totalQuantity: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type DispatchProductConnection {
+  pageInfo: PageInfo!
+  edges: [DispatchProductEdge]!
+  aggregate: AggregateDispatchProduct!
+}
+
+input DispatchProductCreateInput {
+  id: ID
+  productName: String!
+  productSize: String!
+  quantityPerSize: Int!
+  totalQuantity: Int
+}
+
+input DispatchProductCreateOneInput {
+  create: DispatchProductCreateInput
+  connect: DispatchProductWhereUniqueInput
+}
+
+type DispatchProductEdge {
+  node: DispatchProduct!
+  cursor: String!
+}
+
+enum DispatchProductOrderByInput {
+  id_ASC
+  id_DESC
+  productName_ASC
+  productName_DESC
+  productSize_ASC
+  productSize_DESC
+  quantityPerSize_ASC
+  quantityPerSize_DESC
+  totalQuantity_ASC
+  totalQuantity_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type DispatchProductPreviousValues {
+  id: ID!
+  productName: String!
+  productSize: String!
+  quantityPerSize: Int!
+  totalQuantity: Int
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type DispatchProductSubscriptionPayload {
+  mutation: MutationType!
+  node: DispatchProduct
+  updatedFields: [String!]
+  previousValues: DispatchProductPreviousValues
+}
+
+input DispatchProductSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: DispatchProductWhereInput
+  AND: [DispatchProductSubscriptionWhereInput!]
+  OR: [DispatchProductSubscriptionWhereInput!]
+  NOT: [DispatchProductSubscriptionWhereInput!]
+}
+
+input DispatchProductUpdateDataInput {
+  productName: String
+  productSize: String
+  quantityPerSize: Int
+  totalQuantity: Int
+}
+
+input DispatchProductUpdateInput {
+  productName: String
+  productSize: String
+  quantityPerSize: Int
+  totalQuantity: Int
+}
+
+input DispatchProductUpdateManyMutationInput {
+  productName: String
+  productSize: String
+  quantityPerSize: Int
+  totalQuantity: Int
+}
+
+input DispatchProductUpdateOneInput {
+  create: DispatchProductCreateInput
+  update: DispatchProductUpdateDataInput
+  upsert: DispatchProductUpsertNestedInput
+  delete: Boolean
+  disconnect: Boolean
+  connect: DispatchProductWhereUniqueInput
+}
+
+input DispatchProductUpsertNestedInput {
+  update: DispatchProductUpdateDataInput!
+  create: DispatchProductCreateInput!
+}
+
+input DispatchProductWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  productName: String
+  productName_not: String
+  productName_in: [String!]
+  productName_not_in: [String!]
+  productName_lt: String
+  productName_lte: String
+  productName_gt: String
+  productName_gte: String
+  productName_contains: String
+  productName_not_contains: String
+  productName_starts_with: String
+  productName_not_starts_with: String
+  productName_ends_with: String
+  productName_not_ends_with: String
+  productSize: String
+  productSize_not: String
+  productSize_in: [String!]
+  productSize_not_in: [String!]
+  productSize_lt: String
+  productSize_lte: String
+  productSize_gt: String
+  productSize_gte: String
+  productSize_contains: String
+  productSize_not_contains: String
+  productSize_starts_with: String
+  productSize_not_starts_with: String
+  productSize_ends_with: String
+  productSize_not_ends_with: String
+  quantityPerSize: Int
+  quantityPerSize_not: Int
+  quantityPerSize_in: [Int!]
+  quantityPerSize_not_in: [Int!]
+  quantityPerSize_lt: Int
+  quantityPerSize_lte: Int
+  quantityPerSize_gt: Int
+  quantityPerSize_gte: Int
+  totalQuantity: Int
+  totalQuantity_not: Int
+  totalQuantity_in: [Int!]
+  totalQuantity_not_in: [Int!]
+  totalQuantity_lt: Int
+  totalQuantity_lte: Int
+  totalQuantity_gt: Int
+  totalQuantity_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [DispatchProductWhereInput!]
+  OR: [DispatchProductWhereInput!]
+  NOT: [DispatchProductWhereInput!]
+}
+
+input DispatchProductWhereUniqueInput {
+  id: ID
+}
+
 type FloorsOptions {
   id: ID!
   slug: String
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type FloorsOptionsConnection {
@@ -1873,6 +2241,10 @@ enum FloorsOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type FloorsOptionsPreviousValues {
@@ -1881,6 +2253,8 @@ type FloorsOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input FloorsOptionsScalarWhereInput {
@@ -1942,6 +2316,22 @@ input FloorsOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FloorsOptionsScalarWhereInput!]
   OR: [FloorsOptionsScalarWhereInput!]
   NOT: [FloorsOptionsScalarWhereInput!]
@@ -2080,6 +2470,22 @@ input FloorsOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [FloorsOptionsWhereInput!]
   OR: [FloorsOptionsWhereInput!]
   NOT: [FloorsOptionsWhereInput!]
@@ -2237,6 +2643,8 @@ type IdentificationsOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type IdentificationsOptionsConnection {
@@ -2269,6 +2677,10 @@ enum IdentificationsOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type IdentificationsOptionsPreviousValues {
@@ -2277,6 +2689,8 @@ type IdentificationsOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type IdentificationsOptionsSubscriptionPayload {
@@ -2370,6 +2784,22 @@ input IdentificationsOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [IdentificationsOptionsWhereInput!]
   OR: [IdentificationsOptionsWhereInput!]
   NOT: [IdentificationsOptionsWhereInput!]
@@ -2410,12 +2840,16 @@ type Listing {
   dimensions: ListingDimensions!
   status: Int!
   rating: ListingRating!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingAvailability {
   id: ID!
   from: String!
   to: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingAvailabilityConnection {
@@ -2447,12 +2881,18 @@ enum ListingAvailabilityOrderByInput {
   from_DESC
   to_ASC
   to_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingAvailabilityPreviousValues {
   id: ID!
   from: String!
   to: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingAvailabilitySubscriptionPayload {
@@ -2543,6 +2983,22 @@ input ListingAvailabilityWhereInput {
   to_not_starts_with: String
   to_ends_with: String
   to_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingAvailabilityWhereInput!]
   OR: [ListingAvailabilityWhereInput!]
   NOT: [ListingAvailabilityWhereInput!]
@@ -2604,6 +3060,8 @@ type ListingDimensions {
   unitOfDimensions: Int
   volume: Float
   area: Float
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingDimensionsConnection {
@@ -2647,6 +3105,10 @@ enum ListingDimensionsOrderByInput {
   volume_DESC
   area_ASC
   area_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingDimensionsPreviousValues {
@@ -2657,6 +3119,8 @@ type ListingDimensionsPreviousValues {
   unitOfDimensions: Int
   volume: Float
   area: Float
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingDimensionsSubscriptionPayload {
@@ -2779,6 +3243,22 @@ input ListingDimensionsWhereInput {
   area_lte: Float
   area_gt: Float
   area_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingDimensionsWhereInput!]
   OR: [ListingDimensionsWhereInput!]
   NOT: [ListingDimensionsWhereInput!]
@@ -2816,12 +3296,18 @@ enum ListingOrderByInput {
   avatar_DESC
   status_ASC
   status_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingPhotos {
   id: ID!
   url: String!
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingPhotosConnection {
@@ -2853,12 +3339,18 @@ enum ListingPhotosOrderByInput {
   url_DESC
   default_ASC
   default_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingPhotosPreviousValues {
   id: ID!
   url: String!
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input ListingPhotosScalarWhereInput {
@@ -2892,6 +3384,22 @@ input ListingPhotosScalarWhereInput {
   url_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingPhotosScalarWhereInput!]
   OR: [ListingPhotosScalarWhereInput!]
   NOT: [ListingPhotosScalarWhereInput!]
@@ -2994,6 +3502,22 @@ input ListingPhotosWhereInput {
   url_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingPhotosWhereInput!]
   OR: [ListingPhotosWhereInput!]
   NOT: [ListingPhotosWhereInput!]
@@ -3015,6 +3539,8 @@ type ListingPreviousValues {
   windows: Int!
   avatar: String!
   status: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingProducts {
@@ -3023,6 +3549,8 @@ type ListingProducts {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingProductsConnection {
@@ -3060,6 +3588,10 @@ enum ListingProductsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingProductsPreviousValues {
@@ -3068,6 +3600,8 @@ type ListingProductsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input ListingProductsScalarWhereInput {
@@ -3129,6 +3663,22 @@ input ListingProductsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingProductsScalarWhereInput!]
   OR: [ListingProductsScalarWhereInput!]
   NOT: [ListingProductsScalarWhereInput!]
@@ -3267,6 +3817,22 @@ input ListingProductsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingProductsWhereInput!]
   OR: [ListingProductsWhereInput!]
   NOT: [ListingProductsWhereInput!]
@@ -3281,6 +3847,8 @@ type ListingRating {
   count: Int!
   rates: Int!
   average: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingRatingConnection {
@@ -3315,6 +3883,10 @@ enum ListingRatingOrderByInput {
   rates_DESC
   average_ASC
   average_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingRatingPreviousValues {
@@ -3322,6 +3894,8 @@ type ListingRatingPreviousValues {
   count: Int!
   rates: Int!
   average: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingRatingSubscriptionPayload {
@@ -3411,6 +3985,22 @@ input ListingRatingWhereInput {
   average_lte: Float
   average_gt: Float
   average_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingRatingWhereInput!]
   OR: [ListingRatingWhereInput!]
   NOT: [ListingRatingWhereInput!]
@@ -3426,6 +4016,8 @@ type ListingRequirements {
   name: String
   userId: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingRequirementsConnection {
@@ -3463,6 +4055,10 @@ enum ListingRequirementsOrderByInput {
   userId_DESC
   default_ASC
   default_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingRequirementsPreviousValues {
@@ -3471,6 +4067,8 @@ type ListingRequirementsPreviousValues {
   name: String
   userId: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input ListingRequirementsScalarWhereInput {
@@ -3532,6 +4130,22 @@ input ListingRequirementsScalarWhereInput {
   userId_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingRequirementsScalarWhereInput!]
   OR: [ListingRequirementsScalarWhereInput!]
   NOT: [ListingRequirementsScalarWhereInput!]
@@ -3670,6 +4284,22 @@ input ListingRequirementsWhereInput {
   userId_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingRequirementsWhereInput!]
   OR: [ListingRequirementsWhereInput!]
   NOT: [ListingRequirementsWhereInput!]
@@ -3685,6 +4315,8 @@ type ListingsFrequencies {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingsFrequenciesConnection {
@@ -3722,6 +4354,10 @@ enum ListingsFrequenciesOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ListingsFrequenciesPreviousValues {
@@ -3730,6 +4366,8 @@ type ListingsFrequenciesPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ListingsFrequenciesSubscriptionPayload {
@@ -3842,6 +4480,22 @@ input ListingsFrequenciesWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingsFrequenciesWhereInput!]
   OR: [ListingsFrequenciesWhereInput!]
   NOT: [ListingsFrequenciesWhereInput!]
@@ -4128,6 +4782,22 @@ input ListingWhereInput {
   status_gt: Int
   status_gte: Int
   rating: ListingRatingWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ListingWhereInput!]
   OR: [ListingWhereInput!]
   NOT: [ListingWhereInput!]
@@ -4145,6 +4815,8 @@ type Locations {
   lga: String
   street: String
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type LocationsConnection {
@@ -4188,6 +4860,10 @@ enum LocationsOrderByInput {
   street_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type LocationsPreviousValues {
@@ -4198,6 +4874,8 @@ type LocationsPreviousValues {
   lga: String
   street: String
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type LocationsSubscriptionPayload {
@@ -4356,6 +5034,22 @@ input LocationsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [LocationsWhereInput!]
   OR: [LocationsWhereInput!]
   NOT: [LocationsWhereInput!]
@@ -4373,6 +5067,7 @@ type Message {
   from: User!
   text: String!
   createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type MessageConnection {
@@ -4407,6 +5102,8 @@ enum MessageOrderByInput {
   text_DESC
   createdAt_ASC
   createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type MessagePreviousValues {
@@ -4414,6 +5111,7 @@ type MessagePreviousValues {
   chatId: String!
   text: String!
   createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input MessageScalarWhereInput {
@@ -4467,6 +5165,14 @@ input MessageScalarWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [MessageScalarWhereInput!]
   OR: [MessageScalarWhereInput!]
   NOT: [MessageScalarWhereInput!]
@@ -4592,6 +5298,14 @@ input MessageWhereInput {
   createdAt_lte: DateTime
   createdAt_gt: DateTime
   createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [MessageWhereInput!]
   OR: [MessageWhereInput!]
   NOT: [MessageWhereInput!]
@@ -4656,6 +5370,12 @@ type Mutation {
   upsertDateRange(where: DateRangeWhereUniqueInput!, create: DateRangeCreateInput!, update: DateRangeUpdateInput!): DateRange!
   deleteDateRange(where: DateRangeWhereUniqueInput!): DateRange
   deleteManyDateRanges(where: DateRangeWhereInput): BatchPayload!
+  createDispatchProduct(data: DispatchProductCreateInput!): DispatchProduct!
+  updateDispatchProduct(data: DispatchProductUpdateInput!, where: DispatchProductWhereUniqueInput!): DispatchProduct
+  updateManyDispatchProducts(data: DispatchProductUpdateManyMutationInput!, where: DispatchProductWhereInput): BatchPayload!
+  upsertDispatchProduct(where: DispatchProductWhereUniqueInput!, create: DispatchProductCreateInput!, update: DispatchProductUpdateInput!): DispatchProduct!
+  deleteDispatchProduct(where: DispatchProductWhereUniqueInput!): DispatchProduct
+  deleteManyDispatchProducts(where: DispatchProductWhereInput): BatchPayload!
   createFloorsOptions(data: FloorsOptionsCreateInput!): FloorsOptions!
   updateFloorsOptions(data: FloorsOptionsUpdateInput!, where: FloorsOptionsWhereUniqueInput!): FloorsOptions
   updateManyFloorsOptionses(data: FloorsOptionsUpdateManyMutationInput!, where: FloorsOptionsWhereInput): BatchPayload!
@@ -4782,6 +5502,12 @@ type Mutation {
   upsertReferral(where: ReferralWhereUniqueInput!, create: ReferralCreateInput!, update: ReferralUpdateInput!): Referral!
   deleteReferral(where: ReferralWhereUniqueInput!): Referral
   deleteManyReferrals(where: ReferralWhereInput): BatchPayload!
+  createReferralHistory(data: ReferralHistoryCreateInput!): ReferralHistory!
+  updateReferralHistory(data: ReferralHistoryUpdateInput!, where: ReferralHistoryWhereUniqueInput!): ReferralHistory
+  updateManyReferralHistories(data: ReferralHistoryUpdateManyMutationInput!, where: ReferralHistoryWhereInput): BatchPayload!
+  upsertReferralHistory(where: ReferralHistoryWhereUniqueInput!, create: ReferralHistoryCreateInput!, update: ReferralHistoryUpdateInput!): ReferralHistory!
+  deleteReferralHistory(where: ReferralHistoryWhereUniqueInput!): ReferralHistory
+  deleteManyReferralHistories(where: ReferralHistoryWhereInput): BatchPayload!
   createRequisition(data: RequisitionCreateInput!): Requisition!
   updateRequisition(data: RequisitionUpdateInput!, where: RequisitionWhereUniqueInput!): Requisition
   updateManyRequisitions(data: RequisitionUpdateManyMutationInput!, where: RequisitionWhereInput): BatchPayload!
@@ -4994,6 +5720,8 @@ input OrganizationSubscriptionWhereInput {
 type OrganizationType {
   id: ID!
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type OrganizationTypeConnection {
@@ -5022,11 +5750,17 @@ enum OrganizationTypeOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type OrganizationTypePreviousValues {
   id: ID!
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type OrganizationTypeSubscriptionPayload {
@@ -5100,6 +5834,22 @@ input OrganizationTypeWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [OrganizationTypeWhereInput!]
   OR: [OrganizationTypeWhereInput!]
   NOT: [OrganizationTypeWhereInput!]
@@ -5426,6 +6176,8 @@ type PaymentCustomer {
   firstName: String
   lastName: String
   email: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type PaymentCustomerConnection {
@@ -5466,6 +6218,10 @@ enum PaymentCustomerOrderByInput {
   lastName_DESC
   email_ASC
   email_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type PaymentCustomerPreviousValues {
@@ -5475,6 +6231,8 @@ type PaymentCustomerPreviousValues {
   firstName: String
   lastName: String
   email: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type PaymentCustomerSubscriptionPayload {
@@ -5618,6 +6376,22 @@ input PaymentCustomerWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PaymentCustomerWhereInput!]
   OR: [PaymentCustomerWhereInput!]
   NOT: [PaymentCustomerWhereInput!]
@@ -5823,6 +6597,8 @@ type PropertiesOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type PropertiesOptionsConnection {
@@ -5860,6 +6636,10 @@ enum PropertiesOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type PropertiesOptionsPreviousValues {
@@ -5868,6 +6648,8 @@ type PropertiesOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input PropertiesOptionsScalarWhereInput {
@@ -5929,6 +6711,22 @@ input PropertiesOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PropertiesOptionsScalarWhereInput!]
   OR: [PropertiesOptionsScalarWhereInput!]
   NOT: [PropertiesOptionsScalarWhereInput!]
@@ -6067,6 +6865,22 @@ input PropertiesOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [PropertiesOptionsWhereInput!]
   OR: [PropertiesOptionsWhereInput!]
   NOT: [PropertiesOptionsWhereInput!]
@@ -6104,6 +6918,9 @@ type Query {
   dateRange(where: DateRangeWhereUniqueInput!): DateRange
   dateRanges(where: DateRangeWhereInput, orderBy: DateRangeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DateRange]!
   dateRangesConnection(where: DateRangeWhereInput, orderBy: DateRangeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DateRangeConnection!
+  dispatchProduct(where: DispatchProductWhereUniqueInput!): DispatchProduct
+  dispatchProducts(where: DispatchProductWhereInput, orderBy: DispatchProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [DispatchProduct]!
+  dispatchProductsConnection(where: DispatchProductWhereInput, orderBy: DispatchProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): DispatchProductConnection!
   floorsOptions(where: FloorsOptionsWhereUniqueInput!): FloorsOptions
   floorsOptionses(where: FloorsOptionsWhereInput, orderBy: FloorsOptionsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [FloorsOptions]!
   floorsOptionsesConnection(where: FloorsOptionsWhereInput, orderBy: FloorsOptionsOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FloorsOptionsConnection!
@@ -6167,6 +6984,9 @@ type Query {
   referral(where: ReferralWhereUniqueInput!): Referral
   referrals(where: ReferralWhereInput, orderBy: ReferralOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Referral]!
   referralsConnection(where: ReferralWhereInput, orderBy: ReferralOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ReferralConnection!
+  referralHistory(where: ReferralHistoryWhereUniqueInput!): ReferralHistory
+  referralHistories(where: ReferralHistoryWhereInput, orderBy: ReferralHistoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [ReferralHistory]!
+  referralHistoriesConnection(where: ReferralHistoryWhereInput, orderBy: ReferralHistoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): ReferralHistoryConnection!
   requisition(where: RequisitionWhereUniqueInput!): Requisition
   requisitions(where: RequisitionWhereInput, orderBy: RequisitionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Requisition]!
   requisitionsConnection(where: RequisitionWhereInput, orderBy: RequisitionOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): RequisitionConnection!
@@ -6236,6 +7056,8 @@ type Rating {
   ratingId: String!
   rate: Int!
   userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RatingConnection {
@@ -6268,6 +7090,10 @@ enum RatingOrderByInput {
   rate_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RatingPreviousValues {
@@ -6276,6 +7102,8 @@ type RatingPreviousValues {
   ratingId: String!
   rate: Int!
   userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RatingSubscriptionPayload {
@@ -6375,6 +7203,22 @@ input RatingWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RatingWhereInput!]
   OR: [RatingWhereInput!]
   NOT: [RatingWhereInput!]
@@ -6387,13 +7231,13 @@ input RatingWhereUniqueInput {
 type Referral {
   id: ID!
   status: Boolean!
-  refCode: Int!
-  userId: String!
-  crown: Crown!
+  refCode: String!
+  userId: String
+  crown: Crown
   createdAt: DateTime!
   updatedAt: DateTime
-  startDate: DateTime!
-  endDate: DateTime!
+  startDate: DateTime
+  endDate: DateTime
   boost: Float!
   rollover: Float!
 }
@@ -6407,18 +7251,194 @@ type ReferralConnection {
 input ReferralCreateInput {
   id: ID
   status: Boolean!
-  refCode: Int!
-  userId: String!
-  crown: CrownCreateOneInput!
-  startDate: DateTime!
-  endDate: DateTime!
+  refCode: String!
+  userId: String
+  crown: CrownCreateOneInput
+  startDate: DateTime
+  endDate: DateTime
   boost: Float!
   rollover: Float!
+}
+
+input ReferralCreateOneInput {
+  create: ReferralCreateInput
+  connect: ReferralWhereUniqueInput
 }
 
 type ReferralEdge {
   node: Referral!
   cursor: String!
+}
+
+type ReferralHistory {
+  id: ID!
+  userId: String
+  bonus: Int
+  totalReferrals: Int
+  endDate: DateTime
+  crown: Crown
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type ReferralHistoryConnection {
+  pageInfo: PageInfo!
+  edges: [ReferralHistoryEdge]!
+  aggregate: AggregateReferralHistory!
+}
+
+input ReferralHistoryCreateInput {
+  id: ID
+  userId: String
+  bonus: Int
+  totalReferrals: Int
+  endDate: DateTime
+  crown: CrownCreateOneInput
+}
+
+type ReferralHistoryEdge {
+  node: ReferralHistory!
+  cursor: String!
+}
+
+enum ReferralHistoryOrderByInput {
+  id_ASC
+  id_DESC
+  userId_ASC
+  userId_DESC
+  bonus_ASC
+  bonus_DESC
+  totalReferrals_ASC
+  totalReferrals_DESC
+  endDate_ASC
+  endDate_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type ReferralHistoryPreviousValues {
+  id: ID!
+  userId: String
+  bonus: Int
+  totalReferrals: Int
+  endDate: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+type ReferralHistorySubscriptionPayload {
+  mutation: MutationType!
+  node: ReferralHistory
+  updatedFields: [String!]
+  previousValues: ReferralHistoryPreviousValues
+}
+
+input ReferralHistorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: ReferralHistoryWhereInput
+  AND: [ReferralHistorySubscriptionWhereInput!]
+  OR: [ReferralHistorySubscriptionWhereInput!]
+  NOT: [ReferralHistorySubscriptionWhereInput!]
+}
+
+input ReferralHistoryUpdateInput {
+  userId: String
+  bonus: Int
+  totalReferrals: Int
+  endDate: DateTime
+  crown: CrownUpdateOneInput
+}
+
+input ReferralHistoryUpdateManyMutationInput {
+  userId: String
+  bonus: Int
+  totalReferrals: Int
+  endDate: DateTime
+}
+
+input ReferralHistoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  userId: String
+  userId_not: String
+  userId_in: [String!]
+  userId_not_in: [String!]
+  userId_lt: String
+  userId_lte: String
+  userId_gt: String
+  userId_gte: String
+  userId_contains: String
+  userId_not_contains: String
+  userId_starts_with: String
+  userId_not_starts_with: String
+  userId_ends_with: String
+  userId_not_ends_with: String
+  bonus: Int
+  bonus_not: Int
+  bonus_in: [Int!]
+  bonus_not_in: [Int!]
+  bonus_lt: Int
+  bonus_lte: Int
+  bonus_gt: Int
+  bonus_gte: Int
+  totalReferrals: Int
+  totalReferrals_not: Int
+  totalReferrals_in: [Int!]
+  totalReferrals_not_in: [Int!]
+  totalReferrals_lt: Int
+  totalReferrals_lte: Int
+  totalReferrals_gt: Int
+  totalReferrals_gte: Int
+  endDate: DateTime
+  endDate_not: DateTime
+  endDate_in: [DateTime!]
+  endDate_not_in: [DateTime!]
+  endDate_lt: DateTime
+  endDate_lte: DateTime
+  endDate_gt: DateTime
+  endDate_gte: DateTime
+  crown: CrownWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [ReferralHistoryWhereInput!]
+  OR: [ReferralHistoryWhereInput!]
+  NOT: [ReferralHistoryWhereInput!]
+}
+
+input ReferralHistoryWhereUniqueInput {
+  id: ID
+  userId: String
 }
 
 enum ReferralOrderByInput {
@@ -6447,12 +7467,12 @@ enum ReferralOrderByInput {
 type ReferralPreviousValues {
   id: ID!
   status: Boolean!
-  refCode: Int!
-  userId: String!
+  refCode: String!
+  userId: String
   createdAt: DateTime!
   updatedAt: DateTime
-  startDate: DateTime!
-  endDate: DateTime!
+  startDate: DateTime
+  endDate: DateTime
   boost: Float!
   rollover: Float!
 }
@@ -6475,11 +7495,22 @@ input ReferralSubscriptionWhereInput {
   NOT: [ReferralSubscriptionWhereInput!]
 }
 
+input ReferralUpdateDataInput {
+  status: Boolean
+  refCode: String
+  userId: String
+  crown: CrownUpdateOneInput
+  startDate: DateTime
+  endDate: DateTime
+  boost: Float
+  rollover: Float
+}
+
 input ReferralUpdateInput {
   status: Boolean
-  refCode: Int
+  refCode: String
   userId: String
-  crown: CrownUpdateOneRequiredInput
+  crown: CrownUpdateOneInput
   startDate: DateTime
   endDate: DateTime
   boost: Float
@@ -6488,12 +7519,24 @@ input ReferralUpdateInput {
 
 input ReferralUpdateManyMutationInput {
   status: Boolean
-  refCode: Int
+  refCode: String
   userId: String
   startDate: DateTime
   endDate: DateTime
   boost: Float
   rollover: Float
+}
+
+input ReferralUpdateOneRequiredInput {
+  create: ReferralCreateInput
+  update: ReferralUpdateDataInput
+  upsert: ReferralUpsertNestedInput
+  connect: ReferralWhereUniqueInput
+}
+
+input ReferralUpsertNestedInput {
+  update: ReferralUpdateDataInput!
+  create: ReferralCreateInput!
 }
 
 input ReferralWhereInput {
@@ -6513,14 +7556,20 @@ input ReferralWhereInput {
   id_not_ends_with: ID
   status: Boolean
   status_not: Boolean
-  refCode: Int
-  refCode_not: Int
-  refCode_in: [Int!]
-  refCode_not_in: [Int!]
-  refCode_lt: Int
-  refCode_lte: Int
-  refCode_gt: Int
-  refCode_gte: Int
+  refCode: String
+  refCode_not: String
+  refCode_in: [String!]
+  refCode_not_in: [String!]
+  refCode_lt: String
+  refCode_lte: String
+  refCode_gt: String
+  refCode_gte: String
+  refCode_contains: String
+  refCode_not_contains: String
+  refCode_starts_with: String
+  refCode_not_starts_with: String
+  refCode_ends_with: String
+  refCode_not_ends_with: String
   userId: String
   userId_not: String
   userId_in: [String!]
@@ -6591,6 +7640,8 @@ input ReferralWhereInput {
 
 input ReferralWhereUniqueInput {
   id: ID
+  refCode: String
+  userId: String
 }
 
 type Requisition {
@@ -6603,6 +7654,8 @@ type Requisition {
   listing: Listing!
   space: Int!
   status: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionConnection {
@@ -6616,6 +7669,8 @@ type RequisitionCost {
   baseCost: Float!
   vat: Float!
   discount: Float
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionCostConnection {
@@ -6650,6 +7705,10 @@ enum RequisitionCostOrderByInput {
   vat_DESC
   discount_ASC
   discount_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RequisitionCostPreviousValues {
@@ -6657,6 +7716,8 @@ type RequisitionCostPreviousValues {
   baseCost: Float!
   vat: Float!
   discount: Float
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionCostSubscriptionPayload {
@@ -6746,6 +7807,22 @@ input RequisitionCostWhereInput {
   discount_lte: Float
   discount_gt: Float
   discount_gte: Float
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RequisitionCostWhereInput!]
   OR: [RequisitionCostWhereInput!]
   NOT: [RequisitionCostWhereInput!]
@@ -6776,6 +7853,8 @@ type RequisitionDuration {
   id: ID!
   name: String!
   slug: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionDurationConnection {
@@ -6807,12 +7886,18 @@ enum RequisitionDurationOrderByInput {
   name_DESC
   slug_ASC
   slug_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RequisitionDurationPreviousValues {
   id: ID!
   name: String!
   slug: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionDurationSubscriptionPayload {
@@ -6903,6 +7988,22 @@ input RequisitionDurationWhereInput {
   slug_not_starts_with: String
   slug_ends_with: String
   slug_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RequisitionDurationWhereInput!]
   OR: [RequisitionDurationWhereInput!]
   NOT: [RequisitionDurationWhereInput!]
@@ -6926,6 +8027,10 @@ enum RequisitionOrderByInput {
   space_DESC
   status_ASC
   status_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RequisitionPreviousValues {
@@ -6933,6 +8038,8 @@ type RequisitionPreviousValues {
   expires: String
   space: Int!
   status: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RequisitionSubscriptionPayload {
@@ -7045,6 +8152,22 @@ input RequisitionWhereInput {
   status_lte: Int
   status_gt: Int
   status_gte: Int
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RequisitionWhereInput!]
   OR: [RequisitionWhereInput!]
   NOT: [RequisitionWhereInput!]
@@ -7057,6 +8180,8 @@ input RequisitionWhereUniqueInput {
 type Role {
   id: ID!
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RoleConnection {
@@ -7085,11 +8210,17 @@ enum RoleOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RolePreviousValues {
   id: ID!
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RoleSubscriptionPayload {
@@ -7163,6 +8294,22 @@ input RoleWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RoleWhereInput!]
   OR: [RoleWhereInput!]
   NOT: [RoleWhereInput!]
@@ -7179,6 +8326,8 @@ type RoofingMaterialOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type RoofingMaterialOptionsConnection {
@@ -7216,6 +8365,10 @@ enum RoofingMaterialOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type RoofingMaterialOptionsPreviousValues {
@@ -7224,6 +8377,8 @@ type RoofingMaterialOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input RoofingMaterialOptionsScalarWhereInput {
@@ -7285,6 +8440,22 @@ input RoofingMaterialOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RoofingMaterialOptionsScalarWhereInput!]
   OR: [RoofingMaterialOptionsScalarWhereInput!]
   NOT: [RoofingMaterialOptionsScalarWhereInput!]
@@ -7423,6 +8594,22 @@ input RoofingMaterialOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [RoofingMaterialOptionsWhereInput!]
   OR: [RoofingMaterialOptionsWhereInput!]
   NOT: [RoofingMaterialOptionsWhereInput!]
@@ -7436,6 +8623,8 @@ type SelectOptions {
   id: ID!
   slug: String
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type SelectOptionsConnection {
@@ -7467,12 +8656,18 @@ enum SelectOptionsOrderByInput {
   slug_DESC
   name_ASC
   name_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type SelectOptionsPreviousValues {
   id: ID!
   slug: String
   name: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type SelectOptionsSubscriptionPayload {
@@ -7563,6 +8758,22 @@ input SelectOptionsWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [SelectOptionsWhereInput!]
   OR: [SelectOptionsWhereInput!]
   NOT: [SelectOptionsWhereInput!]
@@ -7578,6 +8789,8 @@ type SpacesOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type SpacesOptionsConnection {
@@ -7615,6 +8828,10 @@ enum SpacesOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type SpacesOptionsPreviousValues {
@@ -7623,6 +8840,8 @@ type SpacesOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input SpacesOptionsScalarWhereInput {
@@ -7684,6 +8903,22 @@ input SpacesOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [SpacesOptionsScalarWhereInput!]
   OR: [SpacesOptionsScalarWhereInput!]
   NOT: [SpacesOptionsScalarWhereInput!]
@@ -7822,6 +9057,22 @@ input SpacesOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [SpacesOptionsWhereInput!]
   OR: [SpacesOptionsWhereInput!]
   NOT: [SpacesOptionsWhereInput!]
@@ -7837,6 +9088,8 @@ type States {
   slug: String
   name: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StatesConnection {
@@ -7869,6 +9122,10 @@ enum StatesOrderByInput {
   name_DESC
   default_ASC
   default_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type StatesPreviousValues {
@@ -7877,6 +9134,8 @@ type StatesPreviousValues {
   slug: String
   name: String
   default: Boolean
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StatesSubscriptionPayload {
@@ -7970,6 +9229,22 @@ input StatesWhereInput {
   name_not_ends_with: String
   default: Boolean
   default_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [StatesWhereInput!]
   OR: [StatesWhereInput!]
   NOT: [StatesWhereInput!]
@@ -7983,9 +9258,12 @@ type Stock {
   id: ID!
   type: Int!
   products(where: StockProductWhereInput, orderBy: StockProductOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [StockProduct!]
+  cost: Int!
   status: Int!
-  dispatch: StockDispatch
+  dispatch(where: StockDispatchWhereInput, orderBy: StockDispatchOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [StockDispatch!]
   requisition: Requisition!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StockConnection {
@@ -7998,13 +9276,15 @@ input StockCreateInput {
   id: ID
   type: Int!
   products: StockProductCreateManyInput
+  cost: Int
   status: Int!
-  dispatch: StockDispatchCreateOneInput
+  dispatch: StockDispatchCreateManyInput
   requisition: RequisitionCreateOneInput!
 }
 
 type StockDispatch {
   id: ID!
+  dispatchProduct: DispatchProduct
   pickupAgentName: String
   pickupAgentPhone: String
   pickupAgentIdentification: String
@@ -8013,6 +9293,8 @@ type StockDispatch {
   status: Int!
   pickupDateMin: String
   pickupDateMax: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StockDispatchConnection {
@@ -8023,6 +9305,7 @@ type StockDispatchConnection {
 
 input StockDispatchCreateInput {
   id: ID
+  dispatchProduct: DispatchProductCreateOneInput
   pickupAgentName: String
   pickupAgentPhone: String
   pickupAgentIdentification: String
@@ -8033,9 +9316,9 @@ input StockDispatchCreateInput {
   pickupDateMax: String
 }
 
-input StockDispatchCreateOneInput {
-  create: StockDispatchCreateInput
-  connect: StockDispatchWhereUniqueInput
+input StockDispatchCreateManyInput {
+  create: [StockDispatchCreateInput!]
+  connect: [StockDispatchWhereUniqueInput!]
 }
 
 type StockDispatchEdge {
@@ -8060,6 +9343,10 @@ enum StockDispatchOrderByInput {
   pickupDateMin_DESC
   pickupDateMax_ASC
   pickupDateMax_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type StockDispatchPreviousValues {
@@ -8071,6 +9358,136 @@ type StockDispatchPreviousValues {
   status: Int!
   pickupDateMin: String
   pickupDateMax: String
+  createdAt: DateTime!
+  updatedAt: DateTime
+}
+
+input StockDispatchScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  pickupAgentName: String
+  pickupAgentName_not: String
+  pickupAgentName_in: [String!]
+  pickupAgentName_not_in: [String!]
+  pickupAgentName_lt: String
+  pickupAgentName_lte: String
+  pickupAgentName_gt: String
+  pickupAgentName_gte: String
+  pickupAgentName_contains: String
+  pickupAgentName_not_contains: String
+  pickupAgentName_starts_with: String
+  pickupAgentName_not_starts_with: String
+  pickupAgentName_ends_with: String
+  pickupAgentName_not_ends_with: String
+  pickupAgentPhone: String
+  pickupAgentPhone_not: String
+  pickupAgentPhone_in: [String!]
+  pickupAgentPhone_not_in: [String!]
+  pickupAgentPhone_lt: String
+  pickupAgentPhone_lte: String
+  pickupAgentPhone_gt: String
+  pickupAgentPhone_gte: String
+  pickupAgentPhone_contains: String
+  pickupAgentPhone_not_contains: String
+  pickupAgentPhone_starts_with: String
+  pickupAgentPhone_not_starts_with: String
+  pickupAgentPhone_ends_with: String
+  pickupAgentPhone_not_ends_with: String
+  pickupAgentIdentification: String
+  pickupAgentIdentification_not: String
+  pickupAgentIdentification_in: [String!]
+  pickupAgentIdentification_not_in: [String!]
+  pickupAgentIdentification_lt: String
+  pickupAgentIdentification_lte: String
+  pickupAgentIdentification_gt: String
+  pickupAgentIdentification_gte: String
+  pickupAgentIdentification_contains: String
+  pickupAgentIdentification_not_contains: String
+  pickupAgentIdentification_starts_with: String
+  pickupAgentIdentification_not_starts_with: String
+  pickupAgentIdentification_ends_with: String
+  pickupAgentIdentification_not_ends_with: String
+  pickupAgentIdNumber: String
+  pickupAgentIdNumber_not: String
+  pickupAgentIdNumber_in: [String!]
+  pickupAgentIdNumber_not_in: [String!]
+  pickupAgentIdNumber_lt: String
+  pickupAgentIdNumber_lte: String
+  pickupAgentIdNumber_gt: String
+  pickupAgentIdNumber_gte: String
+  pickupAgentIdNumber_contains: String
+  pickupAgentIdNumber_not_contains: String
+  pickupAgentIdNumber_starts_with: String
+  pickupAgentIdNumber_not_starts_with: String
+  pickupAgentIdNumber_ends_with: String
+  pickupAgentIdNumber_not_ends_with: String
+  status: Int
+  status_not: Int
+  status_in: [Int!]
+  status_not_in: [Int!]
+  status_lt: Int
+  status_lte: Int
+  status_gt: Int
+  status_gte: Int
+  pickupDateMin: String
+  pickupDateMin_not: String
+  pickupDateMin_in: [String!]
+  pickupDateMin_not_in: [String!]
+  pickupDateMin_lt: String
+  pickupDateMin_lte: String
+  pickupDateMin_gt: String
+  pickupDateMin_gte: String
+  pickupDateMin_contains: String
+  pickupDateMin_not_contains: String
+  pickupDateMin_starts_with: String
+  pickupDateMin_not_starts_with: String
+  pickupDateMin_ends_with: String
+  pickupDateMin_not_ends_with: String
+  pickupDateMax: String
+  pickupDateMax_not: String
+  pickupDateMax_in: [String!]
+  pickupDateMax_not_in: [String!]
+  pickupDateMax_lt: String
+  pickupDateMax_lte: String
+  pickupDateMax_gt: String
+  pickupDateMax_gte: String
+  pickupDateMax_contains: String
+  pickupDateMax_not_contains: String
+  pickupDateMax_starts_with: String
+  pickupDateMax_not_starts_with: String
+  pickupDateMax_ends_with: String
+  pickupDateMax_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  AND: [StockDispatchScalarWhereInput!]
+  OR: [StockDispatchScalarWhereInput!]
+  NOT: [StockDispatchScalarWhereInput!]
 }
 
 type StockDispatchSubscriptionPayload {
@@ -8092,6 +9509,7 @@ input StockDispatchSubscriptionWhereInput {
 }
 
 input StockDispatchUpdateDataInput {
+  dispatchProduct: DispatchProductUpdateOneInput
   pickupAgentName: String
   pickupAgentPhone: String
   pickupAgentIdentification: String
@@ -8103,6 +9521,7 @@ input StockDispatchUpdateDataInput {
 }
 
 input StockDispatchUpdateInput {
+  dispatchProduct: DispatchProductUpdateOneInput
   pickupAgentName: String
   pickupAgentPhone: String
   pickupAgentIdentification: String
@@ -8111,6 +9530,28 @@ input StockDispatchUpdateInput {
   status: Int
   pickupDateMin: String
   pickupDateMax: String
+}
+
+input StockDispatchUpdateManyDataInput {
+  pickupAgentName: String
+  pickupAgentPhone: String
+  pickupAgentIdentification: String
+  pickupAgentIdNumber: String
+  status: Int
+  pickupDateMin: String
+  pickupDateMax: String
+}
+
+input StockDispatchUpdateManyInput {
+  create: [StockDispatchCreateInput!]
+  update: [StockDispatchUpdateWithWhereUniqueNestedInput!]
+  upsert: [StockDispatchUpsertWithWhereUniqueNestedInput!]
+  delete: [StockDispatchWhereUniqueInput!]
+  connect: [StockDispatchWhereUniqueInput!]
+  set: [StockDispatchWhereUniqueInput!]
+  disconnect: [StockDispatchWhereUniqueInput!]
+  deleteMany: [StockDispatchScalarWhereInput!]
+  updateMany: [StockDispatchUpdateManyWithWhereNestedInput!]
 }
 
 input StockDispatchUpdateManyMutationInput {
@@ -8123,16 +9564,18 @@ input StockDispatchUpdateManyMutationInput {
   pickupDateMax: String
 }
 
-input StockDispatchUpdateOneInput {
-  create: StockDispatchCreateInput
-  update: StockDispatchUpdateDataInput
-  upsert: StockDispatchUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: StockDispatchWhereUniqueInput
+input StockDispatchUpdateManyWithWhereNestedInput {
+  where: StockDispatchScalarWhereInput!
+  data: StockDispatchUpdateManyDataInput!
 }
 
-input StockDispatchUpsertNestedInput {
+input StockDispatchUpdateWithWhereUniqueNestedInput {
+  where: StockDispatchWhereUniqueInput!
+  data: StockDispatchUpdateDataInput!
+}
+
+input StockDispatchUpsertWithWhereUniqueNestedInput {
+  where: StockDispatchWhereUniqueInput!
   update: StockDispatchUpdateDataInput!
   create: StockDispatchCreateInput!
 }
@@ -8152,6 +9595,7 @@ input StockDispatchWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  dispatchProduct: DispatchProductWhereInput
   pickupAgentName: String
   pickupAgentName_not: String
   pickupAgentName_in: [String!]
@@ -8245,6 +9689,22 @@ input StockDispatchWhereInput {
   pickupDateMax_not_starts_with: String
   pickupDateMax_ends_with: String
   pickupDateMax_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [StockDispatchWhereInput!]
   OR: [StockDispatchWhereInput!]
   NOT: [StockDispatchWhereInput!]
@@ -8264,14 +9724,23 @@ enum StockOrderByInput {
   id_DESC
   type_ASC
   type_DESC
+  cost_ASC
+  cost_DESC
   status_ASC
   status_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type StockPreviousValues {
   id: ID!
   type: Int!
+  cost: Int!
   status: Int!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StockProduct {
@@ -8288,6 +9757,8 @@ type StockProduct {
   partnerLogistics: String
   expiryDate: DateTime
   condition: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type StockProductConnection {
@@ -8349,6 +9820,10 @@ enum StockProductOrderByInput {
   expiryDate_DESC
   condition_ASC
   condition_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type StockProductPreviousValues {
@@ -8365,6 +9840,8 @@ type StockProductPreviousValues {
   partnerLogistics: String
   expiryDate: DateTime
   condition: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input StockProductScalarWhereInput {
@@ -8514,6 +9991,22 @@ input StockProductScalarWhereInput {
   condition_not_starts_with: String
   condition_ends_with: String
   condition_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [StockProductScalarWhereInput!]
   OR: [StockProductScalarWhereInput!]
   NOT: [StockProductScalarWhereInput!]
@@ -8772,6 +10265,22 @@ input StockProductWhereInput {
   condition_not_starts_with: String
   condition_ends_with: String
   condition_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [StockProductWhereInput!]
   OR: [StockProductWhereInput!]
   NOT: [StockProductWhereInput!]
@@ -8802,13 +10311,15 @@ input StockSubscriptionWhereInput {
 input StockUpdateInput {
   type: Int
   products: StockProductUpdateManyInput
+  cost: Int
   status: Int
-  dispatch: StockDispatchUpdateOneInput
+  dispatch: StockDispatchUpdateManyInput
   requisition: RequisitionUpdateOneRequiredInput
 }
 
 input StockUpdateManyMutationInput {
   type: Int
+  cost: Int
   status: Int
 }
 
@@ -8838,6 +10349,14 @@ input StockWhereInput {
   products_every: StockProductWhereInput
   products_some: StockProductWhereInput
   products_none: StockProductWhereInput
+  cost: Int
+  cost_not: Int
+  cost_in: [Int!]
+  cost_not_in: [Int!]
+  cost_lt: Int
+  cost_lte: Int
+  cost_gt: Int
+  cost_gte: Int
   status: Int
   status_not: Int
   status_in: [Int!]
@@ -8846,8 +10365,26 @@ input StockWhereInput {
   status_lte: Int
   status_gt: Int
   status_gte: Int
-  dispatch: StockDispatchWhereInput
+  dispatch_every: StockDispatchWhereInput
+  dispatch_some: StockDispatchWhereInput
+  dispatch_none: StockDispatchWhereInput
   requisition: RequisitionWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [StockWhereInput!]
   OR: [StockWhereInput!]
   NOT: [StockWhereInput!]
@@ -8867,6 +10404,7 @@ type Subscription {
   countries(where: CountriesSubscriptionWhereInput): CountriesSubscriptionPayload
   crown(where: CrownSubscriptionWhereInput): CrownSubscriptionPayload
   dateRange(where: DateRangeSubscriptionWhereInput): DateRangeSubscriptionPayload
+  dispatchProduct(where: DispatchProductSubscriptionWhereInput): DispatchProductSubscriptionPayload
   floorsOptions(where: FloorsOptionsSubscriptionWhereInput): FloorsOptionsSubscriptionPayload
   game(where: GameSubscriptionWhereInput): GameSubscriptionPayload
   identificationsOptions(where: IdentificationsOptionsSubscriptionWhereInput): IdentificationsOptionsSubscriptionPayload
@@ -8888,6 +10426,7 @@ type Subscription {
   propertiesOptions(where: PropertiesOptionsSubscriptionWhereInput): PropertiesOptionsSubscriptionPayload
   rating(where: RatingSubscriptionWhereInput): RatingSubscriptionPayload
   referral(where: ReferralSubscriptionWhereInput): ReferralSubscriptionPayload
+  referralHistory(where: ReferralHistorySubscriptionWhereInput): ReferralHistorySubscriptionPayload
   requisition(where: RequisitionSubscriptionWhereInput): RequisitionSubscriptionPayload
   requisitionCost(where: RequisitionCostSubscriptionWhereInput): RequisitionCostSubscriptionPayload
   requisitionDuration(where: RequisitionDurationSubscriptionWhereInput): RequisitionDurationSubscriptionPayload
@@ -9360,6 +10899,8 @@ type User {
   bank: Bank!
   firstName: String!
   lastName: String!
+  refCode: String
+  referral: Referral!
   device: Int
   email: String!
   phoneNumber: String!
@@ -9382,6 +10923,8 @@ input UserCreateInput {
   bank: BankCreateOneInput!
   firstName: String!
   lastName: String!
+  refCode: String
+  referral: ReferralCreateOneInput!
   device: Int
   email: String!
   phoneNumber: String!
@@ -9407,6 +10950,8 @@ enum UserOrderByInput {
   firstName_DESC
   lastName_ASC
   lastName_DESC
+  refCode_ASC
+  refCode_DESC
   device_ASC
   device_DESC
   email_ASC
@@ -9430,6 +10975,8 @@ type UserOrganizationRole {
   user: User!
   role: Role!
   organization: Organization!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type UserOrganizationRoleConnection {
@@ -9453,10 +11000,16 @@ type UserOrganizationRoleEdge {
 enum UserOrganizationRoleOrderByInput {
   id_ASC
   id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type UserOrganizationRolePreviousValues {
   id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type UserOrganizationRoleSubscriptionPayload {
@@ -9501,6 +11054,22 @@ input UserOrganizationRoleWhereInput {
   user: UserWhereInput
   role: RoleWhereInput
   organization: OrganizationWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UserOrganizationRoleWhereInput!]
   OR: [UserOrganizationRoleWhereInput!]
   NOT: [UserOrganizationRoleWhereInput!]
@@ -9514,6 +11083,7 @@ type UserPreviousValues {
   id: ID!
   firstName: String!
   lastName: String!
+  refCode: String
   device: Int
   email: String!
   phoneNumber: String!
@@ -9528,6 +11098,8 @@ type UserStatus {
   id: ID!
   status: String!
   userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type UserStatusConnection {
@@ -9554,12 +11126,18 @@ enum UserStatusOrderByInput {
   status_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type UserStatusPreviousValues {
   id: ID!
   status: String!
   userId: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type UserStatusSubscriptionPayload {
@@ -9633,6 +11211,22 @@ input UserStatusWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [UserStatusWhereInput!]
   OR: [UserStatusWhereInput!]
   NOT: [UserStatusWhereInput!]
@@ -9666,6 +11260,8 @@ input UserUpdateDataInput {
   bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
+  refCode: String
+  referral: ReferralUpdateOneRequiredInput
   device: Int
   email: String
   phoneNumber: String
@@ -9679,6 +11275,8 @@ input UserUpdateInput {
   bank: BankUpdateOneRequiredInput
   firstName: String
   lastName: String
+  refCode: String
+  referral: ReferralUpdateOneRequiredInput
   device: Int
   email: String
   phoneNumber: String
@@ -9690,6 +11288,7 @@ input UserUpdateInput {
 input UserUpdateManyMutationInput {
   firstName: String
   lastName: String
+  refCode: String
   device: Int
   email: String
   phoneNumber: String
@@ -9755,6 +11354,21 @@ input UserWhereInput {
   lastName_not_starts_with: String
   lastName_ends_with: String
   lastName_not_ends_with: String
+  refCode: String
+  refCode_not: String
+  refCode_in: [String!]
+  refCode_not_in: [String!]
+  refCode_lt: String
+  refCode_lte: String
+  refCode_gt: String
+  refCode_gte: String
+  refCode_contains: String
+  refCode_not_contains: String
+  refCode_starts_with: String
+  refCode_not_starts_with: String
+  refCode_ends_with: String
+  refCode_not_ends_with: String
+  referral: ReferralWhereInput
   device: Int
   device_not: Int
   device_in: [Int!]
@@ -9848,6 +11462,8 @@ type ValueAddedServices {
   default: Boolean
   name: String
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type ValueAddedServicesConnection {
@@ -9885,6 +11501,10 @@ enum ValueAddedServicesOrderByInput {
   name_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type ValueAddedServicesPreviousValues {
@@ -9893,6 +11513,8 @@ type ValueAddedServicesPreviousValues {
   default: Boolean
   name: String
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input ValueAddedServicesScalarWhereInput {
@@ -9954,6 +11576,22 @@ input ValueAddedServicesScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ValueAddedServicesScalarWhereInput!]
   OR: [ValueAddedServicesScalarWhereInput!]
   NOT: [ValueAddedServicesScalarWhereInput!]
@@ -10092,6 +11730,22 @@ input ValueAddedServicesWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [ValueAddedServicesWhereInput!]
   OR: [ValueAddedServicesWhereInput!]
   NOT: [ValueAddedServicesWhereInput!]
@@ -10330,6 +11984,8 @@ type WallFinishesOptions {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type WallFinishesOptionsConnection {
@@ -10367,6 +12023,10 @@ enum WallFinishesOptionsOrderByInput {
   default_DESC
   userId_ASC
   userId_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type WallFinishesOptionsPreviousValues {
@@ -10375,6 +12035,8 @@ type WallFinishesOptionsPreviousValues {
   name: String
   default: Boolean
   userId: String
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 input WallFinishesOptionsScalarWhereInput {
@@ -10436,6 +12098,22 @@ input WallFinishesOptionsScalarWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [WallFinishesOptionsScalarWhereInput!]
   OR: [WallFinishesOptionsScalarWhereInput!]
   NOT: [WallFinishesOptionsScalarWhereInput!]
@@ -10574,6 +12252,22 @@ input WallFinishesOptionsWhereInput {
   userId_not_starts_with: String
   userId_ends_with: String
   userId_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [WallFinishesOptionsWhereInput!]
   OR: [WallFinishesOptionsWhereInput!]
   NOT: [WallFinishesOptionsWhereInput!]
@@ -10588,6 +12282,8 @@ type WarehouserIdentification {
   idNumber: String!
   expiryDate: String!
   idType: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type WarehouserIdentificationConnection {
@@ -10622,6 +12318,10 @@ enum WarehouserIdentificationOrderByInput {
   expiryDate_DESC
   idType_ASC
   idType_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 type WarehouserIdentificationPreviousValues {
@@ -10629,6 +12329,8 @@ type WarehouserIdentificationPreviousValues {
   idNumber: String!
   expiryDate: String!
   idType: String!
+  createdAt: DateTime!
+  updatedAt: DateTime
 }
 
 type WarehouserIdentificationSubscriptionPayload {
@@ -10736,6 +12438,22 @@ input WarehouserIdentificationWhereInput {
   idType_not_starts_with: String
   idType_ends_with: String
   idType_not_ends_with: String
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
   AND: [WarehouserIdentificationWhereInput!]
   OR: [WarehouserIdentificationWhereInput!]
   NOT: [WarehouserIdentificationWhereInput!]

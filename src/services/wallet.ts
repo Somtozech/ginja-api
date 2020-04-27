@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import Payment from '../integrations/Payment';
 import { createTransaction } from './transaction';
-import { changeStatus, requisitions } from './requisition';
+import { changeStatus } from './requisition';
 import { createChat } from './chats';
 
 const payment = new Payment();
@@ -171,7 +172,7 @@ const makePayment = async (graph: any) => {
         const vatAmount = (vat / 100) * warehouseCost;
         const totalAmount = warehouseCost - disCountAmount + vatAmount;
 
-        //calculate amount payable to warehouser
+        // calculate amount payable to warehouser
         const payableAmountInKobo = warehouseCost - disCountAmount;
         // convert totalAmount to Kobo
         const amountInKobo = totalAmount * 100;

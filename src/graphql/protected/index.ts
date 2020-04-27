@@ -19,7 +19,10 @@ const permissions = {
         getUser: authMiddleware,
         wallet: authMiddleware,
         valueAddedServices: authMiddleware,
-        listingRequirements: authMiddleware
+        listingRequirements: authMiddleware,
+        crowns: authMiddleware,
+        referralEarnings: authMiddleware,
+        retrieveDashboardInfo: authMiddleware
     },
     Mutation: {
         acceptTerms: authMiddleware,
@@ -43,7 +46,8 @@ const permissions = {
         createValueAddedServices: authMiddleware,
         singleFileUpload: authMiddleware,
         multipleUploads: authMiddleware,
-        createListingRequirement: authMiddleware
+        createListingRequirement: authMiddleware,
+        setTarget: authMiddleware
     }
 };
 

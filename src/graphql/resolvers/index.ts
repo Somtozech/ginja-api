@@ -12,6 +12,7 @@ import { miscTypes, miscQueries, miscMutations } from './misc';
 import { ratingMutations } from './rating';
 import { walletMutations, walletQueries, walletTypes } from './wallet';
 import { chatMutations, chatQueries, chatSubscriptions, chatTypes } from './chats';
+import { referralMutations, referralQueries } from './referral';
 import { TransactionTypes } from './transaction';
 import { uploadMutations } from './upload';
 
@@ -29,7 +30,8 @@ const resolvers = {
         ...stockQueries,
         ...walletQueries,
         ...chatQueries,
-        ...paymentQueries
+        ...paymentQueries,
+        ...referralQueries
     },
     Mutation: {
         ...authMutations,
@@ -46,7 +48,8 @@ const resolvers = {
         ...chatMutations,
         ...paymentMutations,
         ...miscMutations,
-        ...uploadMutations
+        ...uploadMutations,
+        ...referralMutations
     },
     Subscription: {
         ...chatSubscriptions,

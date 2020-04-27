@@ -25,6 +25,7 @@ export interface Exists {
   countries: (where?: CountriesWhereInput) => Promise<boolean>;
   crown: (where?: CrownWhereInput) => Promise<boolean>;
   dateRange: (where?: DateRangeWhereInput) => Promise<boolean>;
+  dispatchProduct: (where?: DispatchProductWhereInput) => Promise<boolean>;
   floorsOptions: (where?: FloorsOptionsWhereInput) => Promise<boolean>;
   game: (where?: GameWhereInput) => Promise<boolean>;
   identificationsOptions: (
@@ -54,6 +55,7 @@ export interface Exists {
   propertiesOptions: (where?: PropertiesOptionsWhereInput) => Promise<boolean>;
   rating: (where?: RatingWhereInput) => Promise<boolean>;
   referral: (where?: ReferralWhereInput) => Promise<boolean>;
+  referralHistory: (where?: ReferralHistoryWhereInput) => Promise<boolean>;
   requisition: (where?: RequisitionWhereInput) => Promise<boolean>;
   requisitionCost: (where?: RequisitionCostWhereInput) => Promise<boolean>;
   requisitionDuration: (
@@ -280,6 +282,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => DateRangeConnectionPromise;
+  dispatchProduct: (
+    where: DispatchProductWhereUniqueInput
+  ) => DispatchProductNullablePromise;
+  dispatchProducts: (args?: {
+    where?: DispatchProductWhereInput;
+    orderBy?: DispatchProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<DispatchProduct>;
+  dispatchProductsConnection: (args?: {
+    where?: DispatchProductWhereInput;
+    orderBy?: DispatchProductOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => DispatchProductConnectionPromise;
   floorsOptions: (
     where: FloorsOptionsWhereUniqueInput
   ) => FloorsOptionsNullablePromise;
@@ -705,6 +728,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => ReferralConnectionPromise;
+  referralHistory: (
+    where: ReferralHistoryWhereUniqueInput
+  ) => ReferralHistoryNullablePromise;
+  referralHistories: (args?: {
+    where?: ReferralHistoryWhereInput;
+    orderBy?: ReferralHistoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<ReferralHistory>;
+  referralHistoriesConnection: (args?: {
+    where?: ReferralHistoryWhereInput;
+    orderBy?: ReferralHistoryOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => ReferralHistoryConnectionPromise;
   requisition: (
     where: RequisitionWhereUniqueInput
   ) => RequisitionNullablePromise;
@@ -1267,6 +1311,28 @@ export interface Prisma {
   }) => DateRangePromise;
   deleteDateRange: (where: DateRangeWhereUniqueInput) => DateRangePromise;
   deleteManyDateRanges: (where?: DateRangeWhereInput) => BatchPayloadPromise;
+  createDispatchProduct: (
+    data: DispatchProductCreateInput
+  ) => DispatchProductPromise;
+  updateDispatchProduct: (args: {
+    data: DispatchProductUpdateInput;
+    where: DispatchProductWhereUniqueInput;
+  }) => DispatchProductPromise;
+  updateManyDispatchProducts: (args: {
+    data: DispatchProductUpdateManyMutationInput;
+    where?: DispatchProductWhereInput;
+  }) => BatchPayloadPromise;
+  upsertDispatchProduct: (args: {
+    where: DispatchProductWhereUniqueInput;
+    create: DispatchProductCreateInput;
+    update: DispatchProductUpdateInput;
+  }) => DispatchProductPromise;
+  deleteDispatchProduct: (
+    where: DispatchProductWhereUniqueInput
+  ) => DispatchProductPromise;
+  deleteManyDispatchProducts: (
+    where?: DispatchProductWhereInput
+  ) => BatchPayloadPromise;
   createFloorsOptions: (data: FloorsOptionsCreateInput) => FloorsOptionsPromise;
   updateFloorsOptions: (args: {
     data: FloorsOptionsUpdateInput;
@@ -1673,6 +1739,28 @@ export interface Prisma {
   }) => ReferralPromise;
   deleteReferral: (where: ReferralWhereUniqueInput) => ReferralPromise;
   deleteManyReferrals: (where?: ReferralWhereInput) => BatchPayloadPromise;
+  createReferralHistory: (
+    data: ReferralHistoryCreateInput
+  ) => ReferralHistoryPromise;
+  updateReferralHistory: (args: {
+    data: ReferralHistoryUpdateInput;
+    where: ReferralHistoryWhereUniqueInput;
+  }) => ReferralHistoryPromise;
+  updateManyReferralHistories: (args: {
+    data: ReferralHistoryUpdateManyMutationInput;
+    where?: ReferralHistoryWhereInput;
+  }) => BatchPayloadPromise;
+  upsertReferralHistory: (args: {
+    where: ReferralHistoryWhereUniqueInput;
+    create: ReferralHistoryCreateInput;
+    update: ReferralHistoryUpdateInput;
+  }) => ReferralHistoryPromise;
+  deleteReferralHistory: (
+    where: ReferralHistoryWhereUniqueInput
+  ) => ReferralHistoryPromise;
+  deleteManyReferralHistories: (
+    where?: ReferralHistoryWhereInput
+  ) => BatchPayloadPromise;
   createRequisition: (data: RequisitionCreateInput) => RequisitionPromise;
   updateRequisition: (args: {
     data: RequisitionUpdateInput;
@@ -2087,6 +2175,9 @@ export interface Subscription {
   dateRange: (
     where?: DateRangeSubscriptionWhereInput
   ) => DateRangeSubscriptionPayloadSubscription;
+  dispatchProduct: (
+    where?: DispatchProductSubscriptionWhereInput
+  ) => DispatchProductSubscriptionPayloadSubscription;
   floorsOptions: (
     where?: FloorsOptionsSubscriptionWhereInput
   ) => FloorsOptionsSubscriptionPayloadSubscription;
@@ -2150,6 +2241,9 @@ export interface Subscription {
   referral: (
     where?: ReferralSubscriptionWhereInput
   ) => ReferralSubscriptionPayloadSubscription;
+  referralHistory: (
+    where?: ReferralHistorySubscriptionWhereInput
+  ) => ReferralHistorySubscriptionPayloadSubscription;
   requisition: (
     where?: RequisitionSubscriptionWhereInput
   ) => RequisitionSubscriptionPayloadSubscription;
@@ -2260,7 +2354,11 @@ export type AmenitiesOptionsOrderByInput =
   | "default_ASC"
   | "default_DESC"
   | "userId_ASC"
-  | "userId_DESC";
+  | "userId_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type AuthOrderByInput =
   | "id_ASC"
@@ -2385,14 +2483,18 @@ export type IdentificationsOptionsOrderByInput =
 export type SpacesOptionsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
   | "userId_ASC"
-  | "userId_DESC";
+  | "userId_DESC"
+  | "bonus_ASC"
+  | "bonus_DESC"
+  | "totalReferrals_ASC"
+  | "totalReferrals_DESC"
+  | "endDate_ASC"
+  | "endDate_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type PropertiesOptionsOrderByInput =
   | "id_ASC"
@@ -2428,7 +2530,11 @@ export type RoofingMaterialOptionsOrderByInput =
   | "default_ASC"
   | "default_DESC"
   | "userId_ASC"
-  | "userId_DESC";
+  | "userId_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type ValueAddedServicesOrderByInput =
   | "id_ASC"
@@ -2465,12 +2571,16 @@ export type ListingRequirementsOrderByInput =
 export type ListingProductsOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "slug_ASC"
-  | "slug_DESC"
-  | "name_ASC"
-  | "name_DESC"
-  | "default_ASC"
-  | "default_DESC"
+  | "email_ASC"
+  | "email_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC"
+  | "phoneNumber_ASC"
+  | "phoneNumber_DESC"
+  | "pin_ASC"
+  | "pin_DESC"
   | "userId_ASC"
   | "userId_DESC";
 
@@ -2580,15 +2690,21 @@ export type OrganizationTypeOrderByInput =
   | "name_ASC"
   | "name_DESC";
 
-export type OtpOrderByInput =
+export type WalletOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "phoneNumber_ASC"
-  | "phoneNumber_DESC"
-  | "code_ASC"
-  | "code_DESC"
-  | "validated_ASC"
-  | "validated_DESC"
+  | "recipientCode_ASC"
+  | "recipientCode_DESC"
+  | "userId_ASC"
+  | "userId_DESC"
+  | "availableBalance_ASC"
+  | "availableBalance_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "ledgerBalance_ASC"
+  | "ledgerBalance_DESC"
+  | "currency_ASC"
+  | "currency_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -2740,13 +2856,27 @@ export type StockProductOrderByInput =
   | "condition_ASC"
   | "condition_DESC";
 
-export type StockOrderByInput =
+export type StockDispatchOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "type_ASC"
-  | "type_DESC"
+  | "pickupAgentName_ASC"
+  | "pickupAgentName_DESC"
+  | "pickupAgentPhone_ASC"
+  | "pickupAgentPhone_DESC"
+  | "pickupAgentIdentification_ASC"
+  | "pickupAgentIdentification_DESC"
+  | "pickupAgentIdNumber_ASC"
+  | "pickupAgentIdNumber_DESC"
   | "status_ASC"
-  | "status_DESC";
+  | "status_DESC"
+  | "pickupDateMin_ASC"
+  | "pickupDateMin_DESC"
+  | "pickupDateMax_ASC"
+  | "pickupDateMax_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type StockDispatchOrderByInput =
   | "id_ASC"
@@ -5133,6 +5263,42 @@ export interface OrganizationWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<BankWhereInput[] | BankWhereInput>;
+  OR?: Maybe<BankWhereInput[] | BankWhereInput>;
+  NOT?: Maybe<BankWhereInput[] | BankWhereInput>;
+}
+
+export interface ListingsFrequenciesUpdateInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+}
+
+export interface CountriesSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<CountriesWhereInput>;
+  AND?: Maybe<
+    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    CountriesSubscriptionWhereInput[] | CountriesSubscriptionWhereInput
+  >;
+}
+
+export interface ListingRequirementsUpdateManyMutationInput {
+  slug?: Maybe<String>;
+  name?: Maybe<String>;
+  default?: Maybe<Boolean>;
+}
+
+export interface OrganizationTypeWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5201,9 +5367,8 @@ export type OrganizationTypeWhereUniqueInput = AtLeastOne<{
   name?: Maybe<String>;
 }>;
 
-export type OtpWhereUniqueInput = AtLeastOne<{
+export type ValueAddedServicesWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
-  phoneNumber?: Maybe<String>;
 }>;
 
 export interface OtpWhereInput {
@@ -5221,36 +5386,50 @@ export interface OtpWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  phoneNumber?: Maybe<String>;
-  phoneNumber_not?: Maybe<String>;
-  phoneNumber_in?: Maybe<String[] | String>;
-  phoneNumber_not_in?: Maybe<String[] | String>;
-  phoneNumber_lt?: Maybe<String>;
-  phoneNumber_lte?: Maybe<String>;
-  phoneNumber_gt?: Maybe<String>;
-  phoneNumber_gte?: Maybe<String>;
-  phoneNumber_contains?: Maybe<String>;
-  phoneNumber_not_contains?: Maybe<String>;
-  phoneNumber_starts_with?: Maybe<String>;
-  phoneNumber_not_starts_with?: Maybe<String>;
-  phoneNumber_ends_with?: Maybe<String>;
-  phoneNumber_not_ends_with?: Maybe<String>;
-  code?: Maybe<String>;
-  code_not?: Maybe<String>;
-  code_in?: Maybe<String[] | String>;
-  code_not_in?: Maybe<String[] | String>;
-  code_lt?: Maybe<String>;
-  code_lte?: Maybe<String>;
-  code_gt?: Maybe<String>;
-  code_gte?: Maybe<String>;
-  code_contains?: Maybe<String>;
-  code_not_contains?: Maybe<String>;
-  code_starts_with?: Maybe<String>;
-  code_not_starts_with?: Maybe<String>;
-  code_ends_with?: Maybe<String>;
-  code_not_ends_with?: Maybe<String>;
-  validated?: Maybe<Boolean>;
-  validated_not?: Maybe<Boolean>;
+  slug?: Maybe<String>;
+  slug_not?: Maybe<String>;
+  slug_in?: Maybe<String[] | String>;
+  slug_not_in?: Maybe<String[] | String>;
+  slug_lt?: Maybe<String>;
+  slug_lte?: Maybe<String>;
+  slug_gt?: Maybe<String>;
+  slug_gte?: Maybe<String>;
+  slug_contains?: Maybe<String>;
+  slug_not_contains?: Maybe<String>;
+  slug_starts_with?: Maybe<String>;
+  slug_not_starts_with?: Maybe<String>;
+  slug_ends_with?: Maybe<String>;
+  slug_not_ends_with?: Maybe<String>;
+  name?: Maybe<String>;
+  name_not?: Maybe<String>;
+  name_in?: Maybe<String[] | String>;
+  name_not_in?: Maybe<String[] | String>;
+  name_lt?: Maybe<String>;
+  name_lte?: Maybe<String>;
+  name_gt?: Maybe<String>;
+  name_gte?: Maybe<String>;
+  name_contains?: Maybe<String>;
+  name_not_contains?: Maybe<String>;
+  name_starts_with?: Maybe<String>;
+  name_not_starts_with?: Maybe<String>;
+  name_ends_with?: Maybe<String>;
+  name_not_ends_with?: Maybe<String>;
+  default?: Maybe<Boolean>;
+  default_not?: Maybe<Boolean>;
+  userId?: Maybe<String>;
+  userId_not?: Maybe<String>;
+  userId_in?: Maybe<String[] | String>;
+  userId_not_in?: Maybe<String[] | String>;
+  userId_lt?: Maybe<String>;
+  userId_lte?: Maybe<String>;
+  userId_gt?: Maybe<String>;
+  userId_gte?: Maybe<String>;
+  userId_contains?: Maybe<String>;
+  userId_not_contains?: Maybe<String>;
+  userId_starts_with?: Maybe<String>;
+  userId_not_starts_with?: Maybe<String>;
+  userId_ends_with?: Maybe<String>;
+  userId_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -5267,9 +5446,9 @@ export interface OtpWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<OtpWhereInput[] | OtpWhereInput>;
-  OR?: Maybe<OtpWhereInput[] | OtpWhereInput>;
-  NOT?: Maybe<OtpWhereInput[] | OtpWhereInput>;
+  AND?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
+  OR?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
+  NOT?: Maybe<ListingProductsWhereInput[] | ListingProductsWhereInput>;
 }
 
 export type PaymentWhereUniqueInput = AtLeastOne<{
@@ -5491,7 +5670,7 @@ export interface RequisitionDurationWhereInput {
   NOT?: Maybe<RequisitionDurationWhereInput[] | RequisitionDurationWhereInput>;
 }
 
-export interface RequisitionCostWhereInput {
+export interface SelectOptionsWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -5726,31 +5905,20 @@ export interface ReferralWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  status?: Maybe<Boolean>;
-  status_not?: Maybe<Boolean>;
-  refCode?: Maybe<Int>;
-  refCode_not?: Maybe<Int>;
-  refCode_in?: Maybe<Int[] | Int>;
-  refCode_not_in?: Maybe<Int[] | Int>;
-  refCode_lt?: Maybe<Int>;
-  refCode_lte?: Maybe<Int>;
-  refCode_gt?: Maybe<Int>;
-  refCode_gte?: Maybe<Int>;
-  userId?: Maybe<String>;
-  userId_not?: Maybe<String>;
-  userId_in?: Maybe<String[] | String>;
-  userId_not_in?: Maybe<String[] | String>;
-  userId_lt?: Maybe<String>;
-  userId_lte?: Maybe<String>;
-  userId_gt?: Maybe<String>;
-  userId_gte?: Maybe<String>;
-  userId_contains?: Maybe<String>;
-  userId_not_contains?: Maybe<String>;
-  userId_starts_with?: Maybe<String>;
-  userId_not_starts_with?: Maybe<String>;
-  userId_ends_with?: Maybe<String>;
-  userId_not_ends_with?: Maybe<String>;
-  crown?: Maybe<CrownWhereInput>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -5810,6 +5978,7 @@ export type RequisitionWhereUniqueInput = AtLeastOne<{
 
 export type RequisitionCostWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  userId?: Maybe<String>;
 }>;
 
 export type RequisitionDurationWhereUniqueInput = AtLeastOne<{
@@ -7559,6 +7728,7 @@ export interface PropertiesOptionsUpdateDataInput {
   name?: Maybe<String>;
   default?: Maybe<Boolean>;
   userId?: Maybe<String>;
+  user?: Maybe<UserUpdateOneRequiredInput>;
 }
 
 export interface PropertiesOptionsUpsertWithWhereUniqueNestedInput {
@@ -8281,6 +8451,20 @@ export interface ValueAddedServicesScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  countryId?: Maybe<String>;
+  countryId_not?: Maybe<String>;
+  countryId_in?: Maybe<String[] | String>;
+  countryId_not_in?: Maybe<String[] | String>;
+  countryId_lt?: Maybe<String>;
+  countryId_lte?: Maybe<String>;
+  countryId_gt?: Maybe<String>;
+  countryId_gte?: Maybe<String>;
+  countryId_contains?: Maybe<String>;
+  countryId_not_contains?: Maybe<String>;
+  countryId_starts_with?: Maybe<String>;
+  countryId_not_starts_with?: Maybe<String>;
+  countryId_ends_with?: Maybe<String>;
+  countryId_not_ends_with?: Maybe<String>;
   slug?: Maybe<String>;
   slug_not?: Maybe<String>;
   slug_in?: Maybe<String[] | String>;
@@ -8656,35 +8840,8 @@ export interface ListingProductsScalarWhereInput {
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
   slug?: Maybe<String>;
-  slug_not?: Maybe<String>;
-  slug_in?: Maybe<String[] | String>;
-  slug_not_in?: Maybe<String[] | String>;
-  slug_lt?: Maybe<String>;
-  slug_lte?: Maybe<String>;
-  slug_gt?: Maybe<String>;
-  slug_gte?: Maybe<String>;
-  slug_contains?: Maybe<String>;
-  slug_not_contains?: Maybe<String>;
-  slug_starts_with?: Maybe<String>;
-  slug_not_starts_with?: Maybe<String>;
-  slug_ends_with?: Maybe<String>;
-  slug_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
   default?: Maybe<Boolean>;
-  default_not?: Maybe<Boolean>;
   userId?: Maybe<String>;
   userId_not?: Maybe<String>;
   userId_in?: Maybe<String[] | String>;
@@ -13910,13 +14067,19 @@ export interface AggregateOrganizationType {
 export interface AggregateOrganizationTypePromise
   extends Promise<AggregateOrganizationType>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<WarehouserIdentificationEdge>>() => T;
+  aggregate: <T = AggregateWarehouserIdentificationPromise>() => T;
 }
 
 export interface AggregateOrganizationTypeSubscription
   extends Promise<AsyncIterator<AggregateOrganizationType>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <
+    T = Promise<AsyncIterator<WarehouserIdentificationEdgeSubscription>>
+  >() => T;
+  aggregate: <T = AggregateWarehouserIdentificationSubscription>() => T;
 }
 
 export interface Otp {
@@ -14608,13 +14771,33 @@ export interface AggregateReferral {
 export interface AggregateReferralPromise
   extends Promise<AggregateReferral>,
     Fragmentable {
-  count: () => Promise<Int>;
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  type: () => Promise<AsyncIterator<Int>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  to: <T = UserSubscription>() => T;
+  user: <T = UserSubscription>() => T;
+  description: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Int>>;
+  amount: () => Promise<AsyncIterator<Float>>;
+  fees: () => Promise<AsyncIterator<Float>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface AggregateReferralSubscription
   extends Promise<AsyncIterator<AggregateReferral>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  id: () => Promise<ID_Output>;
+  type: () => Promise<Int>;
+  userId: () => Promise<String>;
+  to: <T = UserPromise>() => T;
+  user: <T = UserPromise>() => T;
+  description: () => Promise<String>;
+  status: () => Promise<Int>;
+  amount: () => Promise<Float>;
+  fees: () => Promise<Float>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface RequisitionConnection {
@@ -14657,20 +14840,29 @@ export interface RequisitionEdgeSubscription
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateRequisition {
-  count: Int;
+export interface WalletSubscriptionPayload {
+  mutation: MutationType;
+  node: Wallet;
+  updatedFields: String[];
+  previousValues: WalletPreviousValues;
 }
 
-export interface AggregateRequisitionPromise
-  extends Promise<AggregateRequisition>,
+export interface WalletSubscriptionPayloadPromise
+  extends Promise<WalletSubscriptionPayload>,
     Fragmentable {
-  count: () => Promise<Int>;
+  mutation: () => Promise<MutationType>;
+  node: <T = WalletPromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = WalletPreviousValuesPromise>() => T;
 }
 
-export interface AggregateRequisitionSubscription
-  extends Promise<AsyncIterator<AggregateRequisition>>,
+export interface WalletSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<WalletSubscriptionPayload>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = WalletSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = WalletPreviousValuesSubscription>() => T;
 }
 
 export interface RequisitionCostConnection {
@@ -15801,13 +15993,17 @@ export interface AggregateUserOrganizationRole {
 export interface AggregateUserOrganizationRolePromise
   extends Promise<AggregateUserOrganizationRole>,
     Fragmentable {
-  count: () => Promise<Int>;
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<ReferralHistoryEdge>>() => T;
+  aggregate: <T = AggregateReferralHistoryPromise>() => T;
 }
 
 export interface AggregateUserOrganizationRoleSubscription
   extends Promise<AsyncIterator<AggregateUserOrganizationRole>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<ReferralHistoryEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateReferralHistorySubscription>() => T;
 }
 
 export interface UserStatus {
@@ -16140,13 +16336,15 @@ export interface AggregateWallet {
 export interface AggregateWalletPromise
   extends Promise<AggregateWallet>,
     Fragmentable {
-  count: () => Promise<Int>;
+  node: <T = ListingPhotosPromise>() => T;
+  cursor: () => Promise<String>;
 }
 
 export interface AggregateWalletSubscription
   extends Promise<AsyncIterator<AggregateWallet>>,
     Fragmentable {
-  count: () => Promise<AsyncIterator<Int>>;
+  node: <T = ListingPhotosSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
 }
 
 export interface WarehouserIdentificationConnection {
@@ -16849,6 +17047,8 @@ export interface IdentificationsOptionsPreviousValues {
   name?: String;
   default?: Boolean;
   userId?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface IdentificationsOptionsPreviousValuesPromise
@@ -16859,6 +17059,8 @@ export interface IdentificationsOptionsPreviousValuesPromise
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
   userId: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface IdentificationsOptionsPreviousValuesSubscription
@@ -16869,6 +17071,8 @@ export interface IdentificationsOptionsPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
   userId: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ListingSubscriptionPayload {
@@ -18038,21 +18242,47 @@ export interface RoleSubscriptionPayloadSubscription
 
 export interface RolePreviousValues {
   id: ID_Output;
-  name?: String;
+  status: Boolean;
+  refCode: String;
+  userId?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
+  startDate?: DateTimeOutput;
+  endDate?: DateTimeOutput;
+  boost: Float;
+  rollover: Float;
 }
 
 export interface RolePreviousValuesPromise
   extends Promise<RolePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  status: () => Promise<Boolean>;
+  refCode: () => Promise<String>;
+  userId: () => Promise<String>;
+  crown: <T = CrownPromise>() => T;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  startDate: () => Promise<DateTimeOutput>;
+  endDate: () => Promise<DateTimeOutput>;
+  boost: () => Promise<Float>;
+  rollover: () => Promise<Float>;
 }
 
 export interface RolePreviousValuesSubscription
   extends Promise<AsyncIterator<RolePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<Boolean>>;
+  refCode: () => Promise<AsyncIterator<String>>;
+  userId: () => Promise<AsyncIterator<String>>;
+  crown: <T = CrownSubscription>() => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  startDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  endDate: () => Promise<AsyncIterator<DateTimeOutput>>;
+  boost: () => Promise<AsyncIterator<Float>>;
+  rollover: () => Promise<AsyncIterator<Float>>;
 }
 
 export interface RoofingMaterialOptionsSubscriptionPayload {
@@ -18086,6 +18316,8 @@ export interface RoofingMaterialOptionsPreviousValues {
   name?: String;
   default?: Boolean;
   userId?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface RoofingMaterialOptionsPreviousValuesPromise
@@ -18096,6 +18328,8 @@ export interface RoofingMaterialOptionsPreviousValuesPromise
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
   userId: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface RoofingMaterialOptionsPreviousValuesSubscription
@@ -18106,6 +18340,8 @@ export interface RoofingMaterialOptionsPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
   userId: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface SelectOptionsSubscriptionPayload {
@@ -18137,6 +18373,8 @@ export interface SelectOptionsPreviousValues {
   id: ID_Output;
   slug?: String;
   name?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface SelectOptionsPreviousValuesPromise
@@ -18145,6 +18383,8 @@ export interface SelectOptionsPreviousValuesPromise
   id: () => Promise<ID_Output>;
   slug: () => Promise<String>;
   name: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface SelectOptionsPreviousValuesSubscription
@@ -18153,6 +18393,8 @@ export interface SelectOptionsPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface SpacesOptionsSubscriptionPayload {
@@ -18186,6 +18428,8 @@ export interface SpacesOptionsPreviousValues {
   name?: String;
   default?: Boolean;
   userId?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface SpacesOptionsPreviousValuesPromise
@@ -18196,6 +18440,8 @@ export interface SpacesOptionsPreviousValuesPromise
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
   userId: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface SpacesOptionsPreviousValuesSubscription
@@ -18206,6 +18452,8 @@ export interface SpacesOptionsPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
   userId: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface StatesSubscriptionPayload {
@@ -18239,6 +18487,8 @@ export interface StatesPreviousValues {
   slug?: String;
   name?: String;
   default?: Boolean;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface StatesPreviousValuesPromise
@@ -18249,6 +18499,8 @@ export interface StatesPreviousValuesPromise
   slug: () => Promise<String>;
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface StatesPreviousValuesSubscription
@@ -18259,6 +18511,8 @@ export interface StatesPreviousValuesSubscription
   slug: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface StockSubscriptionPayload {
@@ -18289,7 +18543,10 @@ export interface StockSubscriptionPayloadSubscription
 export interface StockPreviousValues {
   id: ID_Output;
   type: Int;
+  cost: Int;
   status: Int;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface StockPreviousValuesPromise
@@ -18297,7 +18554,10 @@ export interface StockPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   type: () => Promise<Int>;
+  cost: () => Promise<Int>;
   status: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface StockPreviousValuesSubscription
@@ -18305,7 +18565,10 @@ export interface StockPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   type: () => Promise<AsyncIterator<Int>>;
+  cost: () => Promise<AsyncIterator<Int>>;
   status: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface StockDispatchSubscriptionPayload {
@@ -18342,6 +18605,8 @@ export interface StockDispatchPreviousValues {
   status: Int;
   pickupDateMin?: String;
   pickupDateMax?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface StockDispatchPreviousValuesPromise
@@ -18355,6 +18620,8 @@ export interface StockDispatchPreviousValuesPromise
   status: () => Promise<Int>;
   pickupDateMin: () => Promise<String>;
   pickupDateMax: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface StockDispatchPreviousValuesSubscription
@@ -18368,6 +18635,8 @@ export interface StockDispatchPreviousValuesSubscription
   status: () => Promise<AsyncIterator<Int>>;
   pickupDateMin: () => Promise<AsyncIterator<String>>;
   pickupDateMax: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface StockProductSubscriptionPayload {
@@ -18409,6 +18678,8 @@ export interface StockProductPreviousValues {
   partnerLogistics?: String;
   expiryDate?: DateTimeOutput;
   condition?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface StockProductPreviousValuesPromise
@@ -18427,6 +18698,8 @@ export interface StockProductPreviousValuesPromise
   partnerLogistics: () => Promise<String>;
   expiryDate: () => Promise<DateTimeOutput>;
   condition: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface StockProductPreviousValuesSubscription
@@ -18445,6 +18718,8 @@ export interface StockProductPreviousValuesSubscription
   partnerLogistics: () => Promise<AsyncIterator<String>>;
   expiryDate: () => Promise<AsyncIterator<DateTimeOutput>>;
   condition: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface SuccessSubscriptionPayload {
@@ -18585,6 +18860,7 @@ export interface UserPreviousValues {
   id: ID_Output;
   firstName: String;
   lastName: String;
+  refCode?: String;
   device?: Int;
   email: String;
   phoneNumber: String;
@@ -18601,6 +18877,7 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   firstName: () => Promise<String>;
   lastName: () => Promise<String>;
+  refCode: () => Promise<String>;
   device: () => Promise<Int>;
   email: () => Promise<String>;
   phoneNumber: () => Promise<String>;
@@ -18617,6 +18894,7 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   firstName: () => Promise<AsyncIterator<String>>;
   lastName: () => Promise<AsyncIterator<String>>;
+  refCode: () => Promise<AsyncIterator<String>>;
   device: () => Promise<AsyncIterator<Int>>;
   email: () => Promise<AsyncIterator<String>>;
   phoneNumber: () => Promise<AsyncIterator<String>>;
@@ -18654,18 +18932,24 @@ export interface UserOrganizationRoleSubscriptionPayloadSubscription
 
 export interface UserOrganizationRolePreviousValues {
   id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface UserOrganizationRolePreviousValuesPromise
   extends Promise<UserOrganizationRolePreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserOrganizationRolePreviousValuesSubscription
   extends Promise<AsyncIterator<UserOrganizationRolePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserStatusSubscriptionPayload {
@@ -18697,6 +18981,8 @@ export interface UserStatusPreviousValues {
   id: ID_Output;
   status: String;
   userId: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface UserStatusPreviousValuesPromise
@@ -18705,6 +18991,8 @@ export interface UserStatusPreviousValuesPromise
   id: () => Promise<ID_Output>;
   status: () => Promise<String>;
   userId: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface UserStatusPreviousValuesSubscription
@@ -18713,6 +19001,8 @@ export interface UserStatusPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   status: () => Promise<AsyncIterator<String>>;
   userId: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ValueAddedServicesSubscriptionPayload {
@@ -18799,6 +19089,8 @@ export interface WallFinishesOptionsPreviousValues {
   name?: String;
   default?: Boolean;
   userId?: String;
+  createdAt: DateTimeOutput;
+  updatedAt?: DateTimeOutput;
 }
 
 export interface WallFinishesOptionsPreviousValuesPromise
@@ -18809,6 +19101,8 @@ export interface WallFinishesOptionsPreviousValuesPromise
   name: () => Promise<String>;
   default: () => Promise<Boolean>;
   userId: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface WallFinishesOptionsPreviousValuesSubscription
@@ -18819,6 +19113,8 @@ export interface WallFinishesOptionsPreviousValuesSubscription
   name: () => Promise<AsyncIterator<String>>;
   default: () => Promise<AsyncIterator<Boolean>>;
   userId: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface WalletSubscriptionPayload {
@@ -18972,7 +19268,14 @@ export type Boolean = boolean;
 /*
 The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).
 */
-export type Float = number;
+export type Int = number;
+
+/*
+The `Boolean` scalar type represents `true` or `false`.
+*/
+export type Boolean = boolean;
+
+export type Long = string;
 
 export type Long = string;
 
@@ -19126,6 +19429,10 @@ export const models: Model[] = [
     embedded: false
   },
   {
+    name: "DispatchProduct",
+    embedded: false
+  },
+  {
     name: "DateRange",
     embedded: false
   },
@@ -19159,6 +19466,10 @@ export const models: Model[] = [
   },
   {
     name: "Referral",
+    embedded: false
+  },
+  {
+    name: "ReferralHistory",
     embedded: false
   },
   {

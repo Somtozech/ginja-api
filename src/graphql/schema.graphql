@@ -6,11 +6,13 @@ type Query {
     info: String
     users: [User!]!
     listings(filter: String, user: String, location: LocationsInput, skip: Int, first: Int): [Listing]
+    referralEarnings: [ReferralHistory]
+    retrieveDashboardInfo(userId: String!, skip: Int, first: Int, Range: DashboardInfoRange): [Stock]
     banks: [Bank!]!
+    crowns: [UserCrown]
     payments: [Payment]
     auths: [Auth!]!
     roles: [Role!]!
-
     listingProducts: [ListingProducts]
     listingRequirements: [ListingRequirements]
     listingsFrequencies: [ListingsFrequencies]
@@ -56,7 +58,9 @@ type Mutation {
         accountName: String!
         bankName: String!
         bankCode: String!
+        refCode: String
     ): AuthPayload!
+    setTarget(boost: Int crownId:Int):  Success!
     changeRequisitionStatus(id: String!, status: Int!): Success!
     submitRating(listingId: String!, ratingId: String!, rate: Int!, userId: String!): Success!
     addListing(
@@ -97,8 +101,7 @@ type Mutation {
         listing: String!
         space: Int!
     ): Success!
-
-    createStock(type: Int!, products: [StockProductInput!]!, requisition: String!): Success!
+    createStock(type: Int!, products: [StockProductInput!]!, cost: Int!, requisition: String!): Success!
     createDispatch(id: String!, dispatch: StockDispatchInput!): Success!
     initializePayment(requisitionId: String!, amount: Float!, email: String!, currency: String): PaymentResponse!
     verifyPayment(transactionRef: String!): PaymentResponse!
@@ -148,6 +151,11 @@ input TableFilterStringInput {
     notContains: String
     between: [String]
     beginsWith: String
+}
+
+input DashboardInfoRange {
+    from: String!
+    to: String!
 }
 
 type SpacesOptions {
@@ -292,14 +300,16 @@ type Requisition {
 type Stock {
     id: ID!
     type: Int!
+    cost: Int!
     products: [StockProduct!]!
     status: Int!
-    dispatch: StockDispatch!
+    dispatch: [StockDispatch]
     requisition: Requisition!
 }
 
 type StockDispatch {
     id: ID!
+    dispatchProduct: DispatchProduct
     pickupAgentName: String
     pickupAgentPhone: String
     pickupAgentIdentification: String
@@ -310,6 +320,10 @@ type StockDispatch {
 }
 
 input StockDispatchInput {
+    productName: String!
+    productSize: String!
+    quantityPerSize: Int!
+    totalQuantity: Int
     pickupAgentName: String
     pickupAgentPhone: String
     pickupAgentIdentification: String
@@ -344,6 +358,14 @@ type StockProduct {
     partnerLogistics: String
     expiryDate: String
     condition: String
+}
+
+type DispatchProduct {
+    id: ID!
+    productName: String!
+    productSize: String!
+    quantityPerSize: Int!
+    totalQuantity: Int
 }
 
 input StockProductInput {
@@ -516,6 +538,7 @@ type User {
     type: OrganizationType!
     bank: Bank
     status: UserStatus
+    referral: Referral
 }
 
 type Success {
@@ -611,4 +634,19 @@ type AuthPayload {
 
 type PaymentStatus {
     success: Boolean!
+}
+
+type UserCrown {
+    id: ID!
+    requiredReferrals: Int!
+    noOfDays: Int!
+    bonus: Int!
+    name: String!
+    createdAt: DateTime!
+    updatedAt: DateTime
+    compensationCount: Float!
+    compensationBonus: Float!
+    status: Boolean
+    totalReferrals: Int
+    date: DateTime
 }

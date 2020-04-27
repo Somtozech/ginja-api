@@ -4,20 +4,16 @@
 const createStock = async (graph: any) => {
     const { context, args } = graph;
     const { prisma } = context;
-    const { products, requisition, type } = args;
+    const { products, cost = 0, requisition, type } = args;
     try {
         const result = await prisma.createStock({
             products: {
                 create: products
             },
+            cost,
             requisition: {
                 connect: {
                     id: requisition
-                }
-            },
-            dispatch: {
-                create: {
-                    status: 1
                 }
             },
             type,
@@ -39,6 +35,10 @@ const createDispatch = async (graph: any) => {
     const {
         id,
         dispatch: {
+            productName,
+            productSize,
+            quantityPerSize,
+            totalQuantity,
             pickupAgentName,
             pickupAgentPhone,
             pickupAgentIdentification,
@@ -54,7 +54,15 @@ const createDispatch = async (graph: any) => {
             where: { id },
             data: {
                 dispatch: {
-                    update: {
+                    create: {
+                        dispatchProduct: {
+                            create: {
+                                productName,
+                                productSize,
+                                quantityPerSize,
+                                totalQuantity
+                            }
+                        },
                         pickupAgentName,
                         pickupAgentPhone,
                         pickupAgentIdentification,
@@ -114,30 +122,30 @@ const stocks = async (graph: any) => {
 
     const filterByMerchant = merchant
         ? {
-              requisition: {
-                  user: {
-                      id: merchant
-                  }
-              }
-          }
+            requisition: {
+                user: {
+                    id: merchant
+                }
+            }
+        }
         : {};
 
     const filterByWarehouser = warehouser
         ? {
-              requisition: {
-                  listing: {
-                      user: {
-                          id: warehouser
-                      }
-                  }
-              }
-          }
+            requisition: {
+                listing: {
+                    user: {
+                        id: warehouser
+                    }
+                }
+            }
+        }
         : {};
 
     const filterByStatus = status
         ? {
-              status
-          }
+            status
+        }
         : {};
 
     const where =
@@ -204,4 +212,77 @@ const updateDispatchStatus = async (graph: any) => {
     return { id: stockId, success: false, status };
 };
 
-export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus, updateDispatchStatus };
+const retrieveDashboardInfo = async (graph: any) => {
+    const {
+        args,
+        context: { role, user: authUser, prisma }
+    }: any = graph;
+    const { name } = role;
+    const { first, skip, userId: id, range } = args;
+    let where;
+    let filterbyListing;
+    let filterbyRange = {};
+    if (range) {
+        filterbyRange = {
+            AND: [{ createdAt_gte: range.from }, { createdAt_lte: range.to }]
+        };
+    }
+    if (name === 'merchant') {
+        filterbyListing = {
+            requisition: {
+                user: {
+                    id: authUser && authUser.id
+                },
+                listing: {
+                    user: {
+                        id
+                    }
+                }
+            }
+        };
+        where =
+            {
+                ...filterbyListing,
+                ...filterbyRange
+            } || {};
+    }
+
+    if (name === 'warehouser') {
+        filterbyListing = {
+            requisition: {
+                user: {
+                    id: authUser && authUser.id
+                },
+                listing: {
+                    user: {
+                        id
+                    }
+                }
+            }
+        };
+        where =
+            {
+                ...filterbyListing,
+                ...filterbyRange
+            } || {};
+    }
+
+    const skipQuery = skip ? { skip } : {};
+    const firstQuery = first ? { first } : {};
+
+    const QueryParams = {
+        ...skipQuery,
+        ...firstQuery
+    };
+
+    try {
+        return await prisma.stocks({
+            where,
+            ...QueryParams
+        });
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { createStock, createDispatch, updateStockProduct, stocks, updateStockStatus, updateDispatchStatus, retrieveDashboardInfo };

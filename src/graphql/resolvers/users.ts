@@ -22,7 +22,8 @@ const userTypes = {
         terms: (parent: any) => parent.terms,
         type: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).type(),
         bank: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).bank(),
-        status: (parent: any, args: any, context: any) => context.prisma.userStatus({ userId: parent.id })
+        status: (parent: any, args: any, context: any) => context.prisma.userStatus({ userId: parent.id }),
+        referral: (parent: any, args: any, context: any) => context.prisma.user({ id: parent.id }).referral()
     }
 };
 
