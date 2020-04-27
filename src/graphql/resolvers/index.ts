@@ -8,11 +8,12 @@ import { stockMutations, stockQueries, stockTypes } from './stock';
 import { requisitionTypes, requisitionQueries, requisitionMutations } from './requisition';
 import { paymentMutations, paymentQueries, paymentTypes } from './payment';
 import { otpTypes, otpMutations } from './otp';
-import { miscTypes, miscQueries } from './misc';
+import { miscTypes, miscQueries, miscMutations } from './misc';
 import { ratingMutations } from './rating';
 import { walletMutations, walletQueries, walletTypes } from './wallet';
 import { chatMutations, chatQueries, chatSubscriptions, chatTypes } from './chats';
 import { TransactionTypes } from './transaction';
+import { uploadMutations } from './upload';
 
 const resolvers = {
     Query: {
@@ -43,7 +44,9 @@ const resolvers = {
         ...stockMutations,
         ...walletMutations,
         ...chatMutations,
-        ...paymentMutations
+        ...paymentMutations,
+        ...miscMutations,
+        ...uploadMutations
     },
     Subscription: {
         ...chatSubscriptions,

@@ -5,11 +5,104 @@ const miscQueries = {
     roofingMaterialOptions: (root: any, args: any, context: any, info: any) => context.prisma.roofingMaterialOptionses(),
     floorsOptions: (root: any, args: any, context: any, info: any) => context.prisma.floorsOptionses(),
     selectOptions: (root: any, args: any, context: any, info: any) => context.prisma.selectOptionses(),
-    amenitiesOptions: (root: any, args: any, context: any, info: any) => context.prisma.amenitiesOptionses(),
-    valueAddedServices: (root: any, args: any, context: any, info: any) => context.prisma.valueAddedServiceses(),
+    amenitiesOptions: async (root: any, args: any, context: any, info: any) => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+        const options = await prisma.amenitiesOptionses({
+            where: {
+                OR: [{ default: true }, { userId }]
+            }
+        });
+        return options;
+    },
+    valueAddedServices: async (root: any, args: any, context: any, info: any) => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+        const options = await prisma.valueAddedServiceses({
+            where: {
+                OR: [{ default: true }, { userId }]
+            }
+        });
+        return options;
+    },
     listingsFrequencies: (root: any, args: any, context: any, info: any) => context.prisma.listingsFrequencieses(),
-    listingRequirements: (root: any, args: any, context: any, info: any) => context.prisma.listingRequirementses(),
+    listingRequirements: async (root: any, args: any, context: any, info: any) => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+        const requirements = await prisma.listingRequirementses({
+            where: {
+                OR: [{ default: true }, { userId }]
+            }
+        });
+        return requirements;
+    },
     listingProducts: (root: any, args: any, context: any, info: any) => context.prisma.listingProductses()
+};
+
+const miscMutations = {
+    createAmenitiesOption: async (root: any, args: any, context: any): any => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+
+        const newOption = await prisma.createAmenitiesOptions({
+            name: args.name,
+            slug: args.name.toLowerCase().replace(/[\s\/]/g, '-'),
+            userId,
+            default: false
+        });
+        if (!newOption) {
+            return { success: false, id: null };
+        }
+
+        return { success: true, id: newOption.id };
+    },
+    createValueAddedServices: async (root: any, args: any, context: any): any => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+
+        const newVas = await prisma.createValueAddedServices({
+            name: args.name,
+            slug: args.name.toLowerCase().replace(/[\s\/]/g, '-'),
+            userId,
+            default: false
+        });
+
+        if (!newVas) {
+            return { success: false, id: null };
+        }
+
+        return { success: true, id: newVas.id };
+    },
+
+    createListingRequirement: async (root: any, args: any, context: any): any => {
+        const {
+            user: { id: userId },
+            prisma
+        } = context;
+
+        const newRequirement = await prisma.createListingRequirements({
+            name: args.name,
+            slug: args.name.toLowerCase().replace(/[\s\/]/g, '-'),
+            default: false,
+            userId
+        });
+
+        if (!newRequirement) {
+            return { success: false, id: null };
+        }
+
+        return { success: true, id: newRequirement.id };
+    }
 };
 
 const miscTypes = {
@@ -72,4 +165,4 @@ const miscTypes = {
     }
 };
 
-export { miscTypes, miscQueries };
+export { miscTypes, miscQueries, miscMutations };
