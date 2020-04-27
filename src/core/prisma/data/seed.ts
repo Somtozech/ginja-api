@@ -475,6 +475,74 @@ const setup = async () => {
     } catch (err) {
         console.log('Listing Requirements not seeded! Error:', err.message);
     }
+    try {
+        await prisma.createCrown({
+            id: 1,
+            name: 'One Gold Crown',
+            requiredReferrals: 4,
+            noOfDays: 30,
+            bonus: 2000,
+            compensationCount: 0,
+            compensationBonus: 0
+        });
+        await prisma.createCrown({
+            id: 2,
+            name: 'Two Gold Crown',
+            requiredReferrals: 16,
+            noOfDays: 30,
+            bonus: 5000,
+            compensationCount: 0,
+            compensationBonus: 0
+        });
+        await prisma.createCrown({
+            id: 3,
+            name: 'Three Gold Crown',
+            requiredReferrals: 64,
+            noOfDays: 30,
+            bonus: 30000,
+            compensationCount: 0,
+            compensationBonus: 0
+        });
+        await prisma.createCrown({
+            id: 4,
+            name: 'Four Gold Crown',
+            requiredReferrals: 256,
+            noOfDays: 30,
+            bonus: 100000,
+            compensationCount: 128,
+            compensationBonus: 2000
+        });
+        await prisma.createCrown({
+            id: 5,
+            name: 'Five Gold Crown',
+            requiredReferrals: 1024,
+            noOfDays: 30,
+            bonus: 500000,
+            compensationCount: 512,
+            compensationBonus: 5000
+        });
+        await prisma.createCrown({
+            id: 6,
+            name: 'Six Gold Crown',
+            requiredReferrals: 2048,
+            noOfDays: 30,
+            bonus: 1000000,
+            compensationCount: 1024,
+            compensationBonus: 30000
+        });
+        await prisma.createCrown({
+            id: 7,
+            name: 'Seven Gold Crown',
+            requiredReferrals: 4096,
+            noOfDays: 30,
+            bonus: 2000000,
+            compensationCount: 2048,
+            compensationBonus: 100000
+        });
+        console.log('Crowns seeded!');
+    } catch (err) {
+        console.log('Crowns not seeded! Error:', err.message);
+    }
     return 'done';
 };
 

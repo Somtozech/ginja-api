@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // Create Listing
+import { getAllChats } from './chats';
+
+interface Chat {
+    warehouserId?: string;
+}
 
 const createListing = async (graph: any) => {
     const { args, context } = graph;
@@ -119,9 +124,24 @@ const createListing = async (graph: any) => {
 
 const listings = async (graph: any) => {
     const { args, context } = graph;
-    const { prisma } = context;
-    const { filter, first, skip, user, nextToken, location } = args;
-    const filterbyUser = user ? { user: { id: user } } : {};
+    const {
+        prisma,
+        role: { name },
+        user: { id }
+    } = context;
+    const { filter, first, skip, location } = args;
+    let filterbyUser: any = {};
+    let warehousers: any = [];
+    if (name === 'merchant') {
+        const chats: [any] = await getAllChats(graph);
+        warehousers = [...chats].map((chat: Chat) => chat.warehouserId);
+        if (warehousers.length > 0) {
+            filterbyUser = { user: { id_not_in: warehousers } };
+        }
+    }
+    if (name === 'warehouser') {
+        filterbyUser = { user: { id } };
+    }
     const filterByState = location
         ? {
             location: {

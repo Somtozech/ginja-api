@@ -4,6 +4,8 @@ type User {
     bank: Bank!
     firstName: String!
     lastName: String!
+    refCode: String
+    referral: Referral!
     device: Int
     email: String! @unique
     phoneNumber: String! @unique
@@ -20,6 +22,8 @@ type SpacesOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Locations {
@@ -30,6 +34,8 @@ type Locations {
     lga: String
     street: String
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type PropertiesOptions {
@@ -38,6 +44,8 @@ type PropertiesOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type WallFinishesOptions {
@@ -46,6 +54,8 @@ type WallFinishesOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingDimensions {
@@ -56,6 +66,8 @@ type ListingDimensions {
     unitOfDimensions: Int
     volume: Float
     area: Float
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type WarehouserIdentification {
@@ -63,6 +75,8 @@ type WarehouserIdentification {
     idNumber: String!
     expiryDate: String!
     idType: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Listing {
@@ -96,6 +110,8 @@ type Listing {
     dimensions: ListingDimensions!
     status: Int!
     rating: ListingRating!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Rating {
@@ -104,6 +120,8 @@ type Rating {
     ratingId: String!
     rate: Int!
     userId: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Requisition {
@@ -116,6 +134,8 @@ type Requisition {
     listing: Listing!
     space: Int!
     status: Int!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type RequisitionCost {
@@ -123,12 +143,16 @@ type RequisitionCost {
     baseCost: Float!
     vat: Float!
     discount: Float
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type RequisitionDuration {
     id: ID!  @id @unique
     name: String!
     slug: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingRating {
@@ -136,12 +160,16 @@ type ListingRating {
     count: Int!
     rates: Int!
     average: Float!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingAvailability {
     id: ID!  @id @unique
     from: String!
     to: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingRequirements {
@@ -150,12 +178,16 @@ type ListingRequirements {
     name: String
     userId: String
     default: Boolean
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type SelectOptions {
     id: ID!  @id @unique
     slug: String
     name: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type RoofingMaterialOptions {
@@ -164,6 +196,8 @@ type RoofingMaterialOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type FloorsOptions {
@@ -172,6 +206,8 @@ type FloorsOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type AmenitiesOptions {
@@ -180,6 +216,8 @@ type AmenitiesOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ValueAddedServices {
@@ -188,6 +226,8 @@ type ValueAddedServices {
     default: Boolean
     name: String
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type IdentificationsOptions {
@@ -196,6 +236,8 @@ type IdentificationsOptions {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingsFrequencies {
@@ -204,12 +246,16 @@ type ListingsFrequencies {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingPhotos {
     id: ID!  @id @unique
     url: String!
     default: Boolean
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type States {
@@ -218,6 +264,8 @@ type States {
     slug: String
     name: String
     default: Boolean
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Countries {
@@ -225,6 +273,8 @@ type Countries {
     slug: String
     name: String
     default: Boolean
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type ListingProducts {
@@ -233,6 +283,8 @@ type ListingProducts {
     name: String
     default: Boolean
     userId: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Organization {
@@ -249,6 +301,8 @@ type Organization {
 type OrganizationType {
     id: ID! @id @unique
     name: String  @unique
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Auth {
@@ -276,11 +330,15 @@ type UserOrganizationRole {
     user: User!
     role: Role!
     organization: Organization!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Role {
     id: ID! @id @unique
     name: String  @unique
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Success {
@@ -294,6 +352,8 @@ type Bank {
     accountName: String!
     bankName: String!
     bankCode: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 input AuthWhereUniqueInput {
@@ -316,13 +376,17 @@ type Stock {
 	id: ID!  @id @unique
 	type: Int!
 	products: [StockProduct!]!
+    cost: Int! @default( value: 0 )
 	status: Int!
-	dispatch: StockDispatch
+	dispatch: [StockDispatch]
     requisition: Requisition!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
  
 type StockDispatch {
     id: ID!  @id @unique
+    dispatchProduct: DispatchProduct
     pickupAgentName:String
     pickupAgentPhone: String
     pickupAgentIdentification: String
@@ -331,12 +395,26 @@ type StockDispatch {
     status: Int!
     pickupDateMin: String
     pickupDateMax: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
+}
+
+type DispatchProduct {
+    id: ID!  @id @unique
+    productName: String!
+    productSize: String!
+    quantityPerSize: Int!
+    totalQuantity: Int
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type DateRange {
     id: ID!  @id @unique
     min: String    
     max: String!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type StockProduct {
@@ -347,12 +425,14 @@ type StockProduct {
     quantityPerPackageSize: Int!
     totalQuantity: Int!
     productImage: String!
-     estimatedValue: Float
+    estimatedValue: Float
     shipmentDate: DateTime
     deliveryDate: DateTime
     partnerLogistics: String
     expiryDate: DateTime
     condition: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Wallet {
@@ -392,6 +472,8 @@ type Chat {
     warehouser: User! @relation(name: "ChatWarehouser")
     requisitionId: String!
     messages:[Message]!
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Message {
@@ -400,6 +482,7 @@ type Message {
     from: User!
     text: String! @default(value: "")
     createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Payment {
@@ -423,20 +506,33 @@ type PaymentCustomer {
     firstName: String
     lastName: String
     email: String
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }
 
 type Referral {
     id: ID!  @id @unique
     status: Boolean!
-    refCode: Int!
-    userId: String!
-    crown: Crown!
+    refCode: String! @unique
+    userId: String @unique
+    crown: Crown
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
-    startDate: DateTime! 
-    endDate: DateTime!
+    startDate: DateTime 
+    endDate: DateTime
     boost: Float!
     rollover:Float!
+}
+
+type ReferralHistory {
+    id: ID!  @id @unique
+    userId: String @unique
+    bonus: Int
+    totalReferrals: Int
+    endDate: DateTime
+    crown: Crown
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt  
 }
 
 type Crown {
@@ -444,6 +540,7 @@ type Crown {
     requiredReferrals: Int!
     noOfDays: Int!
     bonus: Int!
+    name: String!
     createdAt: DateTime! @createdAt
     updatedAt: DateTime @updatedAt  
     compensationCount: Float!
@@ -482,4 +579,6 @@ type UserStatus {
     id: ID! @id @unique,
     status: String! @default(value: "offline"),
     userId: String! @unique 
+    createdAt: DateTime! @createdAt
+    updatedAt: DateTime @updatedAt
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const miscQueries = {
     spacesOptions: (root: any, args: any, context: any, info: any) => context.prisma.spacesOptionses(),
     propertiesOptions: (root: any, args: any, context: any, info: any) => context.prisma.propertiesOptionses(),
@@ -46,7 +47,7 @@ const miscQueries = {
 };
 
 const miscMutations = {
-    createAmenitiesOption: async (root: any, args: any, context: any): any => {
+    createAmenitiesOption: async (root: any, args: any, context: any) => {
         const {
             user: { id: userId },
             prisma
@@ -64,7 +65,7 @@ const miscMutations = {
 
         return { success: true, id: newOption.id };
     },
-    createValueAddedServices: async (root: any, args: any, context: any): any => {
+    createValueAddedServices: async (root: any, args: any, context: any) => {
         const {
             user: { id: userId },
             prisma
@@ -84,7 +85,7 @@ const miscMutations = {
         return { success: true, id: newVas.id };
     },
 
-    createListingRequirement: async (root: any, args: any, context: any): any => {
+    createListingRequirement: async (root: any, args: any, context: any) => {
         const {
             user: { id: userId },
             prisma

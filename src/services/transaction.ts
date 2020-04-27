@@ -1,5 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+import moment from 'moment';
 
 /**
  * type {
@@ -10,9 +13,20 @@
 const createTransaction = async (graph: any) => {
     try {
         const {
-            args: { description = '', user, type = 1, userId, amount, to, status = 2, fees = 0 },
-            context: { prisma }
+            args: { description = '', type = 1, user, userId, amount, to, status = 2, fees = 0 },
+            context: { prisma, user: userObj }
         } = graph;
+
+        if (userObj.refCode && userId === user) {
+            const referral = await prisma.referral({ refCode: userObj.refCode });
+            const transactionsExist = await prisma.$exists.transaction({
+                AND: [{ userId: userObj.id }, { OR: [{ description: 'Rent Payment' }, { description: 'Transfer' }] }]
+            });
+
+            if (!transactionsExist && moment(referral.endDate).unix() * 1000 >= moment().unix() * 1000) {
+                await prisma.createGame({ userId, referralId: referral.id });
+            }
+        }
 
         const result = await prisma.createTransaction({
             type,
@@ -39,6 +53,4 @@ const createTransaction = async (graph: any) => {
     }
 };
 
-const updateTransaction = (graph: any, params: any) => {};
-
-export { createTransaction, updateTransaction };
+export { createTransaction };

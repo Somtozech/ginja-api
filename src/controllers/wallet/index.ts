@@ -4,7 +4,7 @@ interface Result {
     success: boolean;
 }
 
-const makePaymentToWarehouser = async (parent: any, args: any, context: any, info: any): Promise<Result> => {
+const makePaymentToWarehouser = async (parent: any, args: any, context: any): Promise<Result> => {
     try {
         const { prisma } = context;
         const { requisitionId } = args;

@@ -48,4 +48,12 @@ const updateDispatchStatus = async (parent: any, args: any, context: any): Promi
     }
 };
 
-export { createStock, updateStockProduct, createDispatch, stocks, updateStockStatus, updateDispatchStatus };
+const retrieveDashboardInfo = async (parent: any, args: any, context: any): Promise<any> => {
+    try {
+        return await stockService.retrieveDashboardInfo({ parent, args, context });
+    } catch (error) {
+        throw error;
+    }
+};
+
+export { createStock, updateStockProduct, createDispatch, stocks, updateStockStatus, updateDispatchStatus, retrieveDashboardInfo };

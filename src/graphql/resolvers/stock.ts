@@ -1,11 +1,18 @@
-import { createStock, updateStockProduct, updateDispatchStatus, createDispatch, stocks, updateStockStatus } from '../../controllers/stock';
+import {
+    createStock,
+    updateDispatchStatus,
+    createDispatch,
+    stocks,
+    updateStockStatus,
+    retrieveDashboardInfo
+} from '../../controllers/stock';
 
 const stockQueries = {
-    stocks: (root: any, args: any, context: any, info: any) => stocks(root, args, context)
+    stocks: (root: any, args: any, context: any, info: any) => stocks(root, args, context),
+    retrieveDashboardInfo: (root: any, args: any, context: any) => retrieveDashboardInfo(root, args, context)
 };
 
 const stockMutations = {
-    // updateStockProduct: (root: any, args: any, context: any) => updateStockProduct(root, args, context),
     createStock: (root: any, args: any, context: any) => createStock(root, args, context),
     createDispatch: (root: any, args: any, context: any) => createDispatch(root, args, context),
     updateStockStatus,

@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable prettier/prettier */
 import crypto from 'crypto';
 import Validator from 'validatorjs';
 import url from 'url';
+import Dinero from 'dinero.js';
 import BadRequestError from '../errors/badRequestError';
 
 const { URL } = url;
@@ -17,6 +19,21 @@ export const safeRandomBytes = (length: number): any => {
         return '';
     }
 };
+
+export const formatLocalizedMoney = (
+    amount: number | string,
+    curr: string | null | undefined
+) => {
+    const currency: any = curr || 'NGN';
+
+    if (amount === null || amount === undefined || amount === '') {
+        return amount;
+    }
+
+    return Dinero({ amount: parseFloat(`${amount}`), currency })
+        .setLocale('en')
+        .toFormat();
+}
 
 /**
  * Generate Random string (alphanumeric, numeric, alphabetic, hex)
